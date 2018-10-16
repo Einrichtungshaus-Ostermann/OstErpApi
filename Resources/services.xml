@@ -1,0 +1,52 @@
+<?xml version="1.0" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+
+        <!-- plugin services -->
+        <service id="ost_erp_api.configuration_service" class="OstErpApi\Services\ConfigurationService">
+            <argument type="service" id="models" />
+            <argument type="service" id="shopware_storefront.context_service" />
+            <argument type="service" id="shopware.plugin.cached_config_reader" />
+            <argument type="string">OstErpApi</argument>
+        </service>
+
+
+
+
+
+
+        <service id="ost_erp_api.api" class="OstErpApi\Api\Api">
+        </service>
+
+        <service id="ost_erp_api.api.resources.article" class="OstErpApi\Api\Resources\Article">
+        </service>
+
+        <service id="ost_erp_api.api.resources.location" class="OstErpApi\Api\Resources\Location">
+        </service>
+
+        <service id="ost_erp_api.api.hydrator.article" class="OstErpApi\Api\Hydrator\Article">
+        </service>
+
+        <service id="ost_erp_api.api.hydrator.location" class="OstErpApi\Api\Hydrator\Location">
+        </service>
+
+        <service id="ost_erp_api.api.gateway.mock.article" class="OstErpApi\Api\Gateway\Mock\Article">
+        </service>
+
+        <service id="ost_erp_api.api.gateway.mock.location" class="OstErpApi\Api\Gateway\Mock\Location">
+        </service>
+
+        <service id="ost_erp_api.api.gateway.iwm.article" class="OstErpApi\Api\Gateway\Iwm\Article">
+        </service>
+
+        <service id="ost_erp_api.api.gateway.iwm.location" class="OstErpApi\Api\Gateway\Iwm\Location">
+        </service>
+
+
+
+    </services>
+
+</container>

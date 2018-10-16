@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="../../../../engine/Shopware/Components/Plugin/schema/config.xsd">
+
+    <elements>
+
+        <element type="button">
+            <name>defaultButton</name>
+            <label><![CDATA[<b>Allgemeine Einstellungen</b>]]></label>
+        </element>
+
+        <element type="boolean">
+            <name>status</name>
+            <label>Aktivieren</label>
+            <value>true</value>
+            <description>Soll das Plugin aktiviert werden?</description>
+        </element>
+
+        <element type="select">
+            <name>adapter</name>
+            <label>Adapter</label>
+            <value>Mock</value>
+            <description>Der Adapter.</description>
+            <store>
+                <option>
+                    <value>Mock</value>
+                    <label>Test</label>
+                </option>
+                <option>
+                    <value>Iwm</value>
+                    <label>IWM</label>
+                </option>
+            </store>
+        </element>
+
+        <element type="button">
+            <name>credentialsButton</name>
+            <label><![CDATA[<b>IWM Zugangsdaten</b>]]></label>
+        </element>
+
+        <element type="text">
+            <name>credentialsCompany</name>
+            <label>Firma</label>
+            <description>...</description>
+        </element>
+
+        <element type="text">
+            <name>credentialsServer</name>
+            <label>Serveradresse</label>
+            <description>...</description>
+        </element>
+
+        <element type="text">
+            <name>credentialsLogin</name>
+            <label>Server Benutzername</label>
+            <description>...</description>
+        </element>
+
+        <element type="text">
+            <name>credentialsPassword</name>
+            <label>Server Passwort</label>
+            <description>...</description>
+        </element>
+
+    </elements>
+
+</config>
