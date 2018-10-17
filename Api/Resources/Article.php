@@ -16,33 +16,18 @@ use OstErpApi\Api\Hydrator\Hydrator;
 
 class Article extends Resource
 {
-
-
-    public function findBy( array $params = array()): array
+    public function findBy(array $params = array()): array
     {
-
-        $adapter = "Mock";
-
+        $adapter = 'Mock';
 
         /** @var Gateway $gateway */
-        $gateway = Shopware()->Container()->get( "ost_erp_api.api.gateway." . strtolower( $adapter ) . ".article" );
+        $gateway = Shopware()->Container()->get('ost_erp_api.api.gateway.' . strtolower($adapter) . '.article');
 
-
-        $articlesArr = $gateway->findBy( $params );
-
+        $articlesArr = $gateway->findBy($params);
 
         /** @var Hydrator $hydrator */
-        $hydrator = Shopware()->Container()->get( "ost_erp_api.api.hydrator.article" );
+        $hydrator = Shopware()->Container()->get('ost_erp_api.api.hydrator.article');
 
-
-        $articles = $hydrator->hydrate( $articlesArr );
-
-
-        return $articles;
-
-
-
+        return $hydrator->hydrate($articlesArr);
     }
-
-    
 }

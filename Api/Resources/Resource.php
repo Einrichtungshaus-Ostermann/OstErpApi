@@ -13,9 +13,5 @@ namespace OstErpApi\Api\Resources;
 
 abstract class Resource
 {
-
-
     abstract public function findBy( array $params = array()): array;
-
-
 }

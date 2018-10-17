@@ -15,31 +15,25 @@ use OstErpApi\Api\Resources\Resource;
 
 class Api
 {
-
-
-
-    public function findBy( $resource, $params = array()): array
+    public function findBy($resource, $params = array()): array
     {
-
         /* @var Resource $resource */
-        $resource = Shopware()->Container()->get( "ost_erp_api.api.resources." . strtolower( $resource ) );
+        $resource = Shopware()->Container()->get('ost_erp_api.api.resources.' . strtolower($resource));
 
-        $data = $resource->findBy( $params );
-
-        return $data;
+        return $resource->findBy($params);
     }
 
 
 
-
-    public function findOneBy( $rescource, $params = array())
+    public function findOneBy($resource, $params = [])
     {
-        return array_unshift( $this->findBy( $rescource, $params ) );
+        return $this->findBy($resource, $params)[0] ?? null;
     }
 
 
-    public function findAll( $rescource ): array
+
+    public function findAll($resource): array
     {
-        return $this->findBy( $rescource, array() );
+        return $this->findBy($resource, []);
     }
 }

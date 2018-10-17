@@ -15,31 +15,17 @@ use OstErpApi\Api\Gateway\Gateway;
 
 class Location extends Gateway
 {
-
-
     public function findBy( array $parameters = array()): array
     {
-
-        $location = array(
-            '__location_key' => "WITTEN",
-            '__location_name' => "Witten"
-        );
-
-
-        return array(
-            array(
-                '__location_key' => "WITTEN",
-                '__location_name' => "Witten"
-            ),
-            array(
-                '__location_key' => "LEVERKUSEN",
-                '__location_name' => "Leverkusen"
-            )
-
-        );
-
-
+        return [
+            [
+                '__location_key' => 'WITTEN',
+                '__location_name' => 'Witten'
+            ],
+            [
+                '__location_key' => 'LEVERKUSEN',
+                '__location_name' => 'Leverkusen'
+            ]
+        ];
     }
-
-    
 }

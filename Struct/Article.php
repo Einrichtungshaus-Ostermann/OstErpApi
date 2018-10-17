@@ -164,9 +164,8 @@ class Article extends Struct
      */
     public function addStock(Article\Stock $stock)
     {
-        array_push( $this->stock, $stock );
+        $this->stock[] = $stock;
     }
-
 
 
 }
