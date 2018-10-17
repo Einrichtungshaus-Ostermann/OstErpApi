@@ -67,8 +67,8 @@ class Article extends Gateway
 
         return array(
             array(
-                '__article_number' => $parameters['number'] ?? "161578",
-                '__article_name' => $parameters['name'] ?? "Wohndecke JOOP! sandy/beige",
+                '__article_number' => "161578",
+                '__article_name' => "Wohndecke JOOP! sandy/beige",
                 '__article_weight' => 1.8,
                 '__article_stock' => array(
                     array(
