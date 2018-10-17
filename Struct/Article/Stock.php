@@ -92,5 +92,4 @@ class Stock extends Struct
     }
 
 
-
 }

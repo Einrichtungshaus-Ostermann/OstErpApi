@@ -90,5 +90,4 @@ class Location extends Struct
     }
 
 
-
 }

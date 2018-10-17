@@ -15,32 +15,18 @@ use OstErpApi\Struct;
 
 class Location extends Hydrator
 {
-
-
-    public function hydrate( array $data): array
+    public function hydrate(array $data): array
     {
-
         $arr = array();
 
-        foreach ( $data as $location )
-        {
-
+        foreach ($data as $location) {
             $locationStruct = new Struct\Location();
 
-            $locationStruct->setKey( $location['__location_key'] );
-            $locationStruct->setName( $location['__location_name'] );
+            $locationStruct->setKey($location['__location_key']);
+            $locationStruct->setName($location['__location_name']);
 
-
-
-
-            array_push( $arr, $locationStruct );
+            $arr[] = $locationStruct;
         }
-
-
-
-
         return $arr;
     }
-
-    
 }

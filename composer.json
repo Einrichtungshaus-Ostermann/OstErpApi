@@ -1,0 +1,12 @@
+{
+  "name": "ost/erp-api",
+  "license": "proprietary",
+  "type": "shopware-plugin",
+  "extra": {
+    "installer-name": "OstErpApi"
+  },
+  "scripts": {
+    "test": "phpunit -c tests/ --colors=always",
+    "test-unit": "phpunit -c tests/phpunit_unit.xml --colors=always"
+  }
+}

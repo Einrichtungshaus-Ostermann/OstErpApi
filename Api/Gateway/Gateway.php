@@ -13,9 +13,5 @@ namespace OstErpApi\Api\Gateway;
 
 abstract class Gateway
 {
-
-
-    abstract public function findBy( array $parameters = array() ): array;
-
-
+    abstract public function findBy(array $parameters = []): array;
 }

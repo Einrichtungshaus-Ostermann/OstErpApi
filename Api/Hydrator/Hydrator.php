@@ -13,9 +13,5 @@ namespace OstErpApi\Api\Hydrator;
 
 abstract class Hydrator
 {
-
-
-    abstract public function hydrate( array $data ): array;
-
-
+    abstract public function hydrate(array $data): array;
 }

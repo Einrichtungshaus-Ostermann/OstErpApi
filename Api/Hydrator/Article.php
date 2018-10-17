@@ -15,42 +15,31 @@ use OstErpApi\Struct;
 
 class Article extends Hydrator
 {
-
-
-    public function hydrate( array $data): array
+    public function hydrate(array $data): array
     {
+        $arr = [];
 
-        $arr = array();
-
-        foreach ( $data as $article )
-        {
+        foreach ($data as $article) {
 
             $articleStruct = new Struct\Article();
 
-            $articleStruct->setNumber( (string) $article['__article_number'] );
-            $articleStruct->setName( (string) $article['__article_name'] );
-            $articleStruct->setWeight( (float) $article['__article_weight'] );
+            $articleStruct->setNumber((string)$article['__article_number']);
+            $articleStruct->setName((string)$article['__article_name']);
+            $articleStruct->setWeight((float)$article['__article_weight']);
 
 
-            foreach ( $article['__article_stock'] as $stock )
-            {
+            foreach ($article['__article_stock'] as $stock) {
                 $stockStruct = new Struct\Article\Stock();
 
-                $stockStruct->setLocation( $stock['__stock_location']);
-                $stockStruct->setStock( $stock['__stock_stock']);
+                $stockStruct->setLocation($stock['__stock_location']);
+                $stockStruct->setStock($stock['__stock_stock']);
 
-                $articleStruct->addStock( $stockStruct );
-
+                $articleStruct->addStock($stockStruct);
             }
 
-            array_push( $arr, $articleStruct );
+            $arr[] = $articleStruct;
         }
-
-
-
 
         return $arr;
     }
-
-    
 }

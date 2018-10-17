@@ -13,13 +13,5 @@ namespace OstErpApi\Api\Resources;
 
 class Location extends Resource
 {
-
-
-    public function findBy(array $params = array()): array
-    {
-        return array();
-
-    }
-
-    
+    protected $resourceName = 'Location';
 }
