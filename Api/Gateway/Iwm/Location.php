@@ -9,7 +9,7 @@
  * @license   proprietary
  */
 
-namespace OstErpApi\Api\Gateway\Mock;
+namespace OstErpApi\Api\Gateway\Iwm;
 
 use OstErpApi\Api\Gateway\Gateway;
 
@@ -17,6 +17,7 @@ class Location extends Gateway
 {
     public function findBy( array $parameters = array()): array
     {
+
 
 
         return [

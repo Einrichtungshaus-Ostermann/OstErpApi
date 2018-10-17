@@ -38,6 +38,14 @@ class Location extends Struct
     protected $name;
 
 
+    /**
+     * ...
+     *
+     * @var Location\Number[]
+     */
+    protected $numbers = [];
+
+
 
     /**
      * Getter method for the property.
@@ -89,5 +97,46 @@ class Location extends Struct
         $this->name = $name;
     }
 
+
+
+    /**
+     * Getter method for the property.
+     *
+     * @return Location\Number[]
+     */
+    public function getNumbers()
+    {
+        return $this->numbers;
+    }
+
+
+
+    /**
+     * Setter method for the property.
+     *
+     * @param Location\Number[] $numbers
+     *
+     * @return void
+     */
+    public function setNumbers(array $numbers)
+    {
+        $this->numbers = $numbers;
+    }
+
+
+
+
+
+    /**
+     * Setter method for the property.
+     *
+     * @param Location\Number $number
+     *
+     * @return void
+     */
+    public function addNumber(Location\Number $number)
+    {
+        $this->numbers[] = $number;
+    }
 
 }

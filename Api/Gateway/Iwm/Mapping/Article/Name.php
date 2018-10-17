@@ -9,15 +9,24 @@
  * @license   proprietary
  */
 
-namespace OstErpApi\Api\Gateway\Iwm\Mapping;
+namespace OstErpApi\Api\Gateway\Iwm\Mapping\Article;
 
-class Number implements Mapping
+use OstErpApi\Api\Gateway\Iwm\Mapping\Mapping;
+
+class Name implements Mapping
 {
 
 
-    static public function get()
+
+
+    static public function getAlias()
     {
-        return "ARTS00.NUMBER";
+        return "article_name";
+    }
+
+    static public function getColumn()
+    {
+        return "ARTS00.ARLABZ";
     }
 
 

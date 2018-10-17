@@ -20,33 +20,33 @@ class Article extends Gateway
         if (empty($parameters)) {
             return [
                 [
-                    '__article_number' => '161578',
-                    '__article_name' => 'Wohndecke JOOP! sandy/beige',
-                    '__article_weight' => 2.3,
-                    '__article_stock' => [
+                    'article_number' => '161578',
+                    'article_name' => 'Wohndecke JOOP! sandy/beige',
+                    'article_weight' => 2.3,
+                    'article_stock' => [
                         [
-                            '__stock_location' => 'WITTEN',
-                            '__stock_stock' => 1
+                            'stock_location' => 'WITTEN',
+                            'stock_stock' => 1
                         ],
                         [
-                            '__stock_location' => 'LEVERKUSEN',
-                            '__stock_stock' => 12
+                            'stock_location' => 'LEVERKUSEN',
+                            'stock_stock' => 12
                         ]
 
                     ]
                 ],
                 [
-                    '__article_number' => '930392',
-                    '__article_name' => 'Tischleuchte rund JOOP',
-                    '__article_weight' => 1.8,
-                    '__article_stock' => [
+                    'article_number' => '930392',
+                    'article_name' => 'Tischleuchte rund JOOP',
+                    'article_weight' => 1.8,
+                    'article_stock' => [
                         [
-                            '__stock_location' => 'WITTEN',
-                            '__stock_stock' => 2
+                            'stock_location' => 'WITTEN',
+                            'stock_stock' => 2
                         ],
                         [
-                            '__stock_location' => 'BOTTROP',
-                            '__stock_stock' => 3
+                            'stock_location' => 'BOTTROP',
+                            'stock_stock' => 3
                         ]
 
                     ]
@@ -57,17 +57,17 @@ class Article extends Gateway
 
         return [
             [
-                '__article_number' => $parameters['number'] ?? '161578',
-                '__article_name' => $parameters['name'] ?? 'Wohndecke JOOP! sandy/beige',
-                '__article_weight' => 1.8,
-                '__article_stock' => [
+                'article_number' => $parameters['number'] ?? '161578',
+                'article_name' => $parameters['name'] ?? 'Wohndecke JOOP! sandy/beige',
+                'article_weight' => 1.8,
+                'article_stock' => [
                     [
-                        '__stock_location' => 'WITTEN',
-                        '__stock_stock' => 1
+                        'stock_location' => 'WITTEN',
+                        'stock_stock' => 1
                     ],
                     [
-                        '__stock_location' => 'LEVERKUSEN',
-                        '__stock_stock' => 12
+                        'stock_location' => 'LEVERKUSEN',
+                        'stock_stock' => 12
                     ]
 
                 ]

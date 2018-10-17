@@ -22,6 +22,8 @@ abstract class Resource
     {
         $adapter = 'Mock';
 
+        $adapter = "Iwm";
+
         /** @var Gateway $gateway */
         $gateway = Shopware()->Container()->get('ost_erp_api.api.gateway.' . strtolower($adapter) . '.' . strtolower($this->resourceName));
 

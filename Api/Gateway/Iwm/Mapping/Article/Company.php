@@ -9,15 +9,23 @@
  * @license   proprietary
  */
 
-namespace OstErpApi\Api\Gateway\Iwm\Mapping;
+namespace OstErpApi\Api\Gateway\Iwm\Mapping\Article;
 
-class Name implements Mapping
+use OstErpApi\Api\Gateway\Iwm\Mapping\Mapping;
+
+class Company implements Mapping
 {
 
 
-    static public function get()
+
+    static public function getAlias()
     {
-        return "ARTS00.LBLAPP";
+        return "article_company";
+    }
+
+    static public function getColumn()
+    {
+        return "ARTS00.ARFIRM";
     }
 
 

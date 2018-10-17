@@ -17,6 +17,11 @@ class Api
 {
     public function findBy($resource, $params = array()): array
     {
+
+        if ( substr_count( $resource, '\\' ) > 0 )
+            $resource = array_pop( explode( '\\', $resource));
+        
+
         /* @var Resource $resource */
         $resource = Shopware()->Container()->get('ost_erp_api.api.resources.' . strtolower($resource));
 

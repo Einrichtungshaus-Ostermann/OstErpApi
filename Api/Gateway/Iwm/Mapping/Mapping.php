@@ -14,8 +14,9 @@ namespace OstErpApi\Api\Gateway\Iwm\Mapping;
 interface Mapping
 {
 
+    static public function getAlias();
 
-    static public function get();
+    static public function getColumn();
 
 
 }
