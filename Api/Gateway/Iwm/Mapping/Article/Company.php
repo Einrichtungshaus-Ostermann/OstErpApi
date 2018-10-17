@@ -20,12 +20,12 @@ class Company implements Mapping
 
     static public function getAlias()
     {
-        return "article_company";
+        return "ARTICLE_COMPANY";
     }
 
     static public function getColumn()
     {
-        return "ARTS00.ARFIRM";
+        return "IWMV2R1DTA.ARTS00.ARFIRM";
     }
 
 

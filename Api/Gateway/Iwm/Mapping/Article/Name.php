@@ -21,12 +21,12 @@ class Name implements Mapping
 
     static public function getAlias()
     {
-        return "article_name";
+        return "ARTICLE_NAME";
     }
 
     static public function getColumn()
     {
-        return "ARTS00.ARLABZ";
+        return "IWMV2R1DTA.ARTS00.ARLABZ";
     }
 
 

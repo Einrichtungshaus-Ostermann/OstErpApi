@@ -84,9 +84,9 @@ class Article extends Gateway
 
         foreach ( $articles as &$article )
         {
-            $article['article_stock'] = array(
+            $article['ARTICLE_STOCK'] = array(
 
-                array( 'location' => "WITTEN", 'stock' => 1)
+                array( 'STOCK_LOCATION' => "WITTEN", 'STOCK_STOCK' => 1)
             );
         }
 

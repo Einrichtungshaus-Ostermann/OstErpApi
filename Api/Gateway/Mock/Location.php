@@ -21,50 +21,36 @@ class Location extends Gateway
 
         return [
             [
-                'location_key' => 'WITTEN',
-                'location_name' => 'Witten',
-                'location_numbers' => array(
-                    array( 'number_key' => 100 ),
-                    array( 'number_key' => 150 ),
-                    array( 'number_key' => 400 ),
-                    array( 'number_key' => 450 ),
-                    array( 'number_key' => 900 ),
+                'LOCATION_KEY' => 'WITTEN',
+                'LOCATION_NAME' => 'Witten',
+                'LOCATION_NUMBERS' => array(
+                    array( 'NUMBER_KEY' => 100 ),
+                    array( 'NUMBER_KEY' => 150 ),
+                    array( 'NUMBER_KEY' => 400 ),
+                    array( 'NUMBER_KEY' => 450 ),
+                    array( 'NUMBER_KEY' => 900 ),
                 )
             ],
             [
-                'location_key' => 'LEVERKUSEN',
-                'location_name' => 'Leverkusen',
-                'location_numbers' => array(
-                    array( 'number_key' => 500 ),
-                    array( 'number_key' => 550 ),
-                    array( 'number_key' => 501 ),
-                    array( 'number_key' => 250 ),
-                    array( 'number_key' => 200 ),
-                )
-
-            ],
-
-            [
-                'location_key' => 'RECKLINGHAUSEN',
-                'location_name' => 'Recklinghause',
-                'location_numbers' => array(
-                    array( 'number_key' => 600 ),
-                    array( 'number_key' => 615 ),
-                    array( 'number_key' => 315 ),
+                'LOCATION_KEY' => 'LEVERKUSEN',
+                'LOCATION_NAME' => 'Leverkusen',
+                'LOCATION_NUMBERS' => array(
+                    array( 'NUMBER_KEY' => 500 ),
+                    array( 'NUMBER_KEY' => 550 ),
+                    array( 'NUMBER_KEY' => 501 ),
+                    array( 'NUMBER_KEY' => 250 ),
+                    array( 'NUMBER_KEY' => 200 ),
                 )
 
             ],
 
-
-
             [
-                'location_key' => 'BOTTROP',
-                'location_name' => 'Bottrop',
-                'location_numbers' => array(
-                    array( 'number_key' => 800 ),
-                    array( 'number_key' => 850 ),
-                    array( 'number_key' => 700 ),
-                    array( 'number_key' => 750 ),
+                'LOCATION_KEY' => 'RECKLINGHAUSEN',
+                'LOCATION_NAME' => 'Recklinghause',
+                'LOCATION_NUMBERS' => array(
+                    array( 'NUMBER_KEY' => 600 ),
+                    array( 'NUMBER_KEY' => 615 ),
+                    array( 'NUMBER_KEY' => 315 ),
                 )
 
             ],
@@ -72,13 +58,27 @@ class Location extends Gateway
 
 
             [
-                'location_key' => 'LEVERKUSEN',
-                'location_name' => 'Leverkusen',
-                'location_numbers' => array(
-                    array( 'number_key' => 660 ),
-                    array( 'number_key' => 665 ),
-                    array( 'number_key' => 950 ),
-                    array( 'number_key' => 365 ),
+                'LOCATION_KEY' => 'BOTTROP',
+                'LOCATION_NAME' => 'Bottrop',
+                'LOCATION_NUMBERS' => array(
+                    array( 'NUMBER_KEY' => 800 ),
+                    array( 'NUMBER_KEY' => 850 ),
+                    array( 'NUMBER_KEY' => 700 ),
+                    array( 'NUMBER_KEY' => 750 ),
+                )
+
+            ],
+
+
+
+            [
+                'LOCATION_KEY' => 'LEVERKUSEN',
+                'LOCATION_NAME' => 'Leverkusen',
+                'LOCATION_NUMBERS' => array(
+                    array( 'NUMBER_KEY' => 660 ),
+                    array( 'NUMBER_KEY' => 665 ),
+                    array( 'NUMBER_KEY' => 950 ),
+                    array( 'NUMBER_KEY' => 365 ),
                 )
 
             ]

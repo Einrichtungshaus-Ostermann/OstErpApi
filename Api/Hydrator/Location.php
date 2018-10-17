@@ -22,14 +22,14 @@ class Location extends Hydrator
         foreach ($data as $location) {
             $locationStruct = new Struct\Location();
 
-            $locationStruct->setKey($location['location_key']);
-            $locationStruct->setName($location['location_name']);
+            $locationStruct->setKey($location['LOCATION_KEY']);
+            $locationStruct->setName($location['LOCATION_NAME']);
 
 
-            foreach ($location['location_numbers'] as $number) {
+            foreach ($location['LOCATION_NUMBERS'] as $number) {
                 $numberStruct = new Struct\Location\Number();
 
-                $numberStruct->setKey($number['number_key']);
+                $numberStruct->setKey($number['NUMBER_KEY']);
 
                 $locationStruct->addNumber($numberStruct);
             }

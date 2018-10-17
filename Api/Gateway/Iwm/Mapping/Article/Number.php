@@ -20,12 +20,12 @@ class Number implements Mapping
 
     static public function getAlias()
     {
-        return "article_number";
+        return "ARTICLE_NUMBER";
     }
 
     static public function getColumn()
     {
-        return "ARTS00.ARARTE";
+        return "IWMV2R1DTA.ARTS00.ARARTE";
     }
 
 
