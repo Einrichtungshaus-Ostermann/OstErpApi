@@ -9,19 +9,19 @@
  * @license   proprietary
  */
 
-namespace OstErpApi\Api\Gateway\Iwm\Mapping\Article;
+namespace OstErpApi\Api\Gateway\Iwm\Mapping\Reservation;
 
 use OstErpApi\Api\Gateway\Iwm\Mapping\Mapping;
 
-class Name implements Mapping
+class Stock implements Mapping
 {
     public static function getAlias()
     {
-        return 'ARTICLE_NAME';
+        return 'RESERVATION_AMOUNT';
     }
 
     public static function getColumn()
     {
-        return 'IWMV2R1DTA.ARTS00.ARLABZ';
+        return 'IWMV2R1DTA.VRES00.VRBMNG';
     }
 }

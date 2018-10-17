@@ -1,6 +1,5 @@
 <?php declare(strict_types=1);
 
-
 namespace OstErpApi\Controllers\Frontend;
 
 use Enlight_Controller_Action;

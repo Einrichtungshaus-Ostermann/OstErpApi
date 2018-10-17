@@ -54,7 +54,7 @@ class ConfigurationService implements ConfigurationServiceInterface
 
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function get($key = null)
     {

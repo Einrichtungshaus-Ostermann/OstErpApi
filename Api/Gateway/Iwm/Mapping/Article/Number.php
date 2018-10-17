@@ -15,18 +15,13 @@ use OstErpApi\Api\Gateway\Iwm\Mapping\Mapping;
 
 class Number implements Mapping
 {
-
-
-
-    static public function getAlias()
+    public static function getAlias()
     {
-        return "ARTICLE_NUMBER";
+        return 'ARTICLE_NUMBER';
     }
 
-    static public function getColumn()
+    public static function getColumn()
     {
-        return "IWMV2R1DTA.ARTS00.ARARTE";
+        return 'IWMV2R1DTA.ARTS00.ARARTE';
     }
-
-
 }

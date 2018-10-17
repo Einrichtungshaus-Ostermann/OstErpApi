@@ -17,11 +17,12 @@ class Location extends Hydrator
 {
     public function hydrate(array $data): array
     {
-        $arr = array();
+        $arr = [];
 
         foreach ($data as $location) {
             $locationStruct = new Struct\Location();
 
+            $locationStruct->setCompany((int) $location['ARTICLE_COMPANY']);
             $locationStruct->setKey($location['LOCATION_KEY']);
             $locationStruct->setName($location['LOCATION_NAME']);
 
@@ -37,6 +38,7 @@ class Location extends Hydrator
 
             $arr[] = $locationStruct;
         }
+
         return $arr;
     }
 }

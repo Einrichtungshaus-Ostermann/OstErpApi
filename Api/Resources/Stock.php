@@ -9,11 +9,9 @@
  * @license   proprietary
  */
 
-namespace OstErpApi\Api\Gateway\Iwm\Mapping;
+namespace OstErpApi\Api\Resources;
 
-interface Mapping
+class Stock extends Resource
 {
-    public static function getAlias();
-
-    public static function getColumn();
+    protected $resourceName = 'Stock';
 }

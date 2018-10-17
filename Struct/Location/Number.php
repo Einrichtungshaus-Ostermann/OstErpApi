@@ -15,7 +15,6 @@ use OstErpApi\Struct\Struct;
 
 class Number extends Struct
 {
-
     /**
      * ...
      *
@@ -24,7 +23,7 @@ class Number extends Struct
      * - 150
      * - 400
      *
-     * @var integer
+     * @var int
      */
     protected $key;
 
@@ -46,18 +45,9 @@ class Number extends Struct
      * Setter method for the property.
      *
      * @param int $key
-     *
-     * @return void
      */
     public function setKey(int $key)
     {
         $this->key = $key;
     }
-
-
-
-
-
-
-
 }

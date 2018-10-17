@@ -14,6 +14,15 @@ namespace OstErpApi\Struct;
 class Article extends Struct
 {
     /**
+     * The Company number behind the Article
+     *
+     * @var int
+     */
+    protected $company;
+
+
+
+    /**
      * A unique article number.
      *
      * @var string
@@ -45,9 +54,29 @@ class Article extends Struct
      * Every stock is clean and the actual available stock.
      * We may have the same location multiple times because we dont hydrate the entities.
      *
-     * @var Article\Stock[]
+     * @var Stock[]
      */
     protected $stock = [];
+
+
+
+    /**
+     * @return int
+     */
+    public function getCompany(): int
+    {
+        return $this->company;
+    }
+
+
+
+    /**
+     * @param int $company
+     */
+    public function setCompany(int $company)
+    {
+        $this->company = $company;
+    }
 
 
 
@@ -67,8 +96,6 @@ class Article extends Struct
      * Setter method for the property.
      *
      * @param string $number
-     *
-     * @return void
      */
     public function setNumber(string $number)
     {
@@ -93,8 +120,6 @@ class Article extends Struct
      * Setter method for the property.
      *
      * @param string $name
-     *
-     * @return void
      */
     public function setName(string $name)
     {
@@ -119,8 +144,6 @@ class Article extends Struct
      * Setter method for the property.
      *
      * @param float $weight
-     *
-     * @return void
      */
     public function setWeight(float $weight)
     {
@@ -132,7 +155,7 @@ class Article extends Struct
     /**
      * Getter method for the property.
      *
-     * @return Article\Stock[]
+     * @return Stock[]
      */
     public function getStock()
     {
@@ -144,9 +167,7 @@ class Article extends Struct
     /**
      * Setter method for the property.
      *
-     * @param Article\Stock[] $stock
-     *
-     * @return void
+     * @param Stock[] $stock
      */
     public function setStock(array $stock)
     {
@@ -158,14 +179,10 @@ class Article extends Struct
     /**
      * Setter method for the property.
      *
-     * @param Article\Stock $stock
-     *
-     * @return void
+     * @param Stock $stock
      */
-    public function addStock(Article\Stock $stock)
+    public function addStock(Stock $stock)
     {
         $this->stock[] = $stock;
     }
-
-
 }

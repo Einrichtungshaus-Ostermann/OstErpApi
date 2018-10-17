@@ -14,6 +14,15 @@ namespace OstErpApi\Struct;
 class Location extends Struct
 {
     /**
+     * The Company number behind the Article
+     *
+     * @var int
+     */
+    protected $company;
+
+
+
+    /**
      * The internal ERP key for the location.
      *
      * Example
@@ -38,12 +47,33 @@ class Location extends Struct
     protected $name;
 
 
+
     /**
      * ...
      *
      * @var Location\Number[]
      */
     protected $numbers = [];
+
+
+
+    /**
+     * @return int
+     */
+    public function getCompany(): int
+    {
+        return $this->company;
+    }
+
+
+
+    /**
+     * @param int $company
+     */
+    public function setCompany(int $company)
+    {
+        $this->company = $company;
+    }
 
 
 
@@ -63,8 +93,6 @@ class Location extends Struct
      * Setter method for the property.
      *
      * @param string $key
-     *
-     * @return void
      */
     public function setKey(string $key)
     {
@@ -89,8 +117,6 @@ class Location extends Struct
      * Setter method for the property.
      *
      * @param string $name
-     *
-     * @return void
      */
     public function setName(string $name)
     {
@@ -115,8 +141,6 @@ class Location extends Struct
      * Setter method for the property.
      *
      * @param Location\Number[] $numbers
-     *
-     * @return void
      */
     public function setNumbers(array $numbers)
     {
@@ -125,18 +149,13 @@ class Location extends Struct
 
 
 
-
-
     /**
      * Setter method for the property.
      *
      * @param Location\Number $number
-     *
-     * @return void
      */
     public function addNumber(Location\Number $number)
     {
         $this->numbers[] = $number;
     }
-
 }

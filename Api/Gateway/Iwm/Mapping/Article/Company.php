@@ -15,18 +15,13 @@ use OstErpApi\Api\Gateway\Iwm\Mapping\Mapping;
 
 class Company implements Mapping
 {
-
-
-
-    static public function getAlias()
+    public static function getAlias()
     {
-        return "ARTICLE_COMPANY";
+        return 'ARTICLE_COMPANY';
     }
 
-    static public function getColumn()
+    public static function getColumn()
     {
-        return "IWMV2R1DTA.ARTS00.ARFIRM";
+        return 'IWMV2R1DTA.ARTS00.ARFIRM';
     }
-
-
 }

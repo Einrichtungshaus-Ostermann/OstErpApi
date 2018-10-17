@@ -13,17 +13,19 @@ namespace OstErpApi\Api\Gateway\Iwm;
 
 use OstErpApi\Api\Gateway\Gateway;
 
-class Article extends Gateway
+class Stock extends Gateway
 {
     public function findBy(array $parameters = []): array
     {
+        $parameters[] = 'LBDISP = \'L\' AND LBSTAT \'A\'';
+
         $query = '
             SELECT 
-                [article.company],
-                [article.number],
-                [article.name],
-                0 AS article_weight
-            FROM IWMV2R1DTA.ARTS00
+            [stock.company],
+            [stock.number],
+            [stock.location],
+            [stock.amount],
+            FROM IWMV2R1DTA.LBST00
             
         ';
 
@@ -48,7 +50,6 @@ class Article extends Gateway
                 ['STOCK_LOCATION' => 'WITTEN', 'STOCK_STOCK' => 1]
             ];
         }
-
 
         return $articles;
     }

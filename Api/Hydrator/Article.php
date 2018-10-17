@@ -20,22 +20,14 @@ class Article extends Hydrator
         $arr = [];
 
         foreach ($data as $article) {
-
             $articleStruct = new Struct\Article();
 
-            $articleStruct->setNumber((string)$article['ARTICLE_NUMBER']);
-            $articleStruct->setName((string)$article['ARTICLE_NAME']);
-            $articleStruct->setWeight((float)$article['ARTICLE_WEIGHT']);
+            $articleStruct->setCompany((int) $article['ARTICLE_COMPANY']);
+            $articleStruct->setNumber((string) $article['ARTICLE_NUMBER']);
+            $articleStruct->setName((string) $article['ARTICLE_NAME']);
+            $articleStruct->setWeight((float) $article['ARTICLE_WEIGHT']);
 
-
-            foreach ($article['ARTICLE_STOCK'] as $stock) {
-                $stockStruct = new Struct\Article\Stock();
-
-                $stockStruct->setLocation($stock['STOCK_LOCATION']);
-                $stockStruct->setStock($stock['STOCK_STOCK']);
-
-                $articleStruct->addStock($stockStruct);
-            }
+            $articleStruct->setStock($article['ARTICLE_STOCK']);
 
             $arr[] = $articleStruct;
         }

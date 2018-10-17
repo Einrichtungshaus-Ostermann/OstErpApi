@@ -13,42 +13,35 @@ namespace OstErpApi\Api\Gateway\Iwm\Mapping;
 
 class Parser
 {
-
-
-
-
-
-
-    public function parse( $query, $addAlias = true )
+    public function parse($query, $addAlias = true)
     {
 
 
 
 
         // get the placeholders
-        preg_match_all( '/\[[^\]]*\]/', $query, $matches );
+        preg_match_all('/\[[^\]]*\]/', $query, $matches);
 
 
 
         // loop them
-        foreach ( $matches[0] as $match )
-        {
+        foreach ($matches[0] as $match) {
             // remove braces
-            $match = str_replace( array( "[", "]" ), "", $match );
+            $match = str_replace(['[', ']'], '', $match);
 
             // split by entity and key
-            $split = explode( ".", $match );
+            $split = explode('.', $match);
 
             // set vars for it
             $entity = $split[0];
-            $key    = $split[1];
+            $key = $split[1];
 
 
 
 
             // create object name
             /* @var $mapping Mapping */
-            $mapping = __NAMESPACE__ . "\\" . ucwords( $entity ) . "\\" . ucwords( $key );
+            $mapping = __NAMESPACE__ . '\\' . ucwords($entity) . '\\' . ucwords($key);
 
 
 
@@ -60,8 +53,9 @@ class Parser
 
 
 
-            if ( $addAlias == true )
-                $replace .= " AS " . $mapping::getAlias();
+            if ($addAlias === true) {
+                $replace .= ' AS ' . $mapping::getAlias();
+            }
 
 
 
@@ -69,7 +63,7 @@ class Parser
 
             // replace
             $query = str_replace(
-                "[" . $match . "]",
+                '[' . $match . ']',
                 $replace,
                 $query
             );
@@ -85,17 +79,15 @@ class Parser
 
 
 
-    public function parseSelect( $query )
+    public function parseSelect($query)
     {
-        return $this->parse( $query, true );
+        return $this->parse($query, true);
     }
 
 
 
-    public function parseParameter( $query )
+    public function parseParameter($query)
     {
-        return $this->parse( $query, false );
+        return $this->parse($query, false);
     }
-
-
 }

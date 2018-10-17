@@ -9,25 +9,27 @@
  * @license   proprietary
  */
 
-namespace OstErpApi\Api\Gateway\Iwm;
+namespace OstErpApi\Api\Gateway\Iwm\Stock;
 
 use OstErpApi\Api\Gateway\Gateway;
+use OstErpApi\Api\Gateway\Iwm\Mapping\Parser;
 
-class Article extends Gateway
+class Reservation extends Gateway
 {
     public function findBy(array $parameters = []): array
     {
+        $parameters[] = 'VRRSTT = 1 AND VRSTAT = \'A\'';
+
         $query = '
             SELECT 
-                [article.company],
-                [article.number],
-                [article.name],
-                0 AS article_weight
-            FROM IWMV2R1DTA.ARTS00
-            
+            [reservation.company],
+            [reservation.number],
+            [reservation.location],
+            [reservation.amount],
+            FROM IWMV2R1DTA.LBST00
         ';
 
-        $parser = new Mapping\Parser();
+        $parser = new Parser();
         $query = $parser->parseSelect($query);
 
         // add braces to the where append terms and parse the string
@@ -41,15 +43,7 @@ class Article extends Gateway
         // add the where append
         $query .= ' WHERE ' . implode(' AND ', $parameters) . ' ';
         $res = static::$db->query($query);
-        $articles = $res->fetchAll(\PDO::FETCH_ASSOC);
 
-        foreach ($articles as &$article) {
-            $article['ARTICLE_STOCK'] = [
-                ['STOCK_LOCATION' => 'WITTEN', 'STOCK_STOCK' => 1]
-            ];
-        }
-
-
-        return $articles;
+        return $res->fetchAll(\PDO::FETCH_ASSOC);
     }
 }

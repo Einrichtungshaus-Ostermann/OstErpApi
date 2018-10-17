@@ -11,7 +11,46 @@
 
 namespace OstErpApi\Api\Gateway;
 
+use OstErpApi\Services\ConfigurationService;
+
 abstract class Gateway
 {
+    /**
+     * @var \PDO
+     */
+    protected static $db;
+
+
+
+    /**
+     * @var ConfigurationService
+     */
+    private $configurationService;
+
+
+
+    /**
+     * Gateway constructor.
+     *
+     * @param ConfigurationService $configurationService
+     */
+    public function __construct(ConfigurationService $configurationService)
+    {
+        if (static::$db === null) {
+            try {
+                static::$db = new \PDO(
+                    'odbc:' . $configurationService->get('credentialsServer'),
+                    $configurationService->get('credentialsLogin'),
+                    $configurationService->get('credentialsPassword'));
+            } catch (\Exception $exception) {
+                die('establishing connection failed:' . $exception->getMessage());
+            }
+        }
+
+        $this->configurationService = $configurationService;
+    }
+
+
+
     abstract public function findBy(array $parameters = []): array;
 }

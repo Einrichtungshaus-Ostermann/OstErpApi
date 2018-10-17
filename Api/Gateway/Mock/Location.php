@@ -15,74 +15,80 @@ use OstErpApi\Api\Gateway\Gateway;
 
 class Location extends Gateway
 {
-    public function findBy( array $parameters = array()): array
+    /**
+     * Anything is ok,  we just dont want that the db is initialized
+     *
+     * @var array
+     */
+    protected static $db = [];
+
+
+
+    public function findBy(array $parameters = []): array
     {
-
-
         return [
             [
-                'LOCATION_KEY' => 'WITTEN',
-                'LOCATION_NAME' => 'Witten',
-                'LOCATION_NUMBERS' => array(
-                    array( 'NUMBER_KEY' => 100 ),
-                    array( 'NUMBER_KEY' => 150 ),
-                    array( 'NUMBER_KEY' => 400 ),
-                    array( 'NUMBER_KEY' => 450 ),
-                    array( 'NUMBER_KEY' => 900 ),
-                )
+                'LOCATION_KEY'     => 'WITTEN',
+                'LOCATION_NAME'    => 'Witten',
+                'LOCATION_NUMBERS' => [
+                    ['NUMBER_KEY' => 100],
+                    ['NUMBER_KEY' => 150],
+                    ['NUMBER_KEY' => 400],
+                    ['NUMBER_KEY' => 450],
+                    ['NUMBER_KEY' => 900],
+                ]
             ],
             [
-                'LOCATION_KEY' => 'LEVERKUSEN',
-                'LOCATION_NAME' => 'Leverkusen',
-                'LOCATION_NUMBERS' => array(
-                    array( 'NUMBER_KEY' => 500 ),
-                    array( 'NUMBER_KEY' => 550 ),
-                    array( 'NUMBER_KEY' => 501 ),
-                    array( 'NUMBER_KEY' => 250 ),
-                    array( 'NUMBER_KEY' => 200 ),
-                )
-
-            ],
-
-            [
-                'LOCATION_KEY' => 'RECKLINGHAUSEN',
-                'LOCATION_NAME' => 'Recklinghause',
-                'LOCATION_NUMBERS' => array(
-                    array( 'NUMBER_KEY' => 600 ),
-                    array( 'NUMBER_KEY' => 615 ),
-                    array( 'NUMBER_KEY' => 315 ),
-                )
+                'LOCATION_KEY'     => 'LEVERKUSEN',
+                'LOCATION_NAME'    => 'Leverkusen',
+                'LOCATION_NUMBERS' => [
+                    ['NUMBER_KEY' => 500],
+                    ['NUMBER_KEY' => 550],
+                    ['NUMBER_KEY' => 501],
+                    ['NUMBER_KEY' => 250],
+                    ['NUMBER_KEY' => 200],
+                ]
 
             ],
 
-
-
             [
-                'LOCATION_KEY' => 'BOTTROP',
-                'LOCATION_NAME' => 'Bottrop',
-                'LOCATION_NUMBERS' => array(
-                    array( 'NUMBER_KEY' => 800 ),
-                    array( 'NUMBER_KEY' => 850 ),
-                    array( 'NUMBER_KEY' => 700 ),
-                    array( 'NUMBER_KEY' => 750 ),
-                )
+                'LOCATION_KEY'     => 'RECKLINGHAUSEN',
+                'LOCATION_NAME'    => 'Recklinghause',
+                'LOCATION_NUMBERS' => [
+                    ['NUMBER_KEY' => 600],
+                    ['NUMBER_KEY' => 615],
+                    ['NUMBER_KEY' => 315],
+                ]
 
             ],
 
 
 
             [
-                'LOCATION_KEY' => 'LEVERKUSEN',
-                'LOCATION_NAME' => 'Leverkusen',
-                'LOCATION_NUMBERS' => array(
-                    array( 'NUMBER_KEY' => 660 ),
-                    array( 'NUMBER_KEY' => 665 ),
-                    array( 'NUMBER_KEY' => 950 ),
-                    array( 'NUMBER_KEY' => 365 ),
-                )
+                'LOCATION_KEY'     => 'BOTTROP',
+                'LOCATION_NAME'    => 'Bottrop',
+                'LOCATION_NUMBERS' => [
+                    ['NUMBER_KEY' => 800],
+                    ['NUMBER_KEY' => 850],
+                    ['NUMBER_KEY' => 700],
+                    ['NUMBER_KEY' => 750],
+                ]
+
+            ],
+
+
+
+            [
+                'LOCATION_KEY'     => 'LEVERKUSEN',
+                'LOCATION_NAME'    => 'Leverkusen',
+                'LOCATION_NUMBERS' => [
+                    ['NUMBER_KEY' => 660],
+                    ['NUMBER_KEY' => 665],
+                    ['NUMBER_KEY' => 950],
+                    ['NUMBER_KEY' => 365],
+                ]
 
             ]
         ];
-
     }
 }
