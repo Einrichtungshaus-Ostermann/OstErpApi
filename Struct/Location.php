@@ -36,6 +36,15 @@ class Location extends Struct
 
 
     /**
+     * The internal ERP key for the Store.
+     *
+     * @var Store
+     */
+    protected $store;
+
+
+
+    /**
      * @return int
      */
     public function getCompany(): int
@@ -75,5 +84,25 @@ class Location extends Struct
     public function setKey(string $key)
     {
         $this->key = $key;
+    }
+
+
+
+    /**
+     * @return Store
+     */
+    public function getStore(): Store
+    {
+        return $this->store;
+    }
+
+
+
+    /**
+     * @param Store $store
+     */
+    public function setStore(Store $store)
+    {
+        $this->store = $store;
     }
 }

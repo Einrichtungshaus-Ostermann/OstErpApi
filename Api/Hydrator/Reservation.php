@@ -22,10 +22,10 @@ class Reservation extends Hydrator
         foreach ($data as $stock) {
             $reservationStruct = new Struct\Reservation();
 
-            $reservationStruct->setCompany((int) $stock['ARTICLE_COMPANY']);
+            $reservationStruct->setCompany((int) $stock['COMPANY']);
             $reservationStruct->setNumber((string) $stock['ARTICLE_NUMBER']);
-            $reservationStruct->setLocation((string) $stock['RESERVATION_LOCATION']);
-            $reservationStruct->setQuantity((int) $stock['RESERVATION_AMOUNT']);
+            $reservationStruct->setQuantity((int) $stock['RESERVATION_QUANTITY']);
+            $reservationStruct->setLocation($stock['RESERVATION_LOCATION']);
 
             $arr[] = $reservationStruct;
         }

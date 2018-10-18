@@ -20,6 +20,7 @@ class Reservation extends Gateway
         if (empty($parameters)) {
             return [
                 [
+                    'COMPANY'              => '1',
                     'ARTICLE_NUMBER'       => '161578',
                     'RESERVATION_QUANTITY' => 1337,
                     'LOCATION_KEY'         => 100,
@@ -29,11 +30,13 @@ class Reservation extends Gateway
 
         return [
             [
+                'COMPANY'              => '1',
                 'ARTICLE_NUMBER'       => '161578',
                 'RESERVATION_QUANTITY' => 1337,
                 'LOCATION_KEY'         => 100,
             ],
             [
+                'COMPANY'              => '1',
                 'ARTICLE_NUMBER'       => '123452',
                 'RESERVATION_QUANTITY' => 1337,
                 'LOCATION_KEY'         => 150,

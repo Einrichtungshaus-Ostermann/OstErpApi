@@ -19,88 +19,109 @@ class Location extends Gateway
     {
         return [
             [
-                'LOCATION_KEY' => 100,
-                'STORE_KEY'    => 'WITTEN'
+                'COMPANY'           => '1',
+                'LOCATION_KEY'      => 100,
+                'LOCATION_STORE'    => 'WITTEN'
             ],
             [
-                'LOCATION_KEY' => 150,
-                'STORE_KEY'    => 'WITTEN'
+                'COMPANY'           => '1',
+                'LOCATION_KEY'      => 150,
+                'LOCATION_STORE'    => 'WITTEN'
             ],
             [
-                'LOCATION_KEY' => 400,
-                'STORE_KEY'    => 'WITTEN'
+                'COMPANY'           => '1',
+                'LOCATION_KEY'      => 400,
+                'LOCATION_STORE'    => 'WITTEN'
             ],
             [
-                'LOCATION_KEY' => 450,
-                'STORE_KEY'    => 'WITTEN'
+                'COMPANY'           => '1',
+                'LOCATION_KEY'      => 450,
+                'LOCATION_STORE'    => 'WITTEN'
             ],
             [
-                'LOCATION_KEY' => 900,
-                'STORE_KEY'    => 'WITTEN'
+                'COMPANY'           => '1',
+                'LOCATION_KEY'      => 900,
+                'LOCATION_STORE'    => 'WITTEN'
             ],
             [
-                'LOCATION_KEY' => 500,
-                'STORE_KEY'    => 'LEVERKUSEN'
+                'COMPANY'           => '1',
+                'LOCATION_KEY'      => 500,
+                'LOCATION_STORE'    => 'LEVERKUSEN'
             ],
             [
-                'LOCATION_KEY' => 550,
-                'STORE_KEY'    => 'LEVERKUSEN'
+                'COMPANY'           => '1',
+                'LOCATION_KEY'      => 550,
+                'LOCATION_STORE'    => 'LEVERKUSEN'
             ],
             [
-                'LOCATION_KEY' => 501,
-                'STORE_KEY'    => 'LEVERKUSEN'
+                'COMPANY'           => '1',
+                'LOCATION_KEY'      => 501,
+                'LOCATION_STORE'    => 'LEVERKUSEN'
             ],
             [
-                'LOCATION_KEY' => 250,
-                'STORE_KEY'    => 'LEVERKUSEN'
+                'COMPANY'           => '1',
+                'LOCATION_KEY'      => 250,
+                'LOCATION_STORE'    => 'LEVERKUSEN'
             ],
             [
-                'LOCATION_KEY' => 200,
-                'STORE_KEY'    => 'LEVERKUSEN'
+                'COMPANY'           => '1',
+                'LOCATION_KEY'      => 200,
+                'LOCATION_STORE'    => 'LEVERKUSEN'
             ],
             [
-                'LOCATION_KEY' => 600,
-                'STORE_KEY'    => 'RECKLINGHAUSEN'
+                'COMPANY'           => '1',
+                'LOCATION_KEY'      => 600,
+                'LOCATION_STORE'    => 'RECKLINGHAUSEN'
             ],
             [
-                'LOCATION_KEY' => 615,
-                'STORE_KEY'    => 'RECKLINGHAUSEN'
+                'COMPANY'           => '1',
+                'LOCATION_KEY'      => 615,
+                'LOCATION_STORE'    => 'RECKLINGHAUSEN'
             ],
             [
-                'LOCATION_KEY' => 315,
-                'STORE_KEY'    => 'RECKLINGHAUSEN'
+                'COMPANY'           => '1',
+                'LOCATION_KEY'      => 315,
+                'LOCATION_STORE'    => 'RECKLINGHAUSEN'
             ],
             [
-                'LOCATION_KEY' => 800,
-                'STORE_KEY'    => 'BOTTROP'
+                'COMPANY'           => '1',
+                'LOCATION_KEY'      => 800,
+                'LOCATION_STORE'    => 'BOTTROP'
             ],
             [
-                'LOCATION_KEY' => 850,
-                'STORE_KEY'    => 'BOTTROP'
+                'COMPANY'           => '1',
+                'LOCATION_KEY'      => 850,
+                'LOCATION_STORE'    => 'BOTTROP'
             ],
             [
-                'LOCATION_KEY' => 700,
-                'STORE_KEY'    => 'BOTTROP'
+                'COMPANY'           => '1',
+                'LOCATION_KEY'      => 700,
+                'LOCATION_STORE'    => 'BOTTROP'
             ],
             [
-                'LOCATION_KEY' => 750,
-                'STORE_KEY'    => 'BOTTROP'
+                'COMPANY'           => '1',
+                'LOCATION_KEY'      => 750,
+                'LOCATION_STORE'    => 'BOTTROP'
             ],
             [
-                'LOCATION_KEY' => 660,
-                'STORE_KEY'    => 'LEVERKUSEN'
+                'COMPANY'           => '1',
+                'LOCATION_KEY'      => 660,
+                'LOCATION_STORE'    => 'LEVERKUSEN'
             ],
             [
-                'LOCATION_KEY' => 665,
-                'STORE_KEY'    => 'LEVERKUSEN'
+                'COMPANY'           => '1',
+                'LOCATION_KEY'      => 665,
+                'LOCATION_STORE'    => 'LEVERKUSEN'
             ],
             [
-                'LOCATION_KEY' => 950,
-                'STORE_KEY'    => 'LEVERKUSEN'
+                'COMPANY'           => '1',
+                'LOCATION_KEY'      => 950,
+                'LOCATION_STORE'    => 'LEVERKUSEN'
             ],
             [
-                'LOCATION_KEY' => 365,
-                'STORE_KEY'    => 'LEVERKUSEN'
+                'COMPANY'           => '1',
+                'LOCATION_KEY'      => 365,
+                'LOCATION_STORE'    => 'LEVERKUSEN'
             ],
         ];
     }

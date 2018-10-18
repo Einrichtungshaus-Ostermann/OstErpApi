@@ -20,23 +20,26 @@ class Stock extends Gateway
         if (empty($parameters)) {
             return [
                 [
-                    'ARTICLE_NUMBER' => '161578',
-                    'STOCK_QUANTITY' => 1337,
-                    'LOCATION_KEY'   => 100,
+                    'COMPANY'          => '1',
+                    'ARTICLE_NUMBER'   => '161578',
+                    'STOCK_QUANTITY'   => 1337,
+                    'STOCK_LOCATION'   => 100,
                 ],
             ];
         }
 
         return [
             [
-                'ARTICLE_NUMBER' => '161578',
-                'STOCK_QUANTITY' => 1337,
-                'LOCATION_KEY'   => 100,
+                'COMPANY'          => '1',
+                'ARTICLE_NUMBER'   => '161578',
+                'STOCK_QUANTITY'   => 1337,
+                'STOCK_LOCATION'   => 100,
             ],
             [
-                'ARTICLE_NUMBER' => '930392',
-                'STOCK_QUANTITY' => 2342,
-                'LOCATION_KEY'   => 150,
+                'COMPANY'          => '1',
+                'ARTICLE_NUMBER'   => '930392',
+                'STOCK_QUANTITY'   => 2342,
+                'STOCK_LOCATION'   => 150,
             ],
         ];
     }

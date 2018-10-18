@@ -19,22 +19,27 @@ class Store extends Gateway
     {
         return [
             [
+                'STORE_COMPANY' => '1',
                 'STORE_KEY'     => 'WITTEN',
                 'STORE_NAME'    => 'Witten',
             ],
             [
+                'STORE_COMPANY' => '1',
                 'STORE_KEY'     => 'LEVERKUSEN',
                 'STORE_NAME'    => 'Leverkusen',
             ],
             [
+                'STORE_COMPANY' => '1',
                 'STORE_KEY'     => 'RECKLINGHAUSEN',
                 'STORE_NAME'    => 'Recklinghause',
             ],
             [
+                'STORE_COMPANY' => '1',
                 'STORE_KEY'     => 'BOTTROP',
                 'STORE_NAME'    => 'Bottrop',
             ],
             [
+                'STORE_COMPANY' => '1',
                 'STORE_KEY'     => 'LEVERKUSEN',
                 'STORE_NAME'    => 'Leverkusen',
             ]

@@ -38,7 +38,7 @@ abstract class QuantityHolder extends Struct
      * - WITTEN
      * - LEVERKUSEN
      *
-     * @var string
+     * @var Location
      */
     protected $location;
 
@@ -98,9 +98,9 @@ abstract class QuantityHolder extends Struct
 
 
     /**
-     * @return string
+     * @return Location
      */
-    public function getLocation(): string
+    public function getLocation(): Location
     {
         return $this->location;
     }
@@ -108,9 +108,9 @@ abstract class QuantityHolder extends Struct
 
 
     /**
-     * @param string $location
+     * @param Location $location
      */
-    public function setLocation(string $location)
+    public function setLocation(Location $location)
     {
         $this->location = $location;
     }

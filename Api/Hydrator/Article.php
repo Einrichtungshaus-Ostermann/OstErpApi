@@ -27,7 +27,10 @@ class Article extends Hydrator
             $articleStruct->setName((string) $article['ARTICLE_NAME']);
             $articleStruct->setWeight((float) $article['ARTICLE_WEIGHT']);
 
-            $articleStruct->setStock($article['ARTICLE_STOCK']);
+            $articleStruct->setStock($article['ARTICLE_STOCK'] ?? []);
+            $articleStruct->setReservation($article['ARTICLE_RESERVATION'] ?? []);
+            $articleStruct->setRealStock($article['ARTICLE_REAL_STOCK'] ?? []);
+            $articleStruct->setExhibit($article['ARTICLE_EXHIBIT'] ?? []);
 
             $arr[] = $articleStruct;
         }
