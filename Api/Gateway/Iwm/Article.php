@@ -11,9 +11,7 @@
 
 namespace OstErpApi\Api\Gateway\Iwm;
 
-use OstErpApi\Api\Gateway\Gateway;
-
-class Article extends Gateway
+class Article extends IwmGateway
 {
     public function findBy(array $parameters = []): array
     {

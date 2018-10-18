@@ -9,12 +9,11 @@
  * @license   proprietary
  */
 
-namespace OstErpApi\Api\Gateway\Iwm\Stock;
+namespace OstErpApi\Api\Gateway\Iwm;
 
-use OstErpApi\Api\Gateway\Gateway;
 use OstErpApi\Api\Gateway\Iwm\Mapping\Parser;
 
-class Reservation extends Gateway
+class Reservation extends IwmGateway
 {
     public function findBy(array $parameters = []): array
     {

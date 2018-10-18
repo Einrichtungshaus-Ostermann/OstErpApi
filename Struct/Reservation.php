@@ -134,6 +134,4 @@ class Reservation extends Struct
     {
         $this->amount = $amount;
     }
-
-
 }

@@ -15,15 +15,6 @@ use OstErpApi\Api\Gateway\Gateway;
 
 class Article extends Gateway
 {
-    /**
-     * Anything is ok,  we just dont want that the db is initialized
-     *
-     * @var array
-     */
-    protected static $db = [];
-
-
-
     public function findBy(array $parameters = []): array
     {
         if (empty($parameters)) {
