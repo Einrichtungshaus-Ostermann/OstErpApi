@@ -26,34 +26,12 @@ class Location extends Struct
      * The internal ERP key for the location.
      *
      * Example
-     * - WITTEN
-     * - LEVERKUSEN
+     * - 100
+     * - 200
      *
      * @var string
      */
     protected $key;
-
-
-
-    /**
-     * A readable name for the location.
-     *
-     * Example:
-     * - Witten
-     * - Leverkusen
-     *
-     * @var string
-     */
-    protected $name;
-
-
-
-    /**
-     * ...
-     *
-     * @var Location\Number[]
-     */
-    protected $numbers = [];
 
 
 
@@ -97,65 +75,5 @@ class Location extends Struct
     public function setKey(string $key)
     {
         $this->key = $key;
-    }
-
-
-
-    /**
-     * Getter method for the property.
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-
-
-    /**
-     * Setter method for the property.
-     *
-     * @param string $name
-     */
-    public function setName(string $name)
-    {
-        $this->name = $name;
-    }
-
-
-
-    /**
-     * Getter method for the property.
-     *
-     * @return Location\Number[]
-     */
-    public function getNumbers()
-    {
-        return $this->numbers;
-    }
-
-
-
-    /**
-     * Setter method for the property.
-     *
-     * @param Location\Number[] $numbers
-     */
-    public function setNumbers(array $numbers)
-    {
-        $this->numbers = $numbers;
-    }
-
-
-
-    /**
-     * Setter method for the property.
-     *
-     * @param Location\Number $number
-     */
-    public function addNumber(Location\Number $number)
-    {
-        $this->numbers[] = $number;
     }
 }

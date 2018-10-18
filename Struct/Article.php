@@ -51,12 +51,37 @@ class Article extends Struct
 
     /**
      * Every available stock information for this article.
-     * Every stock is clean and the actual available stock.
-     * We may have the same location multiple times because we dont hydrate the entities.
      *
      * @var Stock[]
      */
     protected $stock = [];
+
+
+
+    /**
+     * Every available reservation information for this article.
+     *
+     * @var Reservation[]
+     */
+    protected $reservation = [];
+
+
+
+    /**
+     * Every stock is clean and the actual available stock.
+     *
+     * @var Stock[]
+     */
+    protected $realStock = [];
+
+
+
+    /**
+     * In which Stores is the Article
+     *
+     * @var Store[]
+     */
+    protected $exhibit = [];
 
 
 
@@ -185,4 +210,102 @@ class Article extends Struct
     {
         $this->stock[] = $stock;
     }
+
+    /**
+     * Getter method for the property.
+     *
+     * @return Reservation[]
+     */
+    public function getReservation()
+    {
+        return $this->reservation;
+    }
+
+
+
+    /**
+     * Setter method for the property.
+     *
+     * @param Reservation[] $reservation
+     */
+    public function setReservation(array $reservation)
+    {
+        $this->reservation = $reservation;
+    }
+
+
+
+    /**
+     * Setter method for the property.
+     *
+     * @param Reservation $reservation
+     */
+    public function addReservation(Reservation $reservation)
+    {
+        $this->reservation[] = $reservation;
+    }
+
+    /**
+     * Getter method for the property.
+     *
+     * @return Stock[]
+     */
+    public function getRealStock()
+    {
+        return $this->realStock;
+    }
+
+
+
+    /**
+     * Setter method for the property.
+     *
+     * @param Stock[] $stock
+     */
+    public function setRealStock(array $stock)
+    {
+        $this->realStock = $stock;
+    }
+
+
+
+    /**
+     * Setter method for the property.
+     *
+     * @param Stock $stock
+     */
+    public function addRealStock(Stock $stock)
+    {
+        $this->realStock[] = $stock;
+    }
+
+
+
+    /**
+     * @return Store[]
+     */
+    public function getExhibit(): array
+    {
+        return $this->exhibit;
+    }
+
+
+
+    /**
+     * @param Store[] $exhibit
+     */
+    public function setExhibit(array $exhibit)
+    {
+        $this->exhibit = $exhibit;
+    }
+
+    /**
+     * @param Store $store
+     */
+    public function addExhibit(Store $store)
+    {
+        $this->exhibit[] = $store;
+    }
+
+
 }

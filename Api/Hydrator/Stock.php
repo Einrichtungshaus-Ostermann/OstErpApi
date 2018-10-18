@@ -25,7 +25,7 @@ class Stock extends Hydrator
             $stockStruct->setCompany((int) $stock['ARTICLE_COMPANY']);
             $stockStruct->setNumber((string) $stock['ARTICLE_NUMBER']);
             $stockStruct->setLocation((string) $stock['STOCK_LOCATION']);
-            $stockStruct->setAmount((int) $stock['STOCK_AMOUNT']);
+            $stockStruct->setQuantity((int) $stock['STOCK_AMOUNT']);
 
             $arr[] = $stockStruct;
         }
