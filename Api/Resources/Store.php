@@ -4,13 +4,14 @@
  *
  * @package   OstErpApi
  *
- * @author    Tim Windelschmidt <tim.windelschmidt@ostermann.de>
+ * @author    Eike Brandt-Warneke <e.brandt-warneke@ostermann.de>
  * @copyright 2018 Einrichtungshaus Ostermann GmbH & Co. KG
  * @license   proprietary
  */
 
-namespace OstErpApi\Struct;
+namespace OstErpApi\Api\Resources;
 
-class Reservation extends QuantityHolder
+class Store extends Resource
 {
+    protected $resourceName = 'Store';
 }

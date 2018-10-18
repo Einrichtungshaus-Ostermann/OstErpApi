@@ -13,7 +13,7 @@ namespace OstErpApi\Api\Gateway\Mock;
 
 use OstErpApi\Api\Gateway\Gateway;
 
-class Article extends Gateway
+class Stock extends Gateway
 {
     public function findBy(array $parameters = []): array
     {
@@ -21,25 +21,23 @@ class Article extends Gateway
             return [
                 [
                     'ARTICLE_NUMBER' => '161578',
-                    'ARTICLE_NAME'   => 'Wohndecke JOOP! sandy/beige',
-                    'ARTICLE_WEIGHT' => 2.3,
+                    'STOCK_QUANTITY' => 1337,
+                    'LOCATION_KEY'   => 100,
                 ],
-                [
-                    'ARTICLE_NUMBER' => '930392',
-                    'ARTICLE_NAME'   => 'Tischleuchte rund JOOP',
-                    'ARTICLE_WEIGHT' => 1.8,
-                ]
-
             ];
         }
 
         return [
             [
-                'ARTICLE_NUMBER' => $parameters['number'] ?? '161578',
-                'ARTICLE_NAME'   => $parameters['name'] ?? 'Wohndecke JOOP! sandy/beige',
-                'ARTICLE_WEIGHT' => 1.8,
-            ]
-
+                'ARTICLE_NUMBER' => '161578',
+                'STOCK_QUANTITY' => 1337,
+                'LOCATION_KEY'   => 100,
+            ],
+            [
+                'ARTICLE_NUMBER' => '930392',
+                'STOCK_QUANTITY' => 2342,
+                'LOCATION_KEY'   => 150,
+            ],
         ];
     }
 }

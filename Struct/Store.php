@@ -14,6 +14,15 @@ namespace OstErpApi\Struct;
 class Store
 {
     /**
+     * The Company number behind the Article
+     *
+     * @var int
+     */
+    protected $company;
+
+
+
+    /**
      * A readable name for the store.
      *
      * Example:
@@ -43,6 +52,26 @@ class Store
      * @var Location[]
      */
     protected $locations;
+
+
+
+    /**
+     * @return int
+     */
+    public function getCompany(): int
+    {
+        return $this->company;
+    }
+
+
+
+    /**
+     * @param int $company
+     */
+    public function setCompany(int $company)
+    {
+        $this->company = $company;
+    }
 
 
 
@@ -104,10 +133,13 @@ class Store
         $this->locations = $locations;
     }
 
+
+
     /**
      * @param Location $location
      */
-    public function addLocation(Location $location) {
+    public function addLocation(Location $location)
+    {
         $this->locations[] = $location;
     }
 }

@@ -20,20 +20,19 @@ class Location extends Hydrator
         $arr = [];
 
         foreach ($data as $location) {
-            $locationStruct = new Struct\Location();
+            $locationStruct = new Struct\Store();
 
             $locationStruct->setCompany((int) $location['ARTICLE_COMPANY']);
             $locationStruct->setKey($location['LOCATION_KEY']);
             $locationStruct->setName($location['LOCATION_NAME']);
 
-
-            foreach ($location['LOCATION_NUMBERS'] as $number) {
-                $numberStruct = new Struct\Location\Number();
-
-                $numberStruct->setKey($number['NUMBER_KEY']);
-
-                $locationStruct->addNumber($numberStruct);
-            }
+//            foreach ($location['LOCATION_NUMBERS'] as $number) {
+//                $numberStruct = new Struct\Location\Number();
+//
+//                $numberStruct->setKey($number['NUMBER_KEY']);
+//
+//                $locationStruct->addNumber($numberStruct);
+//            }
 
 
             $arr[] = $locationStruct;

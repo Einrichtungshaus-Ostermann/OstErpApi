@@ -306,6 +306,4 @@ class Article extends Struct
     {
         $this->exhibit[] = $store;
     }
-
-
 }

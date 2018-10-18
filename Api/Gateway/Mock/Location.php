@@ -19,67 +19,89 @@ class Location extends Gateway
     {
         return [
             [
-                'LOCATION_KEY'     => 'WITTEN',
-                'LOCATION_NAME'    => 'Witten',
-                'LOCATION_NUMBERS' => [
-                    ['NUMBER_KEY' => 100],
-                    ['NUMBER_KEY' => 150],
-                    ['NUMBER_KEY' => 400],
-                    ['NUMBER_KEY' => 450],
-                    ['NUMBER_KEY' => 900],
-                ]
+                'LOCATION_KEY' => 100,
+                'STORE_KEY'    => 'WITTEN'
             ],
             [
-                'LOCATION_KEY'     => 'LEVERKUSEN',
-                'LOCATION_NAME'    => 'Leverkusen',
-                'LOCATION_NUMBERS' => [
-                    ['NUMBER_KEY' => 500],
-                    ['NUMBER_KEY' => 550],
-                    ['NUMBER_KEY' => 501],
-                    ['NUMBER_KEY' => 250],
-                    ['NUMBER_KEY' => 200],
-                ]
-
+                'LOCATION_KEY' => 150,
+                'STORE_KEY'    => 'WITTEN'
             ],
-
             [
-                'LOCATION_KEY'     => 'RECKLINGHAUSEN',
-                'LOCATION_NAME'    => 'Recklinghause',
-                'LOCATION_NUMBERS' => [
-                    ['NUMBER_KEY' => 600],
-                    ['NUMBER_KEY' => 615],
-                    ['NUMBER_KEY' => 315],
-                ]
-
+                'LOCATION_KEY' => 400,
+                'STORE_KEY'    => 'WITTEN'
             ],
-
-
-
             [
-                'LOCATION_KEY'     => 'BOTTROP',
-                'LOCATION_NAME'    => 'Bottrop',
-                'LOCATION_NUMBERS' => [
-                    ['NUMBER_KEY' => 800],
-                    ['NUMBER_KEY' => 850],
-                    ['NUMBER_KEY' => 700],
-                    ['NUMBER_KEY' => 750],
-                ]
-
+                'LOCATION_KEY' => 450,
+                'STORE_KEY'    => 'WITTEN'
             ],
-
-
-
             [
-                'LOCATION_KEY'     => 'LEVERKUSEN',
-                'LOCATION_NAME'    => 'Leverkusen',
-                'LOCATION_NUMBERS' => [
-                    ['NUMBER_KEY' => 660],
-                    ['NUMBER_KEY' => 665],
-                    ['NUMBER_KEY' => 950],
-                    ['NUMBER_KEY' => 365],
-                ]
-
-            ]
+                'LOCATION_KEY' => 900,
+                'STORE_KEY'    => 'WITTEN'
+            ],
+            [
+                'LOCATION_KEY' => 500,
+                'STORE_KEY'    => 'LEVERKUSEN'
+            ],
+            [
+                'LOCATION_KEY' => 550,
+                'STORE_KEY'    => 'LEVERKUSEN'
+            ],
+            [
+                'LOCATION_KEY' => 501,
+                'STORE_KEY'    => 'LEVERKUSEN'
+            ],
+            [
+                'LOCATION_KEY' => 250,
+                'STORE_KEY'    => 'LEVERKUSEN'
+            ],
+            [
+                'LOCATION_KEY' => 200,
+                'STORE_KEY'    => 'LEVERKUSEN'
+            ],
+            [
+                'LOCATION_KEY' => 600,
+                'STORE_KEY'    => 'RECKLINGHAUSEN'
+            ],
+            [
+                'LOCATION_KEY' => 615,
+                'STORE_KEY'    => 'RECKLINGHAUSEN'
+            ],
+            [
+                'LOCATION_KEY' => 315,
+                'STORE_KEY'    => 'RECKLINGHAUSEN'
+            ],
+            [
+                'LOCATION_KEY' => 800,
+                'STORE_KEY'    => 'BOTTROP'
+            ],
+            [
+                'LOCATION_KEY' => 850,
+                'STORE_KEY'    => 'BOTTROP'
+            ],
+            [
+                'LOCATION_KEY' => 700,
+                'STORE_KEY'    => 'BOTTROP'
+            ],
+            [
+                'LOCATION_KEY' => 750,
+                'STORE_KEY'    => 'BOTTROP'
+            ],
+            [
+                'LOCATION_KEY' => 660,
+                'STORE_KEY'    => 'LEVERKUSEN'
+            ],
+            [
+                'LOCATION_KEY' => 665,
+                'STORE_KEY'    => 'LEVERKUSEN'
+            ],
+            [
+                'LOCATION_KEY' => 950,
+                'STORE_KEY'    => 'LEVERKUSEN'
+            ],
+            [
+                'LOCATION_KEY' => 365,
+                'STORE_KEY'    => 'LEVERKUSEN'
+            ],
         ];
     }
 }
