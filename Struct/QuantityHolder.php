@@ -98,9 +98,9 @@ abstract class QuantityHolder extends Struct
 
 
     /**
-     * @return Location
+     * @return Location|null
      */
-    public function getLocation(): Location
+    public function getLocation()
     {
         return $this->location;
     }

@@ -19,12 +19,15 @@ class Store extends Hydrator
     {
         $arr = [];
 
-        foreach ($data as $location) {
+        foreach ($data as $store) {
             $storeStruct = new Struct\Store();
 
-            $storeStruct->setCompany((int) $location['COMPANY']);
-            $storeStruct->setKey($location['STORE_KEY']);
-            $storeStruct->setName($location['STORE_NAME']);
+            $storeStruct->setCompany((int) $store['COMPANY']);
+            $storeStruct->setKey($store['STORE_KEY']);
+            $storeStruct->setName($store['STORE_NAME']);
+
+
+            $storeStruct->setLocations($store['STORE_LOCATIONS'] ?? []);
 
             $arr[] = $storeStruct;
         }

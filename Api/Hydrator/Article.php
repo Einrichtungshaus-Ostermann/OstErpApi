@@ -22,7 +22,7 @@ class Article extends Hydrator
         foreach ($data as $article) {
             $articleStruct = new Struct\Article();
 
-            $articleStruct->setCompany((int) $article['ARTICLE_COMPANY']);
+            $articleStruct->setCompany((int) $article['COMPANY']);
             $articleStruct->setNumber((string) $article['ARTICLE_NUMBER']);
             $articleStruct->setName((string) $article['ARTICLE_NAME']);
             $articleStruct->setWeight((float) $article['ARTICLE_WEIGHT']);

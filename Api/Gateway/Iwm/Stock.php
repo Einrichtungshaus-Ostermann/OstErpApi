@@ -15,7 +15,7 @@ class Stock extends IwmGateway
 {
     public function findBy(array $parameters = []): array
     {
-        $parameters[] = 'LBDISP = \'L\' AND LBSTAT \'A\'';
+        $parameters[] = 'LBSTAT \'A\'';
 
         $query = '
             SELECT 
@@ -23,6 +23,7 @@ class Stock extends IwmGateway
             [stock.number],
             [stock.location],
             [stock.amount],
+            [stock.type]
             FROM IWMV2R1DTA.LBST00
             
         ';

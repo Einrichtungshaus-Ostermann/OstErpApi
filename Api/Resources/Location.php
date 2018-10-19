@@ -11,7 +11,37 @@
 
 namespace OstErpApi\Api\Resources;
 
+use OstErpApi\Api\Gateway\Gateway;
+use OstErpApi\Api\Hydrator\Hydrator;
+
 class Location extends Resource
 {
     protected $resourceName = 'Location';
+
+
+
+    public function findBy(array $params = [], array $options = []): array
+    {
+        $adapter = 'Mock';
+
+        /** @var Gateway $gateway */
+        $gateway = Shopware()->Container()->get('ost_erp_api.api.gateway.' . strtolower($adapter) . '.location');
+
+        $dataArr = $gateway->findBy($params);
+
+        foreach ($dataArr as &$stockEntry) {
+            $stockEntry['STOCK_LOCATION'] = Shopware()->Container()->get('ost_erp_api.api.resources.store')->findBy([
+                    '[location.company = ]' . $stockEntry['COMPANY'],
+                    '[location.key] = ' . $stockEntry['STOCK_LOCATION']
+                ], [
+                    'noLocations' => true
+                ])[0] ?? null;
+        }
+        unset($stockEntry);
+
+        /** @var Hydrator $hydrator */
+        $hydrator = Shopware()->Container()->get('ost_erp_api.api.hydrator.location');
+
+        return $hydrator->hydrate($dataArr);
+    }
 }

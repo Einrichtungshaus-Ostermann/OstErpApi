@@ -13,4 +13,35 @@ namespace OstErpApi\Struct;
 
 class Stock extends QuantityHolder
 {
+    /**
+     * The Stock Type
+     *
+     * K = InStore
+     * L = Normal
+     * B = Order
+     * P = Prospect
+     *
+     * @var string
+     */
+    protected $type;
+
+
+
+    /**
+     * @return string
+     */
+    public function getType(): string
+    {
+        return $this->type;
+    }
+
+
+
+    /**
+     * @param string $type
+     */
+    public function setType(string $type)
+    {
+        $this->type = $type;
+    }
 }

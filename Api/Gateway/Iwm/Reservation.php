@@ -24,7 +24,7 @@ class Reservation extends IwmGateway
             [reservation.company],
             [reservation.number],
             [reservation.location],
-            [reservation.amount],
+            [reservation.amount]
             FROM IWMV2R1DTA.LBST00
         ';
 

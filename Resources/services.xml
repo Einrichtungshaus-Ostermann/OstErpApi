@@ -7,15 +7,11 @@
 
         <!-- plugin services -->
         <service id="ost_erp_api.configuration_service" class="OstErpApi\Services\ConfigurationService">
-            <argument type="service" id="models" />
-            <argument type="service" id="shopware_storefront.context_service" />
-            <argument type="service" id="shopware.plugin.cached_config_reader" />
+            <argument type="service" id="models"/>
+            <argument type="service" id="shopware_storefront.context_service"/>
+            <argument type="service" id="shopware.plugin.cached_config_reader"/>
             <argument type="string">OstErpApi</argument>
         </service>
-
-
-
-
 
 
         <service id="ost_erp_api.api" class="OstErpApi\Api\Api">
@@ -27,10 +23,28 @@
         <service id="ost_erp_api.api.resources.location" class="OstErpApi\Api\Resources\Location">
         </service>
 
+        <service id="ost_erp_api.api.resources.reservation" class="OstErpApi\Api\Resources\Reservation">
+        </service>
+
+        <service id="ost_erp_api.api.resources.stock" class="OstErpApi\Api\Resources\Stock">
+        </service>
+
+        <service id="ost_erp_api.api.resources.store" class="OstErpApi\Api\Resources\Store">
+        </service>
+
         <service id="ost_erp_api.api.hydrator.article" class="OstErpApi\Api\Hydrator\Article">
         </service>
 
         <service id="ost_erp_api.api.hydrator.location" class="OstErpApi\Api\Hydrator\Location">
+        </service>
+
+        <service id="ost_erp_api.api.hydrator.reservation" class="OstErpApi\Api\Hydrator\Reservation">
+        </service>
+
+        <service id="ost_erp_api.api.hydrator.stock" class="OstErpApi\Api\Hydrator\Stock">
+        </service>
+
+        <service id="ost_erp_api.api.hydrator.store" class="OstErpApi\Api\Hydrator\Store">
         </service>
 
         <service id="ost_erp_api.api.gateway.mock.article" class="OstErpApi\Api\Gateway\Mock\Article">
@@ -39,12 +53,29 @@
         <service id="ost_erp_api.api.gateway.mock.location" class="OstErpApi\Api\Gateway\Mock\Location">
         </service>
 
+        <service id="ost_erp_api.api.gateway.mock.reservation" class="OstErpApi\Api\Gateway\Mock\Reservation">
+        </service>
+
+        <service id="ost_erp_api.api.gateway.mock.stock" class="OstErpApi\Api\Gateway\Mock\Stock">
+        </service>
+
+        <service id="ost_erp_api.api.gateway.mock.store" class="OstErpApi\Api\Gateway\Mock\Store">
+        </service>
+
         <service id="ost_erp_api.api.gateway.iwm.article" class="OstErpApi\Api\Gateway\Iwm\Article">
         </service>
 
         <service id="ost_erp_api.api.gateway.iwm.location" class="OstErpApi\Api\Gateway\Iwm\Location">
         </service>
 
+        <service id="ost_erp_api.api.gateway.iwm.reservation" class="OstErpApi\Api\Gateway\Iwm\Reservation">
+        </service>
+
+        <service id="ost_erp_api.api.gateway.iwm.stock" class="OstErpApi\Api\Gateway\Iwm\Stock">
+        </service>
+
+        <service id="ost_erp_api.api.gateway.iwm.store" class="OstErpApi\Api\Gateway\Iwm\Store">
+        </service>
 
 
     </services>

@@ -18,11 +18,9 @@ abstract class Resource
 {
     protected $resourceName;
 
-    public function findBy(array $params = []): array
+    public function findBy(array $params = [], array $options = []): array
     {
         $adapter = 'Mock';
-
-        $adapter = 'Iwm';
 
         /** @var Gateway $gateway */
         $gateway = Shopware()->Container()->get('ost_erp_api.api.gateway.' . strtolower($adapter) . '.' . strtolower($this->resourceName));
@@ -33,5 +31,10 @@ abstract class Resource
         $hydrator = Shopware()->Container()->get('ost_erp_api.api.hydrator.' . strtolower($this->resourceName));
 
         return $hydrator->hydrate($dataArr);
+    }
+
+    protected function isOptionTrue(array $options, string $optionName): bool
+    {
+        return isset($options[$optionName]) && $options[$optionName] === true;
     }
 }
