@@ -39,15 +39,7 @@ class Article extends IwmGateway
         // add the where append
         $query .= ' WHERE ' . implode(' AND ', $parameters) . ' ';
         $res = static::$db->query($query);
-        $articles = $res->fetchAll(\PDO::FETCH_ASSOC);
 
-        foreach ($articles as &$article) {
-            $article['ARTICLE_STOCK'] = [
-                ['STOCK_LOCATION' => 'WITTEN', 'STOCK_STOCK' => 1]
-            ];
-        }
-
-
-        return $articles;
+        return $res->fetchAll(\PDO::FETCH_ASSOC);
     }
 }
