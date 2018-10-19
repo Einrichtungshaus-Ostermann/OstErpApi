@@ -44,7 +44,7 @@ class ArticleTest extends TestCase
         $articles = $articleResource->findBy($parameter);
         $articleMockData = $articleMockGateway->findBy($parameter);
 
-        $this->assertEquals(count($articles), 1);
+        $this->assertCount(count($articles), $articleMockData);
 
         foreach ($articles as $article) {
             $this->checkArticleFields($article, $articleMockData);
