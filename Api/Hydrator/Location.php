@@ -23,7 +23,7 @@ class Location extends Hydrator
             $locationStruct = new Struct\Location();
 
             $locationStruct->setCompany((int) $location['COMPANY']);
-            $locationStruct->setKey($location['LOCATION_KEY']);
+            $locationStruct->setKey((string) $location['LOCATION_KEY']);
             $locationStruct->setStore($location['LOCATION_STORE']);
 
             $arr[] = $locationStruct;
