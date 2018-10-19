@@ -29,15 +29,15 @@ class Location extends Resource
 
         $dataArr = $gateway->findBy($params);
 
-        foreach ($dataArr as &$stockEntry) {
-            $stockEntry['STOCK_LOCATION'] = Shopware()->Container()->get('ost_erp_api.api.resources.store')->findBy([
-                    '[location.company = ]' . $stockEntry['COMPANY'],
-                    '[location.key] = ' . $stockEntry['STOCK_LOCATION']
+        foreach ($dataArr as &$locationEntry) {
+            $locationEntry['LOCATION_STORE'] = Shopware()->Container()->get('ost_erp_api.api.resources.store')->findBy([
+                    '[store.company = ]' . $locationEntry['COMPANY'],
+                    '[store.key] = ' . $locationEntry['STORE_KEY']
                 ], [
                     'noLocations' => true
                 ])[0] ?? null;
         }
-        unset($stockEntry);
+        unset($locationEntry);
 
         /** @var Hydrator $hydrator */
         $hydrator = Shopware()->Container()->get('ost_erp_api.api.hydrator.location');

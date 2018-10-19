@@ -15,34 +15,21 @@ use OstErpApi\Api\Gateway\Gateway;
 
 class Store extends Gateway
 {
+
     public function findBy(array $parameters = []): array
     {
-        return [
-            [
-                'STORE_COMPANY' => '1',
-                'STORE_KEY'     => 'WITTEN',
-                'STORE_NAME'    => 'Witten',
-            ],
-            [
-                'STORE_COMPANY' => '1',
-                'STORE_KEY'     => 'LEVERKUSEN',
-                'STORE_NAME'    => 'Leverkusen',
-            ],
-            [
-                'STORE_COMPANY' => '1',
-                'STORE_KEY'     => 'RECKLINGHAUSEN',
-                'STORE_NAME'    => 'Recklinghause',
-            ],
-            [
-                'STORE_COMPANY' => '1',
-                'STORE_KEY'     => 'BOTTROP',
-                'STORE_NAME'    => 'Bottrop',
-            ],
-            [
-                'STORE_COMPANY' => '1',
-                'STORE_KEY'     => 'LEVERKUSEN',
-                'STORE_NAME'    => 'Leverkusen',
-            ]
-        ];
+        $stores = \OstErpApi\Api\Gateway\Iwm\Store::STORES;
+
+        if (empty($parameters)) {
+            return $stores;
+        }
+
+        foreach ($stores as $store) {
+            if (in_array(explode('[store.key] = ', $parameters[1])[0], $store['LOCATION_NUMBERS'], true)) {
+                return $store;
+            }
+        }
+
+        return $stores;
     }
 }

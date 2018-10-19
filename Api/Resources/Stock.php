@@ -27,8 +27,8 @@ class Stock extends Resource
 
         foreach ($dataArr as &$stockEntry) {
             $stockEntry['STOCK_LOCATION'] = Shopware()->Container()->get('ost_erp_api.api.resources.location')->findBy([
-                '[store.company = ]' . $stockEntry['COMPANY'],
-                '[store.key] = ' . $stockEntry['STOCK_LOCATION']
+                '[location.company = ]' . $stockEntry['COMPANY'],
+                '[location.key] = ' . $stockEntry['STOCK_LOCATION']
                 ])[0] ?? null;
         }
         unset($stockEntry);

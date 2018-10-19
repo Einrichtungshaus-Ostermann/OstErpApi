@@ -41,7 +41,7 @@ class Stock extends Gateway
                 'COMPANY'        => '1',
                 'ARTICLE_NUMBER' => '930392',
                 'STOCK_QUANTITY' => 2342,
-                'STOCK_LOCATION' => 150,
+                'STOCK_LOCATION' => 100,
                 'STOCK_TYPE'     => 'K'
             ],
         ];

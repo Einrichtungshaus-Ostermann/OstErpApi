@@ -26,7 +26,7 @@ class Article extends Resource
         $dataArr = $gateway->findBy($params);
 
         foreach ($dataArr as &$articleEntry) {
-            if (!$this->isOptionTrue($options, 'noRealStock') && $this->isOptionTrue($options, 'noStock')) {
+            if (!$this->isOptionTrue($options, 'noRealStock') && !$this->isOptionTrue($options, 'noStock')) {
                 $articleEntry['ARTICLE_STOCK'] = Shopware()->Container()->get('ost_erp_api.api.resources.stock')->findBy([
                         '[stock.company = ]' . $articleEntry['COMPANY'],
                         '[stock.number] = ' . $articleEntry['ARTICLE_NUMBER'],
@@ -34,7 +34,7 @@ class Article extends Resource
                     ]) ?? [];
             }
 
-            if (!$this->isOptionTrue($options, 'noRealStock') && $this->isOptionTrue($options, 'noReservations')) {
+            if (!$this->isOptionTrue($options, 'noRealStock') && !$this->isOptionTrue($options, 'noReservations')) {
                 $articleEntry['ARTICLE_RESERVATION'] = Shopware()->Container()->get('ost_erp_api.api.resources.reservation')->findBy([
                         '[reservation.company = ]' . $articleEntry['COMPANY'],
                         '[reservation.number] = ' . $articleEntry['ARTICLE_NUMBER']
@@ -97,11 +97,9 @@ class Article extends Resource
                 /** @var \OstErpApi\Struct\Stock $stock */
                 foreach ($stocks as $i => $stock) {
                     if ($stock->getLocation() !== null) {
-                        $articleEntry['ARTICLE_EXHIBIT'][$stock->getLocation()->getStore()] = $i;
+                        $articleEntry['ARTICLE_EXHIBIT'][$stock->getLocation()->getStore()->getKey()] = $stock->getLocation()->getStore();
                     }
                 }
-
-                $articleEntry['ARTICLE_EXHIBIT'] = array_flip($articleEntry['ARTICLE_EXHIBIT'][]);
             }
         }
         unset($articleEntry);
