@@ -5,16 +5,15 @@ use PHPUnit\Framework\TestCase;
 
 class ArticleTest extends TestCase
 {
-
     public function testArticleMock()
     {
-        $this->testArticleResourceWithParameter([]);
-        $this->testArticleResourceWithParameter(['bla' => 'true']);
+        $this->checkArticleResourceWithParameter([]);
+        $this->checkArticleResourceWithParameter(['bla' => 'true']);
     }
 
 
 
-    private function testArticleFields(Article $article, array $mockData)
+    private function checkArticleFields(Article $article, array $mockData)
     {
         foreach ($mockData as $name => $value) {
             switch ($name) {
@@ -36,7 +35,7 @@ class ArticleTest extends TestCase
 
 
 
-    private function testArticleResourceWithParameter(array $parameter)
+    private function checkArticleResourceWithParameter(array $parameter)
     {
         $articleResource = Shopware()->Container()->get('ost_erp_api.api.resources.article');
         $articleMockGateway = Shopware()->Container()->get('ost_erp_api.api.gateway.mock.article');
@@ -48,7 +47,7 @@ class ArticleTest extends TestCase
         $this->assertEquals(count($articles), 1);
 
         foreach ($articles as $article) {
-            $this->testArticleFields($article, $articleMockData);
+            $this->checkArticleFields($article, $articleMockData);
         }
     }
 }
