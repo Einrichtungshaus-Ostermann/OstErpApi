@@ -46,8 +46,8 @@ class ArticleTest extends TestCase
 
         $this->assertCount(count($articles), $articleMockData);
 
-        foreach ($articles as $article) {
-            $this->checkArticleFields($article, $articleMockData);
+        foreach ($articles as $i => $article) {
+            $this->checkArticleFields($article, $articleMockData[$i]);
         }
     }
 }
