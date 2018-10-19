@@ -68,7 +68,7 @@ class Article extends Resource
                 $articleEntry['ARTICLE_REAL_STOCK'] = [];
                 foreach ($amountPerLocation as $locationKey => $amount) {
                     $stockStruct = new \OstErpApi\Struct\Stock();
-                    $stockStruct->setCompany($articleEntry['COMPANY']);
+                    $stockStruct->setCompany((int) $articleEntry['COMPANY']);
                     $stockStruct->setType('L');
                     $stockStruct->setQuantity($amount);
 
