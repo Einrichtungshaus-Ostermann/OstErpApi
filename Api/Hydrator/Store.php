@@ -26,7 +26,6 @@ class Store extends Hydrator
             $storeStruct->setKey($store['STORE_KEY']);
             $storeStruct->setName($store['STORE_NAME']);
 
-
             $storeStruct->setLocations($store['STORE_LOCATIONS'] ?? []);
 
             $arr[] = $storeStruct;

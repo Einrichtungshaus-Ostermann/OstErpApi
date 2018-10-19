@@ -25,7 +25,10 @@ class Reservation extends Hydrator
             $reservationStruct->setCompany((int) $stock['COMPANY']);
             $reservationStruct->setNumber((string) $stock['ARTICLE_NUMBER']);
             $reservationStruct->setQuantity((int) $stock['RESERVATION_QUANTITY']);
-            $reservationStruct->setLocation($stock['RESERVATION_LOCATION']);
+
+            if ($stock['RESERVATION_LOCATION'] !== null) {
+                $reservationStruct->setLocation($stock['RESERVATION_LOCATION']);
+            }
 
             $arr[] = $reservationStruct;
         }
