@@ -104,11 +104,18 @@ class Location extends Gateway
 
     public function findBy(array $parameters = []): array
     {
-        if (empty($parameters))
-        {
-            return self::LOCATIONS;
+        $locations = self::LOCATIONS;
+
+        if (empty($parameters)) {
+            return $locations;
         }
 
-        return self::LOCATIONS[100];
+        foreach ($locations as $location) {
+            if (in_array(explode('[location.key] = ', $parameters[1])[0], $location['LOCATION_KEY'], true)) {
+                return $location;
+            }
+        }
+
+        return $locations;
     }
 }
