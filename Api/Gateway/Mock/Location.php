@@ -111,7 +111,7 @@ class Location extends Gateway
         }
 
         foreach ($locations as $location) {
-            if (in_array(explode('[location.key] = ', $parameters[1])[0], $location['LOCATION_KEY'], true)) {
+            if (explode('[location.key] = ', $parameters[1])[0] === $location['LOCATION_KEY']) {
                 return $location;
             }
         }
