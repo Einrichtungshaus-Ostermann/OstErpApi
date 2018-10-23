@@ -36,6 +36,14 @@ class ReservedStock extends Struct
      */
     protected $quantity;
 
+    /**
+     * The company struct.
+     *
+     * @var Company
+     */
+    protected $company;
+
+
 
 
     /**
@@ -95,6 +103,32 @@ class ReservedStock extends Struct
     public function setQuantity(int $quantity)
     {
         $this->quantity = $quantity;
+    }
+
+
+
+    /**
+     * Getter method for the property.
+     *
+     * @return Company
+     */
+    public function getCompany()
+    {
+        return $this->company;
+    }
+
+
+
+    /**
+     * Setter method for the property.
+     *
+     * @param Company $company
+     *
+     * @return void
+     */
+    public function setCompany(Company $company)
+    {
+        $this->company = $company;
     }
 
 

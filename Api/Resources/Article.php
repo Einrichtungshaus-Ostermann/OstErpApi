@@ -13,6 +13,7 @@ namespace OstErpApi\Api\Resources;
 
 use OstErpApi\Api\Gateway\Gateway;
 use OstErpApi\Api\Hydrator\Hydrator;
+use OstErpApi\Struct;
 
 class Article extends Resource
 {
@@ -52,17 +53,56 @@ class Article extends Resource
 
 
 
+
+
+            /* @var $reservedStockResource Stock */
+            $reservedStockResource = Shopware()->Container()->get('ost_erp_api.api.resources.reserved_stock');
+
+            $reservedStock = $reservedStockResource->findBy( array(
+                "[reservedstock.number] = '" . $article['ARTICLE_NUMBER'] ."'"
+            ));
+
+
+            $article['ARTICLE_RESERVED_STOCK'] = $reservedStock;
+
+
+
+
+
+
             /* @var $companyResource Company */
             $companyResource = Shopware()->Container()->get('ost_erp_api.api.resources.company');
 
             $company = $companyResource->findOneBy( array(
-                "[company.key] = '" . $stock['ARTICLE_COMPANY'] ."'"
+                "[company.key] = '" . $article['ARTICLE_COMPANY'] ."'"
             ));
 
 
-            $stock['ARTICLE_COMPANY'] = $company;
+            $article['ARTICLE_COMPANY'] = $company;
 
 
+
+
+
+
+
+
+
+            $exhibits = array();
+
+            /* @var $stock Struct\Stock */
+            foreach ( $article['ARTICLE_STOCK'] as $stock )
+            {
+                $store = $stock->getLocation()->getStore();
+
+                if ( isset( $exhibits[$store->getKey()]))
+                    continue;
+
+                $exhibits[$store->getKey()] = $store;
+
+            }
+
+            $article['ARTICLE_EXHIBITS'] = array_values($exhibits);
 
 
 

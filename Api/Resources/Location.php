@@ -43,10 +43,21 @@ class Location extends Resource
             ));
 
 
-            $stock['LOCATION_STORE'] = $store;
+            $location['LOCATION_STORE'] = $store;
 
 
 
+
+
+            /* @var $companyResource Company */
+            $companyResource = Shopware()->Container()->get('ost_erp_api.api.resources.company');
+
+            $company = $companyResource->findOneBy( array(
+                "[company.key] = '" . $location['LOCATION_COMPANY'] ."'"
+            ));
+
+
+            $location['LOCATION_COMPANY'] = $company;
 
 
 

@@ -23,7 +23,7 @@
         <service id="ost_erp_api.api.resources.location" class="OstErpApi\Api\Resources\Location">
         </service>
 
-        <service id="ost_erp_api.api.resources.reservation" class="OstErpApi\Api\Resources\Reservation">
+        <service id="ost_erp_api.api.resources.reserved_stock" class="OstErpApi\Api\Resources\ReservedStock">
         </service>
 
         <service id="ost_erp_api.api.resources.stock" class="OstErpApi\Api\Resources\Stock">
@@ -52,7 +52,7 @@
         <service id="ost_erp_api.api.hydrator.location" class="OstErpApi\Api\Hydrator\Location">
         </service>
 
-        <service id="ost_erp_api.api.hydrator.reservation" class="OstErpApi\Api\Hydrator\Reservation">
+        <service id="ost_erp_api.api.hydrator.reserved_stock" class="OstErpApi\Api\Hydrator\ReservedStock">
         </service>
 
         <service id="ost_erp_api.api.hydrator.stock" class="OstErpApi\Api\Hydrator\Stock">
@@ -87,6 +87,11 @@
             <argument type="service" id="ost_erp_api.configuration_service"/>
         </service>
 
+
+
+
+
+
         <service id="ost_erp_api.api.gateway.iwm.article" class="OstErpApi\Api\Gateway\Iwm\Article">
             <argument type="service" id="ost_erp_api.configuration_service"/>
         </service>
@@ -95,7 +100,7 @@
             <argument type="service" id="ost_erp_api.configuration_service"/>
         </service>
 
-        <service id="ost_erp_api.api.gateway.iwm.reservation" class="OstErpApi\Api\Gateway\Iwm\Reservation">
+        <service id="ost_erp_api.api.gateway.iwm.reserved_stock" class="OstErpApi\Api\Gateway\Iwm\ReservedStock">
             <argument type="service" id="ost_erp_api.configuration_service"/>
         </service>
 

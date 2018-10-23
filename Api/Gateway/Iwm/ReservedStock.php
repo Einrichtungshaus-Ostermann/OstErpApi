@@ -13,19 +13,19 @@ namespace OstErpApi\Api\Gateway\Iwm;
 
 use OstErpApi\Api\Gateway\Iwm\Mapping\Parser;
 
-class Reservation extends Gateway
+class ReservedStock extends Gateway
 {
     public function findBy(array $parameters = []): array
     {
-        $parameters[] = 'VRRSTT = 1 AND VRSTAT = \'A\'';
+        $parameters[] = "VRRSTT = 1 AND VRSTAT = 'A'";
 
         $query = '
             SELECT 
-            [reservation.company],
-            [reservation.number],
-            [reservation.location],
-            [reservation.amount]
-            FROM IWMV2R1DTA.LBST00
+            [reservedstock.company],
+            [reservedstock.number],
+            [reservedstock.location],
+            [reservedstock.quantity]
+            FROM IWMV2R1DTA.VRES00
         ';
 
         $parser = new Parser();
