@@ -62,7 +62,7 @@ class Shopware_Controllers_Frontend_OstErpApi extends Enlight_Controller_Action 
         $asd = $api->findBy(
             "article",
             array(
-                "[article.number] = 121535"
+                "[article.number] = 403096"
             )
         );
 

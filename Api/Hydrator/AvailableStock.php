@@ -19,19 +19,20 @@ class AvailableStock extends Hydrator
     {
         $arr = [];
 
-        foreach ($data as $stock) {
-            $reservationStruct = new Struct\AvailableStock();
+        foreach ($data as $availableStock) {
+            $availableStruct = new Struct\AvailableStock();
 
 
 
-            $reservationStruct->setNumber((string) $stock['ARTICLE_NUMBER']);
-            $reservationStruct->setQuantity((int) $stock['AVAILABLE_STOCK_QUANTITY']);
+            $availableStruct->setNumber((string) $availableStock['ARTICLE_NUMBER']);
+            $availableStruct->setQuantity((int) $availableStock['AVAILABLESTOCK_QUANTITY']);
 
-            if ($stock['AVAILABLE_STOCK_STORE'] !== null) {
-                $reservationStruct->setStore($stock['AVAILABLE_STOCK_STORE']);
-            }
 
-            $arr[] = $reservationStruct;
+            $availableStruct->setStore($availableStock['AVAILABLESTOCK_STORE']);
+
+
+
+            $arr[] = $availableStruct;
         }
 
         return $arr;

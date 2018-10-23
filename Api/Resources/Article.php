@@ -82,7 +82,33 @@ class Article extends Resource
 
 
 
+            // array( 'WITTEN' => array( 'ARTICLE_NUMBER' => 123, 'AVAILABLESTOCK_QUANTITY' => 1, 'AVAILABLESTOCK_STORE' => StoreStruct )
+            $availableStock = array();
 
+
+
+
+            /* @var $stock Struct\Stock */
+            foreach ( $article['ARTICLE_STOCK'] as $stock )
+            {
+                $store = $stock->getLocation()->getStore();
+
+                if ( $stock->getType() != "L" )
+                    continue;
+
+                if ( !isset( $availableStock[$store->getKey()]))
+                    $availableStock[$store->getKey()] = array(
+                        'ARTICLE_NUMBER' => $stock->getNumber(),
+                        'AVAILABLESTOCK_QUANTITY' => 0,
+                        'AVAILABLESTOCK_STORE' => $store
+                    );
+
+
+                $availableStock[$store->getKey()]['AVAILABLESTOCK_QUANTITY'] += $stock->getQuantity();
+            }
+
+
+            $article['ARTICLE_AVAILABLE_STOCK'] = array_values($availableStock);
 
 
 
@@ -94,6 +120,9 @@ class Article extends Resource
             foreach ( $article['ARTICLE_STOCK'] as $stock )
             {
                 $store = $stock->getLocation()->getStore();
+
+                if ( $stock->getType() != "K" )
+                    continue;
 
                 if ( isset( $exhibits[$store->getKey()]))
                     continue;
