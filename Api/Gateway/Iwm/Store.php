@@ -13,39 +13,20 @@ namespace OstErpApi\Api\Gateway\Iwm;
 
 class Store extends Gateway
 {
-    const STORES = [
+    private $data = [
         [
             'STORE_KEY'        => 'WITTEN',
-            'STORE_NAME'       => 'Witten',
-            'LOCATION_NUMBERS' => [
-                ['NUMBER_KEY' => 100],
-                ['NUMBER_KEY' => 150],
-                ['NUMBER_KEY' => 400],
-                ['NUMBER_KEY' => 450],
-                ['NUMBER_KEY' => 900],
-            ]
+            'STORE_NAME'       => 'Witten'
         ],
         [
             'STORE_KEY'        => 'LEVERKUSEN',
-            'STORE_NAME'       => 'Leverkusen',
-            'LOCATION_NUMBERS' => [
-                ['NUMBER_KEY' => 500],
-                ['NUMBER_KEY' => 550],
-                ['NUMBER_KEY' => 501],
-                ['NUMBER_KEY' => 250],
-                ['NUMBER_KEY' => 200],
-            ]
+            'STORE_NAME'       => 'Leverkusen'
 
         ],
 
         [
             'STORE_KEY'        => 'RECKLINGHAUSEN',
-            'STORE_NAME'       => 'Recklinghause',
-            'LOCATION_NUMBERS' => [
-                ['NUMBER_KEY' => 600],
-                ['NUMBER_KEY' => 615],
-                ['NUMBER_KEY' => 315],
-            ]
+            'STORE_NAME'       => 'Recklinghausen'
 
         ],
 
@@ -53,33 +34,26 @@ class Store extends Gateway
 
         [
             'STORE_KEY'        => 'BOTTROP',
-            'STORE_NAME'       => 'Bottrop',
-            'LOCATION_NUMBERS' => [
-                ['NUMBER_KEY' => 800],
-                ['NUMBER_KEY' => 850],
-                ['NUMBER_KEY' => 700],
-                ['NUMBER_KEY' => 750],
-            ]
+            'STORE_NAME'       => 'Bottrop'
 
         ],
 
 
 
         [
-            'STORE_KEY'        => 'LEVERKUSEN',
-            'STORE_NAME'       => 'Leverkusen',
-            'LOCATION_NUMBERS' => [
-                ['NUMBER_KEY' => 660],
-                ['NUMBER_KEY' => 665],
-                ['NUMBER_KEY' => 950],
-                ['NUMBER_KEY' => 365],
-            ]
+            'STORE_KEY'        => 'HAAN',
+            'STORE_NAME'       => 'Haan'
 
         ]
     ];
 
-    public function findBy(array $parameters = []): array
+    public function findBy(array $params = []): array
     {
-        return self::STORES;
+        $data = $this->findInArray(
+            $this->data,
+            $params
+        );
+
+        return $data;
     }
 }

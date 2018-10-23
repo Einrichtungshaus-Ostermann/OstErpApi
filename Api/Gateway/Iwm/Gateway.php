@@ -13,9 +13,17 @@ namespace OstErpApi\Api\Gateway\Iwm;
 
 use OstErpApi\Services\ConfigurationService;
 use OstErpApi\Api\Gateway\Gateway as GatewayParent;
+use OstErpApi\Api\ArrayTrait;
+
+
 
 abstract class Gateway extends GatewayParent
 {
+
+
+    use ArrayTrait;
+
+
     /**
      * @var \PDO
      */

@@ -41,10 +41,6 @@ class Store extends Struct
 
 
 
-    /**
-     * @var Location[]
-     */
-    protected $locations;
 
 
 
@@ -89,31 +85,4 @@ class Store extends Struct
 
 
 
-    /**
-     * @return Location[]
-     */
-    public function getLocations(): array
-    {
-        return $this->locations;
-    }
-
-
-
-    /**
-     * @param Location[] $locations
-     */
-    public function setLocations(array $locations)
-    {
-        $this->locations = $locations;
-    }
-
-
-
-    /**
-     * @param Location $location
-     */
-    public function addLocation(Location $location)
-    {
-        $this->locations[] = $location;
-    }
 }

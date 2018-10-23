@@ -32,6 +32,20 @@
         <service id="ost_erp_api.api.resources.store" class="OstErpApi\Api\Resources\Store">
         </service>
 
+
+        <service id="ost_erp_api.api.resources.company" class="OstErpApi\Api\Resources\Company">
+        </service>
+
+
+
+
+
+
+
+
+
+
+
         <service id="ost_erp_api.api.hydrator.article" class="OstErpApi\Api\Hydrator\Article">
         </service>
 
@@ -47,38 +61,50 @@
         <service id="ost_erp_api.api.hydrator.store" class="OstErpApi\Api\Hydrator\Store">
         </service>
 
-        <service id="ost_erp_api.api.gateway.gateway" class="OstErpApi\Api\Gateway\Gateway" abstract="true">
+        <service id="ost_erp_api.api.hydrator.company" class="OstErpApi\Api\Hydrator\Company">
+        </service>
+
+
+
+
+        <service id="ost_erp_api.api.gateway.mock.article" class="OstErpApi\Api\Gateway\Mock\Article">
             <argument type="service" id="ost_erp_api.configuration_service"/>
         </service>
 
-        <service id="ost_erp_api.api.gateway.mock.article" class="OstErpApi\Api\Gateway\Mock\Article" parent="ost_erp_api.api.gateway.gateway">
+        <service id="ost_erp_api.api.gateway.mock.location" class="OstErpApi\Api\Gateway\Mock\Location">
+            <argument type="service" id="ost_erp_api.configuration_service"/>
         </service>
 
-        <service id="ost_erp_api.api.gateway.mock.location" class="OstErpApi\Api\Gateway\Mock\Location" parent="ost_erp_api.api.gateway.gateway">
+        <service id="ost_erp_api.api.gateway.mock.reservation" class="OstErpApi\Api\Gateway\Mock\Reservation">
+            <argument type="service" id="ost_erp_api.configuration_service"/>
         </service>
 
-        <service id="ost_erp_api.api.gateway.mock.reservation" class="OstErpApi\Api\Gateway\Mock\Reservation" parent="ost_erp_api.api.gateway.gateway">
+        <service id="ost_erp_api.api.gateway.mock.stock" class="OstErpApi\Api\Gateway\Mock\Stock">
+            <argument type="service" id="ost_erp_api.configuration_service"/>
         </service>
 
-        <service id="ost_erp_api.api.gateway.mock.stock" class="OstErpApi\Api\Gateway\Mock\Stock" parent="ost_erp_api.api.gateway.gateway">
-        </service>
-
-        <service id="ost_erp_api.api.gateway.mock.store" class="OstErpApi\Api\Gateway\Mock\Store" parent="ost_erp_api.api.gateway.gateway">
+        <service id="ost_erp_api.api.gateway.mock.store" class="OstErpApi\Api\Gateway\Mock\Store">
+            <argument type="service" id="ost_erp_api.configuration_service"/>
         </service>
 
         <service id="ost_erp_api.api.gateway.iwm.article" class="OstErpApi\Api\Gateway\Iwm\Article">
+            <argument type="service" id="ost_erp_api.configuration_service"/>
         </service>
 
         <service id="ost_erp_api.api.gateway.iwm.location" class="OstErpApi\Api\Gateway\Iwm\Location">
+            <argument type="service" id="ost_erp_api.configuration_service"/>
         </service>
 
         <service id="ost_erp_api.api.gateway.iwm.reservation" class="OstErpApi\Api\Gateway\Iwm\Reservation">
+            <argument type="service" id="ost_erp_api.configuration_service"/>
         </service>
 
         <service id="ost_erp_api.api.gateway.iwm.stock" class="OstErpApi\Api\Gateway\Iwm\Stock">
+            <argument type="service" id="ost_erp_api.configuration_service"/>
         </service>
 
         <service id="ost_erp_api.api.gateway.iwm.store" class="OstErpApi\Api\Gateway\Iwm\Store">
+            <argument type="service" id="ost_erp_api.configuration_service"/>
         </service>
 
 

@@ -1,12 +1,23 @@
 <?php declare(strict_types=1);
 
-namespace OstErpApi\Controllers\Frontend;
 
-use Enlight_Controller_Action;
+
+function p( $var )
+{
+    echo "<pre>";
+
+    print_r( $var );
+
+    echo "</pre>";
+
+    die();
+}
+
+
 use Shopware\Components\CSRFWhitelistAware;
 use OstErpApi\Api\Api;
 
-class OstErpApi extends Enlight_Controller_Action implements CSRFWhitelistAware
+class Shopware_Controllers_Frontend_OstErpApi extends Enlight_Controller_Action implements CSRFWhitelistAware
 {
     /**
      * ...
@@ -57,8 +68,7 @@ class OstErpApi extends Enlight_Controller_Action implements CSRFWhitelistAware
 
 
 
-        var_dump($asd);
-        die();
+        p($asd);
     }
 
 

@@ -32,7 +32,7 @@ class Article extends Hydrator
             $articleStruct->setAvailableStock($article['ARTICLE_AVAILABLE_STOCK'] ?? []);
             $articleStruct->setExhibits($article['ARTICLE_EXHIBITS'] ?? []);
 
-            $articleStruct->setCompany($article['COMPANY']);
+            $articleStruct->setCompany($article['ARTICLE_COMPANY']);
 
             $arr[] = $articleStruct;
         }

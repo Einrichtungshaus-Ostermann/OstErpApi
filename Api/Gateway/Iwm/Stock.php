@@ -15,7 +15,7 @@ class Stock extends Gateway
 {
     public function findBy(array $parameters = []): array
     {
-        $parameters[] = 'LBSTAT \'A\'';
+        $parameters[] = "LBSTAT = 'A'";
 
         $query = '
             SELECT 

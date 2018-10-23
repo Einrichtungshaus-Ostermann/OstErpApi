@@ -45,14 +45,34 @@ class Stock extends Resource
         {
 
             /* @var $companyResource Company */
-            $companyResource = Shopware()->Container()->get('ost_erp_api.api.rescources.company');
+            $companyResource = Shopware()->Container()->get('ost_erp_api.api.resources.company');
 
-            $company = $companyResource->findBy( array(
+            $company = $companyResource->findOneBy( array(
                 "[company.key] = '" . $stock['STOCK_COMPANY'] ."'"
             ));
 
 
             $stock['STOCK_COMPANY'] = $company;
+
+
+
+
+
+            /* @var $locationResource Location */
+            $locationResource = Shopware()->Container()->get('ost_erp_api.api.resources.location');
+
+            $location = $locationResource->findOneBy( array(
+                "[location.key] = '" . $stock['STOCK_LOCATION'] ."'"
+            ));
+
+
+            $stock['STOCK_LOCATION'] = $location;
+
+
+
+
+
+
 
 
 

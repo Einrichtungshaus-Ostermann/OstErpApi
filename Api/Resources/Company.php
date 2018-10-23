@@ -22,11 +22,11 @@ class Company extends Resource
 
     protected $data = array(
         array(
-            'COMPANY_KEY' => 1,
+            'COMPANY_KEY' => "1",
             'COMPANY_NAME' => "Ostermann"
         ),
         array(
-            'COMPANY_KEY' => 3,
+            'COMPANY_KEY' => "3",
             'COMPANY_NAME' => "Trends"
         )
     );

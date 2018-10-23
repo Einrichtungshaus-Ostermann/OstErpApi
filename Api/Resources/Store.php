@@ -25,24 +25,26 @@ class Store extends Resource
     {
         $adapter = Shopware()->Container()->get( "ost_erp_api.configuration_service" )->get( "adapter" );
 
+
+
         /** @var Gateway $gateway */
         $gateway = Shopware()->Container()->get('ost_erp_api.api.gateway.' . strtolower($adapter) . '.store');
 
-        $dataArr = $gateway->findBy($params);
+        $stores = $gateway->findBy($params);
 
-        foreach ($dataArr as &$storeEntry) {
-            if (!$this->isOptionTrue($options, 'noLocations')) {
-                $storeEntry['STORE_LOCATIONS'] = Shopware()->Container()->get('ost_erp_api.api.resources.location')->findBy([
-                        '[store.company = ]' . $storeEntry['COMPANY'],
-                        '[store.key] = ' . $storeEntry['STORE_KEY']
-                    ]) ?? [];
-            }
-        }
-        unset($storeEntry);
+
+
+
+
+
+
 
         /** @var Hydrator $hydrator */
         $hydrator = Shopware()->Container()->get('ost_erp_api.api.hydrator.store');
 
-        return $hydrator->hydrate($dataArr);
+        return $hydrator->hydrate($stores);
+
+
+
     }
 }

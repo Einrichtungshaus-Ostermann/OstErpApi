@@ -40,7 +40,7 @@ class Article extends Resource
         {
 
             /* @var $stockResource Stock */
-            $stockResource = Shopware()->Container()->get('ost_erp_api.api.rescources.' . strtolower($adapter) . '.stock');
+            $stockResource = Shopware()->Container()->get('ost_erp_api.api.resources.stock');
 
             $stock = $stockResource->findBy( array(
                 "[stock.number] = '" . $article['ARTICLE_NUMBER'] ."'"
@@ -48,6 +48,20 @@ class Article extends Resource
 
 
             $article['ARTICLE_STOCK'] = $stock;
+
+
+
+
+            /* @var $companyResource Company */
+            $companyResource = Shopware()->Container()->get('ost_erp_api.api.resources.company');
+
+            $company = $companyResource->findOneBy( array(
+                "[company.key] = '" . $stock['ARTICLE_COMPANY'] ."'"
+            ));
+
+
+            $stock['ARTICLE_COMPANY'] = $company;
+
 
 
 
