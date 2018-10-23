@@ -11,7 +11,9 @@
 
 namespace OstErpApi\Api\Gateway\Iwm\Mapping;
 
-class Parser
+use OstErpApi\Api\Gateway\ParserInterface;
+
+class Parser implements ParserInterface
 {
     public function parse($query, $addAlias = true)
     {

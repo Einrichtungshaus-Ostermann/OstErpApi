@@ -9,7 +9,7 @@
  * @license   proprietary
  */
 
-namespace OstErpApi\Api\Gateway\Iwm\Mapping\Reservation;
+namespace OstErpApi\Api\Gateway\Iwm\Mapping\Stock;
 
 use OstErpApi\Api\Gateway\Iwm\Mapping\Mapping;
 
@@ -17,7 +17,7 @@ class Location implements Mapping
 {
     public static function getAlias()
     {
-        return 'RESERVATION_LOCATION';
+        return 'STOCK_LOCATION';
     }
 
     public static function getColumn()

@@ -13,23 +13,22 @@ namespace OstErpApi\Api\Hydrator;
 
 use OstErpApi\Struct;
 
-class Store extends Hydrator
+class Company extends Hydrator
 {
     public function hydrate(array $data): array
     {
         $arr = [];
 
-        foreach ($data as $store) {
-            $storeStruct = new Struct\Store();
+        foreach ($data as $company) {
+            $companyStruct = new Struct\Company();
 
 
 
-            $storeStruct->setKey($store['STORE_KEY']);
-            $storeStruct->setName($store['STORE_NAME']);
+            $companyStruct->setKey($company['COMPANY_KEY']);
+            $companyStruct->setName($company['COMPANY_NAME']);
 
-            $storeStruct->setLocations($store['STORE_LOCATIONS'] ?? []);
 
-            $arr[] = $storeStruct;
+            $arr[] = $companyStruct;
         }
 
         return $arr;

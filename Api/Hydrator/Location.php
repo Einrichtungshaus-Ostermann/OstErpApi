@@ -22,7 +22,8 @@ class Location extends Hydrator
         foreach ($data as $location) {
             $locationStruct = new Struct\Location();
 
-            $locationStruct->setCompany((int) $location['COMPANY']);
+
+
             $locationStruct->setKey((string) $location['LOCATION_KEY']);
 
             if ($location['LOCATION_STORE'] !== null) {

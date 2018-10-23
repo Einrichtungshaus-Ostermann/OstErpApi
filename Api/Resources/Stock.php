@@ -16,26 +16,60 @@ use OstErpApi\Api\Hydrator\Hydrator;
 
 class Stock extends Resource
 {
+
+    protected $name = "Stock";
+
+
+
+
+
+    // [stock.number] = 121535
+    // [stock.location] = 150
+    // {stock.company] = 1
+    // [stock.type] = L
+    // [stock.quantity] > 0
+
     public function findBy(array $params = [], array $options = []): array
     {
-        $adapter = 'Mock';
+        $adapter = Shopware()->Container()->get( "ost_erp_api.configuration_service" )->get( "adapter" );
+
+
 
         /** @var Gateway $gateway */
         $gateway = Shopware()->Container()->get('ost_erp_api.api.gateway.' . strtolower($adapter) . '.stock');
 
-        $dataArr = $gateway->findBy($params);
+        $stockArr = $gateway->findBy($params);
 
-        foreach ($dataArr as &$stockEntry) {
-            $stockEntry['STOCK_LOCATION'] = Shopware()->Container()->get('ost_erp_api.api.resources.location')->findBy([
-                '[location.company = ]' . $stockEntry['COMPANY'],
-                '[location.key] = ' . $stockEntry['STOCK_LOCATION']
-                ])[0] ?? null;
+
+        foreach ( $stockArr as $key => $stock )
+        {
+
+            /* @var $companyResource Company */
+            $companyResource = Shopware()->Container()->get('ost_erp_api.api.rescources.company');
+
+            $company = $companyResource->findBy( array(
+                "[company.key] = '" . $stock['STOCK_COMPANY'] ."'"
+            ));
+
+
+            $stock['STOCK_COMPANY'] = $company;
+
+
+
+
+            $stockArr[$key] = $stock;
+
         }
-        unset($stockEntry);
+
+
+
+
+
+
 
         /** @var Hydrator $hydrator */
         $hydrator = Shopware()->Container()->get('ost_erp_api.api.hydrator.stock');
 
-        return $hydrator->hydrate($dataArr);
+        return $hydrator->hydrate($stockArr);
     }
 }

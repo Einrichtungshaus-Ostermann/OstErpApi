@@ -82,6 +82,17 @@
         </service>
 
 
+
+
+
+
+
+        <service id="ost_erp_api.api.gateway.iwm.mapping.parser" class="OstErpApi\Api\Gateway\Iwm\Mapping\Parser">
+        </service>
+
+
+
+
     </services>
 
 </container>

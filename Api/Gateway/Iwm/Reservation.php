@@ -13,7 +13,7 @@ namespace OstErpApi\Api\Gateway\Iwm;
 
 use OstErpApi\Api\Gateway\Iwm\Mapping\Parser;
 
-class Reservation extends IwmGateway
+class Reservation extends Gateway
 {
     public function findBy(array $parameters = []): array
     {

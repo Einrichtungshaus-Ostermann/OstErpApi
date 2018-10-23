@@ -9,19 +9,18 @@
  * @license   proprietary
  */
 
-namespace OstErpApi\Api\Gateway\Iwm\Mapping\Reservation;
+namespace OstErpApi\Api\Gateway\Iwm\Mapping\Company;
 
 use OstErpApi\Api\Gateway\Iwm\Mapping\Mapping;
 
-class Stock implements Mapping
+class Key implements Mapping
 {
     public static function getAlias()
     {
-        return 'RESERVATION_AMOUNT';
     }
 
     public static function getColumn()
     {
-        return 'IWMV2R1DTA.VRES00.VRBMNG';
+        return "COMPANY_KEY";
     }
 }

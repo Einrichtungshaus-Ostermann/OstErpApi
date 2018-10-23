@@ -11,15 +11,8 @@
 
 namespace OstErpApi\Struct;
 
-class Store
+class Store extends Struct
 {
-    /**
-     * The Company number behind the Article
-     *
-     * @var int
-     */
-    protected $company;
-
 
 
     /**
@@ -53,25 +46,6 @@ class Store
      */
     protected $locations;
 
-
-
-    /**
-     * @return int
-     */
-    public function getCompany(): int
-    {
-        return $this->company;
-    }
-
-
-
-    /**
-     * @param int $company
-     */
-    public function setCompany(int $company)
-    {
-        $this->company = $company;
-    }
 
 
 

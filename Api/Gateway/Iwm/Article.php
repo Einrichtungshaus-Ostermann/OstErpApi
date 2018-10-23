@@ -11,7 +11,7 @@
 
 namespace OstErpApi\Api\Gateway\Iwm;
 
-class Article extends IwmGateway
+class Article extends Gateway
 {
     public function findBy(array $parameters = []): array
     {
@@ -20,12 +20,18 @@ class Article extends IwmGateway
                 [article.company],
                 [article.number],
                 [article.name],
-                0 AS article_weight
+                [article.weight]
             FROM IWMV2R1DTA.ARTS00
             
         ';
 
-        $parser = new Mapping\Parser();
+
+        /* @var $parser Mapping\Parser */
+        $parser = Shopware()->Container()->get( "ost_erp_api.api.gateway.iwm.mapping.parser" );
+
+
+
+
         $query = $parser->parseSelect($query);
 
         // add braces to the where append terms and parse the string

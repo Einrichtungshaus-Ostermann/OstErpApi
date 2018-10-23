@@ -11,7 +11,7 @@
 
 namespace OstErpApi\Api\Gateway\Iwm;
 
-class Stock extends IwmGateway
+class Stock extends Gateway
 {
     public function findBy(array $parameters = []): array
     {
@@ -22,7 +22,7 @@ class Stock extends IwmGateway
             [stock.company],
             [stock.number],
             [stock.location],
-            [stock.amount],
+            [stock.quantity],
             [stock.type]
             FROM IWMV2R1DTA.LBST00
             

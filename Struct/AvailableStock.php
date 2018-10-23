@@ -11,25 +11,33 @@
 
 namespace OstErpApi\Struct;
 
-class Location extends Struct
+class AvailableStock extends Struct
 {
 
-
     /**
-     * The internal ERP key for the location.
-     *
-     * Example
-     * - 100
-     * - 200
+     * A unique article number.
      *
      * @var string
      */
-    protected $key;
+    protected $number;
 
 
 
     /**
-     * The internal ERP key for the Store.
+     * The actual available quantity within the given store.
+     *
+     * Example:
+     * - 1
+     * - 100
+     *
+     * @var int
+     */
+    protected $quantity;
+
+
+
+    /**
+     * The available stock in available in this store.
      *
      * @var Store
      */
@@ -42,9 +50,9 @@ class Location extends Struct
      *
      * @return string
      */
-    public function getKey()
+    public function getNumber()
     {
-        return $this->key;
+        return $this->number;
     }
 
 
@@ -52,13 +60,39 @@ class Location extends Struct
     /**
      * Setter method for the property.
      *
-     * @param string $key
+     * @param string $number
      *
      * @return void
      */
-    public function setKey(string $key)
+    public function setNumber(string $number)
     {
-        $this->key = $key;
+        $this->number = $number;
+    }
+
+
+
+    /**
+     * Getter method for the property.
+     *
+     * @return int
+     */
+    public function getQuantity()
+    {
+        return $this->quantity;
+    }
+
+
+
+    /**
+     * Setter method for the property.
+     *
+     * @param int $quantity
+     *
+     * @return void
+     */
+    public function setQuantity(int $quantity)
+    {
+        $this->quantity = $quantity;
     }
 
 

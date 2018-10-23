@@ -9,19 +9,19 @@
  * @license   proprietary
  */
 
-namespace OstErpApi\Api\Gateway\Iwm\Mapping\Reservation;
+namespace OstErpApi\Api\Gateway\Iwm\Mapping\Stock;
 
 use OstErpApi\Api\Gateway\Iwm\Mapping\Mapping;
 
-class Company implements Mapping
+class Type implements Mapping
 {
     public static function getAlias()
     {
-        return 'COMPANY';
+        return 'STOCK_TYPE';
     }
 
     public static function getColumn()
     {
-        return 'IWMV2R1DTA.VRES00.VRFIRM';
+        return 'IWMV2R1DTA.LBST00.LBDISP';
     }
 }

@@ -16,13 +16,18 @@ use OstErpApi\Api\Hydrator\Hydrator;
 
 class Location extends Resource
 {
-    protected $resourceName = 'Location';
+    protected $name = 'Location';
 
 
 
     public function findBy(array $params = [], array $options = []): array
     {
-        $adapter = 'Mock';
+        $adapter = Shopware()->Container()->get( "ost_erp_api.configuration_service" )->get( "adapter" );
+
+
+
+
+
 
         /** @var Gateway $gateway */
         $gateway = Shopware()->Container()->get('ost_erp_api.api.gateway.' . strtolower($adapter) . '.location');

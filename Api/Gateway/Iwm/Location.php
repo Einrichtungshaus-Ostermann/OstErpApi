@@ -11,7 +11,7 @@
 
 namespace OstErpApi\Api\Gateway\Iwm;
 
-class Location extends IwmGateway
+class Location extends Gateway
 {
     const LOCATIONS = [
         [

@@ -13,13 +13,6 @@ namespace OstErpApi\Struct;
 
 class Article extends Struct
 {
-    /**
-     * The Company number behind the Article
-     *
-     * @var int
-     */
-    protected $company;
-
 
 
     /**
@@ -50,6 +43,15 @@ class Article extends Struct
 
 
     /**
+     * The company struct.
+     *
+     * @var Company
+     */
+    protected $company;
+
+
+
+    /**
      * Every available stock information for this article.
      *
      * @var Stock[]
@@ -61,18 +63,18 @@ class Article extends Struct
     /**
      * Every available reservation information for this article.
      *
-     * @var Reservation[]
+     * @var ReservedStock[]
      */
-    protected $reservation = [];
+    protected $reservedStock = [];
 
 
 
     /**
-     * Every stock is clean and the actual available stock.
+     * Every available stock grouped by store.
      *
-     * @var Stock[]
+     * @var AvailableStock[]
      */
-    protected $realStock = [];
+    protected $availableStock = [];
 
 
 
@@ -81,27 +83,7 @@ class Article extends Struct
      *
      * @var Store[]
      */
-    protected $exhibit = [];
-
-
-
-    /**
-     * @return int
-     */
-    public function getCompany(): int
-    {
-        return $this->company;
-    }
-
-
-
-    /**
-     * @param int $company
-     */
-    public function setCompany(int $company)
-    {
-        $this->company = $company;
-    }
+    protected $exhibits = [];
 
 
 
@@ -121,6 +103,8 @@ class Article extends Struct
      * Setter method for the property.
      *
      * @param string $number
+     *
+     * @return void
      */
     public function setNumber(string $number)
     {
@@ -145,6 +129,8 @@ class Article extends Struct
      * Setter method for the property.
      *
      * @param string $name
+     *
+     * @return void
      */
     public function setName(string $name)
     {
@@ -169,10 +155,38 @@ class Article extends Struct
      * Setter method for the property.
      *
      * @param float $weight
+     *
+     * @return void
      */
     public function setWeight(float $weight)
     {
         $this->weight = $weight;
+    }
+
+
+
+    /**
+     * Getter method for the property.
+     *
+     * @return Company
+     */
+    public function getCompany()
+    {
+        return $this->company;
+    }
+
+
+
+    /**
+     * Setter method for the property.
+     *
+     * @param Company $company
+     *
+     * @return void
+     */
+    public function setCompany(Company $company)
+    {
+        $this->company = $company;
     }
 
 
@@ -193,6 +207,8 @@ class Article extends Struct
      * Setter method for the property.
      *
      * @param Stock[] $stock
+     *
+     * @return void
      */
     public function setStock(array $stock)
     {
@@ -202,23 +218,39 @@ class Article extends Struct
 
 
     /**
+     * Getter method for the property.
+     *
+     * @return ReservedStock[]
+     */
+    public function getReservedStock()
+    {
+        return $this->reservedStock;
+    }
+
+
+
+    /**
      * Setter method for the property.
      *
-     * @param Stock $stock
+     * @param ReservedStock[] $reservedStock
+     *
+     * @return void
      */
-    public function addStock(Stock $stock)
+    public function setReservedStock(array $reservedStock)
     {
-        $this->stock[] = $stock;
+        $this->reservedStock = $reservedStock;
     }
+
+
 
     /**
      * Getter method for the property.
      *
-     * @return Reservation[]
+     * @return AvailableStock[]
      */
-    public function getReservation()
+    public function getAvailableStock()
     {
-        return $this->reservation;
+        return $this->availableStock;
     }
 
 
@@ -226,84 +258,45 @@ class Article extends Struct
     /**
      * Setter method for the property.
      *
-     * @param Reservation[] $reservation
-     */
-    public function setReservation(array $reservation)
-    {
-        $this->reservation = $reservation;
-    }
-
-
-
-    /**
-     * Setter method for the property.
+     * @param AvailableStock[] $availableStock
      *
-     * @param Reservation $reservation
+     * @return void
      */
-    public function addReservation(Reservation $reservation)
+    public function setAvailableStock(array $availableStock)
     {
-        $this->reservation[] = $reservation;
+        $this->availableStock = $availableStock;
     }
+
+
 
     /**
      * Getter method for the property.
      *
-     * @return Stock[]
-     */
-    public function getRealStock()
-    {
-        return $this->realStock;
-    }
-
-
-
-    /**
-     * Setter method for the property.
-     *
-     * @param Stock[] $stock
-     */
-    public function setRealStock(array $stock)
-    {
-        $this->realStock = $stock;
-    }
-
-
-
-    /**
-     * Setter method for the property.
-     *
-     * @param Stock $stock
-     */
-    public function addRealStock(Stock $stock)
-    {
-        $this->realStock[] = $stock;
-    }
-
-
-
-    /**
      * @return Store[]
      */
-    public function getExhibit(): array
+    public function getExhibits()
     {
-        return $this->exhibit;
+        return $this->exhibits;
     }
 
 
 
     /**
-     * @param Store[] $exhibit
+     * Setter method for the property.
+     *
+     * @param Store[] $exhibits
+     *
+     * @return void
      */
-    public function setExhibit(array $exhibit)
+    public function setExhibits(array $exhibits)
     {
-        $this->exhibit = $exhibit;
+        $this->exhibits = $exhibits;
     }
 
-    /**
-     * @param Store $store
-     */
-    public function addExhibit(Store $store)
-    {
-        $this->exhibit[] = $store;
-    }
+
+
+
+
+
+
 }

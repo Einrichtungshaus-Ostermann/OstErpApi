@@ -11,36 +11,40 @@
 
 namespace OstErpApi\Struct;
 
-class Location extends Struct
+class Company extends Struct
 {
 
 
     /**
-     * The internal ERP key for the location.
+     * A unique key / number for the company.
      *
-     * Example
-     * - 100
-     * - 200
+     * Example:
+     * - 1
+     * - 3
      *
-     * @var string
+     * @var int
      */
     protected $key;
 
 
 
     /**
-     * The internal ERP key for the Store.
+     * A readable company name.
      *
-     * @var Store
+     * Example:
+     * - Ostermann
+     * - Trends
+     *
+     * @var string
      */
-    protected $store;
+    protected $name;
 
 
 
     /**
      * Getter method for the property.
      *
-     * @return string
+     * @return int
      */
     public function getKey()
     {
@@ -52,11 +56,11 @@ class Location extends Struct
     /**
      * Setter method for the property.
      *
-     * @param string $key
+     * @param int $key
      *
      * @return void
      */
-    public function setKey(string $key)
+    public function setKey(int $key)
     {
         $this->key = $key;
     }
@@ -66,11 +70,11 @@ class Location extends Struct
     /**
      * Getter method for the property.
      *
-     * @return Store
+     * @return string
      */
-    public function getStore()
+    public function getName()
     {
-        return $this->store;
+        return $this->name;
     }
 
 
@@ -78,14 +82,16 @@ class Location extends Struct
     /**
      * Setter method for the property.
      *
-     * @param Store $store
+     * @param string $name
      *
      * @return void
      */
-    public function setStore(Store $store)
+    public function setName(string $name)
     {
-        $this->store = $store;
+        $this->name = $name;
     }
+
+
 
 
 

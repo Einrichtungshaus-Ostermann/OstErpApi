@@ -13,21 +13,22 @@ namespace OstErpApi\Api\Hydrator;
 
 use OstErpApi\Struct;
 
-class Reservation extends Hydrator
+class AvailableStock extends Hydrator
 {
     public function hydrate(array $data): array
     {
         $arr = [];
 
         foreach ($data as $stock) {
-            $reservationStruct = new Struct\Reservation();
+            $reservationStruct = new Struct\AvailableStock();
 
-            $reservationStruct->setCompany((int) $stock['COMPANY']);
+
+
             $reservationStruct->setNumber((string) $stock['ARTICLE_NUMBER']);
-            $reservationStruct->setQuantity((int) $stock['RESERVATION_QUANTITY']);
+            $reservationStruct->setQuantity((int) $stock['AVAILABLE_STOCK_QUANTITY']);
 
-            if ($stock['RESERVATION_LOCATION'] !== null) {
-                $reservationStruct->setLocation($stock['RESERVATION_LOCATION']);
+            if ($stock['AVAILABLE_STOCK_STORE'] !== null) {
+                $reservationStruct->setStore($stock['AVAILABLE_STOCK_STORE']);
             }
 
             $arr[] = $reservationStruct;

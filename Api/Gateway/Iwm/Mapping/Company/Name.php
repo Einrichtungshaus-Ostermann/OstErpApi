@@ -9,19 +9,18 @@
  * @license   proprietary
  */
 
-namespace OstErpApi\Api\Gateway\Iwm\Mapping\Reservation;
+namespace OstErpApi\Api\Gateway\Iwm\Mapping\Company;
 
 use OstErpApi\Api\Gateway\Iwm\Mapping\Mapping;
 
-class Number implements Mapping
+class Name implements Mapping
 {
     public static function getAlias()
     {
-        return 'ARTICLE_NUMBER';
     }
 
     public static function getColumn()
     {
-        return 'IWMV2R1DTA.VRES00.VRARTE';
+        return "COMPANY_NAME";
     }
 }

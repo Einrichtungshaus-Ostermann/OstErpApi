@@ -9,19 +9,19 @@
  * @license   proprietary
  */
 
-namespace OstErpApi\Api\Gateway\Iwm\Mapping\Reservation;
+namespace OstErpApi\Api\Gateway\Iwm\Mapping\Article;
 
 use OstErpApi\Api\Gateway\Iwm\Mapping\Mapping;
 
-class Location implements Mapping
+class Weight implements Mapping
 {
     public static function getAlias()
     {
-        return 'RESERVATION_LOCATION';
+        return 'ARTICLE_WEIGHT';
     }
 
     public static function getColumn()
     {
-        return 'IWMV2R1DTA.VRES00.VRLAGN';
+        return 'IWMV2R1DTA.ARTS00.ARGEWI';
     }
 }

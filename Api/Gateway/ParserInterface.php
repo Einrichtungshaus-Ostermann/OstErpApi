@@ -9,9 +9,19 @@
  * @license   proprietary
  */
 
-namespace OstErpApi\Api\Resources;
+namespace OstErpApi\Api\Gateway;
 
-class Reservation extends Resource
+interface ParserInterface
 {
-    protected $resourceName = 'Reservation';
+    public function parse($query, $addAlias = true);
+
+
+
+
+
+    public function parseSelect($query);
+
+
+
+    public function parseParameter($query);
 }

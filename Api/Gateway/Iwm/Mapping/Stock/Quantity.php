@@ -13,11 +13,11 @@ namespace OstErpApi\Api\Gateway\Iwm\Mapping\Stock;
 
 use OstErpApi\Api\Gateway\Iwm\Mapping\Mapping;
 
-class Amount implements Mapping
+class Quantity implements Mapping
 {
     public static function getAlias()
     {
-        return 'STOCK_AMOUNT';
+        return 'STOCK_QUANTITY';
     }
 
     public static function getColumn()

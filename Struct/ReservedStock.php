@@ -4,15 +4,17 @@
  *
  * @package   OstErpApi
  *
- * @author    Eike Brandt-Warneke <e.brandt-warneke@ostermann.de>
+ * @author    Tim Windelschmidt <tim.windelschmidt@ostermann.de>
  * @copyright 2018 Einrichtungshaus Ostermann GmbH & Co. KG
  * @license   proprietary
  */
 
 namespace OstErpApi\Struct;
 
-class Stock extends Struct
+class ReservedStock extends Struct
 {
+
+
 
     /**
      * A unique article number.
@@ -24,7 +26,7 @@ class Stock extends Struct
 
 
     /**
-     * The quantity within the given location.
+     * The actual reserved quantity within the given location.
      *
      * Example:
      * - 1
@@ -36,32 +38,8 @@ class Stock extends Struct
 
 
 
-
     /**
-     * The stock Type
-     *
-     * K = quantity in exhibit
-     * L = default stock in the warehouse
-     * B = stock which has to be ordered
-     * P = stock which is reserved for a broschure or for any event
-     *
-     * @var string
-     */
-    protected $type;
-
-
-    /**
-     * The company.
-     *
-     * @var Company
-     */
-    protected $company;
-
-
-
-
-    /**
-     * The location of this stock.
+     * The location for the reserved stock.
      *
      * @var Location
      */
@@ -124,58 +102,6 @@ class Stock extends Struct
     /**
      * Getter method for the property.
      *
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
-
-
-
-    /**
-     * Setter method for the property.
-     *
-     * @param string $type
-     *
-     * @return void
-     */
-    public function setType(string $type)
-    {
-        $this->type = $type;
-    }
-
-
-
-    /**
-     * Getter method for the property.
-     *
-     * @return Company
-     */
-    public function getCompany()
-    {
-        return $this->company;
-    }
-
-
-
-    /**
-     * Setter method for the property.
-     *
-     * @param Company $company
-     *
-     * @return void
-     */
-    public function setCompany(Company $company)
-    {
-        $this->company = $company;
-    }
-
-
-
-    /**
-     * Getter method for the property.
-     *
      * @return Location
      */
     public function getLocation()
@@ -196,7 +122,6 @@ class Stock extends Struct
     {
         $this->location = $location;
     }
-
 
 
 

@@ -16,9 +16,14 @@ use OstErpApi\Api\Hydrator\Hydrator;
 
 class Store extends Resource
 {
+
+
+    protected $name = "Store";
+
+
     public function findBy(array $params = [], array $options = []): array
     {
-        $adapter = 'Mock';
+        $adapter = Shopware()->Container()->get( "ost_erp_api.configuration_service" )->get( "adapter" );
 
         /** @var Gateway $gateway */
         $gateway = Shopware()->Container()->get('ost_erp_api.api.gateway.' . strtolower($adapter) . '.store');

@@ -4,6 +4,7 @@ namespace OstErpApi\Controllers\Frontend;
 
 use Enlight_Controller_Action;
 use Shopware\Components\CSRFWhitelistAware;
+use OstErpApi\Api\Api;
 
 class OstErpApi extends Enlight_Controller_Action implements CSRFWhitelistAware
 {
@@ -34,4 +35,31 @@ class OstErpApi extends Enlight_Controller_Action implements CSRFWhitelistAware
         // ...
         die('not implemented yet');
     }
+
+
+
+
+
+    /**
+     * ...
+     */
+    public function testArticleAction()
+    {
+        /* @var $api Api */
+        $api = Shopware()->Container()->get( "ost_erp_api.api" );
+
+        $asd = $api->findBy(
+            "article",
+            array(
+                "[article.number] = 121535"
+            )
+        );
+
+
+
+        var_dump($asd);
+        die();
+    }
+
+
 }

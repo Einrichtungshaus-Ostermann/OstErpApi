@@ -22,15 +22,17 @@ class Article extends Hydrator
         foreach ($data as $article) {
             $articleStruct = new Struct\Article();
 
-            $articleStruct->setCompany((int) $article['COMPANY']);
+
             $articleStruct->setNumber((string) $article['ARTICLE_NUMBER']);
             $articleStruct->setName((string) $article['ARTICLE_NAME']);
             $articleStruct->setWeight((float) $article['ARTICLE_WEIGHT']);
 
             $articleStruct->setStock($article['ARTICLE_STOCK'] ?? []);
-            $articleStruct->setReservation($article['ARTICLE_RESERVATION'] ?? []);
-            $articleStruct->setRealStock($article['ARTICLE_REAL_STOCK'] ?? []);
-            $articleStruct->setExhibit($article['ARTICLE_EXHIBIT'] ?? []);
+            $articleStruct->setReservedStock($article['ARTICLE_RESERVED_STOCK'] ?? []);
+            $articleStruct->setAvailableStock($article['ARTICLE_AVAILABLE_STOCK'] ?? []);
+            $articleStruct->setExhibits($article['ARTICLE_EXHIBITS'] ?? []);
+
+            $articleStruct->setCompany($article['COMPANY']);
 
             $arr[] = $articleStruct;
         }

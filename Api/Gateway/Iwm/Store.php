@@ -11,7 +11,7 @@
 
 namespace OstErpApi\Api\Gateway\Iwm;
 
-class Store extends IwmGateway
+class Store extends Gateway
 {
     const STORES = [
         [

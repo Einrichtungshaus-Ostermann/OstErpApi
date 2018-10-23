@@ -12,8 +12,9 @@
 namespace OstErpApi\Api\Gateway\Iwm;
 
 use OstErpApi\Services\ConfigurationService;
+use OstErpApi\Api\Gateway\Gateway as GatewayParent;
 
-abstract class IwmGateway
+abstract class Gateway extends GatewayParent
 {
     /**
      * @var \PDO
@@ -36,6 +37,10 @@ abstract class IwmGateway
      */
     public function __construct(ConfigurationService $configurationService)
     {
+
+        parent::__construct($configurationService);
+
+
         if (static::$db === null) {
             try {
                 static::$db = new \PDO(
@@ -47,6 +52,6 @@ abstract class IwmGateway
             }
         }
 
-        $this->configurationService = $configurationService;
+
     }
 }
