@@ -46,7 +46,6 @@ class Article extends Gateway
         $query .= ' WHERE ' . implode(' AND ', $parameters) . ' ';
 
 
-        $query .= " LIMIT 250";
 
 
         $res = static::$db->query($query);

@@ -32,8 +32,6 @@ class Article extends Resource
 
 
 
-        echo "alle artikel<br >";
-        $timer->start();
 
 
         /** @var Gateway $gateway */
@@ -47,17 +45,6 @@ class Article extends Resource
         {
 
 
-            echo "start article<br />";
-
-
-
-            $timer->start( "article" );
-
-
-
-
-            echo "start stock<br />";
-            $timer->start( "stock" );
 
 
             /* @var $stockResource Stock */
@@ -71,14 +58,6 @@ class Article extends Resource
             $article['ARTICLE_STOCK'] = $stock;
 
 
-            echo "ende stock<br />";
-            echo $timer->get( "stock" ) . "<br>";
-
-
-
-
-            echo "start reserved stock<br />";
-            $timer->start( "stock" );
 
 
 
@@ -92,9 +71,6 @@ class Article extends Resource
 
             $article['ARTICLE_RESERVED_STOCK'] = $reservedStock;
 
-
-            echo "ende reserved stock<br />";
-            echo $timer->get( "stock" ) . "<br>";
 
 
 
@@ -199,8 +175,6 @@ class Article extends Resource
 
 
 
-            echo "ende article";
-            $timer->get( "article" );
         }
 
 
@@ -209,22 +183,14 @@ class Article extends Resource
 
 
 
-        echo "alle artikel ende";
-        echo $timer->get() . "<br>";
-
-
-
-        echo "hydrate<br />";
-        $timer->start();
-
-
         /** @var Hydrator $hydrator */
         $hydrator = Shopware()->Container()->get('ost_erp_api.api.hydrator.article');
 
-        $bla = $hydrator->hydrate($articlesArr);
+        $data = $hydrator->hydrate($articlesArr);
 
-        echo "hydrate ende";
-        echo $timer->get();
+        return $data;
+
+
 
     }
 }
