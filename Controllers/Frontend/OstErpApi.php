@@ -57,6 +57,21 @@ class Shopware_Controllers_Frontend_OstErpApi extends Enlight_Controller_Action 
     public function testArticleAction()
     {
 
+        /* @var $api Api */
+        $api = Shopware()->Container()->get( "ost_erp_api.api" );
+
+        $asd = $api->findBy(
+            "article",
+            array(
+                "[article.company] = 1"
+            )
+        );
+
+
+
+        die("eeeende");
+
+
 
         if ( !$this->Request()->has( "number" ) )
         {

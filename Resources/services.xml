@@ -14,6 +14,12 @@
         </service>
 
 
+        <service id="ost_erp_api.timer_service" class="OstErpApi\Services\TimerService">
+        </service>
+
+
+
+
         <service id="ost_erp_api.api" class="OstErpApi\Api\Api">
         </service>
 

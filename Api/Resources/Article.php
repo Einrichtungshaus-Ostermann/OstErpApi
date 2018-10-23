@@ -14,6 +14,7 @@ namespace OstErpApi\Api\Resources;
 use OstErpApi\Api\Gateway\Gateway;
 use OstErpApi\Api\Hydrator\Hydrator;
 use OstErpApi\Struct;
+use OstErpApi\Services;
 
 class Article extends Resource
 {
@@ -26,8 +27,13 @@ class Article extends Resource
     {
         $adapter = Shopware()->Container()->get( "ost_erp_api.configuration_service" )->get( "adapter" );
 
+        /* @var $timer Services\TimerService */
+        $timer = Shopware()->Container()->get( "ost_erp_api.timer_service" );
 
 
+
+        echo "alle artikel<br >";
+        $timer->start();
 
 
         /** @var Gateway $gateway */
@@ -40,6 +46,20 @@ class Article extends Resource
         foreach ( $articlesArr as $key => $article )
         {
 
+
+            echo "start article<br />";
+
+
+
+            $timer->start( "article" );
+
+
+
+
+            echo "start stock<br />";
+            $timer->start( "stock" );
+
+
             /* @var $stockResource Stock */
             $stockResource = Shopware()->Container()->get('ost_erp_api.api.resources.stock');
 
@@ -51,7 +71,14 @@ class Article extends Resource
             $article['ARTICLE_STOCK'] = $stock;
 
 
+            echo "ende stock<br />";
+            echo $timer->get( "stock" ) . "<br>";
 
+
+
+
+            echo "start reserved stock<br />";
+            $timer->start( "stock" );
 
 
 
@@ -65,6 +92,9 @@ class Article extends Resource
 
             $article['ARTICLE_RESERVED_STOCK'] = $reservedStock;
 
+
+            echo "ende reserved stock<br />";
+            echo $timer->get( "stock" ) . "<br>";
 
 
 
@@ -93,7 +123,7 @@ class Article extends Resource
             {
                 $store = $stock->getLocation()->getStore();
 
-                if ( $stock->getType() != "L" )
+                if ( $stock->getType() != Struct\Stock::TYPE_STOCK )
                     continue;
 
                 if ( !isset( $availableStock[$store->getKey()]))
@@ -149,7 +179,7 @@ class Article extends Resource
             {
                 $store = $stock->getLocation()->getStore();
 
-                if ( $stock->getType() != "K" )
+                if ( $stock->getType() != Struct\Stock::TYPE_EXHIBIT )
                     continue;
 
                 if ( isset( $exhibits[$store->getKey()]))
@@ -169,6 +199,8 @@ class Article extends Resource
 
 
 
+            echo "ende article";
+            $timer->get( "article" );
         }
 
 
@@ -177,15 +209,22 @@ class Article extends Resource
 
 
 
+        echo "alle artikel ende";
+        echo $timer->get() . "<br>";
 
 
 
-
+        echo "hydrate<br />";
+        $timer->start();
 
 
         /** @var Hydrator $hydrator */
         $hydrator = Shopware()->Container()->get('ost_erp_api.api.hydrator.article');
 
-        return $hydrator->hydrate($articlesArr);
+        $bla = $hydrator->hydrate($articlesArr);
+
+        echo "hydrate ende";
+        echo $timer->get();
+
     }
 }

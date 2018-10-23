@@ -44,6 +44,11 @@ class Article extends Gateway
 
         // add the where append
         $query .= ' WHERE ' . implode(' AND ', $parameters) . ' ';
+
+
+        $query .= " LIMIT 250";
+
+
         $res = static::$db->query($query);
 
         return $res->fetchAll(\PDO::FETCH_ASSOC);
