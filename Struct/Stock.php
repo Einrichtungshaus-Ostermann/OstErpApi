@@ -35,6 +35,11 @@ class Stock extends Struct
     protected $quantity;
 
 
+    const TYPE_STOCK = "L";
+    const TYPE_EXHIBIT = "K";
+    const TYPE_ORDER = "B";
+    const TYPE_BROCHURE = "P";
+    const TYPE_DIRECT = "D";
 
 
     /**
@@ -44,6 +49,7 @@ class Stock extends Struct
      * L = default stock in the warehouse
      * B = stock which has to be ordered
      * P = stock which is reserved for a broschure or for any event
+     * D = direktanlieferung
      *
      * @var string
      */

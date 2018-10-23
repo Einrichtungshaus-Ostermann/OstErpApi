@@ -56,13 +56,26 @@ class Shopware_Controllers_Frontend_OstErpApi extends Enlight_Controller_Action 
      */
     public function testArticleAction()
     {
+
+
+        if ( !$this->Request()->has( "number" ) )
+        {
+            echo "<form action='' method='post'>";
+            echo "artikel nummer: ";
+            echo "<input type='text' name='number' >";
+            echo "<input type='submit'>";
+            die();
+        }
+
+        $number = $this->Request()->getParam( "number" );
+
         /* @var $api Api */
         $api = Shopware()->Container()->get( "ost_erp_api.api" );
 
         $asd = $api->findBy(
             "article",
             array(
-                "[article.number] = 403096"
+                "[article.number] = " . $number
             )
         );
 

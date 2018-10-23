@@ -108,6 +108,34 @@ class Article extends Resource
             }
 
 
+            /* @var $reservedStock Struct\ReservedStock */
+            foreach ( $article['ARTICLE_RESERVED_STOCK'] as $reservedStock )
+            {
+                $store = $stock->getLocation()->getStore();
+
+
+                if ( !isset( $availableStock[$store->getKey()]))
+                    continue;
+
+
+                $availableStock[$store->getKey()]['AVAILABLESTOCK_QUANTITY'] -= $stock->getQuantity();
+
+
+
+                if ( $availableStock[$store->getKey()]['AVAILABLESTOCK_QUANTITY'] < 0 )
+                    $availableStock[$store->getKey()]['AVAILABLESTOCK_QUANTITY'] = 0;
+
+            }
+
+
+
+
+
+
+
+
+
+
             $article['ARTICLE_AVAILABLE_STOCK'] = array_values($availableStock);
 
 
