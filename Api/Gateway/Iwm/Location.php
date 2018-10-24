@@ -13,6 +13,8 @@ namespace OstErpApi\Api\Gateway\Iwm;
 
 class Location extends Gateway
 {
+
+
     private $data = [
         [
             'LOCATION_KEY'      => "100",

@@ -18,6 +18,12 @@
         </service>
 
 
+        <service id="ost_erp_api.logger_service" class="OstErpApi\Services\LoggerService">
+        </service>
+
+
+
+
 
 
         <service id="ost_erp_api.api" class="OstErpApi\Api\Api">
@@ -85,6 +91,10 @@
             <argument type="service" id="ost_erp_api.configuration_service"/>
         </service>
 
+        <service id="ost_erp_api.api.gateway.mock.reserved_stock" class="OstErpApi\Api\Gateway\Mock\ReservedStock">
+            <argument type="service" id="ost_erp_api.configuration_service"/>
+        </service>
+
         <service id="ost_erp_api.api.gateway.mock.stock" class="OstErpApi\Api\Gateway\Mock\Stock">
             <argument type="service" id="ost_erp_api.configuration_service"/>
         </service>
@@ -131,6 +141,12 @@
 
         <service id="ost_erp_api.api.gateway.iwm.mapping.parser" class="OstErpApi\Api\Gateway\Iwm\Mapping\Parser">
         </service>
+
+
+
+        <service id="ost_erp_api.api.gateway.mock.mapping.parser" class="OstErpApi\Api\Gateway\Mock\Mapping\Parser">
+        </service>
+
 
 
 

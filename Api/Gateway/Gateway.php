@@ -12,13 +12,23 @@
 namespace OstErpApi\Api\Gateway;
 
 use OstErpApi\Services\ConfigurationService;
+use OstErpApi\Api\ArrayTrait;
+
+
 
 abstract class Gateway
 {
+
+
+
+    use ArrayTrait;
+
+
+
     /**
      * @var ConfigurationService
      */
-    private $configurationService;
+    protected $configurationService;
 
 
 

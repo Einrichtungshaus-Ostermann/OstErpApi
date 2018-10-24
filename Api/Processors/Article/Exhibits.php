@@ -73,13 +73,30 @@ class Exhibits implements ProcessorInterface
         {
 
             if ( !$stock->getLocation() instanceof Struct\Location )
-                return;
+
+                continue;
+
 
 
             $store = $stock->getLocation()->getStore();
 
-            if ( $stock->getType() != Struct\Stock::TYPE_EXHIBIT )
-                continue;
+
+            if ( (integer) $data['ARTICLE_HWG'] >= $this->hwg )
+            {
+
+                if ( ( $stock->getType() != Struct\Stock::TYPE_EXHIBIT ) and ( $stock->getType() != Struct\Stock::TYPE_STOCK ) )
+                    continue;
+
+
+
+            }
+            else
+            {
+                if ( $stock->getType() != Struct\Stock::TYPE_EXHIBIT )
+                    continue;
+
+            }
+
 
             if ( isset( $exhibits[$store->getKey()]))
                 continue;

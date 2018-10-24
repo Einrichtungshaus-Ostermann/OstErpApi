@@ -15,19 +15,64 @@ use OstErpApi\Api\Gateway\Gateway;
 
 class Stock extends Gateway
 {
-    public function findBy(array $parameters = []): array
+
+
+
+
+    private $data = [
+        [
+            'STOCK_COMPANY'      => "1",
+            'STOCK_LOCATION'      => "400",
+            'ARTICLE_NUMBER'      => "811243",
+            'STOCK_QUANTITY'      => "25",
+            'STOCK_TYPE'      => "L",
+        ],
+
+        [
+            'STOCK_COMPANY'      => "1",
+            'STOCK_LOCATION'      => "400",
+            'ARTICLE_NUMBER'      => "811243",
+            'STOCK_QUANTITY'      => "5",
+            'STOCK_TYPE'      => "K",
+        ],
+
+
+        [
+            'STOCK_COMPANY'      => "1",
+            'STOCK_LOCATION'      => "400",
+            'ARTICLE_NUMBER'      => "811243",
+            'STOCK_QUANTITY'      => "3",
+            'STOCK_TYPE'      => "P",
+        ],
+
+        [
+            'STOCK_COMPANY'      => "1",
+            'STOCK_LOCATION'      => "501",
+            'ARTICLE_NUMBER'      => "811243",
+            'STOCK_QUANTITY'      => "3",
+            'STOCK_TYPE'      => "L",
+        ],
+
+
+
+
+
+
+
+    ];
+
+
+
+
+
+
+    public function findBy(array $params = []): array
     {
+        $data = $this->findInArray(
+            $this->data,
+            $params
+        );
 
-
-
-        return [
-            [
-
-                'ARTICLE_NUMBER' => '161578',
-                'STOCK_QUANTITY' => 1337,
-                'STOCK_LOCATION' => 100,
-                'STOCK_TYPE'     => 'L'
-            ]
-        ];
+        return $data;
     }
 }

@@ -15,10 +15,11 @@ use OstErpApi\Api\Gateway\Iwm\Mapping\Parser;
 
 class ReservedStock extends Gateway
 {
-    public function findBy(array $parameters = []): array
-    {
-        $parameters[] = "VRRSTT = 1 AND VRSTAT = 'A'";
 
+
+
+    protected function getQuery()
+    {
         $query = '
             SELECT 
                 [reservedstock.company],
@@ -26,23 +27,25 @@ class ReservedStock extends Gateway
                 [reservedstock.location],
                 [reservedstock.quantity]
             FROM IWMV2R1DTA.VRES00
+            
         ';
 
-        $parser = new Parser();
-        $query = $parser->parseSelect($query);
-
-        // add braces to the where append terms and parse the string
-        $parameters = array_map(
-            function ($term) use ($parser) {
-                return '(' . $parser->parseParameter($term) . ')';
-            },
-            $parameters
-        );
-
-        // add the where append
-        $query .= ' WHERE ' . implode(' AND ', $parameters) . ' ';
-        $res = static::$db->query($query);
-
-        return $res->fetchAll(\PDO::FETCH_ASSOC);
+        return $query;
     }
+
+
+
+
+    protected function addParams( array $params )
+    {
+
+        $parameters[] = "VRRSTT = 1";
+        $parameters[] = "VRSTAT = 'A'";
+
+    }
+
+
+
+
+
 }

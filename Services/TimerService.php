@@ -8,7 +8,7 @@
 namespace OstErpApi\Services;
 
 
-class TimerService
+class TimerService implements TimerServiceInterface
 {
 
 
@@ -26,16 +26,21 @@ class TimerService
     }
 
 
+    public function reset( $key = "default" )
+    {
+
+        $this->start( $key );
+    }
 
 
 
-    public function get( $key = "default", $reset = true )
+
+
+    public function get( $key = "default" )
     {
 
         if ( !isset( $this->timer[$key] ) )
-
-
-            $this->startTimer( $key );
+            $this->start( $key );
 
 
         $time_start = explode(' ', $this->timer[$key]);
@@ -43,12 +48,29 @@ class TimerService
         $parse_time = number_format(($time_end[1] + $time_end[0] - ($time_start[1] + $time_start[0])), 3, ",", ".");
 
 
-        if ( $reset == true )
-            // reset it
-            $this->startTimer( $key );
 
 
         return $parse_time;
+    }
+
+
+    public function display( $key = "default" )
+    {
+
+        if ( !isset( $this->timer[$key] ) )
+        {
+            echo "starting " . $key . "<br>";
+
+
+        }
+
+
+        $var = $this->get($key);
+
+        echo $key . ": " . $var . "<br>";
+
+
+
     }
 
 }

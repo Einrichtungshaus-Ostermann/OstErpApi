@@ -77,7 +77,7 @@ class AvailableStock implements ProcessorInterface
         foreach ( $data['ARTICLE_STOCK'] as $stock )
         {
             if ( !$stock->getLocation() instanceof Struct\Location )
-                return;
+                continue;
 
 
             $store = $stock->getLocation()->getStore();
@@ -100,6 +100,12 @@ class AvailableStock implements ProcessorInterface
         /* @var $reservedStock Struct\ReservedStock */
         foreach ( $data['ARTICLE_RESERVED_STOCK'] as $reservedStock )
         {
+
+            if ( !$stock->getLocation() instanceof Struct\Location )
+                continue;
+
+
+
             $store = $stock->getLocation()->getStore();
 
 

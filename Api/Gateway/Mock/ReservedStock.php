@@ -13,19 +13,30 @@ namespace OstErpApi\Api\Gateway\Mock;
 
 use OstErpApi\Api\Gateway\Gateway;
 
-class Store extends Gateway
+class ReservedStock extends Gateway
 {
+
+
+
+
     private $data = [
         [
-            'STORE_KEY'        => 'WITTEN',
-            'STORE_NAME'       => 'Witten'
-        ],
-        [
-            'STORE_KEY'        => 'LEVERKUSEN',
-            'STORE_NAME'       => 'Leverkusen'
-
+            'ARTICLE_NUMBER'      => "811243",
+            'RESERVEDSTOCK_COMPANY'      => "1",
+            'RESERVEDSTOCK_LOCATION'      => "150",
+            'RESERVEDSTOCK_QUANTITY'      => "1",
         ]
+
+
+
+
+
     ];
+
+
+
+
+
 
     public function findBy(array $params = []): array
     {

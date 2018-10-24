@@ -13,15 +13,13 @@ namespace OstErpApi\Api\Gateway\Iwm;
 
 use OstErpApi\Services\ConfigurationService;
 use OstErpApi\Api\Gateway\Gateway as GatewayParent;
-use OstErpApi\Api\ArrayTrait;
+
 
 
 
 abstract class Gateway extends GatewayParent
 {
 
-
-    use ArrayTrait;
 
 
     /**
@@ -30,11 +28,6 @@ abstract class Gateway extends GatewayParent
     protected static $db;
 
 
-
-    /**
-     * @var ConfigurationService
-     */
-    private $configurationService;
 
 
 
@@ -62,4 +55,60 @@ abstract class Gateway extends GatewayParent
 
 
     }
+
+
+
+    protected function getQuery()
+    {
+        return "";
+    }
+
+    protected function addParams( array $params )
+    {
+    }
+
+
+    public function findBy(array $parameters = []): array
+    {
+        $query = $this->getQuery();
+
+        $this->addParams( $parameters );
+
+
+        /* @var $parser Mapping\Parser */
+        $parser = Shopware()->Container()->get( "ost_erp_api.api.gateway.iwm.mapping.parser" );
+
+
+
+
+        $query = $parser->parseSelect($query);
+
+
+
+        if ( count( $parameters ) > 0 )
+        {
+
+            // add braces to the where append terms and parse the string
+            $parameters = array_map(
+                function ($term) use ($parser) {
+                    return '(' . $parser->parseParameter($term) . ')';
+                },
+                $parameters
+            );
+
+            // add the where append
+            $query .= ' WHERE ' . implode(' AND ', $parameters) . ' ';
+
+
+
+        }
+
+
+
+
+        $res = static::$db->query($query);
+
+        return $res->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
 }
