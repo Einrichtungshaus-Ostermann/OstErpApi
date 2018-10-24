@@ -47,5 +47,5 @@ class Stock extends Gateway
 
 
 
-    
+
 }

@@ -13,7 +13,7 @@ namespace OstErpApi\Api\Processors\Article;
 
 use OstErpApi\Struct;
 use OstErpApi\Api\Processors\ProcessorInterface;
-
+use OstErpApi\Api\Hydrator\Hydrator;
 
 
 class AvailableStock implements ProcessorInterface
@@ -124,7 +124,17 @@ class AvailableStock implements ProcessorInterface
 
 
 
-        $data['ARTICLE_AVAILABLE_STOCK'] = array_values($availableStock);
+
+
+
+        /** @var Hydrator $hydrator */
+        $hydrator = Shopware()->Container()->get('ost_erp_api.api.hydrator.available_stock');
+
+        $data['ARTICLE_AVAILABLE_STOCK'] =  $hydrator->hydrate(array_values($availableStock));
+
+
+
+
 
 
 
