@@ -11,19 +11,19 @@
 
 namespace OstErpApi\Api\Gateway\Iwm;
 
-class Article extends Gateway
+class ArticleComponent extends Gateway
 {
+
+
+
     public function findBy(array $parameters = []): array
     {
         $query = '
             SELECT 
-                [article.company],
-                [article.number],
-                [article.name],
-                [article.weight],
-                [article.disposition],
-                [article.type],
-            FROM IWMV2R1DTA.ARTS00
+                [articlecomponent.number],
+                [articlecomponent.child],
+                [articlecomponent.quantity]
+            FROM IWMV2R1DTA.VSET00
             
         ';
 

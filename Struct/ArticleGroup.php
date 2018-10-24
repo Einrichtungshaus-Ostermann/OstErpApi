@@ -11,7 +11,7 @@
 
 namespace OstErpApi\Struct;
 
-class ArticleSet extends Article
+class ArticleGroup extends Article
 {
 
 

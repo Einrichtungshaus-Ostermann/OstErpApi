@@ -102,6 +102,11 @@
             <argument type="service" id="ost_erp_api.configuration_service"/>
         </service>
 
+        <service id="ost_erp_api.api.gateway.iwm.article_component" class="OstErpApi\Api\Gateway\Iwm\ArticleComponent">
+            <argument type="service" id="ost_erp_api.configuration_service"/>
+        </service>
+
+
         <service id="ost_erp_api.api.gateway.iwm.location" class="OstErpApi\Api\Gateway\Iwm\Location">
             <argument type="service" id="ost_erp_api.configuration_service"/>
         </service>

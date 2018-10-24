@@ -21,10 +21,10 @@ class ReservedStock extends Gateway
 
         $query = '
             SELECT 
-            [reservedstock.company],
-            [reservedstock.number],
-            [reservedstock.location],
-            [reservedstock.quantity]
+                [reservedstock.company],
+                [reservedstock.number],
+                [reservedstock.location],
+                [reservedstock.quantity]
             FROM IWMV2R1DTA.VRES00
         ';
 

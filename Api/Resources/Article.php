@@ -47,125 +47,27 @@ class Article extends Resource
 
 
 
-            /* @var $stockResource Stock */
-            $stockResource = Shopware()->Container()->get('ost_erp_api.api.resources.stock');
-
-            $stock = $stockResource->findBy( array(
-                "[stock.number] = '" . $article['ARTICLE_NUMBER'] ."'"
-            ));
-
-
-            $article['ARTICLE_STOCK'] = $stock;
+            $this->addChildren( $article );
 
 
 
+            $this->addStock( $article );
+
+            $this->addReservedStock( $article );
 
 
-            /* @var $reservedStockResource Stock */
-            $reservedStockResource = Shopware()->Container()->get('ost_erp_api.api.resources.reserved_stock');
-
-            $reservedStock = $reservedStockResource->findBy( array(
-                "[reservedstock.number] = '" . $article['ARTICLE_NUMBER'] ."'"
-            ));
+            $this->addCompany( $article );
 
 
-            $article['ARTICLE_RESERVED_STOCK'] = $reservedStock;
+            $this->addAvailableStock( $article );
 
 
 
 
-
-
-            /* @var $companyResource Company */
-            $companyResource = Shopware()->Container()->get('ost_erp_api.api.resources.company');
-
-            $company = $companyResource->findOneBy( array(
-                "[company.key] = '" . $article['ARTICLE_COMPANY'] ."'"
-            ));
-
-
-            $article['ARTICLE_COMPANY'] = $company;
+            $this->addExhibits( $article );
 
 
 
-            // array( 'WITTEN' => array( 'ARTICLE_NUMBER' => 123, 'AVAILABLESTOCK_QUANTITY' => 1, 'AVAILABLESTOCK_STORE' => StoreStruct )
-            $availableStock = array();
-
-
-
-
-            /* @var $stock Struct\Stock */
-            foreach ( $article['ARTICLE_STOCK'] as $stock )
-            {
-                $store = $stock->getLocation()->getStore();
-
-                if ( $stock->getType() != Struct\Stock::TYPE_STOCK )
-                    continue;
-
-                if ( !isset( $availableStock[$store->getKey()]))
-                    $availableStock[$store->getKey()] = array(
-                        'ARTICLE_NUMBER' => $stock->getNumber(),
-                        'AVAILABLESTOCK_QUANTITY' => 0,
-                        'AVAILABLESTOCK_STORE' => $store
-                    );
-
-
-                $availableStock[$store->getKey()]['AVAILABLESTOCK_QUANTITY'] += $stock->getQuantity();
-            }
-
-
-            /* @var $reservedStock Struct\ReservedStock */
-            foreach ( $article['ARTICLE_RESERVED_STOCK'] as $reservedStock )
-            {
-                $store = $stock->getLocation()->getStore();
-
-
-                if ( !isset( $availableStock[$store->getKey()]))
-                    continue;
-
-
-                $availableStock[$store->getKey()]['AVAILABLESTOCK_QUANTITY'] -= $stock->getQuantity();
-
-
-
-                if ( $availableStock[$store->getKey()]['AVAILABLESTOCK_QUANTITY'] < 0 )
-                    $availableStock[$store->getKey()]['AVAILABLESTOCK_QUANTITY'] = 0;
-
-            }
-
-
-
-
-
-
-
-
-
-
-            $article['ARTICLE_AVAILABLE_STOCK'] = array_values($availableStock);
-
-
-
-
-
-            $exhibits = array();
-
-            /* @var $stock Struct\Stock */
-            foreach ( $article['ARTICLE_STOCK'] as $stock )
-            {
-                $store = $stock->getLocation()->getStore();
-
-                if ( $stock->getType() != Struct\Stock::TYPE_EXHIBIT )
-                    continue;
-
-                if ( isset( $exhibits[$store->getKey()]))
-                    continue;
-
-                $exhibits[$store->getKey()] = $store;
-
-            }
-
-            $article['ARTICLE_EXHIBITS'] = array_values($exhibits);
 
 
 
@@ -193,4 +95,231 @@ class Article extends Resource
 
 
     }
+
+
+
+
+
+
+    private function addChildren( array &$article )
+    {
+
+
+        if ( $article['ARTICLE_TYPE'] != Struct\Article::TYPE_GROUP )
+            return;
+
+
+
+        $adapter = Shopware()->Container()->get( "ost_erp_api.configuration_service" )->get( "adapter" );
+
+        /** @var Gateway $articleComponentGateway */
+        $articleComponentGateway = Shopware()->Container()->get('ost_erp_api.api.gateway.' . strtolower($adapter) . '.article_component');
+
+        $components = $articleComponentGateway->findBy( array(
+            "[articlecomponent.number] = " . $article['ARTICLE_NUMBER']
+        ));
+
+
+
+        $article['ARTICLE_CHILDREN'] = array();
+
+
+        foreach ( $components as $component )
+        {
+            $child = $this->findOneBy( array( "[article.number] = " . $component['ARTICLECOMPONENT_NUMBER']));
+
+            array_push( $article['ARTICLE_CHILDREN'], $child );
+        }
+
+
+
+
+    }
+
+
+
+
+
+    private function addStock( array &$article )
+    {
+
+        if ( $article['ARTICLE_TYPE'] == Struct\Article::TYPE_GROUP )
+            return;
+
+
+
+        /* @var $stockResource Stock */
+        $stockResource = Shopware()->Container()->get('ost_erp_api.api.resources.stock');
+
+        $stock = $stockResource->findBy( array(
+            "[stock.number] = '" . $article['ARTICLE_NUMBER'] ."'"
+        ));
+
+
+        $article['ARTICLE_STOCK'] = $stock;
+
+    }
+
+
+
+
+    private function addReservedStock( array &$article )
+    {
+
+
+
+        if ( $article['ARTICLE_TYPE'] == Struct\Article::TYPE_GROUP )
+            return;
+
+
+
+
+        /* @var $reservedStockResource Stock */
+        $reservedStockResource = Shopware()->Container()->get('ost_erp_api.api.resources.reserved_stock');
+
+        $reservedStock = $reservedStockResource->findBy( array(
+            "[reservedstock.number] = '" . $article['ARTICLE_NUMBER'] ."'"
+        ));
+
+
+        $article['ARTICLE_RESERVED_STOCK'] = $reservedStock;
+
+
+
+    }
+
+
+
+    private function addCompany( array &$article )
+    {
+
+
+        if ( $article['ARTICLE_TYPE'] == Struct\Article::TYPE_GROUP )
+            return;
+
+
+
+
+
+        /* @var $companyResource Company */
+        $companyResource = Shopware()->Container()->get('ost_erp_api.api.resources.company');
+
+        $company = $companyResource->findOneBy( array(
+            "[company.key] = '" . $article['ARTICLE_COMPANY'] ."'"
+        ));
+
+
+        $article['ARTICLE_COMPANY'] = $company;
+
+
+
+    }
+
+
+
+
+    private function addAvailableStock( array &$article )
+    {
+
+
+        if ( $article['ARTICLE_TYPE'] == Struct\Article::TYPE_GROUP )
+            return;
+
+
+
+
+        // array( 'WITTEN' => array( 'ARTICLE_NUMBER' => 123, 'AVAILABLESTOCK_QUANTITY' => 1, 'AVAILABLESTOCK_STORE' => StoreStruct )
+        $availableStock = array();
+
+
+
+
+        /* @var $stock Struct\Stock */
+        foreach ( $article['ARTICLE_STOCK'] as $stock )
+        {
+            $store = $stock->getLocation()->getStore();
+
+            if ( $stock->getType() != Struct\Stock::TYPE_STOCK )
+                continue;
+
+            if ( !isset( $availableStock[$store->getKey()]))
+                $availableStock[$store->getKey()] = array(
+                    'ARTICLE_NUMBER' => $stock->getNumber(),
+                    'AVAILABLESTOCK_QUANTITY' => 0,
+                    'AVAILABLESTOCK_STORE' => $store
+                );
+
+
+            $availableStock[$store->getKey()]['AVAILABLESTOCK_QUANTITY'] += $stock->getQuantity();
+        }
+
+
+        /* @var $reservedStock Struct\ReservedStock */
+        foreach ( $article['ARTICLE_RESERVED_STOCK'] as $reservedStock )
+        {
+            $store = $stock->getLocation()->getStore();
+
+
+            if ( !isset( $availableStock[$store->getKey()]))
+                continue;
+
+
+            $availableStock[$store->getKey()]['AVAILABLESTOCK_QUANTITY'] -= $stock->getQuantity();
+
+
+
+            if ( $availableStock[$store->getKey()]['AVAILABLESTOCK_QUANTITY'] < 0 )
+                $availableStock[$store->getKey()]['AVAILABLESTOCK_QUANTITY'] = 0;
+
+        }
+
+
+
+        $article['ARTICLE_AVAILABLE_STOCK'] = array_values($availableStock);
+
+
+
+
+    }
+
+
+
+
+
+    private function addExhibits( array &$article )
+    {
+
+
+        if ( $article['ARTICLE_TYPE'] == Struct\Article::TYPE_GROUP )
+            return;
+
+
+
+
+
+        $exhibits = array();
+
+        /* @var $stock Struct\Stock */
+        foreach ( $article['ARTICLE_STOCK'] as $stock )
+        {
+            $store = $stock->getLocation()->getStore();
+
+            if ( $stock->getType() != Struct\Stock::TYPE_EXHIBIT )
+                continue;
+
+            if ( isset( $exhibits[$store->getKey()]))
+                continue;
+
+            $exhibits[$store->getKey()] = $store;
+
+        }
+
+        $article['ARTICLE_EXHIBITS'] = array_values($exhibits);
+
+
+
+
+
+    }
+
 }

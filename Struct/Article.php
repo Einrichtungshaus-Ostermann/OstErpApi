@@ -51,6 +51,53 @@ class Article extends Struct
 
 
 
+
+
+
+    const DISPOSITION_STOCK = "L";
+    const DISPOSITION_EXHIBIT = "K";
+    const DISPOSITION_ORDER = "B";
+    const DISPOSITION_BROCHURE = "P";
+    const DISPOSITION_DIRECT = "D";
+
+
+    /**
+     * The stock Type
+     *
+     * K = quantity in exhibit
+     * L = default stock in the warehouse
+     * B = stock which has to be ordered
+     * P = stock which is reserved for a broschure or for any event
+     * D = direktanlieferung
+     *
+     * @var string
+     */
+    protected $disposition;
+
+
+
+
+    const TYPE_SINGLE = "E";
+    const TYPE_GROUP = "D";
+    const TYPE_SET = "S";
+
+
+
+    /**
+     * ...
+     *
+     * E -> single article
+     * D -> dynamic group (with children as components)
+     * S -> sets with its own stock
+     *
+     * @var string
+     */
+    protected $type;
+
+
+
+
+
     /**
      * Every available stock information for this article.
      *
@@ -187,6 +234,58 @@ class Article extends Struct
     public function setCompany(Company $company)
     {
         $this->company = $company;
+    }
+
+
+
+    /**
+     * Getter method for the property.
+     *
+     * @return string
+     */
+    public function getDisposition()
+    {
+        return $this->disposition;
+    }
+
+
+
+    /**
+     * Setter method for the property.
+     *
+     * @param string $disposition
+     *
+     * @return void
+     */
+    public function setDisposition(string $disposition)
+    {
+        $this->disposition = $disposition;
+    }
+
+
+
+    /**
+     * Getter method for the property.
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+
+
+    /**
+     * Setter method for the property.
+     *
+     * @param string $type
+     *
+     * @return void
+     */
+    public function setType(string $type)
+    {
+        $this->type = $type;
     }
 
 
