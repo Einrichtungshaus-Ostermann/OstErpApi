@@ -31,6 +31,9 @@ class Article extends Hydrator
 
 
 
+            $articleStruct->setHwg((int) $article['ARTICLE_HWG']);
+            $articleStruct->setUwg((int) $article['ARTICLE_UWG']);
+
 
 
             $articleStruct->setNumber((string) $article['ARTICLE_NUMBER']);

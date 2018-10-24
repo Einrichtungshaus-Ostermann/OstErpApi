@@ -13,8 +13,11 @@ namespace OstErpApi\Api\Resources;
 
 use OstErpApi\Api\Gateway\Gateway;
 use OstErpApi\Api\Hydrator\Hydrator;
+use OstErpApi\Api\Processors\ProcessorInterface;
 use OstErpApi\Struct;
 use OstErpApi\Services;
+
+
 
 class Article extends Resource
 {
@@ -124,6 +127,13 @@ class Article extends Resource
         $article['ARTICLE_CHILDREN'] = array();
 
 
+        /*
+         * $company = array(
+         *     'ARTICLE_NUMBER' => parent article number
+         *     'ARTICLECOMPONENT_NUMBER' => child article numner
+         *     'ARTICLECOMPONENT_QUANTITY' => quantity of the child for the group
+         * )
+         */
         foreach ( $components as $component )
         {
             $child = $this->findOneBy( array( "[article.number] = " . $component['ARTICLECOMPONENT_NUMBER']));
@@ -194,11 +204,6 @@ class Article extends Resource
     {
 
 
-        if ( $article['ARTICLE_TYPE'] == Struct\Article::TYPE_GROUP )
-            return;
-
-
-
 
 
         /* @var $companyResource Company */
@@ -222,62 +227,11 @@ class Article extends Resource
     {
 
 
-        if ( $article['ARTICLE_TYPE'] == Struct\Article::TYPE_GROUP )
-            return;
+        /* @var $processor ProcessorInterface */
+        $processor = Shopware()->Container()->get('ost_erp_api.api.processors.article.available_stock');
 
 
-
-
-        // array( 'WITTEN' => array( 'ARTICLE_NUMBER' => 123, 'AVAILABLESTOCK_QUANTITY' => 1, 'AVAILABLESTOCK_STORE' => StoreStruct )
-        $availableStock = array();
-
-
-
-
-        /* @var $stock Struct\Stock */
-        foreach ( $article['ARTICLE_STOCK'] as $stock )
-        {
-            $store = $stock->getLocation()->getStore();
-
-            if ( $stock->getType() != Struct\Stock::TYPE_STOCK )
-                continue;
-
-            if ( !isset( $availableStock[$store->getKey()]))
-                $availableStock[$store->getKey()] = array(
-                    'ARTICLE_NUMBER' => $stock->getNumber(),
-                    'AVAILABLESTOCK_QUANTITY' => 0,
-                    'AVAILABLESTOCK_STORE' => $store
-                );
-
-
-            $availableStock[$store->getKey()]['AVAILABLESTOCK_QUANTITY'] += $stock->getQuantity();
-        }
-
-
-        /* @var $reservedStock Struct\ReservedStock */
-        foreach ( $article['ARTICLE_RESERVED_STOCK'] as $reservedStock )
-        {
-            $store = $stock->getLocation()->getStore();
-
-
-            if ( !isset( $availableStock[$store->getKey()]))
-                continue;
-
-
-            $availableStock[$store->getKey()]['AVAILABLESTOCK_QUANTITY'] -= $stock->getQuantity();
-
-
-
-            if ( $availableStock[$store->getKey()]['AVAILABLESTOCK_QUANTITY'] < 0 )
-                $availableStock[$store->getKey()]['AVAILABLESTOCK_QUANTITY'] = 0;
-
-        }
-
-
-
-        $article['ARTICLE_AVAILABLE_STOCK'] = array_values($availableStock);
-
-
+        $processor->process($article);
 
 
     }
@@ -290,32 +244,13 @@ class Article extends Resource
     {
 
 
-        if ( $article['ARTICLE_TYPE'] == Struct\Article::TYPE_GROUP )
-            return;
 
 
+        /* @var $processor ProcessorInterface */
+        $processor = Shopware()->Container()->get('ost_erp_api.api.processors.article.exhibits');
 
 
-
-        $exhibits = array();
-
-        /* @var $stock Struct\Stock */
-        foreach ( $article['ARTICLE_STOCK'] as $stock )
-        {
-            $store = $stock->getLocation()->getStore();
-
-            if ( $stock->getType() != Struct\Stock::TYPE_EXHIBIT )
-                continue;
-
-            if ( isset( $exhibits[$store->getKey()]))
-                continue;
-
-            $exhibits[$store->getKey()] = $store;
-
-        }
-
-        $article['ARTICLE_EXHIBITS'] = array_values($exhibits);
-
+        $processor->process($article);
 
 
 

@@ -18,11 +18,13 @@ class Article extends Gateway
         $query = '
             SELECT 
                 [article.company],
+                [article.hwg],
+                [article.uwg],
                 [article.number],
                 [article.name],
                 [article.weight],
                 [article.disposition],
-                [article.type],
+                [article.type]
             FROM IWMV2R1DTA.ARTS00
             
         ';

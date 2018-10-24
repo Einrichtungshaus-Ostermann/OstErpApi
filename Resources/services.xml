@@ -135,6 +135,17 @@
 
 
 
+
+
+
+        <service id="ost_erp_api.api.processors.article.exhibits" class="OstErpApi\Api\Processors\Article\Exhibits">
+        </service>
+
+        <service id="ost_erp_api.api.processors.article.available_stock" class="OstErpApi\Api\Processors\Article\AvailableStock">
+        </service>
+
+
+
     </services>
 
 </container>

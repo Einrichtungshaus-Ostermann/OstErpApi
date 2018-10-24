@@ -23,6 +23,24 @@ class Article extends Struct
     protected $number;
 
 
+    /**
+     * ...
+     *
+     * @var integer
+     */
+    protected $hwg;
+
+
+    /**
+     * ...
+     *
+     * @var integer
+     */
+    protected $uwg;
+
+
+
+
 
     /**
      * A readable article name.
@@ -156,6 +174,58 @@ class Article extends Struct
     public function setNumber(string $number)
     {
         $this->number = $number;
+    }
+
+
+
+    /**
+     * Getter method for the property.
+     *
+     * @return int
+     */
+    public function getHwg()
+    {
+        return $this->hwg;
+    }
+
+
+
+    /**
+     * Setter method for the property.
+     *
+     * @param int $hwg
+     *
+     * @return void
+     */
+    public function setHwg(int $hwg)
+    {
+        $this->hwg = $hwg;
+    }
+
+
+
+    /**
+     * Getter method for the property.
+     *
+     * @return int
+     */
+    public function getUwg()
+    {
+        return $this->uwg;
+    }
+
+
+
+    /**
+     * Setter method for the property.
+     *
+     * @param int $uwg
+     *
+     * @return void
+     */
+    public function setUwg(int $uwg)
+    {
+        $this->uwg = $uwg;
     }
 
 
