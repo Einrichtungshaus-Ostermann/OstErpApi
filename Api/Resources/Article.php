@@ -64,7 +64,7 @@ class Article extends Resource
 
             $this->addLabel( $article );
 
-
+            $this->addPrices( $article );
 
 
 
@@ -151,6 +151,36 @@ class Article extends Resource
 
 
     }
+
+
+
+
+
+
+
+
+
+    private function addPrices( array &$article )
+    {
+
+        if ( $article['ARTICLE_TYPE'] == Struct\Article::TYPE_GROUP )
+            return;
+
+
+
+        /* @var $priceResource Price */
+        $priceResource = Shopware()->Container()->get('ost_erp_api.api.resources.price');
+
+        $prices = $priceResource->findBy( array(
+            "[price.number] = '" . $article['ARTICLE_NUMBER'] ."'"
+        ));
+
+
+        $article['ARTICLE_PRICES'] = $prices;
+
+    }
+
+
 
 
 

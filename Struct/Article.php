@@ -48,15 +48,9 @@ class Article extends Struct
     protected $shippingType;
 
 
-    protected $width;
-    protected $height;
-    protected $length;
 
 
 
-
-
-    protected $tag = 5;
 
     protected $shippingCosts = 0.0;
 
@@ -185,6 +179,19 @@ class Article extends Struct
      * @var Store[]
      */
     protected $exhibits = [];
+
+
+
+
+
+    /**
+     * ...
+     *
+     * @var Price[]
+     */
+    protected $prices = [];
+
+
 
 
 
@@ -522,6 +529,32 @@ class Article extends Struct
     public function setLabel(Label $label)
     {
         $this->label = $label;
+    }
+
+
+
+    /**
+     * Getter method for the property.
+     *
+     * @return Price[]
+     */
+    public function getPrices()
+    {
+        return $this->prices;
+    }
+
+
+
+    /**
+     * Setter method for the property.
+     *
+     * @param Price[] $prices
+     *
+     * @return void
+     */
+    public function setPrices(array $prices)
+    {
+        $this->prices = $prices;
     }
 
 

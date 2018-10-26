@@ -46,9 +46,15 @@
         <service id="ost_erp_api.api.resources.company" class="OstErpApi\Api\Resources\Company">
         </service>
 
+        <service id="ost_erp_api.api.resources.label" class="OstErpApi\Api\Resources\Label">
+        </service>
+
+        <service id="ost_erp_api.api.resources.price" class="OstErpApi\Api\Resources\Price">
+        </service>
 
 
-        <!-- api resource hydrators -->
+
+        <!-- api resource hydrators and processors -->
         <service id="ost_erp_api.api.processors.article.exhibits" class="OstErpApi\Api\Processors\Article\Exhibits">
         </service>
 
@@ -77,6 +83,12 @@
         </service>
 
         <service id="ost_erp_api.api.hydrator.company" class="OstErpApi\Api\Hydrator\Company">
+        </service>
+
+        <service id="ost_erp_api.api.hydrator.label" class="OstErpApi\Api\Hydrator\Label">
+        </service>
+
+        <service id="ost_erp_api.api.hydrator.price" class="OstErpApi\Api\Hydrator\Price">
         </service>
 
 
@@ -130,6 +142,10 @@
         </service>
 
         <service id="ost_erp_api.api.gateway.iwm.store" class="OstErpApi\Api\Gateway\Iwm\Store">
+            <argument type="service" id="ost_erp_api.configuration_service"/>
+        </service>
+
+        <service id="ost_erp_api.api.gateway.iwm.price" class="OstErpApi\Api\Gateway\Iwm\Price">
             <argument type="service" id="ost_erp_api.configuration_service"/>
         </service>
 

@@ -23,7 +23,7 @@ class Location extends Gateway
         ],
         [
             'LOCATION_KEY'      => "150",
-            'LOCATION_STORE'      => "01",
+            'LOCATION_STORE'      => "04",
             'LOCATION_COMPANY'      => "3",
         ],
         [
