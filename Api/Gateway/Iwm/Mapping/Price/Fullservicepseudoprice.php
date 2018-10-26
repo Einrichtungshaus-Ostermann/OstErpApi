@@ -17,7 +17,7 @@ class Fullservicepseudoprice implements Mapping
 {
     public static function getAlias()
     {
-        return 'ARTICLE_FULLSERVICEPSEUDOPRICE';
+        return 'PRICE_FULLSERVICEPSEUDOPRICE';
     }
 
     public static function getColumn()

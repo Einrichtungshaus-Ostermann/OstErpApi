@@ -17,7 +17,7 @@ class Pickuppseudoprice implements Mapping
 {
     public static function getAlias()
     {
-        return 'ARTICLE_PICKUPPSEUDOPRICE';
+        return 'PRICE_PICKUPPSEUDOPRICE';
     }
 
     public static function getColumn()

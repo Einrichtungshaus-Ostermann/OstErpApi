@@ -17,7 +17,7 @@ class Deliveryprice implements Mapping
 {
     public static function getAlias()
     {
-        return 'ARTICLE_DELIVERYPRICE';
+        return 'PRICE_DELIVERYPRICE';
     }
 
     public static function getColumn()

@@ -17,7 +17,7 @@ class Deliverypseudoprice implements Mapping
 {
     public static function getAlias()
     {
-        return 'ARTICLE_DELIVERYPSEUDOPRICE';
+        return 'PRICE_DELIVERYPSEUDOPRICE';
     }
 
     public static function getColumn()
