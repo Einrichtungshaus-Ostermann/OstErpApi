@@ -24,6 +24,11 @@ class Store extends Gateway
             'STORE_KEY'        => 'LEVERKUSEN',
             'STORE_NAME'       => 'Leverkusen'
 
+        ],
+        [
+            'STORE_KEY'        => 'HAAN',
+            'STORE_NAME'       => 'Haan'
+
         ]
     ];
 

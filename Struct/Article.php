@@ -41,6 +41,42 @@ class Article extends Struct
 
 
 
+    protected $supplierNumber;
+
+    protected $deliveryTime;
+
+    protected $shippingType;
+
+
+    protected $width;
+    protected $height;
+    protected $length;
+
+
+
+
+
+    protected $tag = 5;
+
+    protected $shippingCosts = 0.0;
+
+    protected $assemblySurcharge = 0.0;
+
+
+
+
+
+    /**
+     * ...
+     *
+     * @var Label
+     */
+    protected $label;
+
+
+
+
+
 
     /**
      * A readable article name.
@@ -460,6 +496,32 @@ class Article extends Struct
     public function setExhibits(array $exhibits)
     {
         $this->exhibits = $exhibits;
+    }
+
+
+
+    /**
+     * Getter method for the property.
+     *
+     * @return Label
+     */
+    public function getLabel()
+    {
+        return $this->label;
+    }
+
+
+
+    /**
+     * Setter method for the property.
+     *
+     * @param Label $label
+     *
+     * @return void
+     */
+    public function setLabel(Label $label)
+    {
+        $this->label = $label;
     }
 
 

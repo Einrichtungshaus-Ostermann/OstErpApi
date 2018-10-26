@@ -27,7 +27,8 @@ class Article extends Gateway
                 [article.name],
                 [article.weight],
                 [article.disposition],
-                [article.type]
+                [article.type],
+                [article.label]
             FROM IWMV2R1DTA.ARTS00
             
         ';

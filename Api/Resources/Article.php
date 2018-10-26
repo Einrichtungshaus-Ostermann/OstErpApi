@@ -62,6 +62,12 @@ class Article extends Resource
             $this->addCompany( $article );
 
 
+            $this->addLabel( $article );
+
+
+
+
+
             $this->addAvailableStock( $article );
 
 
@@ -193,6 +199,26 @@ class Article extends Resource
 
 
         $article['ARTICLE_RESERVED_STOCK'] = $reservedStock;
+
+
+
+    }
+
+    private function addLabel( array &$article )
+    {
+
+
+
+
+        /* @var $labelResource Label */
+        $labelResource = Shopware()->Container()->get('ost_erp_api.api.resources.label');
+
+        $label = $labelResource->findOneBy( array(
+            "[label.key] = '" . $article['ARTICLE_LABEL'] ."'"
+        ));
+
+
+        $article['ARTICLE_LABEL'] = $label;
 
 
 

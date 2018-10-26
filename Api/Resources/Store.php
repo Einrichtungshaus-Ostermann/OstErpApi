@@ -30,9 +30,39 @@ class Store extends Resource
         /** @var Gateway $gateway */
         $gateway = Shopware()->Container()->get('ost_erp_api.api.gateway.' . strtolower($adapter) . '.store');
 
-        $stores = $gateway->findBy($params);
+        $storesArr = $gateway->findBy($params);
 
 
+
+
+
+        foreach ( $storesArr as $key => $store )
+        {
+
+
+
+
+            /* @var $companyResource Company */
+            $companyResource = Shopware()->Container()->get('ost_erp_api.api.resources.company');
+
+            $company = $companyResource->findOneBy( array(
+                "[company.key] = '" . $store['STORE_COMPANY'] ."'"
+            ));
+
+
+            $store['STORE_COMPANY'] = $company;
+
+
+
+
+
+
+
+
+
+            $storesArr[$key] = $store;
+
+        }
 
 
 
@@ -42,7 +72,7 @@ class Store extends Resource
         /** @var Hydrator $hydrator */
         $hydrator = Shopware()->Container()->get('ost_erp_api.api.hydrator.store');
 
-        return $hydrator->hydrate($stores);
+        return $hydrator->hydrate($storesArr);
 
 
 

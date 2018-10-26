@@ -4,23 +4,23 @@
  *
  * @package   OstErpApi
  *
- * @author    Tim Windelschmidt <tim.windelschmidt@ostermann.de>
+ * @author    Eike Brandt-Warneke <e.brandt-warneke@ostermann.de>
  * @copyright 2018 Einrichtungshaus Ostermann GmbH & Co. KG
  * @license   proprietary
  */
 
 namespace OstErpApi\Struct;
 
-class Store extends Struct
+class Label extends Struct
 {
+
 
     /**
      * ...
      *
-     * @var string
+     * @var int
      */
     protected $key;
-
 
 
 
@@ -33,30 +33,11 @@ class Store extends Struct
 
 
 
-    /**
-     * ...
-     *
-     * @var string
-     */
-    protected $city;
 
+    const TYPE_PICKUP = 1;
+    const TYPE_DELIVERY = 2;
+    const TYPE_FULLSERVICE = 3;
 
-
-
-    /**
-     * ...
-     *
-     * @var Company
-     */
-    protected $company;
-
-
-
-
-
-
-    const TYPE_PHYSICAL = 1;
-    const TYPE_ONLINE = 2;
 
 
     /**
@@ -71,7 +52,7 @@ class Store extends Struct
     /**
      * Getter method for the property.
      *
-     * @return string
+     * @return int
      */
     public function getKey()
     {
@@ -83,11 +64,11 @@ class Store extends Struct
     /**
      * Setter method for the property.
      *
-     * @param string $key
+     * @param int $key
      *
      * @return void
      */
-    public function setKey(string $key)
+    public function setKey(int $key)
     {
         $this->key = $key;
     }
@@ -116,58 +97,6 @@ class Store extends Struct
     public function setName(string $name)
     {
         $this->name = $name;
-    }
-
-
-
-    /**
-     * Getter method for the property.
-     *
-     * @return string
-     */
-    public function getCity()
-    {
-        return $this->city;
-    }
-
-
-
-    /**
-     * Setter method for the property.
-     *
-     * @param string $city
-     *
-     * @return void
-     */
-    public function setCity(string $city)
-    {
-        $this->city = $city;
-    }
-
-
-
-    /**
-     * Getter method for the property.
-     *
-     * @return Company
-     */
-    public function getCompany()
-    {
-        return $this->company;
-    }
-
-
-
-    /**
-     * Setter method for the property.
-     *
-     * @param Company $company
-     *
-     * @return void
-     */
-    public function setCompany(Company $company)
-    {
-        $this->company = $company;
     }
 
 

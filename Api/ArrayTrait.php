@@ -96,7 +96,7 @@ trait ArrayTrait
                 {
                     case "=":
 
-                        if ( $row[$param['column']] == $param['value'] )
+                        if ( (string) $row[$param['column']] == (string) $param['value'] )
                             $valid = true;
 
                         break;

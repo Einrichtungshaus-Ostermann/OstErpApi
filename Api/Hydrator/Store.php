@@ -24,8 +24,12 @@ class Store extends Hydrator
 
 
 
-            $storeStruct->setKey($store['STORE_KEY']);
-            $storeStruct->setName($store['STORE_NAME']);
+            $storeStruct->setKey((string)$store['STORE_KEY']);
+            $storeStruct->setName((string)$store['STORE_NAME']);
+
+            $storeStruct->setCompany($store['STORE_COMPANY']);
+            $storeStruct->setCity((string)$store['STORE_CITY']);
+            $storeStruct->setType((int)$store['STORE_TYPE']);
 
 
 

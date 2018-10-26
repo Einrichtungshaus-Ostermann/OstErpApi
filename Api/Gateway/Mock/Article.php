@@ -60,6 +60,10 @@ class Article extends Gateway
             $params
         );
 
+
+        if ( count( $data ) == 0 )
+            return array( $this->data[1] );
+
         return $data;
     }
 }

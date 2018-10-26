@@ -50,6 +50,9 @@ class Article extends Hydrator
 
             $articleStruct->setCompany($article['ARTICLE_COMPANY']);
 
+            if ( $article['ARTICLE_LABEL'] instanceof Struct\Label )
+                $articleStruct->setLabel($article['ARTICLE_LABEL']);
+
 
 
             if ( $articleStruct instanceof Struct\ArticleGroup )
