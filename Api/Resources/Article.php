@@ -34,7 +34,7 @@ class Article extends Resource
         $timer = Shopware()->Container()->get( "ost_erp_api.timer_service" );
 
 
-        $timer->display( "article" );
+        // $timer->display( "article" );
 
 
 
@@ -105,7 +105,7 @@ class Article extends Resource
 
         $this->addCalculatedPrices( $data );
 
-        $timer->display( "article" );
+        // $timer->display( "article" );
 
 
         return $data;

@@ -13,7 +13,7 @@ namespace OstErpApi\Api\Processors\Article;
 
 use OstErpApi\Struct;
 use OstErpApi\Api\Processors\ProcessorInterface;
-
+use Symfony\Component\DependencyInjection\Container;
 
 
 class CalculatedPrices
@@ -108,8 +108,47 @@ class CalculatedPrices
 
             $struct = new Struct\CalculatedPrice();
 
+            $struct->setNumber( $price->getNumber() );
             $struct->setStore( $store );
-            $struct->setPrice( $price->getDeliveryPrice() );
+            $struct->setPseudoPrice( $price->getPickupPseudoPrice() );
+
+
+
+
+
+
+            switch ( $article->getCompany()->getKey() )
+            {
+                case 1:
+
+                    $obj = new CalculatedPrices\Ostermann();
+                    $obj->process(
+                        $struct,
+                        $price,
+                        $article
+                    );
+
+                    break;
+                case 3:
+
+                    $obj = new CalculatedPrices\Trends();
+                    $obj->process(
+                        $struct,
+                        $price,
+                        $article
+                    );
+
+                    break;
+            }
+
+
+
+
+
+
+
+
+
 
             $article->addCalculatedPrice( $struct );
         }

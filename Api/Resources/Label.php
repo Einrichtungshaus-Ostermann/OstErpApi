@@ -136,7 +136,72 @@ class Label extends Resource
             'LABEL_KEY' => "83",
             'LABEL_NAME' => "A5.Etk-Vollp.-Ausl./Best.Sper",
             'LABEL_TYPE' => "3"
-        )
+        ),
+
+
+
+        array(
+            'LABEL_KEY' => "84",
+            'LABEL_NAME' => "A6 Etk-Abholp. WERBUNG",
+            'LABEL_TYPE' => "1"
+        ),
+        array(
+            'LABEL_KEY' => "85",
+            'LABEL_NAME' => "A6 Etk-Liefp. WERBUNG",
+            'LABEL_TYPE' => "2"
+        ),
+        array(
+            'LABEL_KEY' => "86",
+            'LABEL_NAME' => "A6 Etk-Vollp. WERBUNG",
+            'LABEL_TYPE' => "3"
+        ),
+        array(
+            'LABEL_KEY' => "87",
+            'LABEL_NAME' => "A6 Etk-Abholp. Superchance",
+            'LABEL_TYPE' => "1"
+        ),
+        array(
+            'LABEL_KEY' => "88",
+            'LABEL_NAME' => "A6 Etk-Liefp. Superchance",
+            'LABEL_TYPE' => "3"
+        ),
+        array(
+            'LABEL_KEY' => "89",
+            'LABEL_NAME' => "A6 Etk-Vollp. Superchance",
+            'LABEL_TYPE' => "3"
+        ),
+
+
+
+        array(
+            'LABEL_KEY' => "90",
+            'LABEL_NAME' => "A5 Etk-Abholp. WERBUNG",
+            'LABEL_TYPE' => "1"
+        ),
+        array(
+            'LABEL_KEY' => "91",
+            'LABEL_NAME' => "A5 Etk-Liefp. WERBUNG",
+            'LABEL_TYPE' => "2"
+        ),
+        array(
+            'LABEL_KEY' => "92",
+            'LABEL_NAME' => "A5 Etk-Vollp. WERBUNG",
+            'LABEL_TYPE' => "3"
+        ),
+
+
+        array(
+            'LABEL_KEY' => "93",
+            'LABEL_NAME' => "A5 Etk-Abholp. Superchance",
+            'LABEL_TYPE' => "3"
+        ),
+        array(
+            'LABEL_KEY' => "94",
+            'LABEL_NAME' => "A5 Etk-Liefp. Superchance",
+            'LABEL_TYPE' => "3"
+        ),
+
+
 
     );
 

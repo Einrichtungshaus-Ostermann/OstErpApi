@@ -121,6 +121,10 @@
             <argument type="service" id="ost_erp_api.configuration_service"/>
         </service>
 
+        <service id="ost_erp_api.api.gateway.mock.price" class="OstErpApi\Api\Gateway\Mock\Price">
+            <argument type="service" id="ost_erp_api.configuration_service"/>
+        </service>
+
 
 
         <!-- iwm gateways -->
