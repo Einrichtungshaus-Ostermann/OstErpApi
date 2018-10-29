@@ -28,10 +28,10 @@ class Article extends Resource
         $adapter = Shopware()->Container()->get('ost_erp_api.configuration_service')->get('adapter');
 
         /* @var $timer Services\TimerService */
-        $timer = Shopware()->Container()->get( 'ost_erp_api.timer_service' );
+        $timer = Shopware()->Container()->get('ost_erp_api.timer_service');
 
 
-       // $timer->display( 'article' );
+        // $timer->display( 'article' );
 
 
         /** @var Gateway $gateway */
@@ -56,11 +56,9 @@ class Article extends Resource
         $data = $hydrator->hydrate($articlesArr);
 
 
+        $this->addCalculatedPrices($data);
 
-
-        $this->addCalculatedPrices( $data );
-
-       // $timer->display( 'article' );
+        // $timer->display( 'article' );
 
         return $data;
     }

@@ -17,7 +17,6 @@ class Startdate implements Mapping
 {
     public static function getAlias()
     {
-
     }
 
     public static function getColumn()

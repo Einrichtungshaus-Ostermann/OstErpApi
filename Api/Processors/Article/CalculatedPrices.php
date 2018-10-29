@@ -80,17 +80,12 @@ class CalculatedPrices
 
             $struct = new Struct\CalculatedPrice();
 
-            $struct->setNumber( $price->getNumber() );
-            $struct->setStore( $store );
-            $struct->setPseudoPrice( $price->getPickupPseudoPrice() );
+            $struct->setNumber($price->getNumber());
+            $struct->setStore($store);
+            $struct->setPseudoPrice($price->getPickupPseudoPrice());
 
 
-
-
-
-
-            switch ( $article->getCompany()->getKey() )
-            {
+            switch ($article->getCompany()->getKey()) {
                 case 1:
 
                     $obj = new CalculatedPrices\Ostermann();
