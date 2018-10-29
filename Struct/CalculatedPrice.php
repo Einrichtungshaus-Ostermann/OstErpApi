@@ -13,18 +13,12 @@ namespace OstErpApi\Struct;
 
 class CalculatedPrice extends Struct
 {
-
     /**
      * A unique article number.
      *
      * @var string
      */
     protected $number;
-
-
-
-
-
 
 
 
@@ -60,10 +54,6 @@ class CalculatedPrice extends Struct
 
 
 
-
-
-
-
     /**
      * ...
      *
@@ -78,7 +68,7 @@ class CalculatedPrice extends Struct
      *
      * @return string
      */
-    public function getNumber()
+    public function getNumber(): string
     {
         return $this->number;
     }
@@ -89,8 +79,6 @@ class CalculatedPrice extends Struct
      * Setter method for the property.
      *
      * @param string $number
-     *
-     * @return void
      */
     public function setNumber(string $number)
     {
@@ -104,7 +92,7 @@ class CalculatedPrice extends Struct
      *
      * @return float
      */
-    public function getPrice()
+    public function getPrice(): float
     {
         return $this->price;
     }
@@ -115,8 +103,6 @@ class CalculatedPrice extends Struct
      * Setter method for the property.
      *
      * @param float $price
-     *
-     * @return void
      */
     public function setPrice(float $price)
     {
@@ -130,7 +116,7 @@ class CalculatedPrice extends Struct
      *
      * @return float
      */
-    public function getPseudoPrice()
+    public function getPseudoPrice(): float
     {
         return $this->pseudoPrice;
     }
@@ -141,8 +127,6 @@ class CalculatedPrice extends Struct
      * Setter method for the property.
      *
      * @param float $pseudoPrice
-     *
-     * @return void
      */
     public function setPseudoPrice(float $pseudoPrice)
     {
@@ -156,7 +140,7 @@ class CalculatedPrice extends Struct
      *
      * @return float
      */
-    public function getShippingCosts()
+    public function getShippingCosts(): float
     {
         return $this->shippingCosts;
     }
@@ -167,8 +151,6 @@ class CalculatedPrice extends Struct
      * Setter method for the property.
      *
      * @param float $shippingCosts
-     *
-     * @return void
      */
     public function setShippingCosts(float $shippingCosts)
     {
@@ -182,7 +164,7 @@ class CalculatedPrice extends Struct
      *
      * @return float
      */
-    public function getAssemblySurcharge()
+    public function getAssemblySurcharge(): float
     {
         return $this->assemblySurcharge;
     }
@@ -193,8 +175,6 @@ class CalculatedPrice extends Struct
      * Setter method for the property.
      *
      * @param float $assemblySurcharge
-     *
-     * @return void
      */
     public function setAssemblySurcharge(float $assemblySurcharge)
     {
@@ -208,7 +188,7 @@ class CalculatedPrice extends Struct
      *
      * @return Store
      */
-    public function getStore()
+    public function getStore(): Store
     {
         return $this->store;
     }
@@ -219,19 +199,9 @@ class CalculatedPrice extends Struct
      * Setter method for the property.
      *
      * @param Store $store
-     *
-     * @return void
      */
     public function setStore(Store $store)
     {
         $this->store = $store;
     }
-
-
-
-
-
-
-
-
 }

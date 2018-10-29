@@ -22,10 +22,9 @@ class Label extends Hydrator
         foreach ($data as $label) {
             $labelStruct = new Struct\Label();
 
-
-            $labelStruct->setKey( (integer) $label['LABEL_KEY']);
+            $labelStruct->setKey((int)$label['LABEL_KEY']);
             $labelStruct->setName((string)$label['LABEL_NAME']);
-            $labelStruct->setType((integer)$label['LABEL_TYPE']);
+            $labelStruct->setType((int)$label['LABEL_TYPE']);
 
 
             $arr[] = $labelStruct;

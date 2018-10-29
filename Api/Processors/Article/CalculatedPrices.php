@@ -12,55 +12,34 @@
 namespace OstErpApi\Api\Processors\Article;
 
 use OstErpApi\Struct;
-use OstErpApi\Api\Processors\ProcessorInterface;
-use Symfony\Component\DependencyInjection\Container;
-
 
 class CalculatedPrices
 {
-
-
-
-
-
-
     /**
      * ...
      *
      * @param Struct\Article $article
      */
-    public function process( Struct\Article $article )
+    public function process(Struct\Article $article)
     {
-
-        $stores = Shopware()->Container()->get( "ost_erp_api.api" )->findAll( "store" );
+        $stores = Shopware()->Container()->get('ost_erp_api.api')->findAll('store');
 
 
         $now = time();
 
 
         /* @var $store Struct\Store */
-        foreach ( $stores as $store )
-        {
-            $defaultPrices = array();
-            $myPrices = array();
+        foreach ($stores as $store) {
+            $defaultPrices = [];
+            $myPrices = [];
 
-            foreach ( $article->getPrices() as $price )
-            {
-                if ( ( $price->getStore() === null ) or ( $price->getStore()->getKey() === $store->getKey() ) )
-                {
-
-                    if ( ( $now >= $price->getStartDate()->getTimestamp() ) and ( $now <= $price->getEndDate()->getTimestamp() ) )
-                    {
-
-                        if ( $price->getStore() === null )
-                            array_push( $defaultPrices, $price );
-                        else
-                            array_push( $myPrices, $price );
-
-
+            foreach ($article->getPrices() as $price) {
+                if (($now >= $price->getStartDate()->getTimestamp()) && ($now <= $price->getEndDate()->getTimestamp())) {
+                    if (($price->getStore() !== null) && ($price->getStore()->getKey() === $store->getKey())) {
+                        $defaultPrices[] = $price;
+                    } else {
+                        $myPrices[] = $price;
                     }
-
-
                 }
             }
 
@@ -69,41 +48,34 @@ class CalculatedPrices
             $myPrice = null;
 
             /* @var $price Struct\Price */
-            foreach ( $defaultPrices as $price )
-            {
-                if ( $myPrice === null )
-                {
+            foreach ($defaultPrices as $price) {
+                if ($myPrice === null) {
                     $myPrice = $price;
                     continue;
                 }
 
-                if ( $myPrice->getStartDate()->getTimestamp() < $price->getStartDate()->getTimestamp() )
+                if ($myPrice->getStartDate()->getTimestamp() < $price->getStartDate()->getTimestamp()) {
                     $myPrice = $price;
-
+                }
             }
 
             /* @var $price Struct\Price */
-            foreach ( $myPrices as $price )
-            {
-                if ( $myPrice === null )
-                {
+            foreach ($myPrices as $price) {
+                if ($myPrice === null) {
                     $myPrice = $price;
                     continue;
                 }
 
-                if ( $myPrice->getStartDate()->getTimestamp() < $price->getStartDate()->getTimestamp() )
+                if ($myPrice->getStartDate()->getTimestamp() < $price->getStartDate()->getTimestamp()) {
                     $myPrice = $price;
-
+                }
             }
 
 
-
             // do we even have a price?
-            if ( $price === null )
+            if ($price === null) {
                 continue;
-
-
-
+            }
 
 
             $struct = new Struct\CalculatedPrice();
@@ -141,24 +113,7 @@ class CalculatedPrices
                     break;
             }
 
-
-
-
-
-
-
-
-
-
-            $article->addCalculatedPrice( $struct );
+            $article->addCalculatedPrice($struct);
         }
-
-
-
-
     }
-
-
-
-
 }

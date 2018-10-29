@@ -17,14 +17,8 @@ class Parser implements ParserInterface
 {
     public function parse($query, $addAlias = true)
     {
-
-
-
-
         // get the placeholders
         preg_match_all('/\[[^\]]*\]/', $query, $matches);
-
-
 
         // loop them
         foreach ($matches[0] as $match) {
@@ -32,36 +26,17 @@ class Parser implements ParserInterface
             $match = str_replace(['[', ']'], '', $match);
 
             // split by entity and key
-            $split = explode('.', $match);
-
-            // set vars for it
-            $entity = $split[0];
-            $key = $split[1];
-
-
-
+            list($entity, $key) = explode('.', $match);
 
             // create object name
             /* @var $mapping Mapping */
             $mapping = __NAMESPACE__ . '\\' . ucwords($entity) . '\\' . ucwords($key);
 
-
-
-
-
-
             $replace = $mapping::getColumn();
-
-
-
 
             if ($addAlias === true) {
                 $replace .= ' AS ' . $mapping::getAlias();
             }
-
-
-
-
 
             // replace
             $query = str_replace(
@@ -72,12 +47,9 @@ class Parser implements ParserInterface
         }
 
 
-
         // and return it
         return $query;
     }
-
-
 
 
 

@@ -11,7 +11,6 @@
 
 namespace OstErpApi\Api\Resources;
 
-use OstErpApi\Api\Gateway\Gateway;
 use OstErpApi\Api\Hydrator\Hydrator;
 
 class Company extends Resource
@@ -20,16 +19,16 @@ class Company extends Resource
 
 
 
-    protected $data = array(
-        array(
-            'COMPANY_KEY' => "1",
-            'COMPANY_NAME' => "Ostermann"
-        ),
-        array(
-            'COMPANY_KEY' => "3",
-            'COMPANY_NAME' => "Trends"
-        )
-    );
+    protected $data = [
+        [
+            'COMPANY_KEY'  => '1',
+            'COMPANY_NAME' => 'Ostermann'
+        ],
+        [
+            'COMPANY_KEY'  => '3',
+            'COMPANY_NAME' => 'Trends'
+        ]
+    ];
 
 
 
@@ -37,7 +36,6 @@ class Company extends Resource
     // [company.name] = Ostermann
     public function findBy(array $params = [], array $options = []): array
     {
-
         $data = $this->findInArray(
             $this->data,
             $params
@@ -48,7 +46,5 @@ class Company extends Resource
         $hydrator = Shopware()->Container()->get('ost_erp_api.api.hydrator.company');
 
         return $hydrator->hydrate($data);
-
-
     }
 }

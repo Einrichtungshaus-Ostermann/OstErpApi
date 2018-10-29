@@ -13,7 +13,6 @@ namespace OstErpApi\Api\Gateway\Iwm;
 
 class Stock extends Gateway
 {
-
     protected function getQuery()
     {
         $query = '
@@ -32,20 +31,8 @@ class Stock extends Gateway
 
 
 
-
-    protected function addParams( array $params )
+    protected function addParams(array $params)
     {
-
-
-
         $parameters[] = "LBSTAT = 'A'";
-
     }
-
-
-
-
-
-
-
 }

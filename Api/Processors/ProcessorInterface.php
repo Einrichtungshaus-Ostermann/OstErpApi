@@ -11,19 +11,12 @@
 
 namespace OstErpApi\Api\Processors;
 
-use OstErpApi\Struct;
-
-
-
 interface ProcessorInterface
 {
-
-
-
     /**
      * ...
      *
      * @param array $data
      */
-    public function process( array &$data );
+    public function process(array &$data);
 }

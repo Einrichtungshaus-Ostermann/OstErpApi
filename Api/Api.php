@@ -18,7 +18,8 @@ class Api
     public function findBy($resource, $params = []): array
     {
         if (substr_count($resource, '\\') > 0) {
-            $resource = array_pop(explode('\\', $resource));
+            $resource = explode('\\', $resource);
+            $resource = array_pop($resource);
         }
 
 

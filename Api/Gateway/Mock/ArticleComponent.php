@@ -15,27 +15,13 @@ use OstErpApi\Api\Gateway\Gateway;
 
 class ArticleComponent extends Gateway
 {
-
-
-
-
-
     private $data = [
         [
-            'ARTICLE_NUMBER'      => "874355",
-            'ARTICLECOMPONENT_NUMBER'      => "811243",
-            'ARTICLECOMPONENT_QUANTITY'      => "4"
-        ],
-
-
-
-
+            'ARTICLE_NUMBER'            => '874355',
+            'ARTICLECOMPONENT_NUMBER'   => '811243',
+            'ARTICLECOMPONENT_QUANTITY' => '4'
+        ]
     ];
-
-
-
-
-
 
     public function findBy(array $params = []): array
     {
@@ -46,7 +32,4 @@ class ArticleComponent extends Gateway
 
         return $data;
     }
-
-
-
 }

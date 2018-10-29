@@ -13,6 +13,8 @@ namespace OstErpApi\Struct;
 
 class Store extends Struct
 {
+    const TYPE_PHYSICAL = 1;
+    const TYPE_ONLINE = 2;
 
     /**
      * ...
@@ -51,14 +53,6 @@ class Store extends Struct
     protected $company;
 
 
-
-
-
-
-    const TYPE_PHYSICAL = 1;
-    const TYPE_ONLINE = 2;
-
-
     /**
      * ...
      *
@@ -73,7 +67,7 @@ class Store extends Struct
      *
      * @return string
      */
-    public function getKey()
+    public function getKey(): string
     {
         return $this->key;
     }
@@ -84,8 +78,6 @@ class Store extends Struct
      * Setter method for the property.
      *
      * @param string $key
-     *
-     * @return void
      */
     public function setKey(string $key)
     {
@@ -99,7 +91,7 @@ class Store extends Struct
      *
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
@@ -110,8 +102,6 @@ class Store extends Struct
      * Setter method for the property.
      *
      * @param string $name
-     *
-     * @return void
      */
     public function setName(string $name)
     {
@@ -125,7 +115,7 @@ class Store extends Struct
      *
      * @return string
      */
-    public function getCity()
+    public function getCity(): string
     {
         return $this->city;
     }
@@ -136,8 +126,6 @@ class Store extends Struct
      * Setter method for the property.
      *
      * @param string $city
-     *
-     * @return void
      */
     public function setCity(string $city)
     {
@@ -151,7 +139,7 @@ class Store extends Struct
      *
      * @return Company
      */
-    public function getCompany()
+    public function getCompany(): Company
     {
         return $this->company;
     }
@@ -162,8 +150,6 @@ class Store extends Struct
      * Setter method for the property.
      *
      * @param Company $company
-     *
-     * @return void
      */
     public function setCompany(Company $company)
     {
@@ -177,7 +163,7 @@ class Store extends Struct
      *
      * @return int
      */
-    public function getType()
+    public function getType(): int
     {
         return $this->type;
     }
@@ -188,17 +174,9 @@ class Store extends Struct
      * Setter method for the property.
      *
      * @param int $type
-     *
-     * @return void
      */
     public function setType(int $type)
     {
         $this->type = $type;
     }
-
-
-
-
-
-
 }

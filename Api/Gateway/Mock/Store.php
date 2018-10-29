@@ -19,7 +19,7 @@ class Store extends Gateway
 
 
 
-    private $data = array(
+    private static $data = array(
 
         array(
             'STORE_KEY' => "01",
@@ -124,7 +124,6 @@ class Store extends Gateway
             'STORE_TYPE' => "2"
         ),
 
-
     );
 
 
@@ -133,7 +132,7 @@ class Store extends Gateway
     public function findBy(array $params = []): array
     {
         $data = $this->findInArray(
-            $this->data,
+            static::$data,
             $params
         );
 

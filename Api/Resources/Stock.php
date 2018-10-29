@@ -16,12 +16,7 @@ use OstErpApi\Api\Hydrator\Hydrator;
 
 class Stock extends Resource
 {
-
-    protected $name = "Stock";
-
-
-
-
+    protected $name = 'Stock';
 
     // [stock.number] = 121535
     // [stock.location] = 150
@@ -31,61 +26,34 @@ class Stock extends Resource
 
     public function findBy(array $params = [], array $options = []): array
     {
-        $adapter = Shopware()->Container()->get( "ost_erp_api.configuration_service" )->get( "adapter" );
-
-
+        $adapter = Shopware()->Container()->get('ost_erp_api.configuration_service')->get('adapter');
 
         /** @var Gateway $gateway */
         $gateway = Shopware()->Container()->get('ost_erp_api.api.gateway.' . strtolower($adapter) . '.stock');
-
         $stockArr = $gateway->findBy($params);
 
-
-        foreach ( $stockArr as $key => $stock )
-        {
+        foreach ($stockArr as $key => $stock) {
 
             /* @var $companyResource Company */
             $companyResource = Shopware()->Container()->get('ost_erp_api.api.resources.company');
 
-            $company = $companyResource->findOneBy( array(
-                "[company.key] = '" . $stock['STOCK_COMPANY'] ."'"
-            ));
-
+            $company = $companyResource->findOneBy([
+                "[company.key] = '" . $stock['STOCK_COMPANY'] . "'"
+            ]);
 
             $stock['STOCK_COMPANY'] = $company;
-
-
-
-
 
             /* @var $locationResource Location */
             $locationResource = Shopware()->Container()->get('ost_erp_api.api.resources.location');
 
-            $location = $locationResource->findOneBy( array(
-                "[location.key] = '" . $stock['STOCK_LOCATION'] ."'"
-            ));
-
+            $location = $locationResource->findOneBy([
+                "[location.key] = '" . $stock['STOCK_LOCATION'] . "'"
+            ]);
 
             $stock['STOCK_LOCATION'] = $location;
 
-
-
-
-
-
-
-
-
-
             $stockArr[$key] = $stock;
-
         }
-
-
-
-
-
-
 
         /** @var Hydrator $hydrator */
         $hydrator = Shopware()->Container()->get('ost_erp_api.api.hydrator.stock');

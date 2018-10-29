@@ -13,6 +13,11 @@ namespace OstErpApi\Struct;
 
 class Stock extends Struct
 {
+    const TYPE_STOCK = 'L';
+    const TYPE_EXHIBIT = 'K';
+    const TYPE_ORDER = 'B';
+    const TYPE_BROCHURE = 'P';
+    const TYPE_DIRECT = 'D';
 
     /**
      * A unique article number.
@@ -33,13 +38,6 @@ class Stock extends Struct
      * @var int
      */
     protected $quantity;
-
-
-    const TYPE_STOCK = "L";
-    const TYPE_EXHIBIT = "K";
-    const TYPE_ORDER = "B";
-    const TYPE_BROCHURE = "P";
-    const TYPE_DIRECT = "D";
 
 
     /**
@@ -80,7 +78,7 @@ class Stock extends Struct
      *
      * @return string
      */
-    public function getNumber()
+    public function getNumber(): string
     {
         return $this->number;
     }
@@ -91,8 +89,6 @@ class Stock extends Struct
      * Setter method for the property.
      *
      * @param string $number
-     *
-     * @return void
      */
     public function setNumber(string $number)
     {
@@ -106,7 +102,7 @@ class Stock extends Struct
      *
      * @return int
      */
-    public function getQuantity()
+    public function getQuantity(): int
     {
         return $this->quantity;
     }
@@ -117,8 +113,6 @@ class Stock extends Struct
      * Setter method for the property.
      *
      * @param int $quantity
-     *
-     * @return void
      */
     public function setQuantity(int $quantity)
     {
@@ -132,7 +126,7 @@ class Stock extends Struct
      *
      * @return string
      */
-    public function getType()
+    public function getType(): string
     {
         return $this->type;
     }
@@ -143,8 +137,6 @@ class Stock extends Struct
      * Setter method for the property.
      *
      * @param string $type
-     *
-     * @return void
      */
     public function setType(string $type)
     {
@@ -158,7 +150,7 @@ class Stock extends Struct
      *
      * @return Company
      */
-    public function getCompany()
+    public function getCompany(): Company
     {
         return $this->company;
     }
@@ -169,8 +161,6 @@ class Stock extends Struct
      * Setter method for the property.
      *
      * @param Company $company
-     *
-     * @return void
      */
     public function setCompany(Company $company)
     {
@@ -184,7 +174,7 @@ class Stock extends Struct
      *
      * @return Location
      */
-    public function getLocation()
+    public function getLocation(): Location
     {
         return $this->location;
     }
@@ -195,17 +185,9 @@ class Stock extends Struct
      * Setter method for the property.
      *
      * @param Location $location
-     *
-     * @return void
      */
     public function setLocation(Location $location)
     {
         $this->location = $location;
     }
-
-
-
-
-
-
 }

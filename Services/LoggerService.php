@@ -11,26 +11,17 @@
 
 namespace OstErpApi\Services;
 
-
-
 class LoggerService implements LoggerServiceInterface
 {
-
-
-
-
     /**
      * {@inheritdoc}
      */
-    public function log($message,array $params = array())
+    public function log($message, array $params = [])
     {
+        $dir = Shopware()->Container()->getParameter('ost_erp_api.plugin_dir');
 
-        $dir = Shopware()->Container()->getParameter("ost_erp_api.plugin_dir");
+        $filename = date('Y-m-d-H-i-s') . '-' . substr(md5(microtime()), 0, 6) . '.txt';
 
-        $filename = date("Y-m-d-H-i-s" ) . "-" . substr(md5(microtime()),0,6) . ".txt";
-
-        file_put_contents($dir . $filename, $message . " (" . print_r($params,true) . ")");
-
-
+        file_put_contents($dir . $filename, $message . ' (' . print_r($params, true) . ')');
     }
 }

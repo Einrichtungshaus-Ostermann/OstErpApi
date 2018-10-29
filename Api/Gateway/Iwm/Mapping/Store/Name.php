@@ -21,6 +21,6 @@ class Name implements Mapping
 
     public static function getColumn()
     {
-        return "STORE_NAME";
+        return 'STORE_NAME';
     }
 }

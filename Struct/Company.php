@@ -13,8 +13,6 @@ namespace OstErpApi\Struct;
 
 class Company extends Struct
 {
-
-
     /**
      * A unique key / number for the company.
      *
@@ -46,7 +44,7 @@ class Company extends Struct
      *
      * @return int
      */
-    public function getKey()
+    public function getKey(): int
     {
         return $this->key;
     }
@@ -57,8 +55,6 @@ class Company extends Struct
      * Setter method for the property.
      *
      * @param int $key
-     *
-     * @return void
      */
     public function setKey(int $key)
     {
@@ -72,7 +68,7 @@ class Company extends Struct
      *
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
@@ -83,16 +79,9 @@ class Company extends Struct
      * Setter method for the property.
      *
      * @param string $name
-     *
-     * @return void
      */
     public function setName(string $name)
     {
         $this->name = $name;
     }
-
-
-
-
-
 }

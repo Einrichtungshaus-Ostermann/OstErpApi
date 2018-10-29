@@ -22,24 +22,17 @@ class Stock extends Hydrator
         foreach ($data as $stock) {
             $stockStruct = new Struct\Stock();
 
-
-
             $stockStruct->setNumber((string) $stock['ARTICLE_NUMBER']);
             $stockStruct->setQuantity((int) $stock['STOCK_QUANTITY']);
             $stockStruct->setType((string) $stock['STOCK_TYPE']);
 
-            
             if ($stock['STOCK_LOCATION'] !== null) {
                 $stockStruct->setLocation($stock['STOCK_LOCATION']);
             }
 
-
             if ($stock['STOCK_COMPANY'] !== null) {
                 $stockStruct->setCompany($stock['STOCK_COMPANY']);
             }
-
-
-
 
             $arr[] = $stockStruct;
         }

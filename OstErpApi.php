@@ -23,11 +23,6 @@ use Shopware\Components\Plugin;
 use Shopware\Components\Plugin\Context;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
-
-
-
-
-
 class OstErpApi extends Plugin
 {
     /**

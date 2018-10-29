@@ -19,45 +19,34 @@ class Location extends Gateway
 
 
 
-
-    private $data = [
+    protected static $data = [
         [
             'LOCATION_KEY'      => "100",
-            'LOCATION_STORE'      => "01",
+            'LOCATION_STORE'      => "WITTEN",
             'LOCATION_COMPANY'      => "1",
         ],
         [
             'LOCATION_KEY'      => "150",
-            'LOCATION_STORE'      => "04",
+            'LOCATION_STORE'      => "WITTEN",
             'LOCATION_COMPANY'      => "3",
         ],
         [
             'LOCATION_KEY'      => "400",
-            'LOCATION_STORE'      => "01",
+            'LOCATION_STORE'      => "WITTEN",
             'LOCATION_COMPANY'      => "1",
         ],
 
-        [
-            'LOCATION_KEY'      => "450",
-            'LOCATION_STORE'      => "01",
-            'LOCATION_COMPANY'      => "1",
-        ],
-        [
-            'LOCATION_KEY'      => "900",
-            'LOCATION_STORE'      => "01",
-            'LOCATION_COMPANY'      => "1",
-        ],
 
 
 
         [
             'LOCATION_KEY'      => "500",
-            'LOCATION_STORE'      => "11",
+            'LOCATION_STORE'      => "LEVERKUSEN",
             'LOCATION_COMPANY'      => "1",
         ],
         [
             'LOCATION_KEY'      => "501",
-            'LOCATION_STORE'      => "11",
+            'LOCATION_STORE'      => "LEVERKUSEN",
             'LOCATION_COMPANY'      => "1",
         ],
         [
@@ -146,6 +135,7 @@ class Location extends Gateway
 
 
 
+
     ];
 
 
@@ -154,7 +144,7 @@ class Location extends Gateway
     public function findBy(array $params = []): array
     {
         $data = $this->findInArray(
-            $this->data,
+            static::$data,
             $params
         );
 

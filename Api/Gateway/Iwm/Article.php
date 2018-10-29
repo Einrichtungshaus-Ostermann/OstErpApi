@@ -13,9 +13,6 @@ namespace OstErpApi\Api\Gateway\Iwm;
 
 class Article extends Gateway
 {
-
-
-
     protected function getQuery()
     {
         $query = '
@@ -38,9 +35,4 @@ class Article extends Gateway
 
         return $query;
     }
-
-
-
-
-
 }
