@@ -35,15 +35,83 @@ class CalculatedPrices
         $stores = Shopware()->Container()->get( "ost_erp_api.api" )->findAll( "store" );
 
 
+        $now = time();
+
+
+        /* @var $store Struct\Store */
         foreach ( $stores as $store )
         {
+            $defaultPrices = array();
+            $myPrices = array();
 
-            $price = new Struct\CalculatedPrice();
+            foreach ( $article->getPrices() as $price )
+            {
+                if ( ( $price->getStore() === null ) or ( $price->getStore()->getKey() === $store->getKey() ) )
+                {
 
-            $price->setStore( $store );
-            $price->setPrice( 123.45 );
+                    if ( ( $now >= $price->getStartDate()->getTimestamp() ) and ( $now <= $price->getEndDate()->getTimestamp() ) )
+                    {
 
-            $article->addCalculatedPrice( $price );
+                        if ( $price->getStore() === null )
+                            array_push( $defaultPrices, $price );
+                        else
+                            array_push( $myPrices, $price );
+
+
+                    }
+
+
+                }
+            }
+
+
+            /* @var $myPrice Struct\Price */
+            $myPrice = null;
+
+            /* @var $price Struct\Price */
+            foreach ( $defaultPrices as $price )
+            {
+                if ( $myPrice === null )
+                {
+                    $myPrice = $price;
+                    continue;
+                }
+
+                if ( $myPrice->getStartDate()->getTimestamp() < $price->getStartDate()->getTimestamp() )
+                    $myPrice = $price;
+
+            }
+
+            /* @var $price Struct\Price */
+            foreach ( $myPrices as $price )
+            {
+                if ( $myPrice === null )
+                {
+                    $myPrice = $price;
+                    continue;
+                }
+
+                if ( $myPrice->getStartDate()->getTimestamp() < $price->getStartDate()->getTimestamp() )
+                    $myPrice = $price;
+
+            }
+
+
+
+            // do we even have a price?
+            if ( $price === null )
+                continue;
+
+
+
+
+
+            $struct = new Struct\CalculatedPrice();
+
+            $struct->setStore( $store );
+            $struct->setPrice( $price->getDeliveryPrice() );
+
+            $article->addCalculatedPrice( $struct );
         }
 
 
