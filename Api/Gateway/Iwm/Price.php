@@ -13,7 +13,6 @@ namespace OstErpApi\Api\Gateway\Iwm;
 
 class Price extends Gateway
 {
-
     protected function getQuery()
     {
         $query = '
@@ -38,20 +37,8 @@ class Price extends Gateway
 
 
 
-
-    protected function addParams( array $params )
+    protected function addParams(array $params)
     {
-
-
-
         $parameters[] = "PRSTAT = 'A'";
-
     }
-
-
-
-
-
-
-
 }

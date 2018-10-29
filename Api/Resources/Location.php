@@ -22,66 +22,41 @@ class Location extends Resource
 
     public function findBy(array $params = [], array $options = []): array
     {
-        $adapter = Shopware()->Container()->get( "ost_erp_api.configuration_service" )->get( "adapter" );
-
-
+        $adapter = Shopware()->Container()->get('ost_erp_api.configuration_service')->get('adapter');
 
         /** @var Gateway $gateway */
         $gateway = Shopware()->Container()->get('ost_erp_api.api.gateway.' . strtolower($adapter) . '.location');
-
         $locationArr = $gateway->findBy($params);
 
-
-        foreach ( $locationArr as $key => $location )
-        {
+        foreach ($locationArr as $key => $location) {
 
             /* @var $storeResource Store */
             $storeResource = Shopware()->Container()->get('ost_erp_api.api.resources.store');
 
-            $store = $storeResource->findOneBy( array(
-                "[store.key] = '" . $location['LOCATION_STORE'] ."'"
-            ));
+            $store = $storeResource->findOneBy([
+                "[store.key] = '" . $location['LOCATION_STORE'] . "'"
+            ]);
 
 
             $location['LOCATION_STORE'] = $store;
 
 
-
-
-
             /* @var $companyResource Company */
             $companyResource = Shopware()->Container()->get('ost_erp_api.api.resources.company');
 
-            $company = $companyResource->findOneBy( array(
-                "[company.key] = '" . $location['LOCATION_COMPANY'] ."'"
-            ));
+            $company = $companyResource->findOneBy([
+                "[company.key] = '" . $location['LOCATION_COMPANY'] . "'"
+            ]);
 
 
             $location['LOCATION_COMPANY'] = $company;
 
-
-
-
-
-
-
-
-
             $locationArr[$key] = $location;
-
         }
-
-
-
-
-
-
 
         /** @var Hydrator $hydrator */
         $hydrator = Shopware()->Container()->get('ost_erp_api.api.hydrator.location');
 
         return $hydrator->hydrate($locationArr);
-
-
     }
 }

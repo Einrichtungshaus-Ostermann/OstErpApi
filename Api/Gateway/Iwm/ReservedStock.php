@@ -11,13 +11,8 @@
 
 namespace OstErpApi\Api\Gateway\Iwm;
 
-use OstErpApi\Api\Gateway\Iwm\Mapping\Parser;
-
 class ReservedStock extends Gateway
 {
-
-
-
     protected function getQuery()
     {
         $query = '
@@ -35,17 +30,9 @@ class ReservedStock extends Gateway
 
 
 
-
-    protected function addParams( array $params )
+    protected function addParams(array $params)
     {
-
-        $parameters[] = "VRRSTT = 1";
+        $parameters[] = 'VRRSTT = 1';
         $parameters[] = "VRSTAT = 'A'";
-
     }
-
-
-
-
-
 }

@@ -21,6 +21,6 @@ class Company implements Mapping
 
     public static function getColumn()
     {
-        return "LOCATION_COMPANY";
+        return 'LOCATION_COMPANY';
     }
 }

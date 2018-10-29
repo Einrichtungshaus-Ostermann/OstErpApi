@@ -13,7 +13,6 @@ namespace OstErpApi\Struct;
 
 class Price extends Struct
 {
-
     /**
      * A unique article number.
      *
@@ -130,7 +129,7 @@ class Price extends Struct
      *
      * @return string
      */
-    public function getNumber()
+    public function getNumber(): string
     {
         return $this->number;
     }
@@ -141,8 +140,6 @@ class Price extends Struct
      * Setter method for the property.
      *
      * @param string $number
-     *
-     * @return void
      */
     public function setNumber(string $number)
     {
@@ -156,7 +153,7 @@ class Price extends Struct
      *
      * @return \DateTime
      */
-    public function getStartDate()
+    public function getStartDate(): \DateTime
     {
         return $this->startDate;
     }
@@ -167,8 +164,6 @@ class Price extends Struct
      * Setter method for the property.
      *
      * @param \DateTime $startDate
-     *
-     * @return void
      */
     public function setStartDate(\DateTime $startDate)
     {
@@ -182,7 +177,7 @@ class Price extends Struct
      *
      * @return \DateTime
      */
-    public function getEndDate()
+    public function getEndDate(): \DateTime
     {
         return $this->endDate;
     }
@@ -193,8 +188,6 @@ class Price extends Struct
      * Setter method for the property.
      *
      * @param \DateTime $endDate
-     *
-     * @return void
      */
     public function setEndDate(\DateTime $endDate)
     {
@@ -208,7 +201,7 @@ class Price extends Struct
      *
      * @return float
      */
-    public function getPickupPrice()
+    public function getPickupPrice(): float
     {
         return $this->pickupPrice;
     }
@@ -219,8 +212,6 @@ class Price extends Struct
      * Setter method for the property.
      *
      * @param float $pickupPrice
-     *
-     * @return void
      */
     public function setPickupPrice(float $pickupPrice)
     {
@@ -234,7 +225,7 @@ class Price extends Struct
      *
      * @return float
      */
-    public function getDeliveryPrice()
+    public function getDeliveryPrice(): float
     {
         return $this->deliveryPrice;
     }
@@ -245,8 +236,6 @@ class Price extends Struct
      * Setter method for the property.
      *
      * @param float $deliveryPrice
-     *
-     * @return void
      */
     public function setDeliveryPrice(float $deliveryPrice)
     {
@@ -260,7 +249,7 @@ class Price extends Struct
      *
      * @return float
      */
-    public function getFullservicePrice()
+    public function getFullservicePrice(): float
     {
         return $this->fullservicePrice;
     }
@@ -271,8 +260,6 @@ class Price extends Struct
      * Setter method for the property.
      *
      * @param float $fullservicePrice
-     *
-     * @return void
      */
     public function setFullservicePrice(float $fullservicePrice)
     {
@@ -286,7 +273,7 @@ class Price extends Struct
      *
      * @return float
      */
-    public function getPickupPseudoPrice()
+    public function getPickupPseudoPrice(): float
     {
         return $this->pickupPseudoPrice;
     }
@@ -297,8 +284,6 @@ class Price extends Struct
      * Setter method for the property.
      *
      * @param float $pickupPseudoPrice
-     *
-     * @return void
      */
     public function setPickupPseudoPrice(float $pickupPseudoPrice)
     {
@@ -312,7 +297,7 @@ class Price extends Struct
      *
      * @return float
      */
-    public function getDeliveryPseudoPrice()
+    public function getDeliveryPseudoPrice(): float
     {
         return $this->deliveryPseudoPrice;
     }
@@ -323,8 +308,6 @@ class Price extends Struct
      * Setter method for the property.
      *
      * @param float $deliveryPseudoPrice
-     *
-     * @return void
      */
     public function setDeliveryPseudoPrice(float $deliveryPseudoPrice)
     {
@@ -338,7 +321,7 @@ class Price extends Struct
      *
      * @return float
      */
-    public function getFullservicePseudoPrice()
+    public function getFullservicePseudoPrice(): float
     {
         return $this->fullservicePseudoPrice;
     }
@@ -349,8 +332,6 @@ class Price extends Struct
      * Setter method for the property.
      *
      * @param float $fullservicePseudoPrice
-     *
-     * @return void
      */
     public function setFullservicePseudoPrice(float $fullservicePseudoPrice)
     {
@@ -364,7 +345,7 @@ class Price extends Struct
      *
      * @return Company
      */
-    public function getCompany()
+    public function getCompany(): Company
     {
         return $this->company;
     }
@@ -375,8 +356,6 @@ class Price extends Struct
      * Setter method for the property.
      *
      * @param Company $company
-     *
-     * @return void
      */
     public function setCompany(Company $company)
     {
@@ -390,7 +369,7 @@ class Price extends Struct
      *
      * @return Store
      */
-    public function getStore()
+    public function getStore(): Store
     {
         return $this->store;
     }
@@ -401,19 +380,9 @@ class Price extends Struct
      * Setter method for the property.
      *
      * @param Store $store
-     *
-     * @return void
      */
     public function setStore(Store $store)
     {
         $this->store = $store;
     }
-
-
-
-
-
-
-
-
 }

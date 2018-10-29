@@ -15,41 +15,28 @@ use OstErpApi\Api\Gateway\Gateway;
 
 class Article extends Gateway
 {
-
-
-
-
     private $data = [
         [
-            'ARTICLE_COMPANY'      => "1",
-            'ARTICLE_HWG'      => "92",
-            'ARTICLE_UWG'      => "95",
-            'ARTICLE_NUMBER'      => "874355",
-            'ARTICLE_NAME'      => "Decke JOOP! New VF (BL 150x200cm)",
-            'ARTICLE_WEIGHT'      => "200",
-            'ARTICLE_DISPOSITION'      => "L",
-            'ARTICLE_TYPE'      => "D",
+            'ARTICLE_COMPANY'     => '1',
+            'ARTICLE_HWG'         => '92',
+            'ARTICLE_UWG'         => '95',
+            'ARTICLE_NUMBER'      => '874355',
+            'ARTICLE_NAME'        => 'Decke JOOP! New VF (BL 150x200cm)',
+            'ARTICLE_WEIGHT'      => '200',
+            'ARTICLE_DISPOSITION' => 'L',
+            'ARTICLE_TYPE'        => 'D',
         ],
-
         [
-            'ARTICLE_COMPANY'      => "1",
-            'ARTICLE_HWG'      => "92",
-            'ARTICLE_UWG'      => "95",
-            'ARTICLE_NUMBER'      => "811243",
-            'ARTICLE_NAME'      => "Teppich JOOP! Touch (BL 200x300cm)",
-            'ARTICLE_WEIGHT'      => "1500",
-            'ARTICLE_DISPOSITION'      => "L",
-            'ARTICLE_TYPE'      => "E",
-        ],
-
-
-
-
-
+            'ARTICLE_COMPANY'     => '1',
+            'ARTICLE_HWG'         => '92',
+            'ARTICLE_UWG'         => '95',
+            'ARTICLE_NUMBER'      => '811243',
+            'ARTICLE_NAME'        => 'Teppich JOOP! Touch (BL 200x300cm)',
+            'ARTICLE_WEIGHT'      => '1500',
+            'ARTICLE_DISPOSITION' => 'L',
+            'ARTICLE_TYPE'        => 'E',
+        ]
     ];
-
-
-
 
 
 
@@ -61,8 +48,9 @@ class Article extends Gateway
         );
 
 
-        if ( count( $data ) == 0 )
-            return array( $this->data[1] );
+        if (count($data) === 0) {
+            return [$this->data[1]];
+        }
 
         return $data;
     }

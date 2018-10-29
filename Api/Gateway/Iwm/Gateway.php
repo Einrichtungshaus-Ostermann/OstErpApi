@@ -11,17 +11,11 @@
 
 namespace OstErpApi\Api\Gateway\Iwm;
 
-use OstErpApi\Services\ConfigurationService;
 use OstErpApi\Api\Gateway\Gateway as GatewayParent;
-
-
-
+use OstErpApi\Services\ConfigurationService;
 
 abstract class Gateway extends GatewayParent
 {
-
-
-
     /**
      * @var \PDO
      */
@@ -38,7 +32,6 @@ abstract class Gateway extends GatewayParent
      */
     public function __construct(ConfigurationService $configurationService)
     {
-
         parent::__construct($configurationService);
 
 
@@ -52,19 +45,6 @@ abstract class Gateway extends GatewayParent
                 die('establishing connection failed:' . $exception->getMessage());
             }
         }
-
-
-    }
-
-
-
-    protected function getQuery()
-    {
-        return "";
-    }
-
-    protected function addParams( array $params )
-    {
     }
 
 
@@ -72,21 +52,15 @@ abstract class Gateway extends GatewayParent
     {
         $query = $this->getQuery();
 
-        $this->addParams( $parameters );
+        $this->addParams($parameters);
 
 
         /* @var $parser Mapping\Parser */
-        $parser = Shopware()->Container()->get( "ost_erp_api.api.gateway.iwm.mapping.parser" );
-
-
-
+        $parser = Shopware()->Container()->get('ost_erp_api.api.gateway.iwm.mapping.parser');
 
         $query = $parser->parseSelect($query);
 
-
-
-        if ( count( $parameters ) > 0 )
-        {
+        if (count($parameters) > 0) {
 
             // add braces to the where append terms and parse the string
             $parameters = array_map(
@@ -98,12 +72,7 @@ abstract class Gateway extends GatewayParent
 
             // add the where append
             $query .= ' WHERE ' . implode(' AND ', $parameters) . ' ';
-
-
-
         }
-
-
 
 
         $res = static::$db->query($query);
@@ -111,4 +80,16 @@ abstract class Gateway extends GatewayParent
         return $res->fetchAll(\PDO::FETCH_ASSOC);
     }
 
+
+
+    protected function getQuery()
+    {
+        return '';
+    }
+
+
+
+    protected function addParams(array $params)
+    {
+    }
 }

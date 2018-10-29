@@ -15,7 +15,7 @@ use OstErpApi\Api\Gateway\Gateway;
 
 class Store extends Gateway
 {
-    private $data = [
+    private static $data = [
         [
             'STORE_KEY'        => 'WITTEN',
             'STORE_NAME'       => 'Witten'
@@ -35,7 +35,7 @@ class Store extends Gateway
     public function findBy(array $params = []): array
     {
         $data = $this->findInArray(
-            $this->data,
+            static::$data,
             $params
         );
 

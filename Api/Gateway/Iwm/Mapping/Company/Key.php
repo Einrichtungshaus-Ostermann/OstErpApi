@@ -21,6 +21,6 @@ class Key implements Mapping
 
     public static function getColumn()
     {
-        return "COMPANY_KEY";
+        return 'COMPANY_KEY';
     }
 }

@@ -13,7 +13,6 @@ namespace OstErpApi\Struct;
 
 class AvailableStock extends Struct
 {
-
     /**
      * A unique article number.
      *
@@ -50,7 +49,7 @@ class AvailableStock extends Struct
      *
      * @return string
      */
-    public function getNumber()
+    public function getNumber(): string
     {
         return $this->number;
     }
@@ -61,8 +60,6 @@ class AvailableStock extends Struct
      * Setter method for the property.
      *
      * @param string $number
-     *
-     * @return void
      */
     public function setNumber(string $number)
     {
@@ -76,7 +73,7 @@ class AvailableStock extends Struct
      *
      * @return int
      */
-    public function getQuantity()
+    public function getQuantity(): int
     {
         return $this->quantity;
     }
@@ -87,8 +84,6 @@ class AvailableStock extends Struct
      * Setter method for the property.
      *
      * @param int $quantity
-     *
-     * @return void
      */
     public function setQuantity(int $quantity)
     {
@@ -102,7 +97,7 @@ class AvailableStock extends Struct
      *
      * @return Store
      */
-    public function getStore()
+    public function getStore(): Store
     {
         return $this->store;
     }
@@ -113,14 +108,9 @@ class AvailableStock extends Struct
      * Setter method for the property.
      *
      * @param Store $store
-     *
-     * @return void
      */
     public function setStore(Store $store)
     {
         $this->store = $store;
     }
-
-
-
 }

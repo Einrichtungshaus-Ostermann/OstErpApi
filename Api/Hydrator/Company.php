@@ -22,8 +22,7 @@ class Company extends Hydrator
         foreach ($data as $company) {
             $companyStruct = new Struct\Company();
 
-
-            $companyStruct->setKey( (integer) $company['COMPANY_KEY']);
+            $companyStruct->setKey((int)$company['COMPANY_KEY']);
             $companyStruct->setName($company['COMPANY_NAME']);
 
 

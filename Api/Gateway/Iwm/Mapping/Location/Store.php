@@ -21,6 +21,6 @@ class Store implements Mapping
 
     public static function getColumn()
     {
-        return "LOCATION_STORE";
+        return 'LOCATION_STORE';
     }
 }

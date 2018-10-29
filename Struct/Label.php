@@ -13,6 +13,9 @@ namespace OstErpApi\Struct;
 
 class Label extends Struct
 {
+    const TYPE_PICKUP = 1;
+    const TYPE_DELIVERY = 2;
+    const TYPE_FULLSERVICE = 3;
 
 
     /**
@@ -33,13 +36,6 @@ class Label extends Struct
 
 
 
-
-    const TYPE_PICKUP = 1;
-    const TYPE_DELIVERY = 2;
-    const TYPE_FULLSERVICE = 3;
-
-
-
     /**
      * ...
      *
@@ -54,7 +50,7 @@ class Label extends Struct
      *
      * @return int
      */
-    public function getKey()
+    public function getKey(): int
     {
         return $this->key;
     }
@@ -65,8 +61,6 @@ class Label extends Struct
      * Setter method for the property.
      *
      * @param int $key
-     *
-     * @return void
      */
     public function setKey(int $key)
     {
@@ -80,7 +74,7 @@ class Label extends Struct
      *
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
@@ -91,8 +85,6 @@ class Label extends Struct
      * Setter method for the property.
      *
      * @param string $name
-     *
-     * @return void
      */
     public function setName(string $name)
     {
@@ -106,7 +98,7 @@ class Label extends Struct
      *
      * @return int
      */
-    public function getType()
+    public function getType(): int
     {
         return $this->type;
     }
@@ -117,17 +109,9 @@ class Label extends Struct
      * Setter method for the property.
      *
      * @param int $type
-     *
-     * @return void
      */
     public function setType(int $type)
     {
         $this->type = $type;
     }
-
-
-
-
-
-
 }

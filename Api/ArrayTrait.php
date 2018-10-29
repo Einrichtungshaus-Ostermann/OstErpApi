@@ -11,122 +11,61 @@
 
 namespace OstErpApi\Api;
 
-
-
 trait ArrayTrait
 {
-
-
-
-
     // [company.key] > 1
     // [company.name] = 'Ostermann']
-    protected function findInArray( array $data, array $params = array() )
+    protected function findInArray(array $data, array $params = []): array
     {
-        if ( count( $params ) == 0 )
+        if (count($params) === 0) {
             return $data;
-
-
-
-        $adapter = Shopware()->Container()->get( "ost_erp_api.configuration_service" )->get( "adapter" );
-
-
-
-
-
-        /* @var $parser Gateway\ParserInterface */
-        $parser = Shopware()->Container()->get( "ost_erp_api.api.gateway." . $adapter . ".mapping.parser" );
-
-
-
-        $arrParams = array();
-
-
-        foreach ( $params as $param )
-        {
-            $split = explode( " ", $param );
-
-            $arr = array(
-                'column' => $parser->parseParameter( $split[0] ),
-                'operator' => $split[1],
-                'value' => trim( $split[2], "'\"" )
-            );
-
-            array_push( $arrParams, $arr );
         }
 
+        $adapter = Shopware()->Container()->get('ost_erp_api.configuration_service')->get('adapter');
 
+        /* @var $parser Gateway\ParserInterface */
+        $parser = Shopware()->Container()->get('ost_erp_api.api.gateway.' . $adapter . '.mapping.parser');
 
+        $arrParams = [];
+        foreach ($params as $param) {
+            $split = explode(' ', $param);
 
-        /*
+            $arr = [
+                'column'   => $parser->parseParameter($split[0]),
+                'operator' => $split[1],
+                'value'    => trim($split[2], "'\"")
+            ];
 
-        $arrParams = array(
-            array(
-                'column' => "key",
-                'operator' => ">",
-                'value' => 1
-            ),
-            array(
-                'column' => "name",
-                'operator' => "=",
-                'value' => "Ostermann"
-            )
-        );
-        */
+            $arrParams[] = $arr;
+        }
 
-
-
-
-        $result = array();
-
-
-        foreach ( $data as $row )
-        {
-
-
-
+        $result = [];
+        foreach ($data as $row) {
             $valid = false;
-
-
-
-            foreach ( $arrParams as $param )
-            {
-
-                switch ( $param['operator'] )
-                {
-                    case "=":
-
-                        if ( (string) $row[$param['column']] == (string) $param['value'] )
+            foreach ($arrParams as $param) {
+                switch ($param['operator']) {
+                    case '=':
+                        if ((string)$row[$param['column']] === (string)$param['value']) {
                             $valid = true;
-
+                        }
                         break;
 
-                    case ">":
-
-                        if ( $row[$param['column']] > $param['value'] )
+                    case '>':
+                        if ($row[$param['column']] > $param['value']) {
                             $valid = true;
-
+                        }
                         break;
-
 
                     default:
                         $valid = false;
                 }
-
-
-
             }
 
-            if ( $valid == true )
-                array_push( $result, $row );
-
+            if ($valid === true) {
+                $result[] = $row;
+            }
         }
 
-
-
         return $result;
-
-
-
     }
 }

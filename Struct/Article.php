@@ -13,6 +13,15 @@ namespace OstErpApi\Struct;
 
 class Article extends Struct
 {
+    const DISPOSITION_STOCK = 'L';
+    const DISPOSITION_EXHIBIT = 'K';
+    const DISPOSITION_ORDER = 'B';
+    const DISPOSITION_BROCHURE = 'P';
+    const DISPOSITION_DIRECT = 'D';
+
+    const TYPE_SINGLE = 'E';
+    const TYPE_GROUP = 'D';
+    const TYPE_SET = 'S';
 
 
     /**
@@ -26,7 +35,7 @@ class Article extends Struct
     /**
      * ...
      *
-     * @var integer
+     * @var int
      */
     protected $hwg;
 
@@ -34,10 +43,9 @@ class Article extends Struct
     /**
      * ...
      *
-     * @var integer
+     * @var int
      */
     protected $uwg;
-
 
 
 
@@ -49,14 +57,9 @@ class Article extends Struct
 
 
 
-
-
-
     protected $shippingCosts = 0.0;
 
     protected $assemblySurcharge = 0.0;
-
-
 
 
 
@@ -124,17 +127,6 @@ class Article extends Struct
     protected $company;
 
 
-
-
-
-
-    const DISPOSITION_STOCK = "L";
-    const DISPOSITION_EXHIBIT = "K";
-    const DISPOSITION_ORDER = "B";
-    const DISPOSITION_BROCHURE = "P";
-    const DISPOSITION_DIRECT = "D";
-
-
     /**
      * The stock Type
      *
@@ -147,13 +139,6 @@ class Article extends Struct
      * @var string
      */
     protected $disposition;
-
-
-
-
-    const TYPE_SINGLE = "E";
-    const TYPE_GROUP = "D";
-    const TYPE_SET = "S";
 
 
 
@@ -236,7 +221,7 @@ class Article extends Struct
      *
      * @return string
      */
-    public function getNumber()
+    public function getNumber(): string
     {
         return $this->number;
     }
@@ -247,8 +232,6 @@ class Article extends Struct
      * Setter method for the property.
      *
      * @param string $number
-     *
-     * @return void
      */
     public function setNumber(string $number)
     {
@@ -262,7 +245,7 @@ class Article extends Struct
      *
      * @return int
      */
-    public function getHwg()
+    public function getHwg(): int
     {
         return $this->hwg;
     }
@@ -273,8 +256,6 @@ class Article extends Struct
      * Setter method for the property.
      *
      * @param int $hwg
-     *
-     * @return void
      */
     public function setHwg(int $hwg)
     {
@@ -288,7 +269,7 @@ class Article extends Struct
      *
      * @return int
      */
-    public function getUwg()
+    public function getUwg(): int
     {
         return $this->uwg;
     }
@@ -299,8 +280,6 @@ class Article extends Struct
      * Setter method for the property.
      *
      * @param int $uwg
-     *
-     * @return void
      */
     public function setUwg(int $uwg)
     {
@@ -314,7 +293,7 @@ class Article extends Struct
      *
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
@@ -325,8 +304,6 @@ class Article extends Struct
      * Setter method for the property.
      *
      * @param string $name
-     *
-     * @return void
      */
     public function setName(string $name)
     {
@@ -340,7 +317,7 @@ class Article extends Struct
      *
      * @return float
      */
-    public function getWeight()
+    public function getWeight(): float
     {
         return $this->weight;
     }
@@ -351,8 +328,6 @@ class Article extends Struct
      * Setter method for the property.
      *
      * @param float $weight
-     *
-     * @return void
      */
     public function setWeight(float $weight)
     {
@@ -366,7 +341,7 @@ class Article extends Struct
      *
      * @return Company
      */
-    public function getCompany()
+    public function getCompany(): Company
     {
         return $this->company;
     }
@@ -377,8 +352,6 @@ class Article extends Struct
      * Setter method for the property.
      *
      * @param Company $company
-     *
-     * @return void
      */
     public function setCompany(Company $company)
     {
@@ -392,7 +365,7 @@ class Article extends Struct
      *
      * @return string
      */
-    public function getDisposition()
+    public function getDisposition(): string
     {
         return $this->disposition;
     }
@@ -403,8 +376,6 @@ class Article extends Struct
      * Setter method for the property.
      *
      * @param string $disposition
-     *
-     * @return void
      */
     public function setDisposition(string $disposition)
     {
@@ -418,7 +389,7 @@ class Article extends Struct
      *
      * @return string
      */
-    public function getType()
+    public function getType(): string
     {
         return $this->type;
     }
@@ -429,8 +400,6 @@ class Article extends Struct
      * Setter method for the property.
      *
      * @param string $type
-     *
-     * @return void
      */
     public function setType(string $type)
     {
@@ -444,7 +413,7 @@ class Article extends Struct
      *
      * @return Stock[]
      */
-    public function getStock()
+    public function getStock(): array
     {
         return $this->stock;
     }
@@ -455,8 +424,6 @@ class Article extends Struct
      * Setter method for the property.
      *
      * @param Stock[] $stock
-     *
-     * @return void
      */
     public function setStock(array $stock)
     {
@@ -470,7 +437,7 @@ class Article extends Struct
      *
      * @return ReservedStock[]
      */
-    public function getReservedStock()
+    public function getReservedStock(): array
     {
         return $this->reservedStock;
     }
@@ -481,8 +448,6 @@ class Article extends Struct
      * Setter method for the property.
      *
      * @param ReservedStock[] $reservedStock
-     *
-     * @return void
      */
     public function setReservedStock(array $reservedStock)
     {
@@ -496,7 +461,7 @@ class Article extends Struct
      *
      * @return AvailableStock[]
      */
-    public function getAvailableStock()
+    public function getAvailableStock(): array
     {
         return $this->availableStock;
     }
@@ -507,8 +472,6 @@ class Article extends Struct
      * Setter method for the property.
      *
      * @param AvailableStock[] $availableStock
-     *
-     * @return void
      */
     public function setAvailableStock(array $availableStock)
     {
@@ -522,7 +485,7 @@ class Article extends Struct
      *
      * @return Store[]
      */
-    public function getExhibits()
+    public function getExhibits(): array
     {
         return $this->exhibits;
     }
@@ -533,8 +496,6 @@ class Article extends Struct
      * Setter method for the property.
      *
      * @param Store[] $exhibits
-     *
-     * @return void
      */
     public function setExhibits(array $exhibits)
     {
@@ -548,7 +509,7 @@ class Article extends Struct
      *
      * @return Label
      */
-    public function getLabel()
+    public function getLabel(): Label
     {
         return $this->label;
     }
@@ -559,8 +520,6 @@ class Article extends Struct
      * Setter method for the property.
      *
      * @param Label $label
-     *
-     * @return void
      */
     public function setLabel(Label $label)
     {
@@ -574,7 +533,7 @@ class Article extends Struct
      *
      * @return Price[]
      */
-    public function getPrices()
+    public function getPrices(): array
     {
         return $this->prices;
     }
@@ -585,8 +544,6 @@ class Article extends Struct
      * Setter method for the property.
      *
      * @param Price[] $prices
-     *
-     * @return void
      */
     public function setPrices(array $prices)
     {
@@ -600,7 +557,7 @@ class Article extends Struct
      *
      * @return float
      */
-    public function getWidth()
+    public function getWidth(): float
     {
         return $this->width;
     }
@@ -611,8 +568,6 @@ class Article extends Struct
      * Setter method for the property.
      *
      * @param float $width
-     *
-     * @return void
      */
     public function setWidth(float $width)
     {
@@ -626,7 +581,7 @@ class Article extends Struct
      *
      * @return float
      */
-    public function getHeight()
+    public function getHeight(): float
     {
         return $this->height;
     }
@@ -637,8 +592,6 @@ class Article extends Struct
      * Setter method for the property.
      *
      * @param float $height
-     *
-     * @return void
      */
     public function setHeight(float $height)
     {
@@ -652,7 +605,7 @@ class Article extends Struct
      *
      * @return float
      */
-    public function getDepth()
+    public function getDepth(): float
     {
         return $this->depth;
     }
@@ -663,8 +616,6 @@ class Article extends Struct
      * Setter method for the property.
      *
      * @param float $depth
-     *
-     * @return void
      */
     public function setDepth(float $depth)
     {
@@ -678,7 +629,7 @@ class Article extends Struct
      *
      * @return CalculatedPrice[]
      */
-    public function getCalculatedPrices()
+    public function getCalculatedPrices(): array
     {
         return $this->calculatedPrices;
     }
@@ -689,8 +640,6 @@ class Article extends Struct
      * Setter method for the property.
      *
      * @param CalculatedPrice[] $calculatedPrices
-     *
-     * @return void
      */
     public function setCalculatedPrices(array $calculatedPrices)
     {
@@ -705,18 +654,9 @@ class Article extends Struct
      * ...
      *
      * @param CalculatedPrice $calculatedPrice
-     *
-     * @return void
      */
     public function addCalculatedPrice(CalculatedPrice $calculatedPrice)
     {
-        array_push( $this->calculatedPrices, $calculatedPrice );
+        $this->calculatedPrices[] = $calculatedPrice;
     }
-
-
-
-
-
-
-
 }

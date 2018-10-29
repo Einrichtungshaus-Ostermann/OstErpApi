@@ -19,22 +19,11 @@ class Article extends Hydrator
     {
         $arr = [];
 
-        foreach ($data as $article)
-        {
-
-
-            $articleStruct = ( $article['ARTICLE_TYPE'] == Struct\Article::TYPE_GROUP )
-                ? new Struct\ArticleGroup()
-                : new Struct\Article();
-
-
-
-
+        foreach ($data as $article) {
+            $articleStruct = ($article['ARTICLE_TYPE'] === Struct\Article::TYPE_GROUP) ? new Struct\ArticleGroup() : new Struct\Article();
 
             $articleStruct->setHwg((int) $article['ARTICLE_HWG']);
             $articleStruct->setUwg((int) $article['ARTICLE_UWG']);
-
-
 
             $articleStruct->setNumber((string) $article['ARTICLE_NUMBER']);
             $articleStruct->setName((string) $article['ARTICLE_NAME']);
@@ -56,15 +45,13 @@ class Article extends Hydrator
 
             $articleStruct->setCompany($article['ARTICLE_COMPANY']);
 
-            if ( $article['ARTICLE_LABEL'] instanceof Struct\Label )
+            if ($article['ARTICLE_LABEL'] instanceof Struct\Label) {
                 $articleStruct->setLabel($article['ARTICLE_LABEL']);
+            }
 
-
-
-            if ( $articleStruct instanceof Struct\ArticleGroup )
-                $articleStruct->setArticles( (array) $article['ARTICLE_CHILDREN'] );
-
-
+            if ($articleStruct instanceof Struct\ArticleGroup) {
+                $articleStruct->setArticles((array)$article['ARTICLE_CHILDREN']);
+            }
 
 
             $arr[] = $articleStruct;

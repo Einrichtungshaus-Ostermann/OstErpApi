@@ -17,6 +17,8 @@ interface LoggerServiceInterface
      * ...
      *
      *
+     * @param mixed $message
+     * @param array $params
      */
-    public function log($message, array $params = array());
+    public function log($message, array $params = []);
 }

@@ -16,10 +16,7 @@ use OstErpApi\Api\Hydrator\Hydrator;
 
 class Price extends Resource
 {
-
-    protected $name = "Price";
-
-
+    protected $name = 'Price';
 
 
 
@@ -27,61 +24,37 @@ class Price extends Resource
 
     public function findBy(array $params = [], array $options = []): array
     {
-        $adapter = Shopware()->Container()->get( "ost_erp_api.configuration_service" )->get( "adapter" );
-
-
+        $adapter = Shopware()->Container()->get('ost_erp_api.configuration_service')->get('adapter');
 
         /** @var Gateway $gateway */
         $gateway = Shopware()->Container()->get('ost_erp_api.api.gateway.' . strtolower($adapter) . '.price');
-
         $priceArr = $gateway->findBy($params);
 
-
-        foreach ( $priceArr as $key => $price )
-        {
+        foreach ($priceArr as $key => $price) {
 
             /* @var $companyResource Company */
             $companyResource = Shopware()->Container()->get('ost_erp_api.api.resources.company');
 
-            $company = $companyResource->findOneBy( array(
-                "[company.key] = '" . $price['PRICE_COMPANY'] ."'"
-            ));
+            $company = $companyResource->findOneBy([
+                "[company.key] = '" . $price['PRICE_COMPANY'] . "'"
+            ]);
 
 
             $price['PRICE_COMPANY'] = $company;
 
 
-
-
-
             /* @var $locationResource Location */
             $storeResource = Shopware()->Container()->get('ost_erp_api.api.resources.store');
 
-            $store = $storeResource->findOneBy( array(
-                "[store.key] = '" . $price['PRICE_STORE'] ."'"
-            ));
+            $store = $storeResource->findOneBy([
+                "[store.key] = '" . $price['PRICE_STORE'] . "'"
+            ]);
 
 
             $price['PRICE_STORE'] = $store;
 
-
-
-
-
-
-
-
-
-
             $priceArr[$key] = $price;
-
         }
-
-
-
-
-
-
 
         /** @var Hydrator $hydrator */
         $hydrator = Shopware()->Container()->get('ost_erp_api.api.hydrator.price');

@@ -15,61 +15,42 @@ use OstErpApi\Api\Gateway\Gateway;
 
 class Stock extends Gateway
 {
-
-
-
-
-    private $data = [
+    protected static $data = [
         [
-            'STOCK_COMPANY'      => "1",
-            'STOCK_LOCATION'      => "400",
-            'ARTICLE_NUMBER'      => "811243",
-            'STOCK_QUANTITY'      => "25",
-            'STOCK_TYPE'      => "L",
+            'STOCK_COMPANY'  => '1',
+            'STOCK_LOCATION' => '400',
+            'ARTICLE_NUMBER' => '811243',
+            'STOCK_QUANTITY' => '25',
+            'STOCK_TYPE'     => 'L',
         ],
-
         [
-            'STOCK_COMPANY'      => "1",
-            'STOCK_LOCATION'      => "400",
-            'ARTICLE_NUMBER'      => "811243",
-            'STOCK_QUANTITY'      => "5",
-            'STOCK_TYPE'      => "K",
+            'STOCK_COMPANY'  => '1',
+            'STOCK_LOCATION' => '400',
+            'ARTICLE_NUMBER' => '811243',
+            'STOCK_QUANTITY' => '5',
+            'STOCK_TYPE'     => 'K',
         ],
-
-
         [
-            'STOCK_COMPANY'      => "1",
-            'STOCK_LOCATION'      => "400",
-            'ARTICLE_NUMBER'      => "811243",
-            'STOCK_QUANTITY'      => "3",
-            'STOCK_TYPE'      => "P",
+            'STOCK_COMPANY'  => '1',
+            'STOCK_LOCATION' => '400',
+            'ARTICLE_NUMBER' => '811243',
+            'STOCK_QUANTITY' => '3',
+            'STOCK_TYPE'     => 'P',
         ],
-
         [
-            'STOCK_COMPANY'      => "1",
-            'STOCK_LOCATION'      => "501",
-            'ARTICLE_NUMBER'      => "811243",
-            'STOCK_QUANTITY'      => "3",
-            'STOCK_TYPE'      => "L",
+            'STOCK_COMPANY'  => '1',
+            'STOCK_LOCATION' => '501',
+            'ARTICLE_NUMBER' => '811243',
+            'STOCK_QUANTITY' => '3',
+            'STOCK_TYPE'     => 'L',
         ],
-
-
-
-
-
-
-
     ];
-
-
-
-
 
 
     public function findBy(array $params = []): array
     {
         $data = $this->findInArray(
-            $this->data,
+            static::$data,
             $params
         );
 

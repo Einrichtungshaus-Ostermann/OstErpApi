@@ -1,21 +1,20 @@
 <?php declare(strict_types=1);
 
 
-
-function p( $var )
+function p($var)
 {
-    echo "<pre>";
+    echo '<pre>';
 
-    print_r( $var );
+    print_r($var);
 
-    echo "</pre>";
+    echo '</pre>';
 
     die();
 }
 
 
-use Shopware\Components\CSRFWhitelistAware;
 use OstErpApi\Api\Api;
+use Shopware\Components\CSRFWhitelistAware;
 
 class Shopware_Controllers_Frontend_OstErpApi extends Enlight_Controller_Action implements CSRFWhitelistAware
 {
@@ -56,36 +55,28 @@ class Shopware_Controllers_Frontend_OstErpApi extends Enlight_Controller_Action 
      */
     public function testArticleAction()
     {
-
-
-
-
-
-        if ( !$this->Request()->has( "number" ) )
-        {
+        if (!$this->Request()->has('number')) {
             echo "<form action='' method='post'>";
-            echo "artikel nummer: ";
+            echo 'artikel nummer: ';
             echo "<input type='text' name='number' >";
             echo "<input type='submit'>";
             die();
         }
 
-        $number = $this->Request()->getParam( "number" );
+        $number = $this->Request()->getParam('number');
 
         /* @var $api Api */
-        $api = Shopware()->Container()->get( "ost_erp_api.api" );
+        $api = Shopware()->Container()->get('ost_erp_api.api');
 
         $asd = $api->findBy(
-            "article",
-            array(
-                "[article.number] = " . $number
-            )
+            'article',
+            [
+                '[article.number] = ' . $number
+            ]
         );
 
 
 
         p($asd);
     }
-
-
 }

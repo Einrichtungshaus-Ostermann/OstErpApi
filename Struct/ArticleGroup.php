@@ -13,9 +13,6 @@ namespace OstErpApi\Struct;
 
 class ArticleGroup extends Article
 {
-
-
-
     /**
      * ...
      *
@@ -30,7 +27,7 @@ class ArticleGroup extends Article
      *
      * @return Article[]
      */
-    public function getArticles()
+    public function getArticles(): array
     {
         return $this->articles;
     }
@@ -41,18 +38,9 @@ class ArticleGroup extends Article
      * Setter method for the property.
      *
      * @param Article[] $articles
-     *
-     * @return void
      */
     public function setArticles(array $articles)
     {
         $this->articles = $articles;
     }
-
-
-
-
-
-
-
 }

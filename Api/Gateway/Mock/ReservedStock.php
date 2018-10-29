@@ -15,16 +15,12 @@ use OstErpApi\Api\Gateway\Gateway;
 
 class ReservedStock extends Gateway
 {
-
-
-
-
     private $data = [
         [
-            'ARTICLE_NUMBER'      => "811243",
-            'RESERVEDSTOCK_COMPANY'      => "1",
-            'RESERVEDSTOCK_LOCATION'      => "150",
-            'RESERVEDSTOCK_QUANTITY'      => "1",
+            'ARTICLE_NUMBER'         => '811243',
+            'RESERVEDSTOCK_COMPANY'  => '1',
+            'RESERVEDSTOCK_LOCATION' => '150',
+            'RESERVEDSTOCK_QUANTITY' => '1',
         ]
 
 

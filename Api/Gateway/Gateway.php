@@ -11,16 +11,11 @@
 
 namespace OstErpApi\Api\Gateway;
 
-use OstErpApi\Services\ConfigurationService;
 use OstErpApi\Api\ArrayTrait;
-
-
+use OstErpApi\Services\ConfigurationService;
 
 abstract class Gateway
 {
-
-
-
     use ArrayTrait;
 
 

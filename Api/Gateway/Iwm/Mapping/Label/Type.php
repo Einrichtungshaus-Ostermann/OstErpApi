@@ -21,6 +21,6 @@ class Type implements Mapping
 
     public static function getColumn()
     {
-        return "LABEL_TYPE";
+        return 'LABEL_TYPE';
     }
 }

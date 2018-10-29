@@ -16,65 +16,35 @@ use OstErpApi\Api\Hydrator\Hydrator;
 
 class Store extends Resource
 {
-
-
-    protected $name = "Store";
+    protected $name = 'Store';
 
 
     public function findBy(array $params = [], array $options = []): array
     {
-        $adapter = Shopware()->Container()->get( "ost_erp_api.configuration_service" )->get( "adapter" );
-
-
+        $adapter = Shopware()->Container()->get('ost_erp_api.configuration_service')->get('adapter');
 
         /** @var Gateway $gateway */
         $gateway = Shopware()->Container()->get('ost_erp_api.api.gateway.' . strtolower($adapter) . '.store');
 
         $storesArr = $gateway->findBy($params);
 
-
-
-
-
-        foreach ( $storesArr as $key => $store )
-        {
-
-
-
-
+        foreach ($storesArr as $key => $store) {
             /* @var $companyResource Company */
             $companyResource = Shopware()->Container()->get('ost_erp_api.api.resources.company');
 
-            $company = $companyResource->findOneBy( array(
-                "[company.key] = '" . $store['STORE_COMPANY'] ."'"
-            ));
+            $company = $companyResource->findOneBy([
+                "[company.key] = '" . $store['STORE_COMPANY'] . "'"
+            ]);
 
 
             $store['STORE_COMPANY'] = $company;
 
-
-
-
-
-
-
-
-
             $storesArr[$key] = $store;
-
         }
-
-
-
-
-
 
         /** @var Hydrator $hydrator */
         $hydrator = Shopware()->Container()->get('ost_erp_api.api.hydrator.store');
 
         return $hydrator->hydrate($storesArr);
-
-
-
     }
 }

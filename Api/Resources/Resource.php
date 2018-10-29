@@ -11,23 +11,23 @@
 
 namespace OstErpApi\Api\Resources;
 
-use OstErpApi\Api\Gateway\Gateway;
-use OstErpApi\Api\Gateway\ParserInterface;
-use OstErpApi\Api\Hydrator\Hydrator;
 use OstErpApi\Api\ArrayTrait;
+use OstErpApi\Api\Gateway\Gateway;
+use OstErpApi\Api\Hydrator\Hydrator;
 
 abstract class Resource
 {
+    use ArrayTrait;
+
+
+
     protected $name;
 
 
-    use ArrayTrait;
 
     public function findBy(array $params = [], array $options = []): array
     {
-        $adapter = Shopware()->Container()->get( "ost_erp_api.configuration_service" )->get( "adapter" );
-
-
+        $adapter = Shopware()->Container()->get('ost_erp_api.configuration_service')->get('adapter');
 
 
         /** @var Gateway $gateway */
@@ -43,7 +43,6 @@ abstract class Resource
 
 
 
-
     public function findOneBy(array $params = [], array $options = [])
     {
         return $this->findBy($params, $options)[0] ?? null;
@@ -51,18 +50,8 @@ abstract class Resource
 
 
 
-
-
-
-
     protected function isOptionTrue(array $options, string $optionName): bool
     {
         return isset($options[$optionName]) && $options[$optionName] === true;
     }
-
-
-
-
-
-
 }
