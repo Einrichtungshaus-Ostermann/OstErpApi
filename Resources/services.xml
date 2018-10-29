@@ -61,6 +61,9 @@
         <service id="ost_erp_api.api.processors.article.available_stock" class="OstErpApi\Api\Processors\Article\AvailableStock">
         </service>
 
+        <service id="ost_erp_api.api.processors.article.calculated_prices" class="OstErpApi\Api\Processors\Article\CalculatedPrices">
+        </service>
+
 
 
         <!-- api hydrators -->

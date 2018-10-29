@@ -40,6 +40,10 @@ class Article extends Hydrator
             $articleStruct->setName((string) $article['ARTICLE_NAME']);
             $articleStruct->setWeight((float) $article['ARTICLE_WEIGHT']);
 
+            $articleStruct->setWidth((float) $article['ARTICLE_WIDTH']);
+            $articleStruct->setHeight((float) $article['ARTICLE_HEIGHT']);
+            $articleStruct->setDepth((float) $article['ARTICLE_DEPTH']);
+
             $articleStruct->setDisposition((string) $article['ARTICLE_DISPOSITION']);
             $articleStruct->setType((string) $article['ARTICLE_TYPE']);
 

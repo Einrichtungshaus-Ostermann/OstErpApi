@@ -26,6 +26,9 @@ class Article extends Gateway
                 [article.number],
                 [article.name],
                 [article.weight],
+                [article.width],
+                [article.height],
+                [article.depth],
                 [article.disposition],
                 [article.type],
                 [article.label]

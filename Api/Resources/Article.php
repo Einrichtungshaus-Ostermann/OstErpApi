@@ -99,6 +99,13 @@ class Article extends Resource
 
         $data = $hydrator->hydrate($articlesArr);
 
+
+
+
+        $this->addCalculatedPrices( $data );
+
+
+
         return $data;
 
 
@@ -106,6 +113,19 @@ class Article extends Resource
     }
 
 
+
+
+    private function addCalculatedPrices( array &$articles )
+    {
+
+        /* @var $processor ProcessorInterface */
+        $processor = Shopware()->Container()->get('ost_erp_api.api.processors.article.calculated_prices');
+
+
+        foreach ( $articles as $article )
+            $processor->process($article);
+
+    }
 
 
 

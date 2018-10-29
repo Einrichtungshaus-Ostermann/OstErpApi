@@ -91,6 +91,32 @@ class Article extends Struct
 
 
     /**
+     * ...
+     *
+     * @var float
+     */
+    protected $width;
+
+    /**
+     * ...
+     *
+     * @var float
+     */
+    protected $height;
+
+    /**
+     * ...
+     *
+     * @var float
+     */
+    protected $depth;
+
+
+
+
+
+
+    /**
      * The company struct.
      *
      * @var Company
@@ -190,6 +216,16 @@ class Article extends Struct
      * @var Price[]
      */
     protected $prices = [];
+
+
+
+
+    /**
+     * A calculated price for every store.
+     *
+     * @var CalculatedPrice[]
+     */
+    protected $calculatedPrices = [];
 
 
 
@@ -555,6 +591,126 @@ class Article extends Struct
     public function setPrices(array $prices)
     {
         $this->prices = $prices;
+    }
+
+
+
+    /**
+     * Getter method for the property.
+     *
+     * @return float
+     */
+    public function getWidth()
+    {
+        return $this->width;
+    }
+
+
+
+    /**
+     * Setter method for the property.
+     *
+     * @param float $width
+     *
+     * @return void
+     */
+    public function setWidth(float $width)
+    {
+        $this->width = $width;
+    }
+
+
+
+    /**
+     * Getter method for the property.
+     *
+     * @return float
+     */
+    public function getHeight()
+    {
+        return $this->height;
+    }
+
+
+
+    /**
+     * Setter method for the property.
+     *
+     * @param float $height
+     *
+     * @return void
+     */
+    public function setHeight(float $height)
+    {
+        $this->height = $height;
+    }
+
+
+
+    /**
+     * Getter method for the property.
+     *
+     * @return float
+     */
+    public function getDepth()
+    {
+        return $this->depth;
+    }
+
+
+
+    /**
+     * Setter method for the property.
+     *
+     * @param float $depth
+     *
+     * @return void
+     */
+    public function setDepth(float $depth)
+    {
+        $this->depth = $depth;
+    }
+
+
+
+    /**
+     * Getter method for the property.
+     *
+     * @return CalculatedPrice[]
+     */
+    public function getCalculatedPrices()
+    {
+        return $this->calculatedPrices;
+    }
+
+
+
+    /**
+     * Setter method for the property.
+     *
+     * @param CalculatedPrice[] $calculatedPrices
+     *
+     * @return void
+     */
+    public function setCalculatedPrices(array $calculatedPrices)
+    {
+        $this->calculatedPrices = $calculatedPrices;
+    }
+
+
+
+
+
+    /**
+     * ...
+     *
+     * @param CalculatedPrice $calculatedPrice
+     *
+     * @return void
+     */
+    public function addCalculatedPrice(CalculatedPrice $calculatedPrice)
+    {
+        array_push( $this->calculatedPrices, $calculatedPrice );
     }
 
 
