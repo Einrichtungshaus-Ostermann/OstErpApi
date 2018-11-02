@@ -18,17 +18,17 @@ class Location extends Gateway
     protected static $data = [
         [
             'LOCATION_KEY'     => '100',
-            'LOCATION_STORE'   => 'WITTEN',
+            'LOCATION_STORE'   => '01',
             'LOCATION_COMPANY' => '1',
         ],
         [
             'LOCATION_KEY'     => '150',
-            'LOCATION_STORE'   => 'WITTEN',
+            'LOCATION_STORE'   => '01',
             'LOCATION_COMPANY' => '3',
         ],
         [
             'LOCATION_KEY'     => '400',
-            'LOCATION_STORE'   => 'WITTEN',
+            'LOCATION_STORE'   => '01',
             'LOCATION_COMPANY' => '1',
         ],
 
@@ -37,12 +37,12 @@ class Location extends Gateway
 
         [
             'LOCATION_KEY'     => '500',
-            'LOCATION_STORE'   => 'LEVERKUSEN',
+            'LOCATION_STORE'   => '11',
             'LOCATION_COMPANY' => '1',
         ],
         [
             'LOCATION_KEY'     => '501',
-            'LOCATION_STORE'   => 'LEVERKUSEN',
+            'LOCATION_STORE'   => '11',
             'LOCATION_COMPANY' => '1',
         ],
         [
