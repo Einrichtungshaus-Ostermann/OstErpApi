@@ -12,7 +12,6 @@
 namespace OstErpApi\Api\Gateway\Iwm;
 
 use OstErpApi\Api\Gateway\Gateway as GatewayParent;
-use OstErpApi\Services\ConfigurationService;
 
 abstract class Gateway extends GatewayParent
 {

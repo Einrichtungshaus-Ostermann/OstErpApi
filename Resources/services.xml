@@ -132,11 +132,11 @@
         </service>
 
         <service id="ost_erp_api.api.gateway.mock.Consultant" class="OstErpApi\Api\Gateway\Mock\Consultant">
-            <argument type="service" id="ost_erp_api.configuration_service"/>
+            <argument type="service" id="ost_erp_api.configuration"/>
         </service>
 
         <service id="ost_erp_api.api.gateway.mock.customer" class="OstErpApi\Api\Gateway\Mock\Customer">
-            <argument type="service" id="ost_erp_api.configuration_service"/>
+            <argument type="service" id="ost_erp_api.configuration"/>
         </service>
 
 
@@ -171,11 +171,11 @@
         </service>
 
         <service id="ost_erp_api.api.gateway.iwm.customer" class="OstErpApi\Api\Gateway\Iwm\Customer">
-            <argument type="service" id="ost_erp_api.configuration_service"/>
+            <argument type="service" id="ost_erp_api.configuration"/>
         </service>
 
         <service id="ost_erp_api.api.gateway.iwm.consultant" class="OstErpApi\Api\Gateway\Iwm\Consultant">
-            <argument type="service" id="ost_erp_api.configuration_service"/>
+            <argument type="service" id="ost_erp_api.configuration"/>
         </service>
 
 
