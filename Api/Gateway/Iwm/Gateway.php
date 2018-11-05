@@ -23,24 +23,22 @@ abstract class Gateway extends GatewayParent
 
 
 
-
-
     /**
      * Gateway constructor.
      *
-     * @param ConfigurationService $configurationService
+     * @param array $configuration
      */
-    public function __construct(ConfigurationService $configurationService)
+    public function __construct(array $configuration)
     {
-        parent::__construct($configurationService);
+        parent::__construct($configuration);
 
 
         if (static::$db === null) {
             try {
                 static::$db = new \PDO(
-                    'odbc:' . $configurationService->get('credentialsServer'),
-                    $configurationService->get('credentialsLogin'),
-                    $configurationService->get('credentialsPassword'));
+                    'odbc:' . $configuration['credentialsServer'],
+                    $configuration['credentialsLogin'],
+                    $configuration['credentialsPassword']);
             } catch (\Exception $exception) {
                 die('establishing connection failed:' . $exception->getMessage());
             }

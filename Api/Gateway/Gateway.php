@@ -12,7 +12,6 @@
 namespace OstErpApi\Api\Gateway;
 
 use OstErpApi\Api\ArrayTrait;
-use OstErpApi\Services\ConfigurationService;
 
 abstract class Gateway
 {
@@ -21,20 +20,20 @@ abstract class Gateway
 
 
     /**
-     * @var ConfigurationService
+     * @var array
      */
-    protected $configurationService;
+    protected $configuration;
 
 
 
     /**
      * Gateway constructor.
      *
-     * @param ConfigurationService $configurationService
+     * @param array $configuration
      */
-    public function __construct(ConfigurationService $configurationService)
+    public function __construct(array $configuration)
     {
-        $this->configurationService = $configurationService;
+        $this->configuration = $configuration;
     }
 
 

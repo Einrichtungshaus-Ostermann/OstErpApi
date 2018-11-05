@@ -25,7 +25,7 @@ class Article extends Resource
 
     public function findBy(array $params = [], array $options = []): array
     {
-        $adapter = Shopware()->Container()->get('ost_erp_api.configuration_service')->get('adapter');
+        $adapter = $adapter = $this->configuration['adapter'];;
 
         /* @var $timer Services\TimerService */
         $timer = Shopware()->Container()->get('ost_erp_api.timer_service');
@@ -83,7 +83,7 @@ class Article extends Resource
             return;
         }
 
-        $adapter = Shopware()->Container()->get('ost_erp_api.configuration_service')->get('adapter');
+        $adapter = $adapter = $this->configuration['adapter'];;
 
         /** @var Gateway $articleComponentGateway */
         $articleComponentGateway = Shopware()->Container()->get('ost_erp_api.api.gateway.' . strtolower($adapter) . '.article_component');

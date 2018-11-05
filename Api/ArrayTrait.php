@@ -21,7 +21,7 @@ trait ArrayTrait
             return $data;
         }
 
-        $adapter = Shopware()->Container()->get('ost_erp_api.configuration_service')->get('adapter');
+        $adapter = $this->configuration['adapter'];
 
         /* @var $parser Gateway\ParserInterface */
         $parser = Shopware()->Container()->get('ost_erp_api.api.gateway.' . $adapter . '.mapping.parser');

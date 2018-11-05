@@ -6,10 +6,8 @@
     <services>
 
         <!-- plugin services -->
-        <service id="ost_erp_api.configuration_service" class="OstErpApi\Services\ConfigurationService">
-            <argument type="service" id="models"/>
-            <argument type="service" id="shopware_storefront.context_service"/>
-            <argument type="service" id="shopware.plugin.cached_config_reader"/>
+        <service id="ost_erp_api.configuration" class="OstFoundation\Services\ConfigurationService">
+            <factory service="ost_foundation.services.configuration_service" method="getConfig"/>
             <argument type="string">OstErpApi</argument>
         </service>
 
@@ -98,62 +96,58 @@
 
         <!-- mock gateways -->
         <service id="ost_erp_api.api.gateway.mock.article" class="OstErpApi\Api\Gateway\Mock\Article">
-            <argument type="service" id="ost_erp_api.configuration_service"/>
+            <argument type="service" id="ost_erp_api.configuration"/>
         </service>
 
         <service id="ost_erp_api.api.gateway.mock.location" class="OstErpApi\Api\Gateway\Mock\Location">
-            <argument type="service" id="ost_erp_api.configuration_service"/>
-        </service>
-
-        <service id="ost_erp_api.api.gateway.mock.reservation" class="OstErpApi\Api\Gateway\Mock\Reservation">
-            <argument type="service" id="ost_erp_api.configuration_service"/>
+            <argument type="service" id="ost_erp_api.configuration"/>
         </service>
 
         <service id="ost_erp_api.api.gateway.mock.reserved_stock" class="OstErpApi\Api\Gateway\Mock\ReservedStock">
-            <argument type="service" id="ost_erp_api.configuration_service"/>
+            <argument type="service" id="ost_erp_api.configuration"/>
         </service>
 
         <service id="ost_erp_api.api.gateway.mock.stock" class="OstErpApi\Api\Gateway\Mock\Stock">
-            <argument type="service" id="ost_erp_api.configuration_service"/>
+            <argument type="service" id="ost_erp_api.configuration"/>
         </service>
 
         <service id="ost_erp_api.api.gateway.mock.store" class="OstErpApi\Api\Gateway\Mock\Store">
-            <argument type="service" id="ost_erp_api.configuration_service"/>
+            <argument type="service" id="ost_erp_api.configuration"/>
         </service>
 
         <service id="ost_erp_api.api.gateway.mock.price" class="OstErpApi\Api\Gateway\Mock\Price">
-            <argument type="service" id="ost_erp_api.configuration_service"/>
+            <argument type="service" id="ost_erp_api.configuration"/>
         </service>
 
 
 
         <!-- iwm gateways -->
         <service id="ost_erp_api.api.gateway.iwm.article" class="OstErpApi\Api\Gateway\Iwm\Article">
-            <argument type="service" id="ost_erp_api.configuration_service"/>
+            <argument type="service" id="ost_erp_api.configuration"/>
         </service>
 
         <service id="ost_erp_api.api.gateway.iwm.article_component" class="OstErpApi\Api\Gateway\Iwm\ArticleComponent">
-            <argument type="service" id="ost_erp_api.configuration_service"/>
+            <argument type="service" id="ost_erp_api.configuration"/>
         </service>
 
         <service id="ost_erp_api.api.gateway.iwm.location" class="OstErpApi\Api\Gateway\Iwm\Location">
-            <argument type="service" id="ost_erp_api.configuration_service"/>
+            <argument type="service" id="ost_erp_api.configuration"/>
         </service>
 
         <service id="ost_erp_api.api.gateway.iwm.reserved_stock" class="OstErpApi\Api\Gateway\Iwm\ReservedStock">
-            <argument type="service" id="ost_erp_api.configuration_service"/>
+            <argument type="service" id="ost_erp_api.configuration"/>
         </service>
 
         <service id="ost_erp_api.api.gateway.iwm.stock" class="OstErpApi\Api\Gateway\Iwm\Stock">
-            <argument type="service" id="ost_erp_api.configuration_service"/>
+            <argument type="service" id="ost_erp_api.configuration"/>
         </service>
 
         <service id="ost_erp_api.api.gateway.iwm.store" class="OstErpApi\Api\Gateway\Iwm\Store">
-            <argument type="service" id="ost_erp_api.configuration_service"/>
+            <argument type="service" id="ost_erp_api.configuration"/>
         </service>
 
         <service id="ost_erp_api.api.gateway.iwm.price" class="OstErpApi\Api\Gateway\Iwm\Price">
-            <argument type="service" id="ost_erp_api.configuration_service"/>
+            <argument type="service" id="ost_erp_api.configuration"/>
         </service>
 
 
