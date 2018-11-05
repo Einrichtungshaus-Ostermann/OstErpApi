@@ -52,6 +52,12 @@
         <service id="ost_erp_api.api.resources.price" class="OstErpApi\Api\Resources\Price">
         </service>
 
+        <service id="ost_erp_api.api.resources.consultant" class="OstErpApi\Api\Resources\Consultant">
+        </service>
+
+        <service id="ost_erp_api.api.resources.customer" class="OstErpApi\Api\Resources\Customer">
+        </service>
+
 
 
         <!-- api resource hydrators and processors -->
@@ -94,6 +100,12 @@
         <service id="ost_erp_api.api.hydrator.price" class="OstErpApi\Api\Hydrator\Price">
         </service>
 
+        <service id="ost_erp_api.api.hydrator.consultant" class="OstErpApi\Api\Hydrator\Consultant">
+        </service>
+
+        <service id="ost_erp_api.api.hydrator.customer" class="OstErpApi\Api\Hydrator\Customer">
+        </service>
+
 
 
         <!-- mock gateways -->
@@ -125,6 +137,14 @@
             <argument type="service" id="ost_erp_api.configuration_service"/>
         </service>
 
+        <service id="ost_erp_api.api.gateway.mock.Consultant" class="OstErpApi\Api\Gateway\Mock\Consultant">
+            <argument type="service" id="ost_erp_api.configuration_service"/>
+        </service>
+
+        <service id="ost_erp_api.api.gateway.mock.customer" class="OstErpApi\Api\Gateway\Mock\Customer">
+            <argument type="service" id="ost_erp_api.configuration_service"/>
+        </service>
+
 
 
         <!-- iwm gateways -->
@@ -153,6 +173,14 @@
         </service>
 
         <service id="ost_erp_api.api.gateway.iwm.price" class="OstErpApi\Api\Gateway\Iwm\Price">
+            <argument type="service" id="ost_erp_api.configuration_service"/>
+        </service>
+
+        <service id="ost_erp_api.api.gateway.iwm.customer" class="OstErpApi\Api\Gateway\Iwm\Customer">
+            <argument type="service" id="ost_erp_api.configuration_service"/>
+        </service>
+
+        <service id="ost_erp_api.api.gateway.iwm.consultant" class="OstErpApi\Api\Gateway\Iwm\Consultant">
             <argument type="service" id="ost_erp_api.configuration_service"/>
         </service>
 
