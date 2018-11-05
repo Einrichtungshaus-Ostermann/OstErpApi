@@ -27,7 +27,7 @@ class ReservedStock extends Resource
 
     public function findBy(array $params = [], array $options = []): array
     {
-        $adapter = $adapter = $this->configuration['adapter'];;
+        $adapter = Shopware()->Container()->get('ost_erp_api.configuration')['adapter'];
 
         /** @var Gateway $gateway */
         $gateway = Shopware()->Container()->get('ost_erp_api.api.gateway.' . strtolower($adapter) . '.reserved_stock');
