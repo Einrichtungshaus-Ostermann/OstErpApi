@@ -6,10 +6,9 @@
     <services>
 
         <!-- plugin services -->
-        <service id="ost_foundation.configuration" class="Shopware\Components\Plugin\CachedConfigReader">
-            <factory service="shopware.plugin.cached_config_reader" method="getByPluginName"/>
-            <argument type="string">OstFoundation</argument>
-            <argument type="expression">container.initialized('shop') ? service('shop') : null</argument>
+        <service id="ost_erp_api.configuration" class="OstFoundation\Services\ConfigurationService">
+            <factory service="ost_foundation.services.configuration_service" method="getConfig"/>
+            <argument type="string">OstErpApi</argument>
         </service>
 
         <service id="ost_erp_api.timer_service" class="OstErpApi\Services\TimerService">
