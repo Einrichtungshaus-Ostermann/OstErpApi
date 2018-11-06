@@ -20,15 +20,16 @@ class ReservedStock extends Hydrator
         $arr = [];
 
         foreach ($data as $stock) {
+            if ($stock['RESERVEDSTOCK_LOCATION'] === null) {
+                continue;
+            }
+
             $reservationStruct = new Struct\ReservedStock();
 
             $reservationStruct->setNumber((string) $stock['ARTICLE_NUMBER']);
             $reservationStruct->setQuantity((int) $stock['RESERVEDSTOCK_QUANTITY']);
 
-            if ($stock['RESERVEDSTOCK_LOCATION'] !== null) {
-                $reservationStruct->setLocation($stock['RESERVEDSTOCK_LOCATION']);
-            }
-
+            $reservationStruct->setLocation($stock['RESERVEDSTOCK_LOCATION']);
             $reservationStruct->setCompany($stock['RESERVEDSTOCK_COMPANY']);
 
             $arr[] = $reservationStruct;
