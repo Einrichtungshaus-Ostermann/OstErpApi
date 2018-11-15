@@ -39,12 +39,6 @@
         </element>
 
         <element type="text">
-            <name>credentialsCompany</name>
-            <label>Firma</label>
-            <description>...</description>
-        </element>
-
-        <element type="text">
             <name>credentialsServer</name>
             <label>Serveradresse</label>
             <description>...</description>
