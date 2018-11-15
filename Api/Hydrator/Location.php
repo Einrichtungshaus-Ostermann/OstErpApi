@@ -25,6 +25,7 @@ class Location extends Hydrator
 
 
             $locationStruct->setKey((string) $location['LOCATION_KEY']);
+            $locationStruct->setType((string) $location['LOCATION_TYPE']);
 
             $locationStruct->setCompany($location['LOCATION_COMPANY']);
 

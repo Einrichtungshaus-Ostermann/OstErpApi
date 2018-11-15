@@ -26,6 +26,20 @@ class Location extends Struct
 
 
     /**
+     * The type of the location
+     *
+     * Example
+     * - A
+     * - I
+     *
+     * @var string
+     */
+    protected $type;
+
+
+
+
+    /**
      * ...
      *
      * @var Company
@@ -112,4 +126,33 @@ class Location extends Struct
     {
         $this->store = $store;
     }
+
+
+
+    /**
+     * Getter method for the property.
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+
+
+    /**
+     * Setter method for the property.
+     *
+     * @param string $type
+     *
+     * @return void
+     */
+    public function setType(string $type)
+    {
+        $this->type = $type;
+    }
+
+
+
 }
