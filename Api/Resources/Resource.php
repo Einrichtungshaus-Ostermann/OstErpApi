@@ -50,8 +50,55 @@ abstract class Resource
 
 
 
-    protected function isOptionTrue(array $options, string $optionName): bool
+
+    // $params = array( "warneke", "58300" );
+
+    public function searchBy(array $params): array
     {
-        return isset($options[$optionName]) && $options[$optionName] === true;
+
+        $dir = Shopware()->Container()->getParameter( "ost_erp_api.plugin_dir" ) . "/" .
+            "Api/Gateway/" .
+            ucwords( Shopware()->Container()->get('ost_erp_api.configuration')['adapter'] ) . "/" .
+            "Mapping/" .
+            ucwords( $this->name ) . "/";
+
+        $files = glob( $dir . "*.php" );
+
+
+        $columns = array();
+
+        foreach ( $files as $file )
+            array_push( $columns, str_replace( array( $dir, ".php" ), "", $file ) );
+
+
+
+        $where = array();
+
+        foreach ( $params as $param )
+        {
+            $current = array();
+
+            foreach ( $columns as $column )
+                array_push( $current, "UPPER([" . strtolower( $this->name ) . "." . strtolower( $column ) . "]) LIKE UPPER('%" . $param . "%')" );
+
+
+            array_push(
+                $where,
+                implode( " OR ", $current )
+            );
+        }
+
+
+
+
+
+
+        return $this->findBy( $where );
+
+
     }
+
+
+
+
 }

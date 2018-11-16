@@ -42,4 +42,24 @@ class Api
     {
         return $this->findBy($resource, []);
     }
+
+
+
+
+    public function searchBy($resource, $params = []): array
+    {
+        if (substr_count($resource, '\\') > 0) {
+            $resource = explode('\\', $resource);
+            $resource = array_pop($resource);
+        }
+
+
+        /* @var Resource $resource */
+        $resource = Shopware()->Container()->get('ost_erp_api.api.resources.' . strtolower($resource));
+
+        return $resource->searchBy($params);
+    }
+
+
+
 }

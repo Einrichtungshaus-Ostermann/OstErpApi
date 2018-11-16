@@ -32,6 +32,7 @@ abstract class Gateway extends GatewayParent
         parent::__construct($configuration);
 
 
+
         if (static::$db === null) {
             try {
                 static::$db = new \PDO(
@@ -42,6 +43,7 @@ abstract class Gateway extends GatewayParent
                 die('establishing connection failed:' . $exception->getMessage());
             }
         }
+
     }
 
 
@@ -70,7 +72,6 @@ abstract class Gateway extends GatewayParent
             // add the where append
             $query .= ' WHERE ' . implode(' AND ', $parameters) . ' ';
         }
-
 
         $res = static::$db->query($query);
 

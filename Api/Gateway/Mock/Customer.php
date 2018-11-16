@@ -70,6 +70,9 @@ class Customer extends Gateway
 
     public function findBy(array $params = []): array
     {
+
+
+
         $data = $this->findInArray(
             static::$data,
             $params
