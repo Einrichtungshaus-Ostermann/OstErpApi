@@ -1,4 +1,5 @@
 <?php declare(strict_types=1);
+
 /**
  * Einrichtungshaus Ostermann GmbH & Co. KG - ERP API
  *
@@ -13,15 +14,30 @@ namespace OstErpApi\Struct;
 
 class Article extends Struct
 {
+    /**
+     * ...
+     */
     const DISPOSITION_STOCK = 'L';
     const DISPOSITION_EXHIBIT = 'K';
     const DISPOSITION_ORDER = 'B';
     const DISPOSITION_BROCHURE = 'P';
     const DISPOSITION_DIRECT = 'D';
 
+    /**
+     * ...
+     */
     const TYPE_SINGLE = 'E';
     const TYPE_GROUP = 'D';
     const TYPE_SET = 'S';
+
+    /**
+     * Not final...
+     */
+    protected $supplierNumber;
+    protected $deliveryTime;
+    protected $shippingType;
+    protected $shippingCosts = 0.0;
+    protected $assemblySurcharge = 0.0;
 
     /**
      * A unique article number.
@@ -43,16 +59,6 @@ class Article extends Struct
      * @var int
      */
     protected $uwg;
-
-    protected $supplierNumber;
-
-    protected $deliveryTime;
-
-    protected $shippingType;
-
-    protected $shippingCosts = 0.0;
-
-    protected $assemblySurcharge = 0.0;
 
     /**
      * ...

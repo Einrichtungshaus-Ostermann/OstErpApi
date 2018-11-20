@@ -2,7 +2,6 @@
 <container xmlns="http://symfony.com/schema/dic/services"
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
-
     <services>
 
         <!-- plugin services -->
@@ -17,13 +16,9 @@
         <service id="ost_erp_api.logger_service" class="OstErpApi\Services\LoggerService">
         </service>
 
-
-
         <!-- api -->
         <service id="ost_erp_api.api" class="OstErpApi\Api\Api">
         </service>
-
-
 
         <!-- api resources -->
         <service id="ost_erp_api.api.resources.article" class="OstErpApi\Api\Resources\Article">
@@ -56,8 +51,6 @@
         <service id="ost_erp_api.api.resources.customer" class="OstErpApi\Api\Resources\Customer">
         </service>
 
-
-
         <!-- api resource hydrators and processors -->
         <service id="ost_erp_api.api.processors.article.exhibits" class="OstErpApi\Api\Processors\Article\Exhibits">
         </service>
@@ -67,8 +60,6 @@
 
         <service id="ost_erp_api.api.processors.article.calculated_prices" class="OstErpApi\Api\Processors\Article\CalculatedPrices">
         </service>
-
-
 
         <!-- api hydrators -->
         <service id="ost_erp_api.api.hydrator.article" class="OstErpApi\Api\Hydrator\Article">
@@ -104,8 +95,6 @@
         <service id="ost_erp_api.api.hydrator.customer" class="OstErpApi\Api\Hydrator\Customer">
         </service>
 
-
-
         <!-- mock gateways -->
         <service id="ost_erp_api.api.gateway.mock.article" class="OstErpApi\Api\Gateway\Mock\Article">
             <argument type="service" id="ost_erp_api.configuration"/>
@@ -138,8 +127,6 @@
         <service id="ost_erp_api.api.gateway.mock.customer" class="OstErpApi\Api\Gateway\Mock\Customer">
             <argument type="service" id="ost_erp_api.configuration"/>
         </service>
-
-
 
         <!-- iwm gateways -->
         <service id="ost_erp_api.api.gateway.iwm.article" class="OstErpApi\Api\Gateway\Iwm\Article">
@@ -178,8 +165,6 @@
             <argument type="service" id="ost_erp_api.configuration"/>
         </service>
 
-
-
         <!-- adapter parser -->
         <service id="ost_erp_api.api.gateway.iwm.mapping.parser" class="OstErpApi\Api\Gateway\Iwm\Mapping\Parser">
         </service>
@@ -188,5 +173,4 @@
         </service>
 
     </services>
-
 </container>

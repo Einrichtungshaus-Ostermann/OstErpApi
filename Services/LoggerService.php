@@ -1,4 +1,5 @@
 <?php declare(strict_types=1);
+
 /**
  * Einrichtungshaus Ostermann GmbH & Co. KG - ERP API
  *
@@ -18,10 +19,13 @@ class LoggerService implements LoggerServiceInterface
      */
     public function log($message, array $params = [])
     {
+        // get the directory
         $dir = Shopware()->Container()->getParameter('ost_erp_api.plugin_dir');
 
+        // set the filename
         $filename = date('Y-m-d-H-i-s') . '-' . substr(md5(microtime()), 0, 6) . '.txt';
 
+        // and save it
         file_put_contents($dir . $filename, $message . ' (' . print_r($params, true) . ')');
     }
 }

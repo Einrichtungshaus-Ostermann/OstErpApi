@@ -1,4 +1,5 @@
 <?php declare(strict_types=1);
+
 /**
  * Einrichtungshaus Ostermann GmbH & Co. KG - ERP API
  *
@@ -13,6 +14,9 @@ namespace OstErpApi\Struct;
 
 class Stock extends Struct
 {
+    /**
+     *...
+     */
     const TYPE_STOCK = 'L';
     const TYPE_EXHIBIT = 'K';
     const TYPE_ORDER = 'B';

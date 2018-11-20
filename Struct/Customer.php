@@ -1,4 +1,5 @@
 <?php declare(strict_types=1);
+
 /**
  * Einrichtungshaus Ostermann GmbH & Co. KG - ERP API
  *
@@ -13,8 +14,12 @@ namespace OstErpApi\Struct;
 
 class Customer extends Struct
 {
+    /**
+     * ...
+     */
     const SALUTATION_MALE = '02';
     const SALUTATION_FEMALE = '01';
+
     /**
      * ...
      *
