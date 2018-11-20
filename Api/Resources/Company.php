@@ -1,4 +1,5 @@
 <?php declare(strict_types=1);
+
 /**
  * Einrichtungshaus Ostermann GmbH & Co. KG - ERP API
  *
@@ -15,10 +16,16 @@ use OstErpApi\Api\Hydrator\Hydrator;
 
 class Company extends Resource
 {
+    /**
+     * {@inheritdoc}
+     */
     protected $name = 'Company';
 
-
-
+    /**
+     * Fixed static companies.
+     *
+     * @var array
+     */
     protected $data = [
         [
             'COMPANY_KEY'  => '1',
@@ -30,21 +37,21 @@ class Company extends Resource
         ]
     ];
 
-
-
-    // [company.key] = 1
-    // [company.name] = Ostermann
-    public function findBy(array $params = [], array $options = []): array
+    /**
+     * {@inheritdoc}
+     */
+    public function findBy(array $params = []): array
     {
+        // just use array finder
         $data = $this->findInArray(
             $this->data,
             $params
         );
 
-
         /** @var Hydrator $hydrator */
         $hydrator = Shopware()->Container()->get('ost_erp_api.api.hydrator.company');
 
+        // return hydrated companies
         return $hydrator->hydrate($data);
     }
 }

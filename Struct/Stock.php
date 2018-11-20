@@ -26,8 +26,6 @@ class Stock extends Struct
      */
     protected $number;
 
-
-
     /**
      * The quantity within the given location.
      *
@@ -38,7 +36,6 @@ class Stock extends Struct
      * @var int
      */
     protected $quantity;
-
 
     /**
      * The stock Type
@@ -53,7 +50,6 @@ class Stock extends Struct
      */
     protected $type;
 
-
     /**
      * The company.
      *
@@ -61,17 +57,12 @@ class Stock extends Struct
      */
     protected $company;
 
-
-
-
     /**
      * The location of this stock.
      *
      * @var Location
      */
     protected $location;
-
-
 
     /**
      * Getter method for the property.
@@ -83,8 +74,6 @@ class Stock extends Struct
         return $this->number;
     }
 
-
-
     /**
      * Setter method for the property.
      *
@@ -94,8 +83,6 @@ class Stock extends Struct
     {
         $this->number = $number;
     }
-
-
 
     /**
      * Getter method for the property.
@@ -107,8 +94,6 @@ class Stock extends Struct
         return $this->quantity;
     }
 
-
-
     /**
      * Setter method for the property.
      *
@@ -118,8 +103,6 @@ class Stock extends Struct
     {
         $this->quantity = $quantity;
     }
-
-
 
     /**
      * Getter method for the property.
@@ -131,8 +114,6 @@ class Stock extends Struct
         return $this->type;
     }
 
-
-
     /**
      * Setter method for the property.
      *
@@ -142,8 +123,6 @@ class Stock extends Struct
     {
         $this->type = $type;
     }
-
-
 
     /**
      * Getter method for the property.
@@ -155,8 +134,6 @@ class Stock extends Struct
         return $this->company;
     }
 
-
-
     /**
      * Setter method for the property.
      *
@@ -167,8 +144,6 @@ class Stock extends Struct
         $this->company = $company;
     }
 
-
-
     /**
      * Getter method for the property.
      *
@@ -178,8 +153,6 @@ class Stock extends Struct
     {
         return $this->location;
     }
-
-
 
     /**
      * Setter method for the property.

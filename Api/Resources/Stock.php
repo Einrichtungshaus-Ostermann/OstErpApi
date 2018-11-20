@@ -1,4 +1,5 @@
 <?php declare(strict_types=1);
+
 /**
  * Einrichtungshaus Ostermann GmbH & Co. KG - ERP API
  *
@@ -16,48 +17,55 @@ use OstErpApi\Api\Hydrator\Hydrator;
 
 class Stock extends Resource
 {
+    /**
+     * {@inheritdoc}
+     */
     protected $name = 'Stock';
 
-    // [stock.number] = 121535
-    // [stock.location] = 150
-    // {stock.company] = 1
-    // [stock.type] = L
-    // [stock.quantity] > 0
-
-    public function findBy(array $params = [], array $options = []): array
+    /**
+     * {@inheritdoc}
+     */
+    public function findBy(array $params = []): array
     {
-        $adapter = Shopware()->Container()->get('ost_erp_api.configuration')['adapter'];
+        // get the gateway
+        $gateway = $this->getGateway( "stock" );
 
-        /** @var Gateway $gateway */
-        $gateway = Shopware()->Container()->get('ost_erp_api.api.gateway.' . strtolower($adapter) . '.stock');
+        // get the stock
         $stockArr = $gateway->findBy($params);
 
+        // loop them
         foreach ($stockArr as $key => $stock) {
 
             /* @var $companyResource Company */
-            $companyResource = Shopware()->Container()->get('ost_erp_api.api.resources.company');
+            $companyResource = $this->getResource("company");
 
+            // get it
             $company = $companyResource->findOneBy([
                 "[company.key] = '" . $stock['STOCK_COMPANY'] . "'"
             ]);
 
+            // add it
             $stock['STOCK_COMPANY'] = $company;
 
             /* @var $locationResource Location */
-            $locationResource = Shopware()->Container()->get('ost_erp_api.api.resources.location');
+            $locationResource = $this->getResource("location");
 
+            // get it
             $location = $locationResource->findOneBy([
                 "[location.key] = '" . $stock['STOCK_LOCATION'] . "'"
             ]);
 
+            // add it
             $stock['STOCK_LOCATION'] = $location;
 
+            // set it back
             $stockArr[$key] = $stock;
         }
 
         /** @var Hydrator $hydrator */
-        $hydrator = Shopware()->Container()->get('ost_erp_api.api.hydrator.stock');
+        $hydrator = $this->getHydrator("stock");
 
+        // return hydrated entities
         return $hydrator->hydrate($stockArr);
     }
 }

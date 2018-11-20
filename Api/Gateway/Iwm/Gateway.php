@@ -1,4 +1,5 @@
 <?php declare(strict_types=1);
+
 /**
  * Einrichtungshaus Ostermann GmbH & Co. KG - ERP API
  *
@@ -20,8 +21,6 @@ abstract class Gateway extends GatewayParent
      */
     protected static $db;
 
-
-
     /**
      * Gateway constructor.
      *
@@ -31,28 +30,31 @@ abstract class Gateway extends GatewayParent
     {
         parent::__construct($configuration);
 
-
-
         if (static::$db === null) {
             try {
                 static::$db = new \PDO(
                     'odbc:' . $configuration['credentialsServer'],
                     $configuration['credentialsLogin'],
-                    $configuration['credentialsPassword']);
+                    $configuration['credentialsPassword']
+                );
             } catch (\Exception $exception) {
                 die('establishing connection failed:' . $exception->getMessage());
             }
         }
-
     }
 
-
+    /**
+     * ...
+     *
+     * @param array $parameters
+     *
+     * @return array
+     */
     public function findBy(array $parameters = []): array
     {
         $query = $this->getQuery();
 
         $this->addParams($parameters);
-
 
         /* @var $parser Mapping\Parser */
         $parser = Shopware()->Container()->get('ost_erp_api.api.gateway.iwm.mapping.parser');
@@ -60,7 +62,6 @@ abstract class Gateway extends GatewayParent
         $query = $parser->parseSelect($query);
 
         if (count($parameters) > 0) {
-
             // add braces to the where append terms and parse the string
             $parameters = array_map(
                 function ($term) use ($parser) {
@@ -78,15 +79,21 @@ abstract class Gateway extends GatewayParent
         return $res->fetchAll(\PDO::FETCH_ASSOC);
     }
 
-
-
-    protected function getQuery()
+    /**
+     * ...
+     *
+     * @return string
+     */
+    protected function getQuery(): string
     {
         return '';
     }
 
-
-
+    /**
+     * ...
+     *
+     * @param array $params
+     */
     protected function addParams(array $params)
     {
     }

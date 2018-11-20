@@ -24,8 +24,6 @@ class Company extends Struct
      */
     protected $key;
 
-
-
     /**
      * A readable company name.
      *
@@ -37,8 +35,6 @@ class Company extends Struct
      */
     protected $name;
 
-
-
     /**
      * Getter method for the property.
      *
@@ -48,8 +44,6 @@ class Company extends Struct
     {
         return $this->key;
     }
-
-
 
     /**
      * Setter method for the property.
@@ -61,8 +55,6 @@ class Company extends Struct
         $this->key = $key;
     }
 
-
-
     /**
      * Getter method for the property.
      *
@@ -72,8 +64,6 @@ class Company extends Struct
     {
         return $this->name;
     }
-
-
 
     /**
      * Setter method for the property.

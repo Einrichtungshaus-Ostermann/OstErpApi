@@ -11,8 +11,6 @@ class ArticleTest extends TestCase
         $this->checkArticleResourceWithParameter(['bla' => 'true']);
     }
 
-
-
     private function checkArticleFields(Article $article, array $mockData)
     {
         foreach ($mockData as $name => $value) {
@@ -32,8 +30,6 @@ class ArticleTest extends TestCase
             }
         }
     }
-
-
 
     private function checkArticleResourceWithParameter(array $parameter)
     {

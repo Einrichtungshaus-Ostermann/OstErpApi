@@ -13,20 +13,14 @@ namespace OstErpApi\Struct;
 
 class Customer extends Struct
 {
+    const SALUTATION_MALE = '02';
+    const SALUTATION_FEMALE = '01';
     /**
      * ...
      *
      * @var int
      */
     protected $number;
-
-
-
-
-    const SALUTATION_MALE = "02";
-    const SALUTATION_FEMALE = "01";
-
-
 
     /**
      * ...
@@ -35,18 +29,12 @@ class Customer extends Struct
      */
     protected $salutation;
 
-
-
-
-
     /**
      * ...
      *
      * @var string
      */
     protected $firstName;
-
-
 
     /**
      * ...
@@ -55,24 +43,12 @@ class Customer extends Struct
      */
     protected $lastName;
 
-
-
-
-
     /**
      * ...
      *
      * @var string
      */
     protected $phone;
-
-
-
-
-
-
-
-
 
     /**
      * ...
@@ -81,9 +57,6 @@ class Customer extends Struct
      */
     protected $street;
 
-
-
-
     /**
      * ...
      *
@@ -91,24 +64,12 @@ class Customer extends Struct
      */
     protected $zip;
 
-
-
-
     /**
      * ...
      *
      * @var string
      */
     protected $city;
-
-
-
-
-
-
-
-
-
 
     /**
      * The country in weird iso code.
@@ -129,8 +90,6 @@ class Customer extends Struct
      */
     protected $country;
 
-
-
     /**
      * Getter method for the property.
      *
@@ -141,21 +100,15 @@ class Customer extends Struct
         return $this->number;
     }
 
-
-
     /**
      * Setter method for the property.
      *
      * @param int $number
-     *
-     * @return void
      */
     public function setNumber(int $number)
     {
         $this->number = $number;
     }
-
-
 
     /**
      * Getter method for the property.
@@ -167,21 +120,15 @@ class Customer extends Struct
         return $this->salutation;
     }
 
-
-
     /**
      * Setter method for the property.
      *
      * @param string $salutation
-     *
-     * @return void
      */
     public function setSalutation(string $salutation)
     {
         $this->salutation = $salutation;
     }
-
-
 
     /**
      * Getter method for the property.
@@ -193,21 +140,15 @@ class Customer extends Struct
         return $this->firstName;
     }
 
-
-
     /**
      * Setter method for the property.
      *
      * @param string $firstName
-     *
-     * @return void
      */
     public function setFirstName(string $firstName)
     {
         $this->firstName = $firstName;
     }
-
-
 
     /**
      * Getter method for the property.
@@ -219,21 +160,15 @@ class Customer extends Struct
         return $this->lastName;
     }
 
-
-
     /**
      * Setter method for the property.
      *
      * @param string $lastName
-     *
-     * @return void
      */
     public function setLastName(string $lastName)
     {
         $this->lastName = $lastName;
     }
-
-
 
     /**
      * Getter method for the property.
@@ -245,21 +180,15 @@ class Customer extends Struct
         return $this->phone;
     }
 
-
-
     /**
      * Setter method for the property.
      *
      * @param string $phone
-     *
-     * @return void
      */
     public function setPhone(string $phone)
     {
         $this->phone = $phone;
     }
-
-
 
     /**
      * Getter method for the property.
@@ -271,21 +200,15 @@ class Customer extends Struct
         return $this->street;
     }
 
-
-
     /**
      * Setter method for the property.
      *
      * @param string $street
-     *
-     * @return void
      */
     public function setStreet(string $street)
     {
         $this->street = $street;
     }
-
-
 
     /**
      * Getter method for the property.
@@ -297,21 +220,15 @@ class Customer extends Struct
         return $this->zip;
     }
 
-
-
     /**
      * Setter method for the property.
      *
      * @param string $zip
-     *
-     * @return void
      */
     public function setZip(string $zip)
     {
         $this->zip = $zip;
     }
-
-
 
     /**
      * Getter method for the property.
@@ -323,21 +240,15 @@ class Customer extends Struct
         return $this->city;
     }
 
-
-
     /**
      * Setter method for the property.
      *
      * @param string $city
-     *
-     * @return void
      */
     public function setCity(string $city)
     {
         $this->city = $city;
     }
-
-
 
     /**
      * Getter method for the property.
@@ -349,29 +260,13 @@ class Customer extends Struct
         return $this->country;
     }
 
-
-
     /**
      * Setter method for the property.
      *
      * @param string $country
-     *
-     * @return void
      */
     public function setCountry(string $country)
     {
         $this->country = $country;
     }
-
-
-
-
-
-
-
-
-
-
-
-
 }

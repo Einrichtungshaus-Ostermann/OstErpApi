@@ -20,8 +20,6 @@ class ArticleGroup extends Article
      */
     protected $articles = [];
 
-
-
     /**
      * Getter method for the property.
      *
@@ -31,8 +29,6 @@ class ArticleGroup extends Article
     {
         return $this->articles;
     }
-
-
 
     /**
      * Setter method for the property.

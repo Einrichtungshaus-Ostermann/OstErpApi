@@ -1,4 +1,5 @@
 <?php declare(strict_types=1);
+
 /**
  * Einrichtungshaus Ostermann GmbH & Co. KG - ERP API
  *
@@ -13,8 +14,12 @@ namespace OstErpApi\Api\Gateway\Iwm;
 
 class Store extends Gateway
 {
+    /**
+     * We have static and pre-defined stores.
+     *
+     * @var array
+     */
     private static $data = [
-
         [
             'STORE_KEY'     => '01',
             'STORE_NAME'    => 'Ostermann Witten',
@@ -114,18 +119,20 @@ class Store extends Gateway
             'STORE_COMPANY' => '3',
             'STORE_TYPE'    => '2'
         ],
-
-
     ];
 
-
+    /**
+     * {@inheritdoc}
+     */
     public function findBy(array $params = []): array
     {
+        // find in our pre-defined array
         $data = $this->findInArray(
             static::$data,
             $params
         );
 
+        // and return the results
         return $data;
     }
 }

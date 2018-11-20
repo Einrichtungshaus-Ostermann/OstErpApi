@@ -1,4 +1,5 @@
 <?php declare(strict_types=1);
+
 /**
  * Einrichtungshaus Ostermann GmbH & Co. KG - ERP API
  *
@@ -15,7 +16,10 @@ use OstErpApi\Api\Gateway\ParserInterface;
 
 class Parser implements ParserInterface
 {
-    public function parse($query, $addAlias = true)
+    /**
+     * {@inheritdoc}
+     */
+    public function parse($query, $addAlias = true): string
     {
         // get the placeholders
         preg_match_all('/\[[^\]]*\]/', $query, $matches);
@@ -32,8 +36,10 @@ class Parser implements ParserInterface
             /* @var $mapping Mapping */
             $mapping = __NAMESPACE__ . '\\' . ucwords($entity) . '\\' . ucwords($key);
 
+            // get the column name
             $replace = $mapping::getColumn();
 
+            // add an alias?
             if ($addAlias === true) {
                 $replace .= ' AS ' . $mapping::getAlias();
             }
@@ -46,21 +52,22 @@ class Parser implements ParserInterface
             );
         }
 
-
         // and return it
         return $query;
     }
 
-
-
-    public function parseSelect($query)
+    /**
+     * {@inheritdoc}
+     */
+    public function parseSelect($query): string
     {
         return $this->parse($query, true);
     }
 
-
-
-    public function parseParameter($query)
+    /**
+     * {@inheritdoc}
+     */
+    public function parseParameter($query): string
     {
         return $this->parse($query, false);
     }

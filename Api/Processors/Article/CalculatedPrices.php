@@ -1,4 +1,5 @@
 <?php declare(strict_types=1);
+
 /**
  * Einrichtungshaus Ostermann GmbH & Co. KG - ERP API
  *
@@ -24,9 +25,7 @@ class CalculatedPrices
     {
         $stores = Shopware()->Container()->get('ost_erp_api.api')->findAll('store');
 
-
         $now = time();
-
 
         /* @var $store Struct\Store */
         foreach ($stores as $store) {
@@ -42,7 +41,6 @@ class CalculatedPrices
                     }
                 }
             }
-
 
             /* @var $myPrice Struct\Price */
             $myPrice = null;
@@ -71,19 +69,16 @@ class CalculatedPrices
                 }
             }
 
-
             // do we even have a price?
             if ($price === null) {
                 continue;
             }
-
 
             $struct = new Struct\CalculatedPrice();
 
             $struct->setNumber($price->getNumber());
             $struct->setStore($store);
             $struct->setPseudoPrice($price->getPickupPseudoPrice());
-
 
             switch ($article->getCompany()->getKey()) {
                 case 1:

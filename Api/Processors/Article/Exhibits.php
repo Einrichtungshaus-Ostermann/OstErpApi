@@ -1,4 +1,5 @@
 <?php declare(strict_types=1);
+
 /**
  * Einrichtungshaus Ostermann GmbH & Co. KG - ERP API
  *
@@ -16,36 +17,32 @@ use OstErpApi\Struct;
 
 class Exhibits implements ProcessorInterface
 {
-    // every article => this hwg is always in exhibit if we have stock
+    /**
+     * This HWG is always in exhibit if we have stock.
+     *
+     * @var int
+     */
     private $hwg = 90;
 
-
-
     /**
-     * ...
-     *
-     * @param array data
-     * @param array & $data
+     * {@inheritdoc}
      */
     public function process(array &$data)
     {
+        // process as group or flat article?
         if ($data['ARTICLE_TYPE'] === Struct\Article::TYPE_GROUP) {
             $this->processGroup($data);
-
             return;
         }
 
-
+        // flat article
         $this->processSingle($data);
     }
-
-
 
     /**
      * ...
      *
      * @param array data
-     * @param array & $data
      */
     private function processSingle(array &$data)
     {
@@ -59,16 +56,14 @@ class Exhibits implements ProcessorInterface
 
             $store = $stock->getLocation()->getStore();
 
-
             $type = $stock->getType();
-            if ((int)$data['ARTICLE_HWG'] >= $this->hwg) {
+            if ((int) $data['ARTICLE_HWG'] >= $this->hwg) {
                 if (($type !== Struct\Stock::TYPE_EXHIBIT) && ($type !== Struct\Stock::TYPE_STOCK)) {
                     continue;
                 }
             } elseif ($type !== Struct\Stock::TYPE_EXHIBIT) {
                 continue;
             }
-
 
             if (isset($exhibits[$store->getKey()])) {
                 continue;
@@ -80,16 +75,16 @@ class Exhibits implements ProcessorInterface
         $data['ARTICLE_EXHIBITS'] = array_values($exhibits);
     }
 
-
-
     /**
      * ...
      *
+     * @todo implement groups
+     *
      * @param array data
-     * @param array & $data
      */
     private function processGroup(array &$data)
     {
+        // nothing yet...
         $data['ARTICLE_EXHIBITS'] = [];
     }
 }

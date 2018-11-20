@@ -24,7 +24,6 @@ class Location extends Struct
      */
     protected $key;
 
-
     /**
      * The type of the location
      *
@@ -36,9 +35,6 @@ class Location extends Struct
      */
     protected $type;
 
-
-
-
     /**
      * ...
      *
@@ -46,16 +42,12 @@ class Location extends Struct
      */
     protected $company;
 
-
-
     /**
      * The internal ERP key for the Store.
      *
      * @var Store
      */
     protected $store;
-
-
 
     /**
      * Getter method for the property.
@@ -67,8 +59,6 @@ class Location extends Struct
         return $this->key;
     }
 
-
-
     /**
      * Setter method for the property.
      *
@@ -78,8 +68,6 @@ class Location extends Struct
     {
         $this->key = $key;
     }
-
-
 
     /**
      * Getter method for the property.
@@ -91,8 +79,6 @@ class Location extends Struct
         return $this->company;
     }
 
-
-
     /**
      * Setter method for the property.
      *
@@ -102,8 +88,6 @@ class Location extends Struct
     {
         $this->company = $company;
     }
-
-
 
     /**
      * Getter method for the property.
@@ -115,8 +99,6 @@ class Location extends Struct
         return $this->store;
     }
 
-
-
     /**
      * Setter method for the property.
      *
@@ -126,8 +108,6 @@ class Location extends Struct
     {
         $this->store = $store;
     }
-
-
 
     /**
      * Getter method for the property.
@@ -139,20 +119,13 @@ class Location extends Struct
         return $this->type;
     }
 
-
-
     /**
      * Setter method for the property.
      *
      * @param string $type
-     *
-     * @return void
      */
     public function setType(string $type)
     {
         $this->type = $type;
     }
-
-
-
 }

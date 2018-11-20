@@ -1,4 +1,5 @@
 <?php declare(strict_types=1);
+
 /**
  * Einrichtungshaus Ostermann GmbH & Co. KG - ERP API
  *
@@ -13,7 +14,17 @@ namespace OstErpApi\Api\Gateway\Mock\Mapping;
 
 interface Mapping
 {
-    public static function getAlias();
+    /**
+     * An alias for the hydrator.
+     *
+     * @return string
+     */
+    public static function getAlias(): string;
 
-    public static function getColumn();
+    /**
+     * The actual column name.
+     *
+     * @return string
+     */
+    public static function getColumn(): string;
 }

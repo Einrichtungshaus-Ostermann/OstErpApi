@@ -1,4 +1,5 @@
 <?php declare(strict_types=1);
+
 /**
  * Einrichtungshaus Ostermann GmbH & Co. KG - ERP API
  *
@@ -15,16 +16,15 @@ use OstErpApi\Api\ArrayTrait;
 
 abstract class Gateway
 {
+    /**
+     * ...
+     */
     use ArrayTrait;
-
-
 
     /**
      * @var array
      */
     protected $configuration;
-
-
 
     /**
      * Gateway constructor.
@@ -36,7 +36,12 @@ abstract class Gateway
         $this->configuration = $configuration;
     }
 
-
-
+    /**
+     * ...
+     *
+     * @param array $parameters
+     *
+     * @return array
+     */
     abstract public function findBy(array $parameters = []): array;
 }

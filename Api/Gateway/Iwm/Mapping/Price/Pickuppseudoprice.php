@@ -1,4 +1,5 @@
 <?php declare(strict_types=1);
+
 /**
  * Einrichtungshaus Ostermann GmbH & Co. KG - ERP API
  *
@@ -15,12 +16,18 @@ use OstErpApi\Api\Gateway\Iwm\Mapping\Mapping;
 
 class Pickuppseudoprice implements Mapping
 {
-    public static function getAlias()
+    /**
+     * {@inheritdoc}
+     */
+    public static function getAlias(): string
     {
         return 'PRICE_PICKUPPSEUDOPRICE';
     }
 
-    public static function getColumn()
+    /**
+     * {@inheritdoc}
+     */
+    public static function getColumn(): string
     {
         return 'IWMV2R1DTA.PREI00.PRVKO4';
     }

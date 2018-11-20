@@ -20,8 +20,6 @@ class CalculatedPrice extends Struct
      */
     protected $number;
 
-
-
     /**
      * ...
      *
@@ -43,8 +41,6 @@ class CalculatedPrice extends Struct
      */
     protected $shippingCosts;
 
-
-
     /**
      * ...
      *
@@ -52,16 +48,12 @@ class CalculatedPrice extends Struct
      */
     protected $assemblySurcharge;
 
-
-
     /**
      * ...
      *
      * @var Store
      */
     protected $store;
-
-
 
     /**
      * Getter method for the property.
@@ -73,8 +65,6 @@ class CalculatedPrice extends Struct
         return $this->number;
     }
 
-
-
     /**
      * Setter method for the property.
      *
@@ -84,8 +74,6 @@ class CalculatedPrice extends Struct
     {
         $this->number = $number;
     }
-
-
 
     /**
      * Getter method for the property.
@@ -97,8 +85,6 @@ class CalculatedPrice extends Struct
         return $this->price;
     }
 
-
-
     /**
      * Setter method for the property.
      *
@@ -108,8 +94,6 @@ class CalculatedPrice extends Struct
     {
         $this->price = $price;
     }
-
-
 
     /**
      * Getter method for the property.
@@ -121,8 +105,6 @@ class CalculatedPrice extends Struct
         return $this->pseudoPrice;
     }
 
-
-
     /**
      * Setter method for the property.
      *
@@ -132,8 +114,6 @@ class CalculatedPrice extends Struct
     {
         $this->pseudoPrice = $pseudoPrice;
     }
-
-
 
     /**
      * Getter method for the property.
@@ -145,8 +125,6 @@ class CalculatedPrice extends Struct
         return $this->shippingCosts;
     }
 
-
-
     /**
      * Setter method for the property.
      *
@@ -156,8 +134,6 @@ class CalculatedPrice extends Struct
     {
         $this->shippingCosts = $shippingCosts;
     }
-
-
 
     /**
      * Getter method for the property.
@@ -169,8 +145,6 @@ class CalculatedPrice extends Struct
         return $this->assemblySurcharge;
     }
 
-
-
     /**
      * Setter method for the property.
      *
@@ -181,8 +155,6 @@ class CalculatedPrice extends Struct
         $this->assemblySurcharge = $assemblySurcharge;
     }
 
-
-
     /**
      * Getter method for the property.
      *
@@ -192,8 +164,6 @@ class CalculatedPrice extends Struct
     {
         return $this->store;
     }
-
-
 
     /**
      * Setter method for the property.

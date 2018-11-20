@@ -23,17 +23,12 @@ class Store extends Struct
      */
     protected $key;
 
-
-
-
     /**
      * ...
      *
      * @var string
      */
     protected $name;
-
-
 
     /**
      * ...
@@ -42,9 +37,6 @@ class Store extends Struct
      */
     protected $city;
 
-
-
-
     /**
      * ...
      *
@@ -52,15 +44,12 @@ class Store extends Struct
      */
     protected $company;
 
-
     /**
      * ...
      *
      * @var int
      */
     protected $type;
-
-
 
     /**
      * Getter method for the property.
@@ -72,8 +61,6 @@ class Store extends Struct
         return $this->key;
     }
 
-
-
     /**
      * Setter method for the property.
      *
@@ -83,8 +70,6 @@ class Store extends Struct
     {
         $this->key = $key;
     }
-
-
 
     /**
      * Getter method for the property.
@@ -96,8 +81,6 @@ class Store extends Struct
         return $this->name;
     }
 
-
-
     /**
      * Setter method for the property.
      *
@@ -107,8 +90,6 @@ class Store extends Struct
     {
         $this->name = $name;
     }
-
-
 
     /**
      * Getter method for the property.
@@ -120,8 +101,6 @@ class Store extends Struct
         return $this->city;
     }
 
-
-
     /**
      * Setter method for the property.
      *
@@ -131,8 +110,6 @@ class Store extends Struct
     {
         $this->city = $city;
     }
-
-
 
     /**
      * Getter method for the property.
@@ -144,8 +121,6 @@ class Store extends Struct
         return $this->company;
     }
 
-
-
     /**
      * Setter method for the property.
      *
@@ -156,8 +131,6 @@ class Store extends Struct
         $this->company = $company;
     }
 
-
-
     /**
      * Getter method for the property.
      *
@@ -167,8 +140,6 @@ class Store extends Struct
     {
         return $this->type;
     }
-
-
 
     /**
      * Setter method for the property.

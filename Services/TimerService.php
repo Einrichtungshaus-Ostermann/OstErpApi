@@ -6,28 +6,21 @@ class TimerService implements TimerServiceInterface
 {
     private $timer = [];
 
-
-
     public function start($key = 'default')
     {
         $this->timer[$key] = microtime();
     }
-
-
 
     public function reset($key = 'default')
     {
         $this->start($key);
     }
 
-
-
     public function get($key = 'default')
     {
         if (!isset($this->timer[$key])) {
             $this->start($key);
         }
-
 
         $time_start = explode(' ', $this->timer[$key]);
         $time_end = explode(' ', microtime());
@@ -36,14 +29,11 @@ class TimerService implements TimerServiceInterface
         return $parse_time;
     }
 
-
-
     public function display($key = 'default')
     {
         if (!isset($this->timer[$key])) {
             echo 'starting ' . $key . '<br>';
         }
-
 
         $var = $this->get($key);
 

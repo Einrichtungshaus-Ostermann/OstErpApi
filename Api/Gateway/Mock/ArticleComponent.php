@@ -1,4 +1,5 @@
 <?php declare(strict_types=1);
+
 /**
  * Einrichtungshaus Ostermann GmbH & Co. KG - ERP API
  *
@@ -11,25 +12,18 @@
 
 namespace OstErpApi\Api\Gateway\Mock;
 
-use OstErpApi\Api\Gateway\Gateway;
-
 class ArticleComponent extends Gateway
 {
-    private $data = [
+    /**
+     * Some test data.
+     *
+     * @var array
+     */
+    protected $data = [
         [
             'ARTICLE_NUMBER'            => '874355',
             'ARTICLECOMPONENT_NUMBER'   => '811243',
             'ARTICLECOMPONENT_QUANTITY' => '4'
         ]
     ];
-
-    public function findBy(array $params = []): array
-    {
-        $data = $this->findInArray(
-            $this->data,
-            $params
-        );
-
-        return $data;
-    }
 }

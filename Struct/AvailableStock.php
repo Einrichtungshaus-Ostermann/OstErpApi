@@ -20,8 +20,6 @@ class AvailableStock extends Struct
      */
     protected $number;
 
-
-
     /**
      * The actual available quantity within the given store.
      *
@@ -33,16 +31,12 @@ class AvailableStock extends Struct
      */
     protected $quantity;
 
-
-
     /**
      * The available stock in available in this store.
      *
      * @var Store
      */
     protected $store;
-
-
 
     /**
      * Getter method for the property.
@@ -54,8 +48,6 @@ class AvailableStock extends Struct
         return $this->number;
     }
 
-
-
     /**
      * Setter method for the property.
      *
@@ -65,8 +57,6 @@ class AvailableStock extends Struct
     {
         $this->number = $number;
     }
-
-
 
     /**
      * Getter method for the property.
@@ -78,8 +68,6 @@ class AvailableStock extends Struct
         return $this->quantity;
     }
 
-
-
     /**
      * Setter method for the property.
      *
@@ -90,8 +78,6 @@ class AvailableStock extends Struct
         $this->quantity = $quantity;
     }
 
-
-
     /**
      * Getter method for the property.
      *
@@ -101,8 +87,6 @@ class AvailableStock extends Struct
     {
         return $this->store;
     }
-
-
 
     /**
      * Setter method for the property.

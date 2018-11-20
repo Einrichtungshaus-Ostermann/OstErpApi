@@ -1,4 +1,5 @@
 <?php declare(strict_types=1);
+
 /**
  * Einrichtungshaus Ostermann GmbH & Co. KG - ERP API
  *
@@ -13,5 +14,12 @@ namespace OstErpApi\Api\Hydrator;
 
 abstract class Hydrator
 {
+    /**
+     * ...
+     *
+     * @param array $data
+     *
+     * @return array
+     */
     abstract public function hydrate(array $data): array;
 }
