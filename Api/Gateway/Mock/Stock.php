@@ -26,6 +26,7 @@ class Stock extends Gateway
             'ARTICLE_NUMBER' => '811243',
             'STOCK_QUANTITY' => '25',
             'STOCK_TYPE'     => 'L',
+            'STOCK_AREA'     => '3000',
         ],
         [
             'STOCK_COMPANY'  => '1',
@@ -33,6 +34,7 @@ class Stock extends Gateway
             'ARTICLE_NUMBER' => '811243',
             'STOCK_QUANTITY' => '5',
             'STOCK_TYPE'     => 'K',
+            'STOCK_AREA'     => '2433',
         ],
         [
             'STOCK_COMPANY'  => '1',
@@ -40,6 +42,7 @@ class Stock extends Gateway
             'ARTICLE_NUMBER' => '811243',
             'STOCK_QUANTITY' => '3',
             'STOCK_TYPE'     => 'P',
+            'STOCK_AREA'     => '8085',
         ],
         [
             'STOCK_COMPANY'  => '1',
@@ -47,6 +50,15 @@ class Stock extends Gateway
             'ARTICLE_NUMBER' => '811243',
             'STOCK_QUANTITY' => '3',
             'STOCK_TYPE'     => 'L',
-        ]
+            'STOCK_AREA'     => '3310',
+        ],
+        [
+            'STOCK_COMPANY'  => '1',
+            'STOCK_LOCATION' => '110',
+            'ARTICLE_NUMBER' => '811243',
+            'STOCK_QUANTITY' => '5',
+            'STOCK_TYPE'     => 'K',
+            'STOCK_AREA'     => '2433',
+        ],
     ];
 }

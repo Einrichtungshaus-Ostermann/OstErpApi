@@ -39,6 +39,7 @@ class Stock extends Hydrator
             $stockStruct->setNumber((string) $stock['ARTICLE_NUMBER']);
             $stockStruct->setQuantity((int) $stock['STOCK_QUANTITY']);
             $stockStruct->setType((string) $stock['STOCK_TYPE']);
+            $stockStruct->setArea((string) $stock['STOCK_AREA']);
 
             // structs
             $stockStruct->setLocation($stock['STOCK_LOCATION']);

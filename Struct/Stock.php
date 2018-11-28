@@ -55,6 +55,13 @@ class Stock extends Struct
     protected $type;
 
     /**
+     * The area ("Koje" or "Lagerplatz") of this stock.
+     *
+     * @var string
+     */
+    protected $area;
+
+    /**
      * The company.
      *
      * @var Company
@@ -126,6 +133,28 @@ class Stock extends Struct
     public function setType(string $type)
     {
         $this->type = $type;
+    }
+
+    /**
+     * Getter method for the property.
+     *
+     * @return string
+     */
+    public function getArea()
+    {
+        return $this->area;
+    }
+
+    /**
+     * Setter method for the property.
+     *
+     * @param string $area
+     *
+     * @return void
+     */
+    public function setArea(string $area)
+    {
+        $this->area = $area;
     }
 
     /**

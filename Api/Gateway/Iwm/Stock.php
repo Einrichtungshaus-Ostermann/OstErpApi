@@ -25,7 +25,8 @@ class Stock extends Gateway
                 [stock.number],
                 [stock.location],
                 [stock.quantity],
-                [stock.type]
+                [stock.type],
+                [stock.area]
             FROM IWMV2R1DTA.LBST00
         ';
 
