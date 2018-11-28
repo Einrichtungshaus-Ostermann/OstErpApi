@@ -40,7 +40,12 @@ class Exhibits implements ProcessorInterface
     }
 
     /**
-     * ...
+     * To get at least one complete stock information struct (with area and location),
+     * we need to set the store struct as exhibit. This way we can get every information
+     * we need for every store and we also get the unique store.
+     *
+     * There will be only -one- stock for any store. Every store will therefor be
+     * unique.
      *
      * @param array data
      */
@@ -54,7 +59,8 @@ class Exhibits implements ProcessorInterface
                 continue;
             }
 
-            $store = $stock->getLocation()->getStore();
+            $location = $stock->getLocation();
+            $store = $location->getStore();
 
             $type = $stock->getType();
             if ((int) $data['ARTICLE_HWG'] >= $this->hwg) {
@@ -69,7 +75,7 @@ class Exhibits implements ProcessorInterface
                 continue;
             }
 
-            $exhibits[$store->getKey()] = $store;
+            $exhibits[$store->getKey()] = $stock;
         }
 
         $data['ARTICLE_EXHIBITS'] = array_values($exhibits);
