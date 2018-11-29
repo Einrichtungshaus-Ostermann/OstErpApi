@@ -5,6 +5,11 @@
 
     <services>
 
+        <service id="ost_erp_api.commands.benchmark_command" class="OstErpApi\Commands\BenchmarkCommand">
+            <tag name="console.command" command="erp:benchmark"/>
+            <argument type="service" id="ost_erp_api.api"/>
+        </service>
+
         <!-- plugin services -->
         <service id="ost_erp_api.configuration" class="OstFoundation\Services\ConfigurationService">
             <factory service="ost_foundation.services.configuration_service" method="getConfig"/>
