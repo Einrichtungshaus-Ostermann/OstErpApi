@@ -1,4 +1,5 @@
 <?php declare(strict_types=1);
+
 /**
  * Einrichtungshaus Ostermann GmbH & Co. KG - ERP API
  *
@@ -11,11 +12,14 @@
 
 namespace OstErpApi\Api\Gateway\Mock;
 
-use OstErpApi\Api\Gateway\Gateway;
-
 class Article extends Gateway
 {
-    private $data = [
+    /**
+     * Some test data.
+     *
+     * @var array
+     */
+    protected $data = [
         [
             'ARTICLE_COMPANY'     => '1',
             'ARTICLE_HWG'         => '92',
@@ -39,19 +43,23 @@ class Article extends Gateway
     ];
 
 
-
+    /**
+     * {@inheritdoc}
+     */
     public function findBy(array $params = []): array
     {
+        // find in our pre-defined array
         $data = $this->findInArray(
             $this->data,
             $params
         );
 
-
+        // force at least one valid element
         if (count($data) === 0) {
-            return [$this->data[1]];
+            $data = [$this->data[1]];
         }
 
+        // and return the results
         return $data;
     }
 }

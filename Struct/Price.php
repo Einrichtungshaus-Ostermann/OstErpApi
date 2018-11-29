@@ -1,4 +1,5 @@
 <?php declare(strict_types=1);
+
 /**
  * Einrichtungshaus Ostermann GmbH & Co. KG - ERP API
  *
@@ -20,10 +21,6 @@ class Price extends Struct
      */
     protected $number;
 
-
-
-
-
     /**
      * ...
      *
@@ -31,21 +28,12 @@ class Price extends Struct
      */
     protected $startDate;
 
-
-
     /**
      * ...
      *
      * @var \DateTime
      */
     protected $endDate;
-
-
-
-
-
-
-
 
     /**
      * ...
@@ -68,10 +56,6 @@ class Price extends Struct
      */
     protected $fullservicePrice;
 
-
-
-
-
     /**
      * ...
      *
@@ -93,14 +77,6 @@ class Price extends Struct
      */
     protected $fullservicePseudoPrice;
 
-
-
-
-
-
-
-
-
     /**
      * The company.
      *
@@ -108,21 +84,12 @@ class Price extends Struct
      */
     protected $company;
 
-
-
-
-
-
-
-
     /**
      * ...
      *
      * @var Store
      */
     protected $store;
-
-
 
     /**
      * Getter method for the property.
@@ -134,8 +101,6 @@ class Price extends Struct
         return $this->number;
     }
 
-
-
     /**
      * Setter method for the property.
      *
@@ -145,8 +110,6 @@ class Price extends Struct
     {
         $this->number = $number;
     }
-
-
 
     /**
      * Getter method for the property.
@@ -158,8 +121,6 @@ class Price extends Struct
         return $this->startDate;
     }
 
-
-
     /**
      * Setter method for the property.
      *
@@ -169,8 +130,6 @@ class Price extends Struct
     {
         $this->startDate = $startDate;
     }
-
-
 
     /**
      * Getter method for the property.
@@ -182,8 +141,6 @@ class Price extends Struct
         return $this->endDate;
     }
 
-
-
     /**
      * Setter method for the property.
      *
@@ -193,8 +150,6 @@ class Price extends Struct
     {
         $this->endDate = $endDate;
     }
-
-
 
     /**
      * Getter method for the property.
@@ -206,8 +161,6 @@ class Price extends Struct
         return $this->pickupPrice;
     }
 
-
-
     /**
      * Setter method for the property.
      *
@@ -217,8 +170,6 @@ class Price extends Struct
     {
         $this->pickupPrice = $pickupPrice;
     }
-
-
 
     /**
      * Getter method for the property.
@@ -230,8 +181,6 @@ class Price extends Struct
         return $this->deliveryPrice;
     }
 
-
-
     /**
      * Setter method for the property.
      *
@@ -241,8 +190,6 @@ class Price extends Struct
     {
         $this->deliveryPrice = $deliveryPrice;
     }
-
-
 
     /**
      * Getter method for the property.
@@ -254,8 +201,6 @@ class Price extends Struct
         return $this->fullservicePrice;
     }
 
-
-
     /**
      * Setter method for the property.
      *
@@ -265,8 +210,6 @@ class Price extends Struct
     {
         $this->fullservicePrice = $fullservicePrice;
     }
-
-
 
     /**
      * Getter method for the property.
@@ -278,8 +221,6 @@ class Price extends Struct
         return $this->pickupPseudoPrice;
     }
 
-
-
     /**
      * Setter method for the property.
      *
@@ -289,8 +230,6 @@ class Price extends Struct
     {
         $this->pickupPseudoPrice = $pickupPseudoPrice;
     }
-
-
 
     /**
      * Getter method for the property.
@@ -302,8 +241,6 @@ class Price extends Struct
         return $this->deliveryPseudoPrice;
     }
 
-
-
     /**
      * Setter method for the property.
      *
@@ -313,8 +250,6 @@ class Price extends Struct
     {
         $this->deliveryPseudoPrice = $deliveryPseudoPrice;
     }
-
-
 
     /**
      * Getter method for the property.
@@ -326,8 +261,6 @@ class Price extends Struct
         return $this->fullservicePseudoPrice;
     }
 
-
-
     /**
      * Setter method for the property.
      *
@@ -337,8 +270,6 @@ class Price extends Struct
     {
         $this->fullservicePseudoPrice = $fullservicePseudoPrice;
     }
-
-
 
     /**
      * Getter method for the property.
@@ -350,8 +281,6 @@ class Price extends Struct
         return $this->company;
     }
 
-
-
     /**
      * Setter method for the property.
      *
@@ -362,8 +291,6 @@ class Price extends Struct
         $this->company = $company;
     }
 
-
-
     /**
      * Getter method for the property.
      *
@@ -373,8 +300,6 @@ class Price extends Struct
     {
         return $this->store;
     }
-
-
 
     /**
      * Setter method for the property.

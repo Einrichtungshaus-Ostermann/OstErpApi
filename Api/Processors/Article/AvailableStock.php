@@ -1,4 +1,5 @@
 <?php declare(strict_types=1);
+
 /**
  * Einrichtungshaus Ostermann GmbH & Co. KG - ERP API
  *
@@ -18,34 +19,27 @@ use OstErpApi\Struct;
 class AvailableStock implements ProcessorInterface
 {
     /**
-     * ...
-     *
-     * @param array data
-     * @param array & $data
+     * {@inheritdoc}
      */
     public function process(array &$data)
     {
+        // process as group or flat article?
         if ($data['ARTICLE_TYPE'] === Struct\Article::TYPE_GROUP) {
             $this->processGroup($data);
-
             return;
         }
 
-
+        // flat article
         $this->processSingle($data);
     }
-
-
 
     /**
      * ...
      *
      * @param array data
-     * @param array & $data
      */
     private function processSingle(array &$data)
     {
-
         // array( 'WITTEN' => array( 'ARTICLE_NUMBER' => 123, 'AVAILABLESTOCK_QUANTITY' => 1, 'AVAILABLESTOCK_STORE' => StoreStruct )
         $availableStock = [];
 
@@ -72,7 +66,6 @@ class AvailableStock implements ProcessorInterface
             $availableStock[$store->getKey()]['AVAILABLESTOCK_QUANTITY'] += $stock->getQuantity();
         }
 
-
         /* @var $reservedStock Struct\ReservedStock */
         foreach ($data['ARTICLE_RESERVED_STOCK'] as $stock) {
             if (!$stock->getLocation() instanceof Struct\Location) {
@@ -98,17 +91,16 @@ class AvailableStock implements ProcessorInterface
         $data['ARTICLE_AVAILABLE_STOCK'] = $hydrator->hydrate(array_values($availableStock));
     }
 
-
-
-
     /**
      * ...
      *
+     * @todo implement groups
+     *
      * @param array data
-     * @param array & $data
      */
     private function processGroup(array &$data)
     {
+        // nothing yet...
         $data['ARTICLE_AVAILABLE_STOCK'] = [];
     }
 }

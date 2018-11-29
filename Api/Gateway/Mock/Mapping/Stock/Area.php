@@ -10,18 +10,18 @@
  * @license   proprietary
  */
 
-namespace OstErpApi\Api\Gateway\Iwm\Mapping\Reservedstock;
+namespace OstErpApi\Api\Gateway\Mock\Mapping\Stock;
 
-use OstErpApi\Api\Gateway\Iwm\Mapping\Mapping;
+use OstErpApi\Api\Gateway\Mock\Mapping\Mapping;
 
-class Company implements Mapping
+class Area implements Mapping
 {
     /**
      * {@inheritdoc}
      */
     public static function getAlias(): string
     {
-        return 'RESERVEDSTOCK_COMPANY';
+        return "";
     }
 
     /**
@@ -29,6 +29,6 @@ class Company implements Mapping
      */
     public static function getColumn(): string
     {
-        return 'IWMV2R1DTA.VRES00.VRFIRM';
+        return 'STOCK_AREA';
     }
 }

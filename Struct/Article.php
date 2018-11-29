@@ -1,4 +1,5 @@
 <?php declare(strict_types=1);
+
 /**
  * Einrichtungshaus Ostermann GmbH & Co. KG - ERP API
  *
@@ -13,16 +14,30 @@ namespace OstErpApi\Struct;
 
 class Article extends Struct
 {
+    /**
+     * ...
+     */
     const DISPOSITION_STOCK = 'L';
     const DISPOSITION_EXHIBIT = 'K';
     const DISPOSITION_ORDER = 'B';
     const DISPOSITION_BROCHURE = 'P';
     const DISPOSITION_DIRECT = 'D';
 
+    /**
+     * ...
+     */
     const TYPE_SINGLE = 'E';
     const TYPE_GROUP = 'D';
     const TYPE_SET = 'S';
 
+    /**
+     * Not final...
+     */
+    protected $supplierNumber;
+    protected $deliveryTime;
+    protected $shippingType;
+    protected $shippingCosts = 0.0;
+    protected $assemblySurcharge = 0.0;
 
     /**
      * A unique article number.
@@ -31,14 +46,12 @@ class Article extends Struct
      */
     protected $number;
 
-
     /**
      * ...
      *
      * @var int
      */
     protected $hwg;
-
 
     /**
      * ...
@@ -47,33 +60,12 @@ class Article extends Struct
      */
     protected $uwg;
 
-
-
-    protected $supplierNumber;
-
-    protected $deliveryTime;
-
-    protected $shippingType;
-
-
-
-    protected $shippingCosts = 0.0;
-
-    protected $assemblySurcharge = 0.0;
-
-
-
     /**
      * ...
      *
      * @var Label
      */
     protected $label;
-
-
-
-
-
 
     /**
      * A readable article name.
@@ -82,16 +74,12 @@ class Article extends Struct
      */
     protected $name;
 
-
-
     /**
      * The weight.
      *
      * @var float
      */
     protected $weight;
-
-
 
     /**
      * ...
@@ -114,18 +102,12 @@ class Article extends Struct
      */
     protected $depth;
 
-
-
-
-
-
     /**
      * The company struct.
      *
      * @var Company
      */
     protected $company;
-
 
     /**
      * The stock Type
@@ -140,8 +122,6 @@ class Article extends Struct
      */
     protected $disposition;
 
-
-
     /**
      * ...
      *
@@ -153,18 +133,12 @@ class Article extends Struct
      */
     protected $type;
 
-
-
-
-
     /**
      * Every available stock information for this article.
      *
      * @var Stock[]
      */
     protected $stock = [];
-
-
 
     /**
      * Every available reservation information for this article.
@@ -173,16 +147,12 @@ class Article extends Struct
      */
     protected $reservedStock = [];
 
-
-
     /**
      * Every available stock grouped by store.
      *
      * @var AvailableStock[]
      */
     protected $availableStock = [];
-
-
 
     /**
      * In which Stores is the Article
@@ -191,10 +161,6 @@ class Article extends Struct
      */
     protected $exhibits = [];
 
-
-
-
-
     /**
      * ...
      *
@@ -202,19 +168,12 @@ class Article extends Struct
      */
     protected $prices = [];
 
-
-
-
     /**
      * A calculated price for every store.
      *
      * @var CalculatedPrice[]
      */
     protected $calculatedPrices = [];
-
-
-
-
 
     /**
      * Getter method for the property.
@@ -226,8 +185,6 @@ class Article extends Struct
         return $this->number;
     }
 
-
-
     /**
      * Setter method for the property.
      *
@@ -237,8 +194,6 @@ class Article extends Struct
     {
         $this->number = $number;
     }
-
-
 
     /**
      * Getter method for the property.
@@ -250,8 +205,6 @@ class Article extends Struct
         return $this->hwg;
     }
 
-
-
     /**
      * Setter method for the property.
      *
@@ -261,8 +214,6 @@ class Article extends Struct
     {
         $this->hwg = $hwg;
     }
-
-
 
     /**
      * Getter method for the property.
@@ -274,8 +225,6 @@ class Article extends Struct
         return $this->uwg;
     }
 
-
-
     /**
      * Setter method for the property.
      *
@@ -285,8 +234,6 @@ class Article extends Struct
     {
         $this->uwg = $uwg;
     }
-
-
 
     /**
      * Getter method for the property.
@@ -298,8 +245,6 @@ class Article extends Struct
         return $this->name;
     }
 
-
-
     /**
      * Setter method for the property.
      *
@@ -309,8 +254,6 @@ class Article extends Struct
     {
         $this->name = $name;
     }
-
-
 
     /**
      * Getter method for the property.
@@ -322,8 +265,6 @@ class Article extends Struct
         return $this->weight;
     }
 
-
-
     /**
      * Setter method for the property.
      *
@@ -333,8 +274,6 @@ class Article extends Struct
     {
         $this->weight = $weight;
     }
-
-
 
     /**
      * Getter method for the property.
@@ -346,8 +285,6 @@ class Article extends Struct
         return $this->company;
     }
 
-
-
     /**
      * Setter method for the property.
      *
@@ -357,8 +294,6 @@ class Article extends Struct
     {
         $this->company = $company;
     }
-
-
 
     /**
      * Getter method for the property.
@@ -370,8 +305,6 @@ class Article extends Struct
         return $this->disposition;
     }
 
-
-
     /**
      * Setter method for the property.
      *
@@ -381,8 +314,6 @@ class Article extends Struct
     {
         $this->disposition = $disposition;
     }
-
-
 
     /**
      * Getter method for the property.
@@ -394,8 +325,6 @@ class Article extends Struct
         return $this->type;
     }
 
-
-
     /**
      * Setter method for the property.
      *
@@ -405,8 +334,6 @@ class Article extends Struct
     {
         $this->type = $type;
     }
-
-
 
     /**
      * Getter method for the property.
@@ -418,8 +345,6 @@ class Article extends Struct
         return $this->stock;
     }
 
-
-
     /**
      * Setter method for the property.
      *
@@ -429,8 +354,6 @@ class Article extends Struct
     {
         $this->stock = $stock;
     }
-
-
 
     /**
      * Getter method for the property.
@@ -442,8 +365,6 @@ class Article extends Struct
         return $this->reservedStock;
     }
 
-
-
     /**
      * Setter method for the property.
      *
@@ -453,8 +374,6 @@ class Article extends Struct
     {
         $this->reservedStock = $reservedStock;
     }
-
-
 
     /**
      * Getter method for the property.
@@ -466,8 +385,6 @@ class Article extends Struct
         return $this->availableStock;
     }
 
-
-
     /**
      * Setter method for the property.
      *
@@ -477,8 +394,6 @@ class Article extends Struct
     {
         $this->availableStock = $availableStock;
     }
-
-
 
     /**
      * Getter method for the property.
@@ -490,8 +405,6 @@ class Article extends Struct
         return $this->exhibits;
     }
 
-
-
     /**
      * Setter method for the property.
      *
@@ -501,8 +414,6 @@ class Article extends Struct
     {
         $this->exhibits = $exhibits;
     }
-
-
 
     /**
      * Getter method for the property.
@@ -514,8 +425,6 @@ class Article extends Struct
         return $this->label;
     }
 
-
-
     /**
      * Setter method for the property.
      *
@@ -525,8 +434,6 @@ class Article extends Struct
     {
         $this->label = $label;
     }
-
-
 
     /**
      * Getter method for the property.
@@ -538,8 +445,6 @@ class Article extends Struct
         return $this->prices;
     }
 
-
-
     /**
      * Setter method for the property.
      *
@@ -549,8 +454,6 @@ class Article extends Struct
     {
         $this->prices = $prices;
     }
-
-
 
     /**
      * Getter method for the property.
@@ -562,8 +465,6 @@ class Article extends Struct
         return $this->width;
     }
 
-
-
     /**
      * Setter method for the property.
      *
@@ -573,8 +474,6 @@ class Article extends Struct
     {
         $this->width = $width;
     }
-
-
 
     /**
      * Getter method for the property.
@@ -586,8 +485,6 @@ class Article extends Struct
         return $this->height;
     }
 
-
-
     /**
      * Setter method for the property.
      *
@@ -597,8 +494,6 @@ class Article extends Struct
     {
         $this->height = $height;
     }
-
-
 
     /**
      * Getter method for the property.
@@ -610,8 +505,6 @@ class Article extends Struct
         return $this->depth;
     }
 
-
-
     /**
      * Setter method for the property.
      *
@@ -621,8 +514,6 @@ class Article extends Struct
     {
         $this->depth = $depth;
     }
-
-
 
     /**
      * Getter method for the property.
@@ -634,8 +525,6 @@ class Article extends Struct
         return $this->calculatedPrices;
     }
 
-
-
     /**
      * Setter method for the property.
      *
@@ -645,10 +534,6 @@ class Article extends Struct
     {
         $this->calculatedPrices = $calculatedPrices;
     }
-
-
-
-
 
     /**
      * ...

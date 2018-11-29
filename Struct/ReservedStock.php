@@ -1,4 +1,5 @@
 <?php declare(strict_types=1);
+
 /**
  * Einrichtungshaus Ostermann GmbH & Co. KG - ERP API
  *
@@ -20,8 +21,6 @@ class ReservedStock extends Struct
      */
     protected $number;
 
-
-
     /**
      * The actual reserved quantity within the given location.
      *
@@ -40,17 +39,12 @@ class ReservedStock extends Struct
      */
     protected $company;
 
-
-
-
     /**
      * The location for the reserved stock.
      *
      * @var Location
      */
     protected $location;
-
-
 
     /**
      * Getter method for the property.
@@ -62,8 +56,6 @@ class ReservedStock extends Struct
         return $this->number;
     }
 
-
-
     /**
      * Setter method for the property.
      *
@@ -73,8 +65,6 @@ class ReservedStock extends Struct
     {
         $this->number = $number;
     }
-
-
 
     /**
      * Getter method for the property.
@@ -86,8 +76,6 @@ class ReservedStock extends Struct
         return $this->quantity;
     }
 
-
-
     /**
      * Setter method for the property.
      *
@@ -97,8 +85,6 @@ class ReservedStock extends Struct
     {
         $this->quantity = $quantity;
     }
-
-
 
     /**
      * Getter method for the property.
@@ -110,8 +96,6 @@ class ReservedStock extends Struct
         return $this->company;
     }
 
-
-
     /**
      * Setter method for the property.
      *
@@ -122,8 +106,6 @@ class ReservedStock extends Struct
         $this->company = $company;
     }
 
-
-
     /**
      * Getter method for the property.
      *
@@ -133,8 +115,6 @@ class ReservedStock extends Struct
     {
         return $this->location;
     }
-
-
 
     /**
      * Setter method for the property.

@@ -1,4 +1,5 @@
 <?php declare(strict_types=1);
+
 /**
  * Einrichtungshaus Ostermann GmbH & Co. KG - ERP API
  *
@@ -15,10 +16,16 @@ use OstErpApi\Api\Hydrator\Hydrator;
 
 class Label extends Resource
 {
+    /**
+     * {@inheritdoc}
+     */
     protected $name = 'Label';
 
-
-
+    /**
+     * Fixed static labels.
+     *
+     * @var array
+     */
     protected static $data = [
         [
             'LABEL_KEY'  => '14',
@@ -65,7 +72,6 @@ class Label extends Resource
             'LABEL_NAME' => 'Großes Etikett mit Abholpreis',
             'LABEL_TYPE' => '1'
         ],
-
         [
             'LABEL_KEY'  => '70',
             'LABEL_NAME' => 'A7.Etk-Abholp.',
@@ -167,7 +173,6 @@ class Label extends Resource
             'LABEL_TYPE' => '3'
         ],
 
-
         [
             'LABEL_KEY'  => '90',
             'LABEL_NAME' => 'A5 Etk-Abholp. WERBUNG',
@@ -184,7 +189,6 @@ class Label extends Resource
             'LABEL_TYPE' => '3'
         ],
 
-
         [
             'LABEL_KEY'  => '93',
             'LABEL_NAME' => 'A5 Etk-Abholp. Superchance',
@@ -197,22 +201,21 @@ class Label extends Resource
         ],
     ];
 
-
-
-    // [label.key] = 1
-    // [label.name] = Ostermann
-    // [label.type] = 1
-    public function findBy(array $params = [], array $options = []): array
+    /**
+     * {@inheritdoc}
+     */
+    public function findBy(array $params = []): array
     {
+        // just use array finder
         $data = $this->findInArray(
             static::$data,
             $params
         );
 
-
         /** @var Hydrator $hydrator */
         $hydrator = Shopware()->Container()->get('ost_erp_api.api.hydrator.label');
 
+        // return hydrated labels
         return $hydrator->hydrate($data);
     }
 }

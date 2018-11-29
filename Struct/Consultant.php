@@ -1,4 +1,5 @@
 <?php declare(strict_types=1);
+
 /**
  * Einrichtungshaus Ostermann GmbH & Co. KG - ERP API
  *
@@ -20,15 +21,12 @@ class Consultant extends Struct
      */
     protected $number;
 
-
     /**
      * ...
      *
      * @var string
      */
     protected $name;
-
-
 
     /**
      * Getter method for the property.
@@ -40,21 +38,15 @@ class Consultant extends Struct
         return $this->name;
     }
 
-
-
     /**
      * Setter method for the property.
      *
      * @param string $name
-     *
-     * @return void
      */
     public function setName(string $name)
     {
         $this->name = $name;
     }
-
-
 
     /**
      * Getter method for the property.
@@ -66,25 +58,13 @@ class Consultant extends Struct
         return $this->number;
     }
 
-
-
     /**
      * Setter method for the property.
      *
      * @param string $number
-     *
-     * @return void
      */
     public function setNumber(string $number)
     {
         $this->number = $number;
     }
-
-
-
-
-
-
-
-
 }

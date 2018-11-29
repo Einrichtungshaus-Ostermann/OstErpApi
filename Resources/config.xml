@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="../../../../engine/Shopware/Components/Plugin/schema/config.xsd">
-
     <elements>
 
         <element type="button">
@@ -20,7 +19,7 @@
             <name>adapter</name>
             <label>Adapter</label>
             <value>Mock</value>
-            <description>Der Adapter.</description>
+            <description>Der Adapter der API.</description>
             <store>
                 <option>
                     <value>Mock</value>
@@ -39,29 +38,22 @@
         </element>
 
         <element type="text">
-            <name>credentialsCompany</name>
-            <label>Firma</label>
-            <description>...</description>
-        </element>
-
-        <element type="text">
             <name>credentialsServer</name>
             <label>Serveradresse</label>
-            <description>...</description>
+            <description>Die Adresse des IWM.</description>
         </element>
 
         <element type="text">
             <name>credentialsLogin</name>
             <label>Server Benutzername</label>
-            <description>...</description>
+            <description>Der Benutzername des IWM.</description>
         </element>
 
         <element type="text">
             <name>credentialsPassword</name>
             <label>Server Passwort</label>
-            <description>...</description>
+            <description>Das Passwort des Benutzers.</description>
         </element>
 
     </elements>
-
 </config>

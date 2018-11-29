@@ -1,4 +1,5 @@
 <?php declare(strict_types=1);
+
 /**
  * Einrichtungshaus Ostermann GmbH & Co. KG - ERP API
  *
@@ -11,11 +12,14 @@
 
 namespace OstErpApi\Api\Gateway\Mock;
 
-use OstErpApi\Api\Gateway\Gateway;
-
 class Price extends Gateway
 {
-    private $data = [
+    /**
+     * Some test data.
+     *
+     * @var array
+     */
+    protected $data = [
         [
             'ARTICLE_NUMBER'               => '874355',
             'PRICE_COMPANY'                => '1',
@@ -29,8 +33,6 @@ class Price extends Gateway
             'PRICE_PICKUPPSEUDOPRICE'      => '0',
             'PRICE_STORE'                  => '00'
         ],
-
-
         [
             'ARTICLE_NUMBER'               => '874355',
             'PRICE_COMPANY'                => '1',
@@ -43,27 +45,6 @@ class Price extends Gateway
             'PRICE_PICKUPPRICE'            => '219.99',
             'PRICE_PICKUPPSEUDOPRICE'      => '0',
             'PRICE_STORE'                  => '01'
-        ],
-
-
-
-
-
-
+        ]
     ];
-
-
-
-
-
-
-    public function findBy(array $params = []): array
-    {
-        $data = $this->findInArray(
-            $this->data,
-            $params
-        );
-
-        return $data;
-    }
 }

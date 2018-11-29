@@ -1,4 +1,5 @@
 <?php declare(strict_types=1);
+
 /**
  * Einrichtungshaus Ostermann GmbH & Co. KG - ERP API
  *
@@ -16,49 +17,55 @@ use OstErpApi\Api\Hydrator\Hydrator;
 
 class Price extends Resource
 {
+    /**
+     * {@inheritdoc}
+     */
     protected $name = 'Price';
 
-
-
-    // [price.number] = 121535
-
-    public function findBy(array $params = [], array $options = []): array
+    /**
+     * {@inheritdoc}
+     */
+    public function findBy(array $params = []): array
     {
-        $adapter = Shopware()->Container()->get('ost_erp_api.configuration')['adapter'];
+        // get the gateway
+        $gateway = $this->getGateway( "price" );
 
-        /** @var Gateway $gateway */
-        $gateway = Shopware()->Container()->get('ost_erp_api.api.gateway.' . strtolower($adapter) . '.price');
+        // get the prices
         $priceArr = $gateway->findBy($params);
 
+        // loop themn
         foreach ($priceArr as $key => $price) {
 
             /* @var $companyResource Company */
-            $companyResource = Shopware()->Container()->get('ost_erp_api.api.resources.company');
+            $companyResource = $this->getResource("company");
 
+            // get the company
             $company = $companyResource->findOneBy([
                 "[company.key] = '" . $price['PRICE_COMPANY'] . "'"
             ]);
 
-
+            // add it
             $price['PRICE_COMPANY'] = $company;
 
-
             /* @var $locationResource Location */
-            $storeResource = Shopware()->Container()->get('ost_erp_api.api.resources.store');
+            $storeResource = $this->getResource("store");
 
+            // get the store
             $store = $storeResource->findOneBy([
                 "[store.key] = '" . $price['PRICE_STORE'] . "'"
             ]);
 
-
+            // add it
             $price['PRICE_STORE'] = $store;
 
+            // set it back
             $priceArr[$key] = $price;
         }
 
         /** @var Hydrator $hydrator */
-        $hydrator = Shopware()->Container()->get('ost_erp_api.api.hydrator.price');
+        $hydrator = $this->getHydrator("price");
 
+        // return hydrated entities
         return $hydrator->hydrate($priceArr);
     }
 }

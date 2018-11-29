@@ -1,4 +1,5 @@
 <?php declare(strict_types=1);
+
 /**
  * Einrichtungshaus Ostermann GmbH & Co. KG - ERP API
  *
@@ -15,12 +16,18 @@ use OstErpApi\Api\Gateway\Iwm\Mapping\Mapping;
 
 class City implements Mapping
 {
-    public static function getAlias()
+    /**
+     * {@inheritdoc}
+     */
+    public static function getAlias(): string
     {
         return 'CUSTOMER_CITY';
     }
 
-    public static function getColumn()
+    /**
+     * {@inheritdoc}
+     */
+    public static function getColumn(): string
     {
         return 'IWMADROLIB.ADRS00.ADLORT';
     }

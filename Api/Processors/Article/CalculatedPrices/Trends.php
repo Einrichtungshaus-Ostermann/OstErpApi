@@ -1,4 +1,5 @@
 <?php declare(strict_types=1);
+
 /**
  * Einrichtungshaus Ostermann GmbH & Co. KG - ERP API
  *
@@ -18,12 +19,15 @@ class Trends
     /**
      * ...
      *
-     * @param Struct\Article $article
+     * @todo calculate correct prices
+     *
+     * @param Struct\Article         $article
      * @param Struct\CalculatedPrice $calculatedPrice
-     * @param Struct\Price $price
+     * @param Struct\Price           $price
      */
     public function process(Struct\CalculatedPrice $calculatedPrice, Struct\Price $price, Struct\Article $article)
     {
+        // ...
         $calculatedPrice->setPrice($price->getPickupPrice());
         $calculatedPrice->setShippingCosts(20.0);
         $calculatedPrice->setAssemblySurcharge(0.0);

@@ -1,4 +1,5 @@
 <?php declare(strict_types=1);
+
 /**
  * Einrichtungshaus Ostermann GmbH & Co. KG - ERP API
  *
@@ -16,35 +17,44 @@ use OstErpApi\Api\Hydrator\Hydrator;
 
 class Store extends Resource
 {
+    /**
+     * {@inheritdoc}
+     */
     protected $name = 'Store';
 
-
-    public function findBy(array $params = [], array $options = []): array
+    /**
+     * {@inheritdoc}
+     */
+    public function findBy(array $params = []): array
     {
-        $adapter = Shopware()->Container()->get('ost_erp_api.configuration')['adapter'];
+        // get the stock
+        $gateway = $this->getGateway( "store" );
 
-        /** @var Gateway $gateway */
-        $gateway = Shopware()->Container()->get('ost_erp_api.api.gateway.' . strtolower($adapter) . '.store');
-
+        // get the stores
         $storesArr = $gateway->findBy($params);
 
+        // loop them
         foreach ($storesArr as $key => $store) {
-            /* @var $companyResource Company */
-            $companyResource = Shopware()->Container()->get('ost_erp_api.api.resources.company');
 
+            /* @var $companyResource Company */
+            $companyResource = $this->getResource("company");
+
+            // get it
             $company = $companyResource->findOneBy([
                 "[company.key] = '" . $store['STORE_COMPANY'] . "'"
             ]);
 
-
+            // set it
             $store['STORE_COMPANY'] = $company;
 
+            // set it back
             $storesArr[$key] = $store;
         }
 
         /** @var Hydrator $hydrator */
-        $hydrator = Shopware()->Container()->get('ost_erp_api.api.hydrator.store');
+        $hydrator = $this->getHydrator("store");
 
+        // return hydrated entities
         return $hydrator->hydrate($storesArr);
     }
 }

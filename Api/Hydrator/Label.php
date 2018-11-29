@@ -1,4 +1,5 @@
 <?php declare(strict_types=1);
+
 /**
  * Einrichtungshaus Ostermann GmbH & Co. KG - ERP API
  *
@@ -15,21 +16,30 @@ use OstErpApi\Struct;
 
 class Label extends Hydrator
 {
+    /**
+     * {@inheritdoc}
+     */
     public function hydrate(array $data): array
     {
+        // hydrated array
         $arr = [];
 
+        // loop every label
         foreach ($data as $label) {
+
+            // create struct
             $labelStruct = new Struct\Label();
 
-            $labelStruct->setKey((int)$label['LABEL_KEY']);
-            $labelStruct->setName((string)$label['LABEL_NAME']);
-            $labelStruct->setType((int)$label['LABEL_TYPE']);
+            // flat attributes
+            $labelStruct->setKey((int) $label['LABEL_KEY']);
+            $labelStruct->setName((string) $label['LABEL_NAME']);
+            $labelStruct->setType((int) $label['LABEL_TYPE']);
 
-
+            // add hydrated struct
             $arr[] = $labelStruct;
         }
 
+        // return them
         return $arr;
     }
 }

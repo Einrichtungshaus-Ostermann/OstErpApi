@@ -1,4 +1,5 @@
 <?php declare(strict_types=1);
+
 /**
  * Einrichtungshaus Ostermann GmbH & Co. KG - ERP API
  *
@@ -11,17 +12,21 @@
 
 namespace OstErpApi\Api\Gateway\Mock;
 
-use OstErpApi\Api\Gateway\Gateway;
-
 class Stock extends Gateway
 {
-    protected static $data = [
+    /**
+     * Some test data.
+     *
+     * @var array
+     */
+    protected $data = [
         [
             'STOCK_COMPANY'  => '1',
             'STOCK_LOCATION' => '400',
             'ARTICLE_NUMBER' => '811243',
             'STOCK_QUANTITY' => '25',
             'STOCK_TYPE'     => 'L',
+            'STOCK_AREA'     => '3000',
         ],
         [
             'STOCK_COMPANY'  => '1',
@@ -29,6 +34,7 @@ class Stock extends Gateway
             'ARTICLE_NUMBER' => '811243',
             'STOCK_QUANTITY' => '5',
             'STOCK_TYPE'     => 'K',
+            'STOCK_AREA'     => '2433',
         ],
         [
             'STOCK_COMPANY'  => '1',
@@ -36,6 +42,7 @@ class Stock extends Gateway
             'ARTICLE_NUMBER' => '811243',
             'STOCK_QUANTITY' => '3',
             'STOCK_TYPE'     => 'P',
+            'STOCK_AREA'     => '8085',
         ],
         [
             'STOCK_COMPANY'  => '1',
@@ -43,17 +50,15 @@ class Stock extends Gateway
             'ARTICLE_NUMBER' => '811243',
             'STOCK_QUANTITY' => '3',
             'STOCK_TYPE'     => 'L',
+            'STOCK_AREA'     => '3310',
+        ],
+        [
+            'STOCK_COMPANY'  => '1',
+            'STOCK_LOCATION' => '110',
+            'ARTICLE_NUMBER' => '811243',
+            'STOCK_QUANTITY' => '5',
+            'STOCK_TYPE'     => 'K',
+            'STOCK_AREA'     => '2433',
         ],
     ];
-
-
-    public function findBy(array $params = []): array
-    {
-        $data = $this->findInArray(
-            static::$data,
-            $params
-        );
-
-        return $data;
-    }
 }

@@ -1,4 +1,5 @@
 <?php declare(strict_types=1);
+
 /**
  * Einrichtungshaus Ostermann GmbH & Co. KG - ERP API
  *
@@ -16,53 +17,55 @@ use OstErpApi\Api\Hydrator\Hydrator;
 
 class ReservedStock extends Resource
 {
+    /**
+     * {@inheritdoc}
+     */
     protected $name = 'ReservedStock';
 
-
-
-    // [reservedstock.number] = 121535
-    // [reservedstock.location] = 150
-    // {reservedstock.company] = 1
-    // [reservedstock.quantity] > 0
-
-    public function findBy(array $params = [], array $options = []): array
+    /**
+     * {@inheritdoc}
+     */
+    public function findBy(array $params = []): array
     {
-        $adapter = Shopware()->Container()->get('ost_erp_api.configuration')['adapter'];
+        // get the gateway
+        $gateway = $this->getGateway( "reserved_stock" );
 
-        /** @var Gateway $gateway */
-        $gateway = Shopware()->Container()->get('ost_erp_api.api.gateway.' . strtolower($adapter) . '.reserved_stock');
-
+        // get the reserved stock
         $reservedStockArr = $gateway->findBy($params);
 
-
+        // loop them
         foreach ($reservedStockArr as $key => $reservedStock) {
 
             /* @var $companyResource Company */
-            $companyResource = Shopware()->Container()->get('ost_erp_api.api.resources.company');
+            $companyResource = $this->getResource("company");
 
+            // get the company
             $company = $companyResource->findOneBy([
                 "[company.key] = '" . $reservedStock['RESERVEDSTOCK_COMPANY'] . "'"
             ]);
 
-
+            // add it
             $reservedStock['RESERVEDSTOCK_COMPANY'] = $company;
 
             /* @var $locationResource Location */
-            $locationResource = Shopware()->Container()->get('ost_erp_api.api.resources.location');
+            $locationResource = $this->getResource("location");
 
+            // get the location
             $location = $locationResource->findOneBy([
                 "[location.key] = '" . $reservedStock['RESERVEDSTOCK_LOCATION'] . "'"
             ]);
 
+            // add it
             $reservedStock['RESERVEDSTOCK_LOCATION'] = $location;
 
-
+            // set it back
             $reservedStockArr[$key] = $reservedStock;
         }
 
         /** @var Hydrator $hydrator */
-        $hydrator = Shopware()->Container()->get('ost_erp_api.api.hydrator.reserved_stock');
+        $hydrator = $this->getHydrator("reserved_stock");
 
+        // return hydrated entities
         return $hydrator->hydrate($reservedStockArr);
     }
 }

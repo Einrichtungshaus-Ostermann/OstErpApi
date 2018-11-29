@@ -1,4 +1,5 @@
 <?php declare(strict_types=1);
+
 /**
  * Einrichtungshaus Ostermann GmbH & Co. KG - ERP API
  *
@@ -18,9 +19,9 @@ class Ostermann
     /**
      * ...
      *
-     * @param Struct\Article $article
+     * @param Struct\Article         $article
      * @param Struct\CalculatedPrice $calculatedPrice
-     * @param Struct\Price $price
+     * @param Struct\Price           $price
      */
     public function process(Struct\CalculatedPrice $calculatedPrice, Struct\Price $price, Struct\Article $article)
     {
@@ -31,40 +32,28 @@ class Ostermann
         }
     }
 
-
-
-
     /**
      * ...
      *
-     * @param Struct\Article $article
+     * @param Struct\Article         $article
      * @param Struct\CalculatedPrice $calculatedPrice
-     * @param Struct\Price $price
+     * @param Struct\Price           $price
      */
     private function calculateJunk(Struct\CalculatedPrice $calculatedPrice, Struct\Price $price, Struct\Article $article)
     {
         $pickupPrice = round($price->getPickupPrice() * 0.97, 2);
-
 
         $calculatedPrice->setPrice($pickupPrice);
         $calculatedPrice->setShippingCosts(0.0);
         $calculatedPrice->setAssemblySurcharge(0.0);
     }
 
-
-
-
-
-
-
-
-
     /**
      * ...
      *
-     * @param Struct\Article $article
+     * @param Struct\Article         $article
      * @param Struct\CalculatedPrice $calculatedPrice
-     * @param Struct\Price $price
+     * @param Struct\Price           $price
      */
     private function calculateFurniture(Struct\CalculatedPrice $calculatedPrice, Struct\Price $price, Struct\Article $article)
     {
@@ -78,13 +67,11 @@ class Ostermann
             $fullservicePrice = $price->getFullservicePrice();
         }
 
-
         switch ($article->getLabel()->getType()) {
             case Struct\Label::TYPE_PICKUP:
             case Struct\Label::TYPE_DELIVERY:
 
                 $calculatedPrice->setPrice($pickupPrice);
-
 
                 // optional fullservice if every price is available
                 if (($pickupPrice > 0) && ($deliveryPrice > 0) && ($fullservicePrice > 0)) {
@@ -97,17 +84,13 @@ class Ostermann
                     $calculatedPrice->setAssemblySurcharge(0.0);
                 }
 
-
                 break;
-
-
 
             case Struct\Label::TYPE_FULLSERVICE:
 
                 $calculatedPrice->setPrice($fullservicePrice);
                 $calculatedPrice->setShippingCosts(0.0);
                 $calculatedPrice->setAssemblySurcharge(0.0);
-
 
                 break;
         }

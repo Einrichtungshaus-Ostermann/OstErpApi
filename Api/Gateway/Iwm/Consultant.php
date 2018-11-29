@@ -1,4 +1,5 @@
 <?php declare(strict_types=1);
+
 /**
  * Einrichtungshaus Ostermann GmbH & Co. KG - ERP API
  *
@@ -13,27 +14,27 @@ namespace OstErpApi\Api\Gateway\Iwm;
 
 class Consultant extends Gateway
 {
-
-
-    protected function getQuery()
+    /**
+     * {@inheritdoc}
+     */
+    protected function getQuery(): string
     {
         $query = '
             SELECT 
-            [consultant.number],
-            [consultant.name]
+                [consultant.number],
+                [consultant.name]
             FROM IWMV2R1SYS.BNZR00
-            
         ';
 
         return $query;
     }
 
-
-
+    /**
+     * {@inheritdoc}
+     */
     protected function addParams(array $params)
     {
+        // only active consultant
         $parameters[] = "BNSTAT = 'A'";
     }
-
-
 }

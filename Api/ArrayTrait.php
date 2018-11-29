@@ -1,4 +1,5 @@
 <?php declare(strict_types=1);
+
 /**
  * Einrichtungshaus Ostermann GmbH & Co. KG - ERP API
  *
@@ -13,8 +14,18 @@ namespace OstErpApi\Api;
 
 trait ArrayTrait
 {
-    // [company.key] > 1
-    // [company.name] = 'Ostermann']
+    /**
+     * Finds elements in array for mock elements.
+     *
+     * Example:
+     * - [company.key] > 1
+     * - [company.name] = 'Ostermann'
+     *
+     * @param array $data
+     * @param array $params
+     *
+     * @return array
+     */
     protected function findInArray(array $data, array $params = []): array
     {
         if (count($params) === 0) {
@@ -27,6 +38,7 @@ trait ArrayTrait
         $parser = Shopware()->Container()->get('ost_erp_api.api.gateway.' . $adapter . '.mapping.parser');
 
         $arrParams = [];
+
         foreach ($params as $param) {
             $split = explode(' ', $param);
 
@@ -40,12 +52,15 @@ trait ArrayTrait
         }
 
         $result = [];
+
         foreach ($data as $row) {
+
             $valid = false;
+
             foreach ($arrParams as $param) {
                 switch ($param['operator']) {
                     case '=':
-                        if ((string)$row[$param['column']] === (string)$param['value']) {
+                        if ((string) $row[$param['column']] === (string) $param['value']) {
                             $valid = true;
                         }
                         break;

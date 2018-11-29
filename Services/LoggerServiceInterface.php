@@ -1,4 +1,5 @@
 <?php declare(strict_types=1);
+
 /**
  * Einrichtungshaus Ostermann GmbH & Co. KG - ERP API
  *
@@ -16,8 +17,7 @@ interface LoggerServiceInterface
     /**
      * ...
      *
-     *
-     * @param mixed $message
+     * @param string $message
      * @param array $params
      */
     public function log($message, array $params = []);

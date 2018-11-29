@@ -1,4 +1,5 @@
 <?php declare(strict_types=1);
+
 /**
  * Einrichtungshaus Ostermann GmbH & Co. KG - ERP API
  *
@@ -24,6 +25,16 @@ class Location extends Struct
      */
     protected $key;
 
+    /**
+     * The type of the location
+     *
+     * Example
+     * - A
+     * - I
+     *
+     * @var string
+     */
+    protected $type;
 
     /**
      * ...
@@ -32,16 +43,12 @@ class Location extends Struct
      */
     protected $company;
 
-
-
     /**
      * The internal ERP key for the Store.
      *
      * @var Store
      */
     protected $store;
-
-
 
     /**
      * Getter method for the property.
@@ -53,8 +60,6 @@ class Location extends Struct
         return $this->key;
     }
 
-
-
     /**
      * Setter method for the property.
      *
@@ -64,8 +69,6 @@ class Location extends Struct
     {
         $this->key = $key;
     }
-
-
 
     /**
      * Getter method for the property.
@@ -77,8 +80,6 @@ class Location extends Struct
         return $this->company;
     }
 
-
-
     /**
      * Setter method for the property.
      *
@@ -88,8 +89,6 @@ class Location extends Struct
     {
         $this->company = $company;
     }
-
-
 
     /**
      * Getter method for the property.
@@ -101,8 +100,6 @@ class Location extends Struct
         return $this->store;
     }
 
-
-
     /**
      * Setter method for the property.
      *
@@ -111,5 +108,25 @@ class Location extends Struct
     public function setStore(Store $store)
     {
         $this->store = $store;
+    }
+
+    /**
+     * Getter method for the property.
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * Setter method for the property.
+     *
+     * @param string $type
+     */
+    public function setType(string $type)
+    {
+        $this->type = $type;
     }
 }

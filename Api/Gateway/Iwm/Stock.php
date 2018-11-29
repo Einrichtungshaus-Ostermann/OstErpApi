@@ -1,4 +1,5 @@
 <?php declare(strict_types=1);
+
 /**
  * Einrichtungshaus Ostermann GmbH & Co. KG - ERP API
  *
@@ -13,26 +14,31 @@ namespace OstErpApi\Api\Gateway\Iwm;
 
 class Stock extends Gateway
 {
-    protected function getQuery()
+    /**
+     * {@inheritdoc}
+     */
+    protected function getQuery(): string
     {
         $query = '
             SELECT 
-            [stock.company],
-            [stock.number],
-            [stock.location],
-            [stock.quantity],
-            [stock.type]
+                [stock.company],
+                [stock.number],
+                [stock.location],
+                [stock.quantity],
+                [stock.type],
+                [stock.area]
             FROM IWMV2R1DTA.LBST00
-            
         ';
 
         return $query;
     }
 
-
-
+    /**
+     * {@inheritdoc}
+     */
     protected function addParams(array $params)
     {
+        // only active
         $parameters[] = "LBSTAT = 'A'";
     }
 }

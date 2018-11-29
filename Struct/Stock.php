@@ -1,4 +1,5 @@
 <?php declare(strict_types=1);
+
 /**
  * Einrichtungshaus Ostermann GmbH & Co. KG - ERP API
  *
@@ -13,6 +14,9 @@ namespace OstErpApi\Struct;
 
 class Stock extends Struct
 {
+    /**
+     *...
+     */
     const TYPE_STOCK = 'L';
     const TYPE_EXHIBIT = 'K';
     const TYPE_ORDER = 'B';
@@ -26,8 +30,6 @@ class Stock extends Struct
      */
     protected $number;
 
-
-
     /**
      * The quantity within the given location.
      *
@@ -38,7 +40,6 @@ class Stock extends Struct
      * @var int
      */
     protected $quantity;
-
 
     /**
      * The stock Type
@@ -53,6 +54,12 @@ class Stock extends Struct
      */
     protected $type;
 
+    /**
+     * The area ("Koje" or "Lagerplatz") of this stock.
+     *
+     * @var string
+     */
+    protected $area;
 
     /**
      * The company.
@@ -61,17 +68,12 @@ class Stock extends Struct
      */
     protected $company;
 
-
-
-
     /**
      * The location of this stock.
      *
      * @var Location
      */
     protected $location;
-
-
 
     /**
      * Getter method for the property.
@@ -83,8 +85,6 @@ class Stock extends Struct
         return $this->number;
     }
 
-
-
     /**
      * Setter method for the property.
      *
@@ -94,8 +94,6 @@ class Stock extends Struct
     {
         $this->number = $number;
     }
-
-
 
     /**
      * Getter method for the property.
@@ -107,8 +105,6 @@ class Stock extends Struct
         return $this->quantity;
     }
 
-
-
     /**
      * Setter method for the property.
      *
@@ -118,8 +114,6 @@ class Stock extends Struct
     {
         $this->quantity = $quantity;
     }
-
-
 
     /**
      * Getter method for the property.
@@ -131,8 +125,6 @@ class Stock extends Struct
         return $this->type;
     }
 
-
-
     /**
      * Setter method for the property.
      *
@@ -143,7 +135,27 @@ class Stock extends Struct
         $this->type = $type;
     }
 
+    /**
+     * Getter method for the property.
+     *
+     * @return string
+     */
+    public function getArea()
+    {
+        return $this->area;
+    }
 
+    /**
+     * Setter method for the property.
+     *
+     * @param string $area
+     *
+     * @return void
+     */
+    public function setArea(string $area)
+    {
+        $this->area = $area;
+    }
 
     /**
      * Getter method for the property.
@@ -155,8 +167,6 @@ class Stock extends Struct
         return $this->company;
     }
 
-
-
     /**
      * Setter method for the property.
      *
@@ -167,8 +177,6 @@ class Stock extends Struct
         $this->company = $company;
     }
 
-
-
     /**
      * Getter method for the property.
      *
@@ -178,8 +186,6 @@ class Stock extends Struct
     {
         return $this->location;
     }
-
-
 
     /**
      * Setter method for the property.

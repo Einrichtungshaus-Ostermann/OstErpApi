@@ -1,4 +1,5 @@
 <?php declare(strict_types=1);
+
 /**
  * Einrichtungshaus Ostermann GmbH & Co. KG - ERP API
  *
@@ -13,7 +14,10 @@ namespace OstErpApi\Api\Gateway\Iwm;
 
 class ArticleComponent extends Gateway
 {
-    protected function getQuery()
+    /**
+     * {@inheritdoc}
+     */
+    protected function getQuery():string
     {
         $query = '
             SELECT 
@@ -21,7 +25,6 @@ class ArticleComponent extends Gateway
                 [articlecomponent.child],
                 [articlecomponent.quantity]
             FROM IWMV2R1DTA.VSET00
-            
         ';
 
         return $query;

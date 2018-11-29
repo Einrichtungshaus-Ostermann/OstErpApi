@@ -1,4 +1,5 @@
 <?php declare(strict_types=1);
+
 /**
  * Einrichtungshaus Ostermann GmbH & Co. KG - ERP API
  *
@@ -20,8 +21,6 @@ class ArticleGroup extends Article
      */
     protected $articles = [];
 
-
-
     /**
      * Getter method for the property.
      *
@@ -31,8 +30,6 @@ class ArticleGroup extends Article
     {
         return $this->articles;
     }
-
-
 
     /**
      * Setter method for the property.

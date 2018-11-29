@@ -1,6 +1,5 @@
 <?php declare(strict_types=1);
 
-
 function p($var)
 {
     echo '<pre>';
@@ -11,7 +10,6 @@ function p($var)
 
     die();
 }
-
 
 use OstErpApi\Api\Api;
 use Shopware\Components\CSRFWhitelistAware;
@@ -28,14 +26,16 @@ class Shopware_Controllers_Frontend_OstErpApi extends Enlight_Controller_Action 
         // return all actions
         return array_values(array_filter(
             array_map(
-                function ($method) { return (substr($method, -6) === 'Action') ? substr($method, 0, -6) : null; },
+                function ($method) {
+                    return (substr($method, -6) === 'Action') ? substr($method, 0, -6) : null;
+                },
                 get_class_methods($this)
             ),
-            function ($method) { return  !in_array((string) $method, ['', 'index', 'load', 'extends'], true); }
+            function ($method) {
+                return  !in_array((string) $method, ['', 'index', 'load', 'extends'], true);
+            }
         ));
     }
-
-
 
     /**
      * ...
@@ -45,10 +45,6 @@ class Shopware_Controllers_Frontend_OstErpApi extends Enlight_Controller_Action 
         // ...
         die('not implemented yet');
     }
-
-
-
-
 
     /**
      * ...
@@ -74,8 +70,6 @@ class Shopware_Controllers_Frontend_OstErpApi extends Enlight_Controller_Action 
                 '[article.number] = ' . $number
             ]
         );
-
-
 
         p($asd);
     }

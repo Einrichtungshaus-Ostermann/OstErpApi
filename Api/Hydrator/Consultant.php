@@ -1,4 +1,5 @@
 <?php declare(strict_types=1);
+
 /**
  * Einrichtungshaus Ostermann GmbH & Co. KG - ERP API
  *
@@ -15,25 +16,29 @@ use OstErpApi\Struct;
 
 class Consultant extends Hydrator
 {
+    /**
+     * {@inheritdoc}
+     */
     public function hydrate(array $data): array
     {
+        // hydrated array
         $arr = [];
 
-        foreach ($data as $location) {
+        // loop every consultant
+        foreach ($data as $consultant) {
+
+            // create struct
             $consultantStruct = new Struct\Consultant();
 
+            // flat attributes
+            $consultantStruct->setNumber((string) $consultant['CONSULTANT_NUMBER']);
+            $consultantStruct->setName($consultant['CONSULTANT_NAME']);
 
-
-            $consultantStruct->setNumber((string) $location['CONSULTANT_NUMBER']);
-
-            $consultantStruct->setName($location['CONSULTANT_NAME']);
-
-
-
-
+            // add hydrated struct
             $arr[] = $consultantStruct;
         }
 
+        // return them
         return $arr;
     }
 }

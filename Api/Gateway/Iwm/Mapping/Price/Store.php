@@ -1,4 +1,5 @@
 <?php declare(strict_types=1);
+
 /**
  * Einrichtungshaus Ostermann GmbH & Co. KG - ERP API
  *
@@ -15,12 +16,18 @@ use OstErpApi\Api\Gateway\Iwm\Mapping\Mapping;
 
 class Store implements Mapping
 {
-    public static function getAlias()
+    /**
+     * {@inheritdoc}
+     */
+    public static function getAlias(): string
     {
         return 'PRICE_STORE';
     }
 
-    public static function getColumn()
+    /**
+     * {@inheritdoc}
+     */
+    public static function getColumn(): string
     {
         return "( LPAD( IWMV2R1DTA.PREI00.PRVKHS, 2, '0' ) )";
     }

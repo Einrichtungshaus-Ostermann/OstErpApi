@@ -1,4 +1,5 @@
 <?php declare(strict_types=1);
+
 /**
  * Einrichtungshaus Ostermann GmbH & Co. KG - ERP API
  *
@@ -11,17 +12,10 @@
 
 namespace OstErpApi\Api\Resources;
 
-use OstErpApi\Api\Gateway\Gateway;
-use OstErpApi\Api\Hydrator\Hydrator;
-
 class Customer extends Resource
 {
+    /**
+     * {@inheritdoc}
+     */
     protected $name = 'Customer';
-
-
-
-    // [customer.number] = 121535
-
-
-
 }
