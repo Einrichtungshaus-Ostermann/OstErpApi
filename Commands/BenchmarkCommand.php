@@ -36,7 +36,7 @@ class BenchmarkCommand extends ShopwareCommand
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $startTime = time();
-        $articles = $this->api->findBy('article' [
+        $articles = $this->api->findBy('article', [
             '[article.number] < 100500'
         ]);
         $output->writeln((new \DateTime())->format('Y-m-d H:i:s') . ' | ' . count($articles) . ' | ' . (time() - $startTime));
