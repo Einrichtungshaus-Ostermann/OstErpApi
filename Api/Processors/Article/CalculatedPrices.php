@@ -31,6 +31,7 @@ class CalculatedPrices
         foreach ($stores as $store) {
             $defaultPrices = [];
             $myPrices = [];
+            $price = null;
 
             foreach ($article->getPrices() as $price) {
                 if (($now >= $price->getStartDate()->getTimestamp()) && ($now <= $price->getEndDate()->getTimestamp())) {

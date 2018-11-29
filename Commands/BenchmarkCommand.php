@@ -37,7 +37,8 @@ class BenchmarkCommand extends ShopwareCommand
     {
         $startTime = time();
         $articles = $this->api->findBy('article', [
-            '[article.number] < 100500'
+            '[article.number] < 100100',
+            '[article.number] > 100000',
         ]);
         $output->writeln((new \DateTime())->format('Y-m-d H:i:s') . ' | ' . count($articles) . ' | ' . (time() - $startTime));
     }
