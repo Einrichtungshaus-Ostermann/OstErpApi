@@ -15,6 +15,11 @@ namespace OstErpApi\Api\Gateway\Iwm;
 class Consultant extends Gateway
 {
     /**
+     * @var string
+     */
+    protected $table = "IWMV2R1SYS.BNZR00";
+
+    /**
      * {@inheritdoc}
      */
     protected function getQuery(): string

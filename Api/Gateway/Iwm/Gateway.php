@@ -22,6 +22,11 @@ abstract class Gateway extends GatewayParent
     protected static $db;
 
     /**
+     * @var string
+     */
+    protected $table;
+
+    /**
      * Gateway constructor.
      *
      * @param array $configuration
@@ -43,10 +48,14 @@ abstract class Gateway extends GatewayParent
         }
     }
 
+
+
     /**
      * ...
      *
      * @param array $parameters
+     *
+     * @throws \Exception
      *
      * @return array
      */
@@ -76,6 +85,9 @@ abstract class Gateway extends GatewayParent
 
         $res = static::$db->query($query);
 
+        if ( $res === false )
+            throw new \Exception( "invalid query: " . $query );
+
         return $res->fetchAll(\PDO::FETCH_ASSOC);
     }
 
@@ -86,7 +98,25 @@ abstract class Gateway extends GatewayParent
      */
     protected function getQuery(): string
     {
-        return '';
+        $columns = array();
+
+        $class = str_replace( __NAMESPACE__ . "\\", "", get_class( $this ) );
+
+        $dir = __DIR__ . "/Mapping/" . $class . "/";
+
+        foreach ( glob( $dir . "*.php" ) as $columnClass )
+        {
+            $column = str_replace( array( $dir, ".php" ), "", $columnClass );
+            array_push( $columns, "[" . strtolower( $class ) . "." . strtolower( $column ) . "]" );
+        }
+
+        $query = "
+            SELECT
+            " . implode( ",", $columns ) . "
+            FROM " . $this->table . "
+        ";
+
+        return $query;
     }
 
     /**
