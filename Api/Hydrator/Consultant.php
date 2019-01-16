@@ -32,7 +32,7 @@ class Consultant extends Hydrator
 
             // flat attributes
             $consultantStruct->setNumber((string) $consultant['CONSULTANT_NUMBER']);
-            $consultantStruct->setName($consultant['CONSULTANT_NAME']);
+            $consultantStruct->setName((string) $consultant['CONSULTANT_NAME']);
 
             // add hydrated struct
             $arr[] = $consultantStruct;
