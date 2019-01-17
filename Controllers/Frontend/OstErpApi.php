@@ -1,15 +1,19 @@
 <?php declare(strict_types=1);
 
-function p($var)
+if ( !function_exists("p"))
 {
-    echo '<pre>';
+    function p($var)
+    {
+        echo '<pre>';
 
-    print_r($var);
+        print_r($var);
 
-    echo '</pre>';
+        echo '</pre>';
 
-    die();
+        die();
+    }
 }
+
 
 use OstErpApi\Api\Api;
 use Shopware\Components\CSRFWhitelistAware;
@@ -72,5 +76,25 @@ class Shopware_Controllers_Frontend_OstErpApi extends Enlight_Controller_Action 
         );
 
         p($asd);
+    }
+
+    /**
+     * ...
+     */
+    public function testZipAction()
+    {
+        $zip = "58465";
+
+        /* @var $api Api */
+        $api = Shopware()->Container()->get('ost_erp_api.api');
+
+        $arr = $api->findBy(
+            'zip',
+            [
+                '[zip.rangefrom] = ' . $zip
+            ]
+        );
+
+        p($arr);
     }
 }

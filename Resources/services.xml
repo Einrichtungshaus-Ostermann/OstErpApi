@@ -56,6 +56,9 @@
         <service id="ost_erp_api.api.resources.customer" class="OstErpApi\Api\Resources\Customer">
         </service>
 
+        <service id="ost_erp_api.api.resources.zip" class="OstErpApi\Api\Resources\Zip">
+        </service>
+
         <!-- api resource hydrators and processors -->
         <service id="ost_erp_api.api.processors.article.exhibits" class="OstErpApi\Api\Processors\Article\Exhibits">
         </service>
@@ -100,6 +103,9 @@
         <service id="ost_erp_api.api.hydrator.customer" class="OstErpApi\Api\Hydrator\Customer">
         </service>
 
+        <service id="ost_erp_api.api.hydrator.zip" class="OstErpApi\Api\Hydrator\Zip">
+        </service>
+
         <!-- mock gateways -->
         <service id="ost_erp_api.api.gateway.mock.article" class="OstErpApi\Api\Gateway\Mock\Article">
             <argument type="service" id="ost_erp_api.configuration"/>
@@ -125,11 +131,15 @@
             <argument type="service" id="ost_erp_api.configuration"/>
         </service>
 
-        <service id="ost_erp_api.api.gateway.mock.Consultant" class="OstErpApi\Api\Gateway\Mock\Consultant">
+        <service id="ost_erp_api.api.gateway.mock.consultant" class="OstErpApi\Api\Gateway\Mock\Consultant">
             <argument type="service" id="ost_erp_api.configuration"/>
         </service>
 
         <service id="ost_erp_api.api.gateway.mock.customer" class="OstErpApi\Api\Gateway\Mock\Customer">
+            <argument type="service" id="ost_erp_api.configuration"/>
+        </service>
+
+        <service id="ost_erp_api.api.gateway.mock.zip" class="OstErpApi\Api\Gateway\Mock\Zip">
             <argument type="service" id="ost_erp_api.configuration"/>
         </service>
 
@@ -167,6 +177,10 @@
         </service>
 
         <service id="ost_erp_api.api.gateway.iwm.consultant" class="OstErpApi\Api\Gateway\Iwm\Consultant">
+            <argument type="service" id="ost_erp_api.configuration"/>
+        </service>
+
+        <service id="ost_erp_api.api.gateway.iwm.zip" class="OstErpApi\Api\Gateway\Iwm\Zip">
             <argument type="service" id="ost_erp_api.configuration"/>
         </service>
 
