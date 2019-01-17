@@ -13,6 +13,9 @@
  * 1.0.1
  * - fixed hydrating consultants with an umlaut in their name
  *
+ * 1.0.2
+ * - added zip api resource
+ *
  * @package   OstErpApi
  *
  * @author    Eike Brandt-Warneke <e.brandt-warneke@ostermann.de>
