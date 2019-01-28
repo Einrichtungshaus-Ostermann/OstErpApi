@@ -12,23 +12,22 @@
 
 namespace OstErpApi\Api\Gateway\Iwm\Mapping\Articlecomponent;
 
-use OstErpApi\Api\Gateway\Iwm\Mapping\Mapping;
+use OstErpApi\Api\Gateway\Iwm\Mapping\MappingAbstract;
 
-class Quantity implements Mapping
+class Quantity extends MappingAbstract
 {
     /**
      * {@inheritdoc}
      */
-    public static function getAlias(): string
-    {
-        return 'ARTICLECOMPONENT_QUANTITY';
-    }
+    public static $type = self::TYPE_INTEGER;
 
     /**
      * {@inheritdoc}
      */
-    public static function getColumn(): string
-    {
-        return 'IWMV2R1DTA.VSET00.VSKMNG';
-    }
+    public static $alias = 'ARTICLECOMPONENT_QUANTITY';
+
+    /**
+     * {@inheritdoc}
+     */
+    public static $column = 'IWMV2R1DTA.VSET00.VSKMNG';
 }

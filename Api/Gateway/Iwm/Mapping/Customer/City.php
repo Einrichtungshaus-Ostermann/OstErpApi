@@ -12,23 +12,22 @@
 
 namespace OstErpApi\Api\Gateway\Iwm\Mapping\Customer;
 
-use OstErpApi\Api\Gateway\Iwm\Mapping\Mapping;
+use OstErpApi\Api\Gateway\Iwm\Mapping\MappingAbstract;
 
-class City implements Mapping
+class City extends MappingAbstract
 {
     /**
      * {@inheritdoc}
      */
-    public static function getAlias(): string
-    {
-        return 'CUSTOMER_CITY';
-    }
+    public static $type = self::TYPE_STRING;
 
     /**
      * {@inheritdoc}
      */
-    public static function getColumn(): string
-    {
-        return 'IWMADROLIB.ADRS00.ADLORT';
-    }
+    public static $alias = 'CUSTOMER_CITY';
+
+    /**
+     * {@inheritdoc}
+     */
+    public static $column = 'IWMADROLIB.ADRS00.ADLORT';
 }

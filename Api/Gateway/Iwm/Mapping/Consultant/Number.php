@@ -12,23 +12,22 @@
 
 namespace OstErpApi\Api\Gateway\Iwm\Mapping\Consultant;
 
-use OstErpApi\Api\Gateway\Iwm\Mapping\Mapping;
+use OstErpApi\Api\Gateway\Iwm\Mapping\MappingAbstract;
 
-class Number implements Mapping
+class Number extends MappingAbstract
 {
     /**
      * {@inheritdoc}
      */
-    public static function getAlias(): string
-    {
-        return 'CONSULTANT_NUMBER';
-    }
+    public static $type = self::TYPE_STRING;
 
     /**
      * {@inheritdoc}
      */
-    public static function getColumn(): string
-    {
-        return 'IWMV2R1SYS.BNZR00.BNBNZN';
-    }
+    public static $alias = 'CONSULTANT_NUMBER';
+
+    /**
+     * {@inheritdoc}
+     */
+    public static $column = 'IWMV2R1SYS.BNZR00.BNBNZN';
 }

@@ -12,23 +12,22 @@
 
 namespace OstErpApi\Api\Gateway\Iwm\Mapping\Customer;
 
-use OstErpApi\Api\Gateway\Iwm\Mapping\Mapping;
+use OstErpApi\Api\Gateway\Iwm\Mapping\MappingAbstract;
 
-class Lastname implements Mapping
+class Lastname extends MappingAbstract
 {
     /**
      * {@inheritdoc}
      */
-    public static function getAlias(): string
-    {
-        return 'CUSTOMER_LASTNAME';
-    }
+    public static $type = self::TYPE_STRING;
 
     /**
      * {@inheritdoc}
      */
-    public static function getColumn(): string
-    {
-        return 'IWMADROLIB.ADRS00.ADNNAM';
-    }
+    public static $alias = 'CUSTOMER_LASTNAME';
+
+    /**
+     * {@inheritdoc}
+     */
+    public static $column = 'IWMADROLIB.ADRS00.ADNNAM';
 }

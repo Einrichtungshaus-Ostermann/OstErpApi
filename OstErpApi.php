@@ -16,6 +16,9 @@
  * 1.0.2
  * - added zip api resource
  *
+ * 1.1.0
+ * - added type casting to iwm gateways
+ *
  * @package   OstErpApi
  *
  * @author    Eike Brandt-Warneke <e.brandt-warneke@ostermann.de>

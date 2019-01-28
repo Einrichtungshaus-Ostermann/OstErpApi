@@ -12,23 +12,22 @@
 
 namespace OstErpApi\Api\Gateway\Iwm\Mapping\Article;
 
-use OstErpApi\Api\Gateway\Iwm\Mapping\Mapping;
+use OstErpApi\Api\Gateway\Iwm\Mapping\MappingAbstract;
 
-class Height implements Mapping
+class Height extends MappingAbstract
 {
     /**
      * {@inheritdoc}
      */
-    public static function getAlias(): string
-    {
-        return 'ARTICLE_HEIGHT';
-    }
+    public static $type = self::TYPE_FLOAT;
 
     /**
      * {@inheritdoc}
      */
-    public static function getColumn(): string
-    {
-        return 'IWMV2R1DTA.ARTS00.ARDIM2';
-    }
+    public static $alias = 'ARTICLE_HEIGHT';
+
+    /**
+     * {@inheritdoc}
+     */
+    public static $column = 'IWMV2R1DTA.ARTS00.ARDIM2';
 }

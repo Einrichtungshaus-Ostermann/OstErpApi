@@ -33,7 +33,7 @@ class Parser implements ParserInterface
             list($entity, $key) = explode('.', $match);
 
             // create object name
-            /* @var $mapping Mapping */
+            /* @var $mapping MappingInterface */
             $mapping = __NAMESPACE__ . '\\' . ucwords($entity) . '\\' . ucwords($key);
 
             // get the column name

@@ -12,23 +12,22 @@
 
 namespace OstErpApi\Api\Gateway\Iwm\Mapping\Zip;
 
-use OstErpApi\Api\Gateway\Iwm\Mapping\Mapping;
+use OstErpApi\Api\Gateway\Iwm\Mapping\MappingAbstract;
 
-class City implements Mapping
+class City extends MappingAbstract
 {
     /**
      * {@inheritdoc}
      */
-    public static function getAlias(): string
-    {
-        return 'ZIP_CITY';
-    }
+    public static $type = self::TYPE_STRING;
 
     /**
      * {@inheritdoc}
      */
-    public static function getColumn(): string
-    {
-        return 'IWMV2R1SYS.LFBT00.L2ADOR';
-    }
+    public static $alias = 'ZIP_CITY';
+
+    /**
+     * {@inheritdoc}
+     */
+    public static $column = 'IWMV2R1SYS.LFBT00.L2ADOR';
 }

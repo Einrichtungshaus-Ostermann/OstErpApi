@@ -12,23 +12,22 @@
 
 namespace OstErpApi\Api\Gateway\Iwm\Mapping\Customer;
 
-use OstErpApi\Api\Gateway\Iwm\Mapping\Mapping;
+use OstErpApi\Api\Gateway\Iwm\Mapping\MappingAbstract;
 
-class Salutation implements Mapping
+class Salutation extends MappingAbstract
 {
     /**
      * {@inheritdoc}
      */
-    public static function getAlias(): string
-    {
-        return 'CUSTOMER_SALUTATION';
-    }
+    public static $type = self::TYPE_STRING;
 
     /**
      * {@inheritdoc}
      */
-    public static function getColumn(): string
-    {
-        return 'IWMADROLIB.ADRS00.ADANRD';
-    }
+    public static $alias = 'CUSTOMER_SALUTATION';
+
+    /**
+     * {@inheritdoc}
+     */
+    public static $column = 'IWMADROLIB.ADRS00.ADANRD';
 }

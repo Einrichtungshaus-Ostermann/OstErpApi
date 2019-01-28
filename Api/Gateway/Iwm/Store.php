@@ -104,7 +104,6 @@ class Store extends Gateway
             'STORE_COMPANY' => '3',
             'STORE_TYPE'    => '1'
         ],
-
         [
             'STORE_KEY'     => '87',
             'STORE_NAME'    => 'Trends OMS',

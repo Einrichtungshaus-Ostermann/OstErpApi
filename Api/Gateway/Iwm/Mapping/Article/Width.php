@@ -12,23 +12,22 @@
 
 namespace OstErpApi\Api\Gateway\Iwm\Mapping\Article;
 
-use OstErpApi\Api\Gateway\Iwm\Mapping\Mapping;
+use OstErpApi\Api\Gateway\Iwm\Mapping\MappingAbstract;
 
-class Width implements Mapping
+class Width extends MappingAbstract
 {
     /**
      * {@inheritdoc}
      */
-    public static function getAlias(): string
-    {
-        return 'ARTICLE_WIDTH';
-    }
+    public static $type = self::TYPE_FLOAT;
 
     /**
      * {@inheritdoc}
      */
-    public static function getColumn(): string
-    {
-        return 'IWMV2R1DTA.ARTS00.ARDIM1';
-    }
+    public static $alias = 'ARTICLE_WIDTH';
+
+    /**
+     * {@inheritdoc}
+     */
+    public static $column = 'IWMV2R1DTA.ARTS00.ARDIM1';
 }

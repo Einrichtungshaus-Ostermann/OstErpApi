@@ -12,23 +12,22 @@
 
 namespace OstErpApi\Api\Gateway\Iwm\Mapping\Article;
 
-use OstErpApi\Api\Gateway\Iwm\Mapping\Mapping;
+use OstErpApi\Api\Gateway\Iwm\Mapping\MappingAbstract;
 
-class Hwg implements Mapping
+class Hwg extends MappingAbstract
 {
     /**
      * {@inheritdoc}
      */
-    public static function getAlias(): string
-    {
-        return 'ARTICLE_HWG';
-    }
+    public static $type = self::TYPE_INTEGER;
 
     /**
      * {@inheritdoc}
      */
-    public static function getColumn(): string
-    {
-        return 'IWMV2R1DTA.ARTS00.ARHWGR';
-    }
+    public static $alias = 'ARTICLE_HWG';
+
+    /**
+     * {@inheritdoc}
+     */
+    public static $column = 'IWMV2R1DTA.ARTS00.ARHWGR';
 }

@@ -12,7 +12,7 @@
 
 namespace OstErpApi\Api\Gateway\Iwm\Mapping;
 
-interface Mapping
+interface MappingInterface
 {
     /**
      * An alias for the hydrator.
@@ -27,4 +27,13 @@ interface Mapping
      * @return string
      */
     public static function getColumn(): string;
+
+    /**
+     * The data from the database which will be cast.
+     *
+     * @param string $value
+     *
+     * @return mixed
+     */
+    public static function cast($value);
 }

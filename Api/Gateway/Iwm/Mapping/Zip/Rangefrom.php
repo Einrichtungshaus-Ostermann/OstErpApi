@@ -12,23 +12,22 @@
 
 namespace OstErpApi\Api\Gateway\Iwm\Mapping\Zip;
 
-use OstErpApi\Api\Gateway\Iwm\Mapping\Mapping;
+use OstErpApi\Api\Gateway\Iwm\Mapping\MappingAbstract;
 
-class Rangefrom implements Mapping
+class Rangefrom extends MappingAbstract
 {
     /**
      * {@inheritdoc}
      */
-    public static function getAlias(): string
-    {
-        return 'ZIP_RANGEFROM';
-    }
+    public static $type = self::TYPE_STRING;
 
     /**
      * {@inheritdoc}
      */
-    public static function getColumn(): string
-    {
-        return 'IWMV2R1SYS.LFBT00.L2PLZV';
-    }
+    public static $alias = 'ZIP_RANGEFROM';
+
+    /**
+     * {@inheritdoc}
+     */
+    public static $column = 'IWMV2R1SYS.LFBT00.L2PLZV';
 }

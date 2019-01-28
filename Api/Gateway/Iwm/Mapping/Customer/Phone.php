@@ -12,23 +12,22 @@
 
 namespace OstErpApi\Api\Gateway\Iwm\Mapping\Customer;
 
-use OstErpApi\Api\Gateway\Iwm\Mapping\Mapping;
+use OstErpApi\Api\Gateway\Iwm\Mapping\MappingAbstract;
 
-class Phone implements Mapping
+class Phone extends MappingAbstract
 {
     /**
      * {@inheritdoc}
      */
-    public static function getAlias(): string
-    {
-        return 'CUSTOMER_PHONE';
-    }
+    public static $type = self::TYPE_STRING;
 
     /**
      * {@inheritdoc}
      */
-    public static function getColumn(): string
-    {
-        return "TRIM( CONCAT( CONCAT( TRIM( IWMADROLIB.ADRS00.ADTELV ), ' ' ), TRIM( IWMADROLIB.ADRS00.ADTELN ) ) )";
-    }
+    public static $alias = 'CUSTOMER_PHONE';
+
+    /**
+     * {@inheritdoc}
+     */
+    public static $column = 'TRIM( CONCAT( CONCAT( TRIM( IWMADROLIB.ADRS00.ADTELV ), \' \' ), TRIM( IWMADROLIB.ADRS00.ADTELN ) ) )';
 }

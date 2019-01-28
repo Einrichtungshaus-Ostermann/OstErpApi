@@ -12,23 +12,22 @@
 
 namespace OstErpApi\Api\Gateway\Iwm\Mapping\Price;
 
-use OstErpApi\Api\Gateway\Iwm\Mapping\Mapping;
+use OstErpApi\Api\Gateway\Iwm\Mapping\MappingAbstract;
 
-class Deliverypseudoprice implements Mapping
+class Deliverypseudoprice extends MappingAbstract
 {
     /**
      * {@inheritdoc}
      */
-    public static function getAlias(): string
-    {
-        return 'PRICE_DELIVERYPSEUDOPRICE';
-    }
+    public static $type = self::TYPE_FLOAT;
 
     /**
      * {@inheritdoc}
      */
-    public static function getColumn(): string
-    {
-        return 'IWMV2R1DTA.PREI00.PRVKO5';
-    }
+    public static $alias = 'PRICE_DELIVERYPSEUDOPRICE';
+
+    /**
+     * {@inheritdoc}
+     */
+    public static $column = 'IWMV2R1DTA.PREI00.PRVKO5';
 }

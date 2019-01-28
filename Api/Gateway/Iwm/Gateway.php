@@ -13,6 +13,7 @@
 namespace OstErpApi\Api\Gateway\Iwm;
 
 use OstErpApi\Api\Gateway\Gateway as GatewayParent;
+use OstErpApi\Api\Gateway\Iwm\Mapping\MappingInterface;
 
 abstract class Gateway extends GatewayParent
 {
@@ -88,7 +89,60 @@ abstract class Gateway extends GatewayParent
         if ( $res === false )
             throw new \Exception( "invalid query: " . $query );
 
-        return $res->fetchAll(\PDO::FETCH_ASSOC);
+        $arr = $res->fetchAll(\PDO::FETCH_ASSOC);
+
+        return $this->cast($arr);
+    }
+
+
+    /**
+     * ...
+     *
+     * @return mixed
+     */
+    protected function cast($data)
+    {
+        // invalid calls
+        if ( !is_array( $data ) ) return $data;
+
+
+
+
+
+
+        foreach ( $data as $i => $aktu )
+        {
+
+            foreach ( $aktu as $key => $value )
+            {
+                $split = explode( "_", $key );
+
+
+
+                // create object name
+                /* @var $mapping MappingInterface */
+                $mapping = __NAMESPACE__ . '\\Mapping\\' . ucwords($split[0]) . '\\' . ucwords($split[1]);
+
+
+                // cast it
+                $value = $mapping::cast($value);
+
+                // reset it
+                $aktu[$key] = $value;
+
+
+            }
+
+
+            $data[$i] = $aktu;
+
+
+        }
+
+
+
+
+        return $data;
     }
 
     /**

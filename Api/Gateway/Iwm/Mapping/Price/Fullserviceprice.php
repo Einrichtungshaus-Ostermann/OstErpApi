@@ -12,23 +12,22 @@
 
 namespace OstErpApi\Api\Gateway\Iwm\Mapping\Price;
 
-use OstErpApi\Api\Gateway\Iwm\Mapping\Mapping;
+use OstErpApi\Api\Gateway\Iwm\Mapping\MappingAbstract;
 
-class Fullserviceprice implements Mapping
+class Fullserviceprice extends MappingAbstract
 {
     /**
      * {@inheritdoc}
      */
-    public static function getAlias(): string
-    {
-        return 'PRICE_FULLSERVICEPRICE';
-    }
+    public static $type = self::TYPE_FLOAT;
 
     /**
      * {@inheritdoc}
      */
-    public static function getColumn(): string
-    {
-        return 'IWMV2R1DTA.PREI00.PRVKO3';
-    }
+    public static $alias = 'PRICE_FULLSERVICEPRICE';
+
+    /**
+     * {@inheritdoc}
+     */
+    public static $column = 'IWMV2R1DTA.PREI00.PRVKO3';
 }

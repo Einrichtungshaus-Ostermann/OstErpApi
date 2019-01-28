@@ -12,23 +12,22 @@
 
 namespace OstErpApi\Api\Gateway\Iwm\Mapping\Zip;
 
-use OstErpApi\Api\Gateway\Iwm\Mapping\Mapping;
+use OstErpApi\Api\Gateway\Iwm\Mapping\MappingAbstract;
 
-class Rangeto implements Mapping
+class Rangeto extends MappingAbstract
 {
     /**
      * {@inheritdoc}
      */
-    public static function getAlias(): string
-    {
-        return 'ZIP_RANGETO';
-    }
+    public static $type = self::TYPE_STRING;
 
     /**
      * {@inheritdoc}
      */
-    public static function getColumn(): string
-    {
-        return 'IWMV2R1SYS.LFBT00.L2PLZB';
-    }
+    public static $alias = 'ZIP_RANGETO';
+
+    /**
+     * {@inheritdoc}
+     */
+    public static $column = 'IWMV2R1SYS.LFBT00.L2PLZB';
 }

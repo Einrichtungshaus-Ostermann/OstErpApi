@@ -12,23 +12,22 @@
 
 namespace OstErpApi\Api\Gateway\Iwm\Mapping\Price;
 
-use OstErpApi\Api\Gateway\Iwm\Mapping\Mapping;
+use OstErpApi\Api\Gateway\Iwm\Mapping\MappingAbstract;
 
-class Enddate implements Mapping
+class Enddate extends MappingAbstract
 {
     /**
      * {@inheritdoc}
      */
-    public static function getAlias(): string
-    {
-        return 'PRICE_ENDDATE';
-    }
+    public static $type = self::TYPE_DATETIME;
 
     /**
      * {@inheritdoc}
      */
-    public static function getColumn(): string
-    {
-        return "( IWMV2R1DTA.PREI00.PRDGAJ || '-' || IWMV2R1DTA.PREI00.PRDGAM || '-' || IWMV2R1DTA.PREI00.PRDGAT || ' 00:00:01' )";
-    }
+    public static $alias = 'PRICE_ENDDATE';
+
+    /**
+     * {@inheritdoc}
+     */
+    public static $column = "( IWMV2R1DTA.PREI00.PRDGAJ || '-' || IWMV2R1DTA.PREI00.PRDGAM || '-' || IWMV2R1DTA.PREI00.PRDGAT || ' 00:00:01' )";
 }
