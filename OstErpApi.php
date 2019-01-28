@@ -22,6 +22,9 @@
  * 1.1.1
  * - added email to customer struct
  *
+ * 1.1.2
+ * - added frontend controller test for customer search
+ *
  * @package   OstErpApi
  *
  * @author    Eike Brandt-Warneke <e.brandt-warneke@ostermann.de>
