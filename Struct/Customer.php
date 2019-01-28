@@ -32,6 +32,13 @@ class Customer extends Struct
      *
      * @var string
      */
+    protected $email;
+
+    /**
+     * ...
+     *
+     * @var string
+     */
     protected $salutation;
 
     /**
@@ -113,6 +120,28 @@ class Customer extends Struct
     public function setNumber(int $number)
     {
         $this->number = $number;
+    }
+
+    /**
+     * Getter method for the property.
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * Setter method for the property.
+     *
+     * @param string $email
+     *
+     * @return void
+     */
+    public function setEmail(string $email): void
+    {
+        $this->email = $email;
     }
 
     /**

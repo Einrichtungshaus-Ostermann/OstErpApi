@@ -22,6 +22,7 @@ class Customer extends Gateway
     protected $data = [
         [
             'CUSTOMER_NUMBER'       => '123456',
+            'CUSTOMER_EMAIL'        => 'dummy-abcdef123456@ostermann.de',
             'CUSTOMER_SALUTATION'   => '02',
             'CUSTOMER_FIRSTNAME'    => 'Eike',
             'CUSTOMER_LASTNAME'     => 'Brandt-Warneke',
@@ -33,6 +34,7 @@ class Customer extends Gateway
         ],
         [
             'CUSTOMER_NUMBER'       => '112233',
+            'CUSTOMER_EMAIL'        => 'dummy-qwertzuiop@ostermann.de',
             'CUSTOMER_SALUTATION'   => '02',
             'CUSTOMER_FIRSTNAME'    => 'Dominik',
             'CUSTOMER_LASTNAME'     => 'Gantenberg',
@@ -44,6 +46,7 @@ class Customer extends Gateway
         ],
         [
             'CUSTOMER_NUMBER'       => '445566',
+            'CUSTOMER_EMAIL'        => 'dummy-yxcvbnm@ostermann.de',
             'CUSTOMER_SALUTATION'   => '01',
             'CUSTOMER_FIRSTNAME'    => 'Amelie',
             'CUSTOMER_LASTNAME'     => 'Hochmuth',

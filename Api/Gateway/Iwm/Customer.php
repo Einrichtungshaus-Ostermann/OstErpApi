@@ -22,6 +22,7 @@ class Customer extends Gateway
         $query = '
             SELECT 
                 [customer.number],
+                [customer.email],
                 [customer.salutation],
                 [customer.firstname],
                 [customer.lastname],
@@ -31,6 +32,10 @@ class Customer extends Gateway
                 [customer.city],
                 [customer.country]
             FROM IWMADROLIB.ADRS00
+                LEFT JOIN IWMOST1DTA.EMAL00
+                    ON IWMADROLIB.ADRS00.ADANUM = IWMOST1DTA.EMAL00.EMKNDN
+                LEFT JOIN IWMOST1DTA.PLKA00
+                    ON IWMADROLIB.ADRS00.ADANUM = IWMOST1DTA.PLKA00.PLANUM
         ';
 
         return $query;

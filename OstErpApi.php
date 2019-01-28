@@ -19,6 +19,9 @@
  * 1.1.0
  * - added type casting to iwm gateways
  *
+ * 1.1.1
+ * - added email to customer struct
+ *
  * @package   OstErpApi
  *
  * @author    Eike Brandt-Warneke <e.brandt-warneke@ostermann.de>

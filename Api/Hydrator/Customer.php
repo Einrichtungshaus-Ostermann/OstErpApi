@@ -32,6 +32,7 @@ class Customer extends Hydrator
 
             // flat attributes
             $customerStruct->setNumber((int) $customer['CUSTOMER_NUMBER']);
+            $customerStruct->setEmail((string) $customer['CUSTOMER_EMAIL']);
             $customerStruct->setSalutation((string) $customer['CUSTOMER_SALUTATION']);
             $customerStruct->setFirstName((string) $customer['CUSTOMER_FIRSTNAME']);
             $customerStruct->setLastName((string) $customer['CUSTOMER_LASTNAME']);
