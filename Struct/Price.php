@@ -276,7 +276,7 @@ class Price extends Struct
      *
      * @return Company
      */
-    public function getCompany(): Company
+    public function getCompany()
     {
         return $this->company;
     }
@@ -296,7 +296,7 @@ class Price extends Struct
      *
      * @return Store
      */
-    public function getStore(): Store
+    public function getStore()
     {
         return $this->store;
     }
