@@ -32,8 +32,8 @@ class Price extends Hydrator
 
             // flat attributes
             $priceStruct->setNumber((string) $price['ARTICLE_NUMBER']);
-            $priceStruct->setStartDate(new \DateTime((string) $price['PRICE_STARTDATE']));
-            $priceStruct->setEndDate(new \DateTime((string) $price['PRICE_ENDDATE']));
+            $priceStruct->setStartDate($price['PRICE_STARTDATE']);
+            $priceStruct->setEndDate($price['PRICE_ENDDATE']);
             $priceStruct->setPickupPrice((float) $price['PRICE_PICKUPPRICE']);
             $priceStruct->setDeliveryPrice((float) $price['PRICE_DELIVERYPRICE']);
             $priceStruct->setFullservicePrice((float) $price['PRICE_FULLSERVICEPRICE']);
