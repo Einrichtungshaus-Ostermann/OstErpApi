@@ -17,6 +17,7 @@ if ( !function_exists("p"))
 
 use OstErpApi\Api\Api;
 use Shopware\Components\CSRFWhitelistAware;
+use OstConsultant\Services\ErpCustomerSearchServiceInterface;
 
 class Shopware_Controllers_Frontend_OstErpApi extends Enlight_Controller_Action implements CSRFWhitelistAware
 {
@@ -96,5 +97,39 @@ class Shopware_Controllers_Frontend_OstErpApi extends Enlight_Controller_Action 
         );
 
         p($arr);
+    }
+
+
+    /**
+     * ...
+     */
+    public function testCustomerSearchAction()
+    {
+        if (!$this->Request()->has('search')) {
+            echo "<form action='' method='post'>";
+            echo 'kunden suche: ';
+            echo "<input type='text' name='search' >";
+            echo "<input type='submit'>";
+            die();
+        }
+
+        $search = $this->Request()->getParam('search');
+
+        /* @var $searchService ErpCustomerSearchServiceInterface */
+        $searchService = $this->container->get('ost_consultant.erp_customer_search_service');
+
+        // explode the search for multiple search termans
+        $arr = explode(' ', $search);
+
+        // try to find customers
+        $customers = $searchService->find(
+            $arr
+        );
+
+        if ( count( $customers ) > 25 )
+            $customers = array_slice($customers, 0, 20);
+
+        // and assign them
+        p($customers);
     }
 }
