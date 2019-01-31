@@ -67,7 +67,13 @@ class Ostermann
             $fullservicePrice = $price->getFullservicePrice();
         }
 
-        switch ($article->getLabel()->getType()) {
+        // we may not have a label or an invalid one
+        // use pickup label as default
+        $labelType = ( $article->getLabel() instanceof Struct\Label )
+            ? $article->getLabel()->getType()
+            : Struct\Label::TYPE_PICKUP;
+
+        switch ($labelType) {
             case Struct\Label::TYPE_PICKUP:
             case Struct\Label::TYPE_DELIVERY:
 

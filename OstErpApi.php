@@ -27,6 +27,7 @@
  *
  * 1.1.3
  * - added former unknown label
+ * - added check for invalid label
  *
  * @package   OstErpApi
  *

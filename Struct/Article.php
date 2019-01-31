@@ -420,7 +420,7 @@ class Article extends Struct
      *
      * @return Label
      */
-    public function getLabel(): Label
+    public function getLabel()
     {
         return $this->label;
     }
