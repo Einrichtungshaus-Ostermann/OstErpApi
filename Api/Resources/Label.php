@@ -172,7 +172,6 @@ class Label extends Resource
             'LABEL_NAME' => 'A6 Etk-Vollp. Superchance',
             'LABEL_TYPE' => '3'
         ],
-
         [
             'LABEL_KEY'  => '90',
             'LABEL_NAME' => 'A5 Etk-Abholp. WERBUNG',
@@ -188,15 +187,19 @@ class Label extends Resource
             'LABEL_NAME' => 'A5 Etk-Vollp. WERBUNG',
             'LABEL_TYPE' => '3'
         ],
-
         [
             'LABEL_KEY'  => '93',
             'LABEL_NAME' => 'A5 Etk-Abholp. Superchance',
-            'LABEL_TYPE' => '3'
+            'LABEL_TYPE' => '1'
         ],
         [
             'LABEL_KEY'  => '94',
             'LABEL_NAME' => 'A5 Etk-Liefp. Superchance',
+            'LABEL_TYPE' => '2'
+        ],
+        [
+            'LABEL_KEY'  => '95',
+            'LABEL_NAME' => 'A5 Etk-Vollp. Superchance',
             'LABEL_TYPE' => '3'
         ],
     ];

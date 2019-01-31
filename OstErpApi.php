@@ -25,6 +25,9 @@
  * 1.1.2
  * - added frontend controller test for customer search
  *
+ * 1.1.3
+ * - added former unknown label
+ *
  * @package   OstErpApi
  *
  * @author    Eike Brandt-Warneke <e.brandt-warneke@ostermann.de>
