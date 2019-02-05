@@ -29,6 +29,9 @@
  * - added former unknown label
  * - added check for invalid label
  *
+ * 1.1.4
+ * - added cast to string
+ *
  * @package   OstErpApi
  *
  * @author    Eike Brandt-Warneke <e.brandt-warneke@ostermann.de>
