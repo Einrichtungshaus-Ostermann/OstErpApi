@@ -62,7 +62,22 @@ abstract class MappingAbstract implements MappingInterface
         // switch by variable type
         switch ( static::$type )
         {
-            case static::TYPE_STRING: return str_replace( array( "'", '"', ), "", utf8_encode( trim( (string) $value ) ) );
+            // specific for strings
+            case static::TYPE_STRING:
+
+                // force string
+                $value = (string) $value;
+
+                // is this NOT utf?
+                if (mb_detect_encoding($value) !== 'UTF-8') {
+                    // we may not have casted this column in the query itself
+                    $value = utf8_encode($value);
+                }
+
+                // do the other stuff
+                return str_replace(array("'", '"'), "", trim($value));
+
+            // every other simple type
             case static::TYPE_INTEGER: return (int) $value;
             case static::TYPE_FLOAT: return (float) $value;
             case static::TYPE_BOOLEAN: return ((string) $value === "1");

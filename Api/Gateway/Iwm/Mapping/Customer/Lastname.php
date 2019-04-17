@@ -29,5 +29,5 @@ class Lastname extends MappingAbstract
     /**
      * {@inheritdoc}
      */
-    public static $column = 'IWMADROLIB.ADRS00.ADNNAM';
+    public static $column = 'CAST(IWMADROLIB.ADRS00.ADNNAM AS VARCHAR(255) CCSID 1208)';
 }

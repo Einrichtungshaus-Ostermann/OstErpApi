@@ -29,5 +29,5 @@ class Street extends MappingAbstract
     /**
      * {@inheritdoc}
      */
-    public static $column = 'IWMADROLIB.ADRS00.ADLSTR';
+    public static $column = 'CAST(IWMADROLIB.ADRS00.ADLSTR AS VARCHAR(255) CCSID 1208)';
 }

@@ -29,5 +29,5 @@ class City extends MappingAbstract
     /**
      * {@inheritdoc}
      */
-    public static $column = 'IWMADROLIB.ADRS00.ADLORT';
+    public static $column = 'CAST(IWMADROLIB.ADRS00.ADLORT AS VARCHAR(255) CCSID 1208)';
 }

@@ -32,6 +32,9 @@
  * 1.1.4
  * - added cast to string
  *
+ * 1.1.5
+ * - added utf-8 encoder for customer api
+ *
  * @package   OstErpApi
  *
  * @author    Eike Brandt-Warneke <e.brandt-warneke@ostermann.de>
