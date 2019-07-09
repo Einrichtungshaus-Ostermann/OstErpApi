@@ -54,29 +54,23 @@ trait ArrayTrait
         $result = [];
 
         foreach ($data as $row) {
+            $valid = 1;
 
-            $valid = false;
-
+            // Check all parameters and operate an binary and on the $valid variable which results in a true when all parameters match.
             foreach ($arrParams as $param) {
                 switch ($param['operator']) {
                     case '=':
-                        if ((string) $row[$param['column']] === (string) $param['value']) {
-                            $valid = true;
-                        }
+                        $valid &= (string) $row[$param['column']] === (string) $param['value'];
                         break;
-
                     case '>':
-                        if ($row[$param['column']] > $param['value']) {
-                            $valid = true;
-                        }
+                        $valid &= $row[$param['column']] > $param['value'];
                         break;
-
                     default:
-                        $valid = false;
+                        $valid = 0;
                 }
             }
 
-            if ($valid === true) {
+            if ($valid === 1) {
                 $result[] = $row;
             }
         }

@@ -12,7 +12,6 @@
 
 namespace OstErpApi\Api\Resources;
 
-use OstErpApi\Api\Gateway\Gateway;
 use OstErpApi\Api\Hydrator\Hydrator;
 
 class Stock extends Resource
@@ -39,10 +38,14 @@ class Stock extends Resource
             /* @var $companyResource Company */
             $companyResource = $this->getResource("company");
 
-            // get it
+            /** @var \OstErpApi\Struct\Company $company */
             $company = $companyResource->findOneBy([
                 "[company.key] = '" . $stock['STOCK_COMPANY'] . "'"
             ]);
+
+            if ($company === null) {
+                continue;
+            }
 
             // add it
             $stock['STOCK_COMPANY'] = $company;
@@ -52,7 +55,8 @@ class Stock extends Resource
 
             // get it
             $location = $locationResource->findOneBy([
-                "[location.key] = '" . $stock['STOCK_LOCATION'] . "'"
+                "[location.key] = '" . $stock['STOCK_LOCATION'] . "'",
+                "[location.company] = '" . $company->getKey() . "'"
             ]);
 
             // add it

@@ -333,6 +333,12 @@ class Location extends Gateway
             'LOCATION_COMPANY' => '1',
         ],
         [
+            'LOCATION_KEY'     => '700',
+            'LOCATION_TYPE'    => 'I',
+            'LOCATION_STORE'   => '08',
+            'LOCATION_COMPANY' => '3',
+        ],
+        [
             'LOCATION_KEY'     => '710',
             'LOCATION_TYPE'    => 'A',
             'LOCATION_STORE'   => '07',
@@ -381,6 +387,12 @@ class Location extends Gateway
             'LOCATION_COMPANY' => '1',
         ],
         [
+            'LOCATION_KEY'     => '900',
+            'LOCATION_TYPE'    => 'I',
+            'LOCATION_STORE'   => '04',
+            'LOCATION_COMPANY' => '3',
+        ],
+        [
             'LOCATION_KEY'     => '901',
             'LOCATION_TYPE'    => 'B',
             'LOCATION_STORE'   => '01',
@@ -397,6 +409,12 @@ class Location extends Gateway
             'LOCATION_TYPE'    => 'I',
             'LOCATION_STORE'   => '04',
             'LOCATION_COMPANY' => '3',
+        ],
+        [
+            'LOCATION_KEY'     => '945',
+            'LOCATION_TYPE'    => 'I',
+            'LOCATION_STORE'   => '01',
+            'LOCATION_COMPANY' => '1',
         ],
         [
             'LOCATION_KEY'     => '945',
@@ -427,6 +445,12 @@ class Location extends Gateway
             'LOCATION_TYPE'    => 'I',
             'LOCATION_STORE'   => '11',
             'LOCATION_COMPANY' => '1',
+        ],
+        [
+            'LOCATION_KEY'     => '950',
+            'LOCATION_TYPE'    => 'I',
+            'LOCATION_STORE'   => '12',
+            'LOCATION_COMPANY' => '3',
         ],
         [
             'LOCATION_KEY'     => '967',

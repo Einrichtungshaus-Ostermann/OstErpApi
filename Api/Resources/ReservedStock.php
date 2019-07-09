@@ -12,7 +12,6 @@
 
 namespace OstErpApi\Api\Resources;
 
-use OstErpApi\Api\Gateway\Gateway;
 use OstErpApi\Api\Hydrator\Hydrator;
 
 class ReservedStock extends Resource
@@ -39,10 +38,14 @@ class ReservedStock extends Resource
             /* @var $companyResource Company */
             $companyResource = $this->getResource("company");
 
-            // get the company
+            /** @var \OstErpApi\Struct\Company $company */
             $company = $companyResource->findOneBy([
                 "[company.key] = '" . $reservedStock['RESERVEDSTOCK_COMPANY'] . "'"
             ]);
+
+            if ($company === null) {
+                continue;
+            }
 
             // add it
             $reservedStock['RESERVEDSTOCK_COMPANY'] = $company;
@@ -52,7 +55,8 @@ class ReservedStock extends Resource
 
             // get the location
             $location = $locationResource->findOneBy([
-                "[location.key] = '" . $reservedStock['RESERVEDSTOCK_LOCATION'] . "'"
+                "[location.key] = '" . $reservedStock['RESERVEDSTOCK_LOCATION'] . "'",
+                "[location.company] = '" . $company->getKey() . "'"
             ]);
 
             // add it
