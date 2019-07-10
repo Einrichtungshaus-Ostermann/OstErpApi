@@ -40,6 +40,9 @@
  * - added missing locations
  * - fixed location resource for different companies
  *
+ * 1.1.7
+ * - fixed versioning
+ *
  * @package   OstErpApi
  *
  * @author    Eike Brandt-Warneke <e.brandt-warneke@ostermann.de>
