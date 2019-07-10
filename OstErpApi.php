@@ -35,6 +35,11 @@
  * 1.1.5
  * - added utf-8 encoder for customer api
  *
+ * 1.1.6
+ * - fixed array trait
+ * - added missing locations
+ * - fixed location resource for different companies
+ *
  * @package   OstErpApi
  *
  * @author    Eike Brandt-Warneke <e.brandt-warneke@ostermann.de>
