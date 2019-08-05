@@ -49,8 +49,6 @@ abstract class Gateway extends GatewayParent
         }
     }
 
-
-
     /**
      * ...
      *
@@ -62,42 +60,12 @@ abstract class Gateway extends GatewayParent
      */
     public function findBy(array $parameters = []): array
     {
-        $query = $this->getQuery();
-
-        $this->addParams($parameters);
-
-        /* @var $parser Mapping\Parser */
-        $parser = Shopware()->Container()->get('ost_erp_api.api.gateway.iwm.mapping.parser');
-
-        $query = $parser->parseSelect($query);
-
-        if (count($parameters) > 0) {
-            // add braces to the where append terms and parse the string
-            $parameters = array_map(
-                function ($term) use ($parser) {
-                    return '(' . $parser->parseParameter($term) . ')';
-                },
-                $parameters
-            );
-
-            // add the where append
-            $query .= ' WHERE ' . implode(' AND ', $parameters) . ' ';
-        }
-
-        $res = static::$db->query($query);
-
-        if ( $res === false )
-            throw new \Exception( "invalid query: " . $query );
-
-        $arr = $res->fetchAll(\PDO::FETCH_ASSOC);
-
-        return $this->cast($arr);
+        // return default with parameters
+        return $this->queryBy(
+            $parameters,
+            $this->getQuery()
+        );
     }
-
-
-
-
-
 
     /**
      * ...
@@ -110,15 +78,37 @@ abstract class Gateway extends GatewayParent
      */
     public function searchBy(array $parameters = []): array
     {
-        $query = $this->getSearchQuery();
+        // return default with parameters
+        return $this->queryBy(
+            $parameters,
+            $this->getSearchQuery(),
+            50
+        );
+    }
 
+    /**
+     * ...
+     *
+     * @param array $parameters
+     * @param string $query
+     * @param integer $limit
+     *
+     * @throws \Exception
+     *
+     * @return array
+     */
+    private function queryBy(array $parameters = [], $query, $limit = null): array
+    {
+        // add parameters
         $this->addParams($parameters);
 
         /* @var $parser Mapping\Parser */
         $parser = Shopware()->Container()->get('ost_erp_api.api.gateway.iwm.mapping.parser');
 
+        // parse the query
         $query = $parser->parseSelect($query);
 
+        // do we have any parameters?
         if (count($parameters) > 0) {
             // add braces to the where append terms and parse the string
             $parameters = array_map(
@@ -132,23 +122,27 @@ abstract class Gateway extends GatewayParent
             $query .= ' WHERE ' . implode(' AND ', $parameters) . ' ';
         }
 
+        // do we have a limit?!
+        if ((integer) $limit > 0) {
+            // add it to the query
+            $query .= ' FETCH FIRST ' . (integer) $limit . ' ROWS ONLY ';
+        }
+
+        // execute the query
         $res = static::$db->query($query);
 
-        if ( $res === false )
+        // invalid?!
+        if ( $res === false ) {
+            // throw exceptipn
             throw new \Exception( "invalid query: " . $query );
+        }
 
+        // get them all
         $arr = $res->fetchAll(\PDO::FETCH_ASSOC);
 
+        // and return the casted cata
         return $this->cast($arr);
     }
-
-
-
-
-
-
-
-
 
     /**
      * ...
@@ -158,45 +152,34 @@ abstract class Gateway extends GatewayParent
     protected function cast($data)
     {
         // invalid calls
-        if ( !is_array( $data ) ) return $data;
+        if ( !is_array( $data ) ) {
+            // return default data
+            return $data;
+        }
 
-
-
-
-
-
-        foreach ( $data as $i => $aktu )
-        {
-
-            foreach ( $aktu as $key => $value )
-            {
+        // loop every element
+        foreach ( $data as $i => $aktu ) {
+            // loop every key and value
+            foreach ( $aktu as $key => $value ) {
+                // split table and column
                 $split = explode( "_", $key );
-
-
 
                 // create object name
                 /* @var $mapping MappingInterface */
                 $mapping = __NAMESPACE__ . '\\Mapping\\' . ucwords($split[0]) . '\\' . ucwords($split[1]);
-
 
                 // cast it
                 $value = $mapping::cast($value);
 
                 // reset it
                 $aktu[$key] = $value;
-
-
             }
 
-
+            // set the casted value
             $data[$i] = $aktu;
-
-
         }
 
-
-
-
+        // return the casted data
         return $data;
     }
 
@@ -207,27 +190,32 @@ abstract class Gateway extends GatewayParent
      */
     protected function getQuery(): string
     {
+        // every column read from the directory
         $columns = array();
 
+        // get current class name
         $class = str_replace( __NAMESPACE__ . "\\", "", get_class( $this ) );
 
+        // get the directory
         $dir = __DIR__ . "/Mapping/" . $class . "/";
 
-        foreach ( glob( $dir . "*.php" ) as $columnClass )
-        {
+        // read every available column class
+        foreach ( glob( $dir . "*.php" ) as $columnClass ) {
+            // add the column
             $column = str_replace( array( $dir, ".php" ), "", $columnClass );
             array_push( $columns, "[" . strtolower( $class ) . "." . strtolower( $column ) . "]" );
         }
 
+        // create the query
         $query = "
             SELECT
             " . implode( ",", $columns ) . "
             FROM " . $this->table . "
         ";
 
+        // return it
         return $query;
     }
-
 
     /**
      * ...
@@ -236,13 +224,9 @@ abstract class Gateway extends GatewayParent
      */
     protected function getSearchQuery(): string
     {
+        // default query by default
         return $this->getQuery();
     }
-
-
-
-
-
 
     /**
      * ...

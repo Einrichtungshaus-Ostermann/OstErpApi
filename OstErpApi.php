@@ -43,6 +43,9 @@
  * 1.1.7
  * - fixed versioning
  *
+ * 1.1.8
+ * - added distinct searchBy method
+ *
  * @package   OstErpApi
  *
  * @author    Eike Brandt-Warneke <e.brandt-warneke@ostermann.de>

@@ -104,9 +104,6 @@ abstract class Resource
             );
         }
 
-        // findBy() with current search
-        // return $this->findBy($where);
-
         // get the adapter
         $adapter = Shopware()->Container()->get('ost_erp_api.configuration')['adapter'];
 
@@ -114,7 +111,7 @@ abstract class Resource
         $gateway = Shopware()->Container()->get('ost_erp_api.api.gateway.' . strtolower($adapter) . '.' . strtolower($this->name));
 
         // find every entity
-        $dataArr = $gateway->searchBy($params);
+        $dataArr = $gateway->searchBy($where);
 
         /** @var Hydrator $hydrator */
         $hydrator = Shopware()->Container()->get('ost_erp_api.api.hydrator.' . strtolower($this->name));

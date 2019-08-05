@@ -27,7 +27,9 @@ class Api
      */
     public function findBy($resource, $params = []): array
     {
+        // check for separator
         if (substr_count($resource, '\\') > 0) {
+            // remove them
             $resource = explode('\\', $resource);
             $resource = array_pop($resource);
         }
@@ -35,6 +37,7 @@ class Api
         /* @var Resource $resource */
         $resource = Shopware()->Container()->get('ost_erp_api.api.resources.' . strtolower($resource));
 
+        // call the resource find-by method
         return $resource->findBy($params);
     }
 
@@ -48,6 +51,7 @@ class Api
      */
     public function findOneBy($resource, $params = [])
     {
+        // just the first element from find-by
         return $this->findBy($resource, $params)[0] ?? null;
     }
 
@@ -60,6 +64,7 @@ class Api
      */
     public function findAll($resource): array
     {
+        // find-by without any parameters
         return $this->findBy($resource, []);
     }
 
@@ -71,7 +76,9 @@ class Api
      */
     public function searchBy($resource, $params = []): array
     {
+        // check for separator
         if (substr_count($resource, '\\') > 0) {
+            // remove them
             $resource = explode('\\', $resource);
             $resource = array_pop($resource);
         }
@@ -79,6 +86,7 @@ class Api
         /* @var Resource $resource */
         $resource = Shopware()->Container()->get('ost_erp_api.api.resources.' . strtolower($resource));
 
+        // call the resource find-by method
         return $resource->searchBy($params);
     }
 }

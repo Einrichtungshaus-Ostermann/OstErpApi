@@ -49,7 +49,6 @@ class Customer extends Gateway
         $query = "
             SELECT 
                 [customer.number],
-                '' AS CUSTOMER_EMAIL,
                 [customer.salutation],
                 [customer.firstname],
                 [customer.lastname],
