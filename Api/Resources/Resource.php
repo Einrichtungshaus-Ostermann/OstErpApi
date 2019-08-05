@@ -80,23 +80,8 @@ abstract class Resource
      */
     public function searchBy(array $params): array
     {
-        // create the directory to find every column
-        $dir = Shopware()->Container()->getParameter('ost_erp_api.plugin_dir') . '/' .
-            'Api/Gateway/' .
-            ucwords(Shopware()->Container()->get('ost_erp_api.configuration')['adapter']) . '/' .
-            'Mapping/' .
-            ucwords($this->name) . '/';
-
-        // get every column
-        $files = glob($dir . '*.php');
-
         // columns here
-        $columns = [];
-
-        // extract every column from mapping files
-        foreach ($files as $file) {
-            array_push($columns, str_replace([$dir, '.php'], '', $file));
-        }
+        $columns = $this->getSearchColumns();
 
         // create where append for the findBy()
         $where = [];
@@ -120,9 +105,52 @@ abstract class Resource
         }
 
         // findBy() with current search
-        return $this->findBy($where);
+        // return $this->findBy($where);
+
+        // get the adapter
+        $adapter = Shopware()->Container()->get('ost_erp_api.configuration')['adapter'];
+
+        /** @var Gateway $gateway */
+        $gateway = Shopware()->Container()->get('ost_erp_api.api.gateway.' . strtolower($adapter) . '.' . strtolower($this->name));
+
+        // find every entity
+        $dataArr = $gateway->searchBy($params);
+
+        /** @var Hydrator $hydrator */
+        $hydrator = Shopware()->Container()->get('ost_erp_api.api.hydrator.' . strtolower($this->name));
+
+        // return hydrated entities
+        return $hydrator->hydrate($dataArr);
     }
 
+    /**
+     * ...
+     *
+     * @return array
+     */
+    protected function getSearchColumns(): array
+    {
+        // create the directory to find every column
+        $dir = Shopware()->Container()->getParameter('ost_erp_api.plugin_dir') . '/' .
+            'Api/Gateway/' .
+            ucwords(Shopware()->Container()->get('ost_erp_api.configuration')['adapter']) . '/' .
+            'Mapping/' .
+            ucwords($this->name) . '/';
+
+        // get every column
+        $files = glob($dir . '*.php');
+
+        // columns here
+        $columns = [];
+
+        // extract every column from mapping files
+        foreach ($files as $file) {
+            array_push($columns, str_replace([$dir, '.php'], '', $file));
+        }
+
+        // return them
+        return $columns;
+    }
 
     /**
      * ...

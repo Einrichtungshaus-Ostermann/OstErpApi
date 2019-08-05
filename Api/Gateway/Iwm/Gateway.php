@@ -95,6 +95,61 @@ abstract class Gateway extends GatewayParent
     }
 
 
+
+
+
+
+    /**
+     * ...
+     *
+     * @param array $parameters
+     *
+     * @throws \Exception
+     *
+     * @return array
+     */
+    public function searchBy(array $parameters = []): array
+    {
+        $query = $this->getSearchQuery();
+
+        $this->addParams($parameters);
+
+        /* @var $parser Mapping\Parser */
+        $parser = Shopware()->Container()->get('ost_erp_api.api.gateway.iwm.mapping.parser');
+
+        $query = $parser->parseSelect($query);
+
+        if (count($parameters) > 0) {
+            // add braces to the where append terms and parse the string
+            $parameters = array_map(
+                function ($term) use ($parser) {
+                    return '(' . $parser->parseParameter($term) . ')';
+                },
+                $parameters
+            );
+
+            // add the where append
+            $query .= ' WHERE ' . implode(' AND ', $parameters) . ' ';
+        }
+
+        $res = static::$db->query($query);
+
+        if ( $res === false )
+            throw new \Exception( "invalid query: " . $query );
+
+        $arr = $res->fetchAll(\PDO::FETCH_ASSOC);
+
+        return $this->cast($arr);
+    }
+
+
+
+
+
+
+
+
+
     /**
      * ...
      *
@@ -172,6 +227,22 @@ abstract class Gateway extends GatewayParent
 
         return $query;
     }
+
+
+    /**
+     * ...
+     *
+     * @return string
+     */
+    protected function getSearchQuery(): string
+    {
+        return $this->getQuery();
+    }
+
+
+
+
+
 
     /**
      * ...

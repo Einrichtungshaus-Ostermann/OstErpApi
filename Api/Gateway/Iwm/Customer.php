@@ -44,6 +44,29 @@ class Customer extends Gateway
     /**
      * {@inheritdoc}
      */
+    protected function getSearchQuery(): string
+    {
+        $query = "
+            SELECT 
+                [customer.number],
+                '' AS CUSTOMER_EMAIL,
+                [customer.salutation],
+                [customer.firstname],
+                [customer.lastname],
+                [customer.phone],
+                [customer.street],
+                [customer.zip],
+                [customer.city],
+                [customer.country]
+            FROM IWMADROLIB.ADRS00
+        ";
+
+        return $query;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     protected function addParams(array $params)
     {
         // only active customers

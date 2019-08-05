@@ -18,4 +18,21 @@ class Customer extends Resource
      * {@inheritdoc}
      */
     protected $name = 'Customer';
+
+    /**
+     * ...
+     *
+     * @return array
+     */
+    protected function getSearchColumns(): array
+    {
+        // ...
+        return [
+            'Firstname',
+            'Lastname',
+            'Street',
+            'City'
+        ];
+    }
+
 }

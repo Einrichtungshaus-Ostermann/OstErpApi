@@ -44,4 +44,17 @@ abstract class Gateway
      * @return array
      */
     abstract public function findBy(array $parameters = []): array;
+
+    /**
+     * ...
+     *
+     * @param array $parameters
+     *
+     * @return array
+     */
+    public function searchBy(array $parameters = []): array
+    {
+        // use find-by by default
+        return $this->findBy($parameters);
+    }
 }
