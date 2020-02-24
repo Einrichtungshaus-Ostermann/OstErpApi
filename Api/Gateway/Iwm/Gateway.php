@@ -43,7 +43,7 @@ abstract class Gateway extends GatewayParent
                     $configuration['credentialsLogin'],
                     $configuration['credentialsPassword']
                 );
-                static::$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                static::$db->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
             } catch (\Exception $exception) {
                 die('establishing connection failed:' . $exception->getMessage());
             }
