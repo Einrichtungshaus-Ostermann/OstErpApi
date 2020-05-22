@@ -46,6 +46,9 @@
  * 1.1.8
  * - added distinct searchBy method
  *
+ * 1.1.9
+ * - fixed whitespace
+ *
  * @package   OstErpApi
  *
  * @author    Eike Brandt-Warneke <e.brandt-warneke@ostermann.de>
